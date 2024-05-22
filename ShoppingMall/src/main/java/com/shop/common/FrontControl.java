@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shop.member.web.AdminControl;
+import com.shop.admin.web.AdminControl;
+import com.shop.admin.web.AdminMemberList;
 import com.shop.member.web.MyPageControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
@@ -31,6 +32,7 @@ public class FrontControl extends HttpServlet {
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl());
+		map.put("/memberList.do", new AdminMemberList());
 		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
