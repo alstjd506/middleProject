@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.admin.web.AdminBoardInfo;
+import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
-
 import com.shop.admin.web.AdminProductList;
-
 import com.shop.member.web.MyPageControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
@@ -34,10 +34,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		
 		//관리자 화면
-		map.put("/admin.do", new AdminControl());
-		map.put("/memberList.do", new AdminMemberList());
-		map.put("/adminProductList.do", new AdminProductList());
-
+		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
+		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회
+		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회
+		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&N목록조회
+		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&N 상세조회/답글남기기
 		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());

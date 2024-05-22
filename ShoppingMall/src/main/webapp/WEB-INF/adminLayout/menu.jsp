@@ -25,7 +25,7 @@
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="memberList.do">회원목록</a> 
-						<a class="nav-link" href="#">상품Q&A</a>
+						<a class="nav-link" href="adminBoardList.do">상품Q&A</a>
 					</nav>
 				</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
