@@ -41,18 +41,23 @@
 						<tr>
 							<c:forEach var="ptitle" items="${productTitle }">
 								<th>${ptitle }</th>
-						</c:forEach>
+							</c:forEach>
 						</tr>
-							<tr>
-						<c:forEach var="mtitle" items="${memberTitle }">
+						<tr>
+							<c:forEach var="mtitle" items="${memberTitle }">
 								<th>${mtitle }</th>
-						</c:forEach>
-							</tr>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="btitle" items="${boardTitle }">
+								<th>${btitle }</th>
+							</c:forEach>
+						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="product" items="${productList }">
 							<tr>
-								<td>${product.prodName }</td>
+								<td><a class="productLink" href="#">${product.prodName }</a></td>
 								<td>${product.prodComment }</td>
 								<td><fmt:formatNumber value="${product.prodPrice }"
 										pattern="#,###" />원</td>
@@ -70,6 +75,14 @@
 								<td>${member.userPhone }</td>
 								<td>${member.userAddr }</td>
 								<td>${member.userDetailAddr }</td>
+							</tr>
+						</c:forEach>
+						<c:forEach var="board" items="${boardList }">
+							<tr>
+								<td><a class="boardLink" href="adminBoardInfo.do?bno=${board.boardNo }">${board.boardTitle }</a></td>
+								<td>${board.userId }</td>
+								<td><fmt:formatDate value="${board. boardDate}"
+										pattern="yyyy-MM-dd" /></td>
 							</tr>
 						</c:forEach>
 					</tbody>

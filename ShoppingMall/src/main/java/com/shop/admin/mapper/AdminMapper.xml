@@ -11,8 +11,16 @@
 	<select id="adminMemberList" resultType="member">
 		select *
 		from users
-		
 	</select>
-
+	<select id="adminBoardList" resultType="board">
+	select *
+	from board
+	where board_status = 'n'
+	</select>
+	<select id="adminBoardInfo" resultType="board">
+	select *
+	from board
+	where board_no = #{bno}
+	</select>
 
 </mapper>
