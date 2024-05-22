@@ -12,7 +12,7 @@ import com.google.gson.GsonBuilder;
 import com.shop.common.Control;
 import com.shop.product.service.ProductService;
 import com.shop.product.service.ProductServiceImpl;
-import com.shop.product.vo.ProductVO;
+import com.shop.vo.ProductVO;
 
 public class CategoryControl implements Control {
 

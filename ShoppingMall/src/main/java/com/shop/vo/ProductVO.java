@@ -1,4 +1,4 @@
-package com.shop.product.vo;
+package com.shop.vo;
 
 import java.util.Date;
 
