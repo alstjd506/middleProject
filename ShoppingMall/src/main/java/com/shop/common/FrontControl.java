@@ -35,12 +35,15 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
 
+
+
 		// 관리자 화면
 		map.put("/admin.do", new AdminControl());
 		map.put("/memberList.do", new AdminMemberList());
 		map.put("/adminProductList.do", new AdminProductList());
 
 		// 마이페이지 화면
+
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면

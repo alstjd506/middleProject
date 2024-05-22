@@ -10,7 +10,14 @@
 	<typeAliases>
 		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
 		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
+
+
+
 		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
+
+
+		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
+
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
