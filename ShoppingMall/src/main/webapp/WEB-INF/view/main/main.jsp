@@ -87,14 +87,14 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="${product.img }" alt="..." />
+                            <img class="card-img-top" src="images/{product.img}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.productName}</h5>
+                                    <h5 class="fw-bolder">${product.prodName}</h5>
                                     <!-- Product price-->
-                                    <fmt:formatNumber value="${product.productPrice }"/>원
+                                    <fmt:formatNumber value="${product.prodPrice }"/>원
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -119,14 +119,14 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/천혜향.webp" alt="..." />
+                            <img class="card-img-top" src="images/{product.img}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.productName}</h5>
+                                    <h5 class="fw-bolder">${product.prodName}</h5>
                                     <!-- Product price-->
-                                    <fmt:formatNumber value="${product.productPrice }"/>원
+                                    <fmt:formatNumber value="${product.prodPrice }"/>원
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -202,14 +202,14 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/천혜향.webp" alt="..." />
+                            <img class="card-img-top" src="images/{product.img}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.productName}</h5>
+                                    <h5 class="fw-bolder">${product.prodName}</h5>
                                     <!-- Product price-->
-                                    <fmt:formatNumber value="${product.productPrice }"/>원
+                                    <fmt:formatNumber value="${product.prodPrice }"/>원
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -234,14 +234,14 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/천혜향.webp" alt="..." />
+                            <img class="card-img-top" src="images/{product.img}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.productName}</h5>
+                                    <h5 class="fw-bolder">${product.prodName}</h5>
                                     <!-- Product price-->
-                                    <fmt:formatNumber value="${product.productPrice }"/>원
+                                    <fmt:formatNumber value="${product.prodPrice }"/>원
                                 </div>
                             </div>
                             <!-- Product actions-->

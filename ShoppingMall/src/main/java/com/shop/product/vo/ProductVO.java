@@ -6,15 +6,13 @@ import lombok.Data;
 
 @Data
 public class ProductVO {
-	private int productNo;
-	private String productName;
-	private String productSimple;
-	private String productContent;
-	private int productPrice;
-	private int productCnt;
-	private String categoryId;
-	private Date resgistrationDate;
-	private Date modifiyDate;
+	private int prodNo;
+	private String prodName;
+	private String prodContent;
+	private int prodPrice;
+	private int prodSale;
+	private String categoryCode;
+	private Date prodDate;
 	private String img;
 	
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CategoryVO {
-	private int categoryId;
+	private int categoryCode;
 	private String categoryName;
 	private int topCategory;
 	
