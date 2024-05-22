@@ -6,12 +6,12 @@
 	<select id="productList" resultType="product">
 		select *
 		from product
-		
+		order by prod_sale desc
 	</select>
 	<select id="productNewList" resultType="product">
 		select *
 		from product
-		
+		order by prod_date desc
 	</select>
 	<select id ="categoryList" parameterType = "int" resultType="product">
 		select p.*
@@ -22,12 +22,14 @@
 	<select id="productMdList" resultType="product">
 		select *
 		from product
-		
+		order by prod_price desc
 	</select>
 	<select id="productCheapList" resultType="product">
 		select *
 		from product
-		
+		<![CDATA[
+		where prod_price <= 3000
+		]]>
 	</select>
 	
 	
