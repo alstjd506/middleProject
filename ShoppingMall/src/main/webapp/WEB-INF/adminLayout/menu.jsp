@@ -42,7 +42,7 @@
 					aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav accordion"
 						id="sidenavAccordionPages">
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+						<a class="nav-link collapsed" href="adminProductList.do" data-bs-toggle="collapse"
 							data-bs-target="#pagesCollapseAuth" aria-expanded="false"
 							aria-controls="pagesCollapseAuth"> 상품목록
 							

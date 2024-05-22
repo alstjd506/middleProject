@@ -48,6 +48,27 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
+
+                                            <th>상품명</th>
+                                            <th>상품설명</th>
+                                            <th>가격</th>
+                                            <th>판매수량</th>
+                                            <th>상품 등록일</th>
+                                            <th>카테고리 번호</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <c:forEach var="product" items="${productList }">
+                                        <tr>
+                                            <td>${product.prodName }</td>
+                                            <td>${product.prodComment }</td>
+                                            <td>${product.prodPrice }</td>
+                                            <td>${product.prodSale }</td>
+                                            <td>${product.prodDate }</td>
+                                            <td>${product.categoryCode }</td>
+                                        </tr>
+                                        </c:forEach>
+
                                             <th>Name</th>
                                             <th>Position</th>
                                             <th>Office</th>
@@ -513,6 +534,7 @@
                                             <td>2011/01/25</td>
                                             <td>$112,000</td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                             </div>
