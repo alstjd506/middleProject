@@ -117,7 +117,7 @@ function showList(products) {
 		cardDiv.className = 'card h-100';
 		const img = document.createElement('img'); //이미지 지정
 		img.className = 'card-img-top';
-		img.src = 'images/천혜향.webp';
+		img.src = 'images/{product.img}';
 
 		const cardBodyDiv = document.createElement('div');
 		cardBodyDiv.className = 'card-body p-4';
@@ -126,10 +126,10 @@ function showList(products) {
 
 		const productName = document.createElement('h5'); //상품명
 		productName.className = 'fw-bolder';
-		productName.textContent = product.productName;
+		productName.textContent = product.prodName;
 
 		const productPrice = document.createElement('div'); // 상품가격
-		productPrice.textContent = product.productPrice.numberFormat()+"원";
+		productPrice.textContent = product.prodPrice.numberFormat()+"원";
 
 		textCenterDiv.appendChild(productName);
 		textCenterDiv.appendChild(productPrice);
