@@ -6,5 +6,5 @@ import lombok.Data;
 public class CategoryVO {
 	private int categoryCode;
 	private String categoryName;
-	private int topCategory;	
+	private int topCategory;
 }

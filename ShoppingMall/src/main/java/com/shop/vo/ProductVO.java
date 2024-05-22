@@ -13,5 +13,5 @@ public class ProductVO {
 	private int prodSale;
 	private String categoryCode;
 	private Date prodDate;
-	private String prodImage;	
+	private String prodImage;
 }

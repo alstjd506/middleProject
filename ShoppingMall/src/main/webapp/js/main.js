@@ -118,7 +118,7 @@ function showList(products) {
 		cardDiv.className = 'card h-100';
 		const img = document.createElement('img'); //이미지 지정
 		img.className = 'card-img-top';
-		img.src = 'images/${product.prodImage}';
+		img.src = `images/${product.prodImage}`;
 		console.log(product.img);
 
 		const cardBodyDiv = document.createElement('div');

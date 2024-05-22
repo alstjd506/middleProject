@@ -115,9 +115,7 @@
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="#">건식사료</a> 
 						<a class="nav-link" href="#">습식사료</a>
-						<a class="nav-link" href="#">퍼피</a>
-						<a class="nav-link" href="#">어덜트</a>
-						<a class="nav-link" href="#">시니어</a>
+					
 					</nav>
 				</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -137,7 +135,8 @@
 						<a class="nav-link" href="#">사사미/육포</a>
 						<a class="nav-link" href="#">캔/파우치</a>
 						<a class="nav-link" href="#">소시지</a>
-						<a class="nav-link" href="#">우유분유</a>
+						<a class="nav-link" href="#">동결건조</a>
+						<a class="nav-link" href="#">우유/분유</a>
 					</nav>
 				</div>
 			
@@ -176,7 +175,7 @@
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="#">배변패드</a> 
-						<a class="nav-link" href="#">배변봉투/집게</a>
+						<a class="nav-link" href="#">배변봉투</a>
 						<a class="nav-link" href="#">배변판</a> 
 						<a class="nav-link" href="#">기저귀</a> 
 					</nav>
@@ -196,8 +195,9 @@
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="#">봉제</a> 
-						<a class="nav-link" href="#">고무</a>
-						<a class="nav-link" href="#">공</a> 
+						<a class="nav-link" href="#">라텍스</a>
+						<a class="nav-link" href="#">공</a>
+						<a class="nav-link" href="#">노즈워크</a>
 						<a class="nav-link" href="#">자동장난감</a> 
 					</nav>
 				</div>
@@ -217,9 +217,29 @@
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="#">샴푸/린스</a> 
 						<a class="nav-link" href="#">브러쉬</a>
-						<a class="nav-link" href="#">발톱</a> 
-						<a class="nav-link" href="#">물티슈</a> 
-						<a class="nav-link" href="#">드라이기</a>
+						<a class="nav-link" href="#">발톱/가위</a> 
+						<a class="nav-link" href="#">물티슈/크리너</a> 
+						<a class="nav-link" href="#">타올</a>
+					</nav>
+				</div>
+				
+				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+					data-bs-target="#collapseBeauty" aria-expanded="false"
+					aria-controls="collapseLayouts">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-columns"></i>
+					</div> 리빙
+					<div class="sb-sidenav-collapse-arrow">
+						<i class="fas fa-angle-down"></i>
+					</div>
+				</a>
+				<div class="collapse" id="collapseBeauty"
+					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+					<nav class="sb-sidenav-menu-nested nav">
+						<a class="nav-link" href="#">하우스/방석</a> 
+						<a class="nav-link" href="#">안전문/울타리</a>
+						<a class="nav-link" href="#">식기/급수기</a> 
+					
 					</nav>
 				</div>
 			</div>
