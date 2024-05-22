@@ -19,6 +19,17 @@
 		join category c on p.category_code = c.category_code
 		where c.top_category = #{topCategory}
 	</select>
+	<select id = "menuCategory" parameterType = "int" resultType="product">
+		select *
+		from product
+		where category_code = #{categoryCode}
+	</select>
+	<select id ="menuTopCategory" parameterType = "int" resultType="product">
+		select p.*
+		from product p
+		join category c on p.category_code = c.category_code
+		where c.top_category = #{topCategory}
+	</select>
 	<select id="productMdList" resultType="product">
 		select *
 		from product

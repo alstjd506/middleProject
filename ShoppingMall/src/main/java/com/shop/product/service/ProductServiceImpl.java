@@ -36,5 +36,12 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> productInfo(int prodNo) {
 		return mapper.productInfo(prodNo);
 	}
-	
+	@Override
+	public List<ProductVO> menuCategory(int categoryCode) {
+		return mapper.menuCategory(categoryCode);
+	}
+	@Override
+	public List<ProductVO> menuTopCategory(int topCategory) {
+		return mapper.menuTopCategory(topCategory);
+	}
 }

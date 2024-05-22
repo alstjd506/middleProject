@@ -10,11 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shop.member.web.AdminControl;
+import com.shop.admin.web.AdminControl;
+import com.shop.admin.web.AdminMemberList;
+
+import com.shop.admin.web.AdminProductList;
+
 import com.shop.member.web.MyPageControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
+import com.shop.product.web.menuCategory;
+import com.shop.product.web.menuTopCategroy;
 
 
 public class FrontControl extends HttpServlet {
@@ -29,18 +35,21 @@ public class FrontControl extends HttpServlet {
 		//메인 홈화면
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
+		map.put("/menuCategory.do", new menuCategory());
+		map.put("/menuTopCategory.do", new menuTopCategroy());
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl());
-		
+		map.put("/memberList.do", new AdminMemberList());
+		map.put("/adminProductList.do", new AdminProductList());
+
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
 		
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());
-
+		
 	}
-
 	// service
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

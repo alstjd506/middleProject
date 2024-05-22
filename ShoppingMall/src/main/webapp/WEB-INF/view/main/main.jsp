@@ -78,7 +78,7 @@
 </style>
 
 <section id= "section" class="py-5">
-	          <div  class="container px-4 px-lg-5 mt-5">
+	          <div id="bodyContainer" class="container px-4 px-lg-5 mt-5">
 	          <div class = "content_box">
 				<h3>인기상품</h3>
 				</div>
@@ -99,7 +99,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">View options</a></div>
                             </div>
                         </div>
                      </div>
@@ -131,7 +131,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">View options</a></div>
                             </div>
                         </div>
                      </div>
@@ -214,7 +214,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">View options</a></div>
                             </div>
                         </div>
                      </div>
@@ -246,7 +246,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">View options</a></div>
                             </div>
                         </div>
                      </div>
@@ -258,5 +258,5 @@
        		 	</div>
             </div>
 </section>
-
 <script src="js/main.js"></script>
+<!--  <script src="js/mainMenu.js"></script>-->

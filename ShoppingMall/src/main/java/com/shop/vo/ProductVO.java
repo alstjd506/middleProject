@@ -15,4 +15,3 @@ public class ProductVO {
 	private Date prodDate;
 	private String prodImage;
 }
-

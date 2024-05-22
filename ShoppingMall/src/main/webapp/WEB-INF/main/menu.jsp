@@ -2,99 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!--   <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light"></div>
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#" >전체상품</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="menuDropdown" role="button" data-bs-toggle="dropdown" href=# >사료</a>
-             			<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                         	<li><a class="dropdown-item" href="#!">전체</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">건식사료</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">습식사료</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">퍼피</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">어덜트(전연령)</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">시니어</a></li>
-                     	</ul>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="menuDropdown" role="button" data-bs-toggle="dropdown" href="#">간식</a>
-                     	<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                         	<li><a class="dropdown-item" href="#!">전체</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">덴탈/껌</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">사사미/육포</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">캔/파우치</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">소시지</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">우유/분유</a></li>
-                     	</ul>                   		
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="menuDropdown" role="button" data-bs-toggle="dropdown" href="#">건강관리</a>                   		
-                		<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                        	<li><a class="dropdown-item" href="#!">전체</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">종합영양제</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">치아</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">피부/모질</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">뼈/관절</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">눈/귀</a></li>
-                     	</ul> 
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="menuDropdown" role="button" data-bs-toggle="dropdown" href="#">배번용품</a>
-                    	<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                        	<li><a class="dropdown-item" href="#!">전체</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">배변패드</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">배변봉투/집게</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">배변판</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">기저귀</a></li>
-                     	</ul> 
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="menuDropdown" role="button" data-bs-toggle="dropdown" href="#!">장난감</a>
-                    	<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                        	<li><a class="dropdown-item" href="#!">전체</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">봉제</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">고무</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">공</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">자동장난감</a></li>
-                     	</ul> 
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" id="menuDropdown" role="button" data-bs-toggle="dropdown" href="#!">미용/목욕</a>
-                    	<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                        	<li><a class="dropdown-item" href="#!">전체</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">샴푸/린스</a></li>
-                        	<li><hr class="dropdown-divider" /></li>
-                        	<li><a class="dropdown-item" href="#!">브러쉬</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">발톱</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">물티슈</a></li>
-                         	<li><hr class="dropdown-divider" /></li>
-                         	<li><a class="dropdown-item" href="#!">드라이기</a></li>
-                     	</ul> 
-                </div>
-            </div> -->
-            
 <div id="layoutSidenav_nav">
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 		<div class="sb-sidenav-menu">
 			<div class="nav">
 				<div class="sb-sidenav-menu-heading">Core</div>
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="main.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
 					</div> 메인화면
@@ -113,8 +26,9 @@
 				<div class="collapse" id="collapseFood"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">건식사료</a> 
-						<a class="nav-link" href="#">습식사료</a>
+						<a data-no="1" class="nav-link" >전체</a> 
+						<a data-no="10" class="nav-link" >건식사료</a> 
+						<a data-no="11" class="nav-link" >습식사료</a>
 					
 					</nav>
 				</div>
@@ -131,12 +45,13 @@
 				<div class="collapse" id="collapseSnack"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">덴탈/껌</a> 
-						<a class="nav-link" href="#">사사미/육포</a>
-						<a class="nav-link" href="#">캔/파우치</a>
-						<a class="nav-link" href="#">소시지</a>
-						<a class="nav-link" href="#">동결건조</a>
-						<a class="nav-link" href="#">우유/분유</a>
+						<a data-no="2" class="nav-link" >전체</a> 
+						<a data-no="20" class="nav-link" >덴탈/껌</a> 
+						<a data-no="21" class="nav-link" >사사미/육포</a>
+						<a data-no="22" class="nav-link" >캔/파우치</a>
+						<a data-no="23" class="nav-link" >소시지</a>
+						<a data-no="24" class="nav-link" >동결건조</a>
+						<a data-no="25" class="nav-link" >우유/분유</a>
 					</nav>
 				</div>
 			
@@ -153,11 +68,12 @@
 				<div class="collapse" id="collapseHealth"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">종합영양제</a> 
-						<a class="nav-link" href="#">치아</a>
-						<a class="nav-link" href="#">피부/모질</a> 
-						<a class="nav-link" href="#">뼈/관절</a> 
-						<a class="nav-link" href="#">눈/귀</a>
+						<a data-no="3" class="nav-link" >전체</a> 
+						<a data-no="30" class="nav-link" >종합영양제</a> 
+						<a data-no="31" class="nav-link" >치아</a>
+						<a data-no="32" class="nav-link" >피부/모질</a> 
+						<a data-no="33" class="nav-link" >뼈/관절</a> 
+						<a data-no="34" class="nav-link" >눈/귀</a>
 					</nav>
 				</div>
 				
@@ -174,10 +90,11 @@
 				<div class="collapse" id="collapseBowel"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">배변패드</a> 
-						<a class="nav-link" href="#">배변봉투</a>
-						<a class="nav-link" href="#">배변판</a> 
-						<a class="nav-link" href="#">기저귀</a> 
+						<a data-no="4" class="nav-link" >전체</a> 
+						<a data-no="40" class="nav-link" >배변패드</a> 
+						<a data-no="41" class="nav-link" >배변봉투</a>
+						<a data-no="42" class="nav-link" >배변판</a> 
+						<a data-no="43" class="nav-link" >기저귀</a> 
 					</nav>
 				</div>
 				
@@ -194,11 +111,12 @@
 				<div class="collapse" id="collapseToy"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">봉제</a> 
-						<a class="nav-link" href="#">라텍스</a>
-						<a class="nav-link" href="#">공</a>
-						<a class="nav-link" href="#">노즈워크</a>
-						<a class="nav-link" href="#">자동장난감</a> 
+						<a data-no="5" class="nav-link" >전체</a> 
+						<a data-no="50" class="nav-link" >봉제</a> 
+						<a data-no="51" class="nav-link" >라텍스</a>
+						<a data-no="52" class="nav-link" >공</a>
+						<a data-no="53" class="nav-link" >노즈워크</a>
+						<a data-no="54" class="nav-link" >자동장난감</a> 
 					</nav>
 				</div>
 				
@@ -215,11 +133,12 @@
 				<div class="collapse" id="collapseBeauty"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">샴푸/린스</a> 
-						<a class="nav-link" href="#">브러쉬</a>
-						<a class="nav-link" href="#">발톱/가위</a> 
-						<a class="nav-link" href="#">물티슈/크리너</a> 
-						<a class="nav-link" href="#">타올</a>
+						<a data-no="6" class="nav-link" >전체</a> 
+						<a data-no="60" class="nav-link" >샴푸/린스</a> 
+						<a data-no="61" class="nav-link" >브러쉬</a>
+						<a data-no="62" class="nav-link" >발톱/가위</a> 
+						<a data-no="63" class="nav-link" >물티슈/크리너</a> 
+						<a data-no="64" class="nav-link" >타올</a>
 					</nav>
 				</div>
 				
@@ -236,9 +155,10 @@
 				<div class="collapse" id="collapseLiving"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">하우스/방석</a> 
-						<a class="nav-link" href="#">안전문/울타리</a>
-						<a class="nav-link" href="#">식기/급수기</a> 
+						<a data-no="7" class="nav-link" >전체</a> 
+						<a data-no="70" class="nav-link" >하우스/방석</a> 
+						<a data-no="71" class="nav-link" >안전문/울타리</a>
+						<a data-no="72" class="nav-link" >식기/급수기</a> 
 					
 					</nav>
 				</div>
@@ -246,6 +166,3 @@
 		</div>
 	</nav>
 </div>
-<script>
-	
-</script>
