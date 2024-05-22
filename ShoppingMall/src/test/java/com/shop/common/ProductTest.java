@@ -8,6 +8,6 @@ public class ProductTest {
 	public static void main(String[] args) {
 		SqlSession session = DataSource.getInstance().openSession(true);
 		AdminMapper mapper = session.getMapper(AdminMapper.class);
-		mapper.adminProductList().forEach(list -> System.out.println(list));
+		mapper.adminBoardList().forEach(list -> System.out.println(list));
 	}
 }

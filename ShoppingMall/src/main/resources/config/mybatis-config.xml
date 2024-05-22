@@ -10,12 +10,6 @@
 	<typeAliases>
 		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
 		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
-
-
-
-		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
-
-
 		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
 
 	</typeAliases>
@@ -34,7 +28,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/shop/product/mapper/ProductMapper.xml" />
-		
+		<mapper resource="com/shop/order/mapper/OrderMapper.xml" />
 		<mapper resource="com/shop/admin/mapper/AdminMapper.xml" />
 	</mappers>
 </configuration>

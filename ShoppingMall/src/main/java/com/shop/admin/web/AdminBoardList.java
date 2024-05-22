@@ -20,12 +20,10 @@ public class AdminBoardList implements Control {
 			
 		AdminService svc = new AdminServiceImpl();
 		List<BoardVO> list =svc.adminBoardList();
-
 		List<String> olist = new ArrayList<>();
 		olist.add("Q&N제목");
 		olist.add("회원아이디");
 		olist.add("등록일");
-		 
 		req.setAttribute("boardTitle", olist);
 		req.setAttribute("boardList", list);
 		String path = "admin/adminMain.tiles";
