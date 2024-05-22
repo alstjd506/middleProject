@@ -12,7 +12,6 @@
 		select *
 		from users
 	</select>
-
 	<select id="adminBoardList" resultType="board">
 	select *
 	from board
