@@ -14,6 +14,7 @@ import com.shop.member.web.AdminControl;
 import com.shop.member.web.MyPageControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
+import com.shop.product.web.ProductInfoControl;
 
 
 public class FrontControl extends HttpServlet {
@@ -34,8 +35,10 @@ public class FrontControl extends HttpServlet {
 		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
-		// 새로운 작업
-		// 내 브런치 수정;ㅣㅏㄻㄴㅇ;'ㅏㄹㅇㄴㅁ
+		
+		//상품 상세 화면
+		map.put("/productInfo.do", new ProductInfoControl());
+
 	}
 
 	// service

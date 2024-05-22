@@ -257,8 +257,6 @@
           			 <button id="next-cheap" class="btn btn-primary">></button>
        		 	</div>
             </div>
-
-
 </section>
 
 <script src="js/main.js"></script>

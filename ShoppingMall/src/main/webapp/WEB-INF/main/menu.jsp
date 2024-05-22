@@ -224,7 +224,7 @@
 				</div>
 				
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-					data-bs-target="#collapseBeauty" aria-expanded="false"
+					data-bs-target="#collapseLiving" aria-expanded="false"
 					aria-controls="collapseLayouts">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-columns"></i>
@@ -233,7 +233,7 @@
 						<i class="fas fa-angle-down"></i>
 					</div>
 				</a>
-				<div class="collapse" id="collapseBeauty"
+				<div class="collapse" id="collapseLiving"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="#">하우스/방석</a> 
@@ -246,3 +246,6 @@
 		</div>
 	</nav>
 </div>
+<script>
+	
+</script>
