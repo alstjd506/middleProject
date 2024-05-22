@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		changePage('newProducts', -1);
 	});
 	document.getElementById('next-new').addEventListener('click', function() {
-		changePage('newProducts', 1);	
+		changePage('newProducts', 1);
 	});
 	document.getElementById('prev-ctg').addEventListener('click', function() {
 		changePage('ctgProducts', -1);
@@ -45,20 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('next-cheap').addEventListener('click', function() {
 		changePage('cheapProducts', 1);
 	});
-	
-	loadCategory(1); 
-	
+
+	loadCategory(1);
+
 });
-function loadCategory(topCategory){
+function loadCategory(topCategory) {
 	fetch('category.do?topCategory=' + topCategory)
-			.then(response => response.json())  
-			.then(result => {
-				showList(result);
-				showPage('ctgProducts', 0);
-			})
-			.catch(err => {
-				console.log(err);  
-			});
+		.then(response => response.json())
+		.then(result => {
+			showList(result);
+			showPage('ctgProducts', 0);
+		})
+		.catch(err => {
+			console.log(err);
+		});
 }
 function showPage(divId, page) {
 	let div = document.getElementById(divId);
@@ -86,20 +86,60 @@ function changePage(divId, updown) {
 	let currentPage = parseInt(div.getAttribute('data-page'), 10); // data-page를 10진수로 가져와 currentPage에 저장
 	showPage(divId, currentPage + updown); // 상품div의 data-page를 -1 , 1 변경
 }
+document.querySelectorAll('.nav-link').forEach(link => {
+	link.addEventListener('click', function() {
 
+		const topCategory = this.getAttribute('data-no');
+		if (topCategory != null) {
+			console.log(topCategory);
+			if (topCategory.length == 1) {
+				fetch('menuTopCategory.do?topCategory=' + topCategory)
+					.then(response => response.json())
+					.then(result => {
+						showBody(result);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+			}
+
+		}
+
+	});
+});
+document.querySelectorAll('.nav-link').forEach(button => {
+	button.addEventListener('click', function() {
+
+		const categoryCode = this.getAttribute('data-no');
+		console.log(categoryCode);
+		if (categoryCode != null) {
+			if (categoryCode.length == 2) {
+				fetch('menuCategory.do?categoryCode=' + categoryCode)
+					.then(response => response.json())
+					.then(result => {
+
+						showBody(result);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+			}
+		}
+	});
+});
 document.querySelectorAll('.category-btn').forEach(button => {
 	button.addEventListener('click', function() {
 
 		const topCategory = this.getAttribute('data-type');
 		console.log(topCategory);
 		fetch('category.do?topCategory=' + topCategory)
-			.then(response => response.json())  
+			.then(response => response.json())
 			.then(result => {
 				showList(result);
 				showPage('ctgProducts', 0);
 			})
 			.catch(err => {
-				console.log(err);  
+				console.log(err);
 			});
 
 	});
@@ -107,7 +147,7 @@ document.querySelectorAll('.category-btn').forEach(button => {
 
 function showList(products) {
 	console.log(products);
-	
+
 	const div = document.getElementById('ctgProducts');
 	div.innerHTML = '';
 
@@ -119,7 +159,6 @@ function showList(products) {
 		const img = document.createElement('img'); //이미지 지정
 		img.className = 'card-img-top';
 		img.src = `images/${product.prodImage}`;
-		console.log(product.img);
 
 		const cardBodyDiv = document.createElement('div');
 		cardBodyDiv.className = 'card-body p-4';
@@ -131,7 +170,7 @@ function showList(products) {
 		productName.textContent = product.prodName;
 
 		const productPrice = document.createElement('div'); // 상품가격
-		productPrice.textContent = product.prodPrice.numberFormat()+"원";
+		productPrice.textContent = product.prodPrice.numberFormat() + "원";
 
 		textCenterDiv.appendChild(productName);
 		textCenterDiv.appendChild(productPrice);
@@ -143,7 +182,7 @@ function showList(products) {
 		textCenterFDiv.className = 'text-center';
 		const viewButton = document.createElement('a');
 		viewButton.className = 'btn btn-outline-dark mt-auto';
-		viewButton.href = '#';
+		viewButton.href = `productInfo.do?prodNo=${product.prodNo}`;
 		viewButton.textContent = 'View options';
 
 		textCenterFDiv.appendChild(viewButton);
@@ -158,3 +197,62 @@ function showList(products) {
 	})
 }
 
+function showBody(products) {
+	console.log(products);
+
+	const section = document.getElementById('section');
+	section.innerHTML = '';
+	
+	products.forEach(product => {
+		const conDiv = document.createElement('div');
+		conDiv.className ='container px-4 px-lg-5 mt-5';
+		const contDiv = document.createElement('div');
+		contDiv.className ='content_box';
+		const rowDiv = document.createElement('div');
+		rowDiv.className = 'row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'
+		const colDiv = document.createElement('div');
+		colDiv.className = 'col mb-5';
+		const cardDiv = document.createElement('div');
+		cardDiv.className = 'card h-100';
+		const img = document.createElement('img'); //이미지 지정
+		img.className = 'card-img-top';
+		img.src = `images/${product.prodImage}`;
+		console.log(product.Image);
+		const cardBodyDiv = document.createElement('div');
+		cardBodyDiv.className = 'card-body p-4';
+
+		const textCenterDiv = document.createElement('div');
+		textCenterDiv.className = 'text-center';
+
+		const productName = document.createElement('h5'); //상품명
+		productName.className = 'fw-bolder';
+		productName.textContent = product.prodName;
+
+		const productPrice = document.createElement('div'); // 상품가격
+		productPrice.textContent = product.prodPrice.numberFormat() + "원";
+
+		const cardFooterDiv = document.createElement('div');
+		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
+		const textCenterFDiv = document.createElement('div');
+		textCenterFDiv.className = 'text-center';
+		const viewButton = document.createElement('a');
+		viewButton.className = 'btn btn-outline-dark mt-auto';
+		viewButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		viewButton.textContent = 'View options';
+
+		textCenterDiv.appendChild(productName);
+		textCenterDiv.appendChild(productPrice);
+		cardBodyDiv.appendChild(textCenterDiv);
+		textCenterFDiv.appendChild(viewButton);
+		cardFooterDiv.appendChild(textCenterFDiv);
+
+		cardDiv.appendChild(img);
+		cardDiv.appendChild(cardBodyDiv);
+		cardDiv.appendChild(cardFooterDiv);
+
+		colDiv.appendChild(cardDiv);
+		rowDiv.appendChild(colDiv);
+		conDiv.appendChild(rowDiv);
+		section.appendChild(conDiv);
+	});
+}

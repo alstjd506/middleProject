@@ -12,6 +12,10 @@ public interface ProductService {
 	List<ProductVO> productMdList();
 	List<ProductVO> productCheapList();
 	
+	//메뉴바선택
+	List<ProductVO> menuCategory(int categoryCode);
+	List<ProductVO> menuTopCategory(int topCategory);
+	
 	//상품상세
 	List<ProductVO> productInfo(int prodNo);
 	
