@@ -1,6 +1,7 @@
 package com.shop.admin.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,15 @@ public class AdminProductList implements Control {
 		
 		List<ProductVO> list = svc.adminProductList();
 		
+		List<String> olist = new ArrayList<>();
+		olist.add("상품명");
+		olist.add("상품설명");
+		olist.add("가격");
+		olist.add("판매수량");
+		olist.add("상품 등록일");
+		olist.add("카테고리 번호");
+		
+		req.setAttribute("productTitle", olist);
 		req.setAttribute("productList", list);
 		String path = "admin/adminMain.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);

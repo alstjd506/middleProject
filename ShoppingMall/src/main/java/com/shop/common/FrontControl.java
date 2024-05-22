@@ -17,6 +17,7 @@ import com.shop.member.web.MyPageControl;
 import com.shop.order.web.OrderControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
+import com.shop.product.web.ProductInfoControl;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -41,9 +42,17 @@ public class FrontControl extends HttpServlet {
 		// 마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
 
+
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
 	}
+
+		
+
+		//상품 상세 화면
+		map.put("/productInfo.do", new ProductInfoControl());
+
+
 
 	// service
 	@Override

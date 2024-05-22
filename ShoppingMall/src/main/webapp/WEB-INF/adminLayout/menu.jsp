@@ -5,7 +5,7 @@
 		<div class="sb-sidenav-menu">
 			<div class="nav">
 				<div class="sb-sidenav-menu-heading">Core</div>
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="admin.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
 					</div> Dashboard
@@ -42,9 +42,7 @@
 					aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav accordion"
 						id="sidenavAccordionPages">
-						<a class="nav-link collapsed" href="adminProductList.do" data-bs-toggle="collapse"
-							data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-							aria-controls="pagesCollapseAuth"> 상품목록
+						<a class="nav-link collapsed" href="adminProductList.do"> 상품목록
 							
 						</a>
 						

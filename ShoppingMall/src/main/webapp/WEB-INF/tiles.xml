@@ -14,9 +14,14 @@
   	<definition name="WILDCARD:main/*" extends="shop.mainLayout">
   		<put-attribute name="body" value="/WEB-INF/view/main/{1}.jsp" />
   	</definition>
+
   	
   	<definition name="WILDCARD:order/*" extends="shop.mainLayout">
   		<put-attribute name="body" value="/WEB-INF/view/order/{1}.jsp" />
+
+  	<definition name="WILDCARD:product/*" extends="shop.mainLayout">
+  		<put-attribute name="body" value="/WEB-INF/view/product/{1}.jsp" />
+
   	</definition>
 		
 	<definition name="shop.adminLayout" template="/WEB-INF/adminLayout/template.jsp">

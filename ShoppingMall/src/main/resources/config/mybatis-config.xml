@@ -9,6 +9,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
+		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -25,7 +26,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/shop/product/mapper/ProductMapper.xml" />
-		<mapper resource="com/shop/order/mapper/OrderMapper.xml" />
+		
 		<mapper resource="com/shop/admin/mapper/AdminMapper.xml" />
 	</mappers>
 </configuration>
