@@ -11,43 +11,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shop.admin.web.AdminControl;
-<<<<<<< Upstream, based on branch 'master' of https://github.com/alstjd506/middleProject.git
 import com.shop.admin.web.AdminMemberList;
-
 import com.shop.admin.web.AdminProductList;
-
-=======
-//import com.shop.admin.web.AdminMemberList;
->>>>>>> 9462569 수정..
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.OrderControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 
-
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
+
 	// 생성자
 	public FrontControl() {
 		map = new HashMap<>();
 	}
+
 	// init
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		//메인 홈화면
+		// 메인 홈화면
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
-		
-		//관리자 화면
+
+		// 관리자 화면
 		map.put("/admin.do", new AdminControl());
 		map.put("/memberList.do", new AdminMemberList());
 		map.put("/adminProductList.do", new AdminProductList());
 
-		
-		//마이페이지 화면
+		// 마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
-		
-		//주문 화면
+
+		// 주문 화면
 		map.put("/order.do", new OrderControl());
 	}
 
