@@ -1,4 +1,4 @@
-package com.shop.member.web;
+package com.shop.admin.web;
 
 import java.io.IOException;
 
