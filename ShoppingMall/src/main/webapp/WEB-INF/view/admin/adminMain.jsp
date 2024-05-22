@@ -2,75 +2,136 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-	
- <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                DataTable Example
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
 
-                                            <th>상품명</th>
-                                            <th>상품설명</th>
-                                            <th>가격</th>
-                                            <th>판매수량</th>
-                                            <th>상품 등록일</th>
-                                            <th>카테고리 번호</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <c:forEach var="product" items="${productList }">
-                                        <tr>
-                                            <td>${product.prodName }</td>
-                                            <td>${product.prodComment }</td>
-                                            <td>${product.prodPrice }</td>
-                                            <td>${product.prodSale }</td>
-                                            <td>${product.prodDate }</td>
-                                            <td>${product.categoryCode }</td>
-                                        </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </main>
+<main>
+	<div class="container-fluid px-4">
+		<h1 class="mt-4">Dashboard</h1>
+		<ol class="breadcrumb mb-4">
+			<li class="breadcrumb-item active">Dashboard</li>
+		</ol>
+		<div class="row">
+			<div class="col-xl-6">
+				<div class="card mb-4">
+					<div class="card-header">
+						<i class="fas fa-chart-area me-1"></i> Area Chart Example
+					</div>
+					<div class="card-body">
+						<canvas id="myAreaChart" width="100%" height="40"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6">
+				<div class="card mb-4">
+					<div class="card-header">
+						<i class="fas fa-chart-bar me-1"></i> Bar Chart Example
+					</div>
+					<div class="card-body">
+						<canvas id="myBarChart" width="100%" height="40"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i> DataTable Example
+			</div>
+			<div class="card-body">
+				<table id="datatablesSimple">
+					<thead>
+						<tr>
+							<c:forEach var="ptitle" items="${productTitle }">
+								<th>${ptitle }</th>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="mtitle" items="${memberTitle }">
+								<th>${mtitle }</th>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="btitle" items="${boardTitle }">
+								<th>${btitle }</th>
+							</c:forEach>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="product" items="${productList }">
+							<tr>
+								<td><a class="productLink" href="#">${product.prodName }</a></td>
+								<td>${product.prodComment }</td>
+								<td><fmt:formatNumber value="${product.prodPrice }"
+										pattern="#,###" />원</td>
+								<td>${product.prodSale }</td>
+								<td><fmt:formatDate value="${product.prodDate }"
+										pattern="yyyy-MM-dd" /></td>
+								<td>${product.categoryCode }</td>
+							</tr>
+						</c:forEach>
+						<c:forEach var="member" items="${memberList }">
+							<tr>
+								<td>${member.userId }</td>
+								<td>${member.userPw }</td>
+								<td>${member.userName }</td>
+								<td>${member.userPhone }</td>
+								<td>${member.userAddr }</td>
+								<td>${member.userDetailAddr }</td>
+
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="mtitle" items="${memberTitle }">
+								<th>${mtitle }</th>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="btitle" items="${boardTitle }">
+								<th>${btitle }</th>
+							</c:forEach>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="product" items="${productList }">
+							<tr>
+								<td><a class="productLink" href="#">${product.prodName }</a></td>
+								<td>${product.prodComment }</td>
+								<td><fmt:formatNumber value="${product.prodPrice }"
+										pattern="#,###" />원</td>
+								<td>${product.prodSale }</td>
+								<td><fmt:formatDate value="${product.prodDate }"
+										pattern="yyyy-MM-dd" /></td>
+								<td>${product.categoryCode }</td>
+							</tr>
+						</c:forEach>
+						<c:forEach var="member" items="${memberList }">
+							<tr>
+								<td>${member.userId }</td>
+								<td>${member.userPw }</td>
+								<td>${member.userName }</td>
+								<td>${member.userPhone }</td>
+								<td>${member.userAddr }</td>
+								<td>${member.userDetailAddr }</td>
+							</tr>
+						</c:forEach>
+						<c:forEach var="board" items="${boardList }">
+							<tr>
+								<td><a class="boardLink" href="adminBoardInfo.do?bno=${board.boardNo }">${board.boardTitle }</a></td>
+								<td>${board.userId }</td>
+								<td><fmt:formatDate value="${board. boardDate}"
+										pattern="yyyy-MM-dd" /></td>
+
+							</tr>
+						</c:forEach>
+						<c:forEach var="board" items="${boardList }">
+							<tr>
+								<td><a class="boardLink" href="adminBoardInfo.do?bno=${board.boardNo }">${board.boardTitle }</a></td>
+								<td>${board.userId }</td>
+								<td><fmt:formatDate value="${board. boardDate}"
+										pattern="yyyy-MM-dd" /></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

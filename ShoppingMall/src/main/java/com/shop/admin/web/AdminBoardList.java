@@ -11,26 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.admin.service.AdminService;
 import com.shop.admin.service.AdminServiceImpl;
 import com.shop.common.Control;
-import com.shop.vo.MemberVO;
+import com.shop.vo.BoardVO;
 
-public class AdminMemberList implements Control {
+public class AdminBoardList implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			
 		AdminService svc = new AdminServiceImpl();
-		
-		List<MemberVO> list = svc.adminMemberList();
-		
+		List<BoardVO> list =svc.adminBoardList();
+
 		List<String> olist = new ArrayList<>();
+		olist.add("Q&N제목");
 		olist.add("회원아이디");
-		olist.add("회원비밀번호");
-		olist.add("회원명");
-		olist.add("연락처");
-		olist.add("주소");
-		olist.add("상세주소");
-		olist.forEach(adas -> System.out.println(adas));
-		req.setAttribute("memberTitle", olist);
-		req.setAttribute("memberList", list);
+		olist.add("등록일");
+		 
+		req.setAttribute("boardTitle", olist);
+		req.setAttribute("boardList", list);
 		String path = "admin/adminMain.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}

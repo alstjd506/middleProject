@@ -3,10 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.admin.mapper.AdminMapper">
-<select id="adminProductList" resultType="product">
-select *
-from product
-order by category_code
-</select>
+	<select id="adminProductList" resultType="product">
+		select *
+		from product
+		order by category_code
+	</select>
+	<select id="adminMemberList" resultType="member">
+		select *
+		from users
+	</select>
+
+	<select id="adminBoardList" resultType="board">
+	select *
+	from board
+	where board_status = 'n'
+	</select>
+	<select id="adminBoardInfo" resultType="board">
+	select *
+	from board
+	where board_no = #{bno}
+	</select>
 
 </mapper>
