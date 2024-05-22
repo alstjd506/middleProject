@@ -5,31 +5,29 @@
 <mapper namespace="com.shop.product.mapper.ProductMapper">
 	<select id="productList" resultType="product">
 		select *
-		from sm_products
-		order by product_sales desc
+		from product
+		
 	</select>
 	<select id="productNewList" resultType="product">
 		select *
-		from sm_products
-		order by registration_date desc
+		from product
+		
 	</select>
 	<select id ="categoryList" parameterType = "int" resultType="product">
 		select p.*
-		from sm_products p
-		join sm_categories c on p.category_id = c.category_id
+		from product p
+		join category c on p.category_code = c.category_code
 		where c.top_category = #{topCategory}
 	</select>
 	<select id="productMdList" resultType="product">
 		select *
-		from sm_products
-		order by product_price desc
+		from product
+		
 	</select>
 	<select id="productCheapList" resultType="product">
 		select *
-		from sm_products
-		<![CDATA[
-		where product_price <= 3000
-		]]>
+		from product
+		
 	</select>
 	
 	
