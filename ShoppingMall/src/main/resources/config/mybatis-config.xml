@@ -25,5 +25,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/shop/product/mapper/ProductMapper.xml" />
+		<mapper resource="com/shop/order/mapper/OrderMapper.xml" />
 	</mappers>
 </configuration>
