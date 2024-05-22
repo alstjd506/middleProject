@@ -1,4 +1,4 @@
-package com.shop.product.vo;
+package com.shop.vo;
 
 import java.util.Date;
 
@@ -8,12 +8,10 @@ import lombok.Data;
 public class ProductVO {
 	private int prodNo;
 	private String prodName;
-	private String prodContent;
+	private String prodComment;
 	private int prodPrice;
 	private int prodSale;
 	private String categoryCode;
 	private Date prodDate;
-	private String img;
-	
+	private String prodImage;	
 }
-

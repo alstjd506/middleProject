@@ -8,7 +8,7 @@
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="product" type="com.shop.product.vo.ProductVO" />
+		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -25,5 +25,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/shop/product/mapper/ProductMapper.xml" />
+		<mapper resource="com/shop/order/mapper/OrderMapper.xml" />
 	</mappers>
 </configuration>

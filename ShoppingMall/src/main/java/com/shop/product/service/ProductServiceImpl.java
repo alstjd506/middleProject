@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.shop.common.DataSource;
 import com.shop.product.mapper.ProductMapper;
-import com.shop.product.vo.ProductVO;
+import com.shop.vo.ProductVO;
 
 public class ProductServiceImpl implements ProductService {
 	
