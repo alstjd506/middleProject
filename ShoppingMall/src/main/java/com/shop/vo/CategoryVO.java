@@ -1,4 +1,4 @@
-package com.shop.product.vo;
+package com.shop.vo;
 
 import lombok.Data;
 
@@ -6,6 +6,5 @@ import lombok.Data;
 public class CategoryVO {
 	private int categoryCode;
 	private String categoryName;
-	private int topCategory;
-	
+	private int topCategory;	
 }

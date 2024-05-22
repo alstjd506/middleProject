@@ -3,7 +3,7 @@ package com.shop.product.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-import com.shop.product.vo.ProductVO;
+import com.shop.vo.ProductVO;
 
 public interface ProductMapper {
 	List<ProductVO> productList(); //인기목록

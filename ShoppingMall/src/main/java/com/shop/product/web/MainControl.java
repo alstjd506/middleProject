@@ -15,8 +15,8 @@ import com.shop.common.Control;
 import com.shop.product.mapper.ProductMapper;
 import com.shop.product.service.ProductService;
 import com.shop.product.service.ProductServiceImpl;
-import com.shop.product.vo.CategoryVO;
-import com.shop.product.vo.ProductVO;
+import com.shop.vo.CategoryVO;
+import com.shop.vo.ProductVO;
 
 public class MainControl implements Control {
 
