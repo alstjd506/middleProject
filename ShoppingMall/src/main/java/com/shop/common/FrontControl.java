@@ -34,8 +34,6 @@ public class FrontControl extends HttpServlet {
 		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
-		// 박성준 인뎀 ㅝ
-		// 호ㅓㄱ인합니다.
 	}
 
 	// service
