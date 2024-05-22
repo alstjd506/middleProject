@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shop.admin.web.AdminControl;
-import com.shop.admin.web.AdminMemberList;
-import com.shop.admin.web.AdminProductList;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.OrderControl;
 import com.shop.product.web.CategoryControl;
