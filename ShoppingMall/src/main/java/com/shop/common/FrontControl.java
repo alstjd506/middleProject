@@ -36,6 +36,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/myPage.do", new MyPageControl());
 		//wntjrwjfksal
 		// asdfsadfasdf
+		System.out.println("test");
 	}
 
 	// service
