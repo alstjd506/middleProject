@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shop.admin.web.AdminControl;
+<<<<<<< Upstream, based on branch 'master' of https://github.com/alstjd506/middleProject.git
 import com.shop.admin.web.AdminMemberList;
 
 import com.shop.admin.web.AdminProductList;
 
+=======
+//import com.shop.admin.web.AdminMemberList;
+>>>>>>> 9462569 수정..
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.OrderControl;
 import com.shop.product.web.CategoryControl;
@@ -37,7 +41,6 @@ public class FrontControl extends HttpServlet {
 		//관리자 화면
 		map.put("/admin.do", new AdminControl());
 		map.put("/memberList.do", new AdminMemberList());
-
 		map.put("/adminProductList.do", new AdminProductList());
 
 		
