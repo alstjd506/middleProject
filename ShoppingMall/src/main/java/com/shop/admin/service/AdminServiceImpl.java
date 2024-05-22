@@ -7,6 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import com.shop.admin.mapper.AdminMapper;
 import com.shop.common.DataSource;
 
+
+import com.shop.vo.BoardVO;
+
 import com.shop.vo.BoardVO;
 
 import com.shop.vo.MemberVO;

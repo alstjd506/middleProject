@@ -11,7 +11,6 @@
 	<select id="adminMemberList" resultType="member">
 		select *
 		from users
-		
 	</select>
 
 	<select id="adminBoardList" resultType="board">

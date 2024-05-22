@@ -3,6 +3,9 @@ package com.shop.admin.service;
 import java.util.List;
 
 
+
+import com.shop.vo.BoardVO;
+
 import com.shop.vo.BoardVO;
 
 import com.shop.vo.MemberVO;

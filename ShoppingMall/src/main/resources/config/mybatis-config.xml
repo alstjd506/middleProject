@@ -12,6 +12,10 @@
 		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
 
 
+
+		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
+
+
 		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
 
 	</typeAliases>
