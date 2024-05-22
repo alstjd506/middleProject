@@ -40,13 +40,8 @@ public class FrontControl extends HttpServlet {
 
 		// 마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
-<<<<<<< HEAD
-		
-		//주문 화면
-=======
 
 		// 주문 화면
->>>>>>> refs/heads/master
 		map.put("/order.do", new OrderControl());
 	}
 
