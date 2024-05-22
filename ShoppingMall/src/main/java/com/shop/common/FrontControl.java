@@ -38,6 +38,7 @@ public class FrontControl extends HttpServlet {
 		// asdfsadfasdf
 		System.out.println("test");
 		System.out.println("test2");
+		System.out.println("test3");
 	}
 
 	// service
