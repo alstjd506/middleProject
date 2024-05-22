@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+   <definition name="shop.mainLayout" template="/WEB-INF/main/template.jsp">
+  		<put-attribute name="header" value="/WEB-INF/main/header.jsp" />
+  		<put-attribute name="nav" value="/WEB-INF/main/nav.jsp" />
+  		<put-attribute name="menu" value="/WEB-INF/main/menu.jsp" />
+  		<put-attribute name="body" value="/WEB-INF/main/content.jsp" />
+  		<put-attribute name="footer" value="/WEB-INF/main/footer.jsp" />
+  	</definition>
+  	<definition name="WILDCARD:main/*" extends="shop.mainLayout">
+  		<put-attribute name="body" value="/WEB-INF/view/main/{1}.jsp" />
+  	</definition>
+		
+	<definition name="shop.adminLayout" template="/WEB-INF/adminLayout/template.jsp">
+  		<put-attribute name="nav" value="/WEB-INF/adminLayout/nav.jsp" />
+  		<put-attribute name="menu" value="/WEB-INF/adminLayout/menu.jsp" />
+  		<put-attribute name="content" value="/WEB-INF/adminLayout/content.jsp" />
+  		<put-attribute name="footer" value="/WEB-INF/adminLayout/footer.jsp" />
+  	</definition>
+  	<definition name="WILDCARD:admin/*" extends="shop.adminLayout">
+  		<put-attribute name="content" value="/WEB-INF/view/admin/{1}.jsp" />
+  	</definition>
+	
+	<definition name="shop.memberLayout" template="/WEB-INF/memberLayout/template.jsp">
+  		<put-attribute name="header" value="/WEB-INF/memberLayout/header.jsp" />
+  		<put-attribute name="nav" value="/WEB-INF/memberLayout/nav.jsp" />
+  		<put-attribute name="menu" value="/WEB-INF/memberLayout/menu.jsp" />
+  		<put-attribute name="body" value="/WEB-INF/memberLayout/content.jsp" />
+  		<put-attribute name="footer" value="/WEB-INF/memberLayout/footer.jsp" />
+  	</definition>
+  	<definition name="WILDCARD:member/*" extends="shop.memberLayout">
+  		<put-attribute name="body" value="/WEB-INF/view/member/{1}.jsp" />
+  	</definition>
+	
+
+</tiles-definitions>
