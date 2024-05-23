@@ -8,6 +8,7 @@ public class ProductTest {
 	public static void main(String[] args) {
 		SqlSession session = DataSource.getInstance().openSession(true);
 		AdminMapper mapper = session.getMapper(AdminMapper.class);
-		mapper.adminBoardList().forEach(list -> System.out.println(list));
+		int cno = 1;
+		mapper.adminCategoryList(cno).forEach(list -> System.out.println(list));
 	}
 }
