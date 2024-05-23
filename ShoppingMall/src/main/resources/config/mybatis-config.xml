@@ -11,7 +11,7 @@
 		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
 		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
 		<typeAlias alias="cart" type="com.shop.vo.CartVO" />
-
+		<typeAlias alias="review" type="com.shop.vo.ReviewVO" />
 		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
 		<typeAlias alias="order" type="com.shop.vo.OrderVO"/>
 		<typeAlias alias="category" type="com.shop.vo.CategoryVO"/>
@@ -33,7 +33,7 @@
 	<mappers>
 		<mapper resource="com/shop/product/mapper/ProductMapper.xml" />
 		<mapper resource="com/shop/order/mapper/OrderMapper.xml" />
-		
+		<mapper resource="com/shop/product/mapper/ReviewMapper.xml" />
 		<mapper resource="com/shop/admin/mapper/AdminMapper.xml" />
 	</mappers>
 </configuration>
