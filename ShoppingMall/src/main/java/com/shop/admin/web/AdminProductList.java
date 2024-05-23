@@ -29,7 +29,7 @@ public class AdminProductList implements Control {
 		olist.add("가격");
 		olist.add("판매수량");
 		olist.add("상품 등록일");
-		olist.add("카테고리 번호");
+		olist.add("카테고리");
 		
 		req.setAttribute("productTitle", olist);
 		req.setAttribute("productList", list);

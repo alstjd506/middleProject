@@ -7,36 +7,24 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.shop.admin.service.AdminService;
 import com.shop.admin.service.AdminServiceImpl;
 import com.shop.common.Control;
 import com.shop.vo.CategoryVO;
 
-public class AdminAddProductForm implements Control {
+public class AdminAddProduct implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/json;charset=utf-8");
-		
-		String cno = req.getParameter("cno");
-		if(cno==null) {
-			cno="1";
-		}
-		
 		AdminService svc = new AdminServiceImpl();
-		
-		
-		
-		List<CategoryVO> list = svc.adminCategoryList(Integer.parseInt(cno));
-		Gson gson = new GsonBuilder().create();
-		resp.getWriter().print(gson.toJson(list));
-		
-		
+
+		List<CategoryVO> list = svc.topAdminCategoryList();
+
+		String path = "admin/adminAddProduct.tiles";
+		req.setAttribute("topCategory", list);
+
+		req.getRequestDispatcher(path).forward(req, resp);
 
 	}
 
 }
-
-

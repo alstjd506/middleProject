@@ -64,15 +64,15 @@
 						</div>
 					</nav>
 				</div>
-				<div class="sb-sidenav-menu-heading">ㄴㅇ</div>
-				<a class="nav-link" href="adminAddProductForm.do">
+				<div class="sb-sidenav-menu-heading">상품등록/주문현황수정</div>
+				<a class="nav-link" href="adminAddProduct.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-chart-area"></i>
 					</div> 상품등록
-				</a> <a class="nav-link" href="#">
+				</a> <a class="nav-link" href="adminOrderAgreeControl.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-table"></i>
-					</div> Tables
+					</div> 주문현황
 				</a>
 			</div>
 		</div>

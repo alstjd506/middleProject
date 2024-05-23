@@ -12,4 +12,5 @@ public class BoardVO {
 	private String boardCotent;
 	private String boardStatus;
 	private Date boardDate;
+	
 }

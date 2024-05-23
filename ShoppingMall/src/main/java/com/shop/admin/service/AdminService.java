@@ -22,6 +22,7 @@ public interface AdminService {
 	boolean adminCancleAgree(int ono); // 관리자 주문취소승인
 	List<OrderVO> adminReturnList(); // 관리자 반품목록
 	boolean adminReturnAgree(int rno); // 관리자 반품승인
-	//List<CategoryVO> topAdminCategoryList(); // 관리자 상위카테고리목록
+	List<CategoryVO> topAdminCategoryList(); // 관리자 상위카테고리목록
 	List<CategoryVO> adminCategoryList(int cno);// 관리자 하위카테고리목록
+	boolean adminAddProductControl(ProductVO pvo); //관리자 상품등록 기능
 }
