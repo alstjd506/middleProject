@@ -67,7 +67,7 @@ ul, li {
                 </div>
                 <div class="col-md-6 align-bottom">
                     <div>
-                        <div class="small mb-1">상품코드:${product.prodNo}</div>
+                        <div class="small mb-1">상품코드: <span id="prodNo">${product.prodNo}</span></div>
                         <h1 class="display-5 fw-bolder">${product.prodName}</h1>
                         <div class="fs-5 mb-5">
                             <span id="productPrice" data-price="${product.prodPrice}">
@@ -91,14 +91,14 @@ ul, li {
                     </div>
                     <div class="right-align">
                         <div class="bigtext box blue summoney" id="sum_p_price">
-                            합계금액: <span>74,200</span>원
+                            합계금액: <span>74,200</span>
                         </div>
                     </div>
                     <div class="right-align">
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                        <button id="buyBtn" class="btn btn-outline-dark flex-shrink-0" type="button">
                             <i class="bi-cart-fill me-1"></i> 바로구매
                         </button>
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                        <button id="addCartBtn" class="btn btn-outline-dark flex-shrink-0" type="button">
                             <i class="bi-cart-fill me-1"></i> 장바구니
                         </button>
                     </div>
@@ -150,4 +150,7 @@ ul, li {
         </div>
     </div>
 </section>
+<script>
+	const userId = '${logId}';
+</script>
 <script src="js/productInfo.js"></script>
