@@ -49,7 +49,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new menuCategory());
 		map.put("/menuTopCategory.do", new menuTopCategroy());
-				
+		
+		
+		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회
@@ -74,12 +76,17 @@ public class FrontControl extends HttpServlet {
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
 		
+
 		// 장바구니 화면
 		map.put("/cart.do", new CartControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/removeCart.do", new RemoveCartControl());
 		
-	}
+	
+
+
+
+}
 
 	// service
 	@Override
