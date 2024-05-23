@@ -13,14 +13,52 @@
 		from users
 	</select>
 	<select id="adminBoardList" resultType="board">
-	select *
-	from board
-	where board_status = 'n'
+		select *
+		from board
+		where
+		board_status = 'n'
 	</select>
 	<select id="adminBoardInfo" resultType="board">
-	select *
-	from board
-	where board_no = #{bno}
+		select *
+		from board
+		where
+		board_no = #{bno}
 	</select>
-
+	<select id="adminOrderList" resultType="order">
+		select *
+		from orders
+		where
+		order_status = 1 or order_status = 2 or order_status = 3
+		order by
+		order_status
+	</select>
+	<select id="adminCancleList" resultType="order">
+		select *
+		from orders
+		where order_status = 4 or order_status = 5
+		order by order_status
+	</select>
+	<update id="adminCancleAgree" parameterType="int">
+		update orders
+		set
+		order_status = 5
+		where order_no = #{ono}
+	</update>
+	<select id="adminReturnList" resultType="order">
+		select *
+		from orders
+		where order_status = 6 or order_status = 7
+		order by order_status
+	</select>
+	<update id="adminReturnAgree" parameterType="int">
+		update orders
+		set
+		order_status = 7
+		where order_no = #{rno}
+	</update>
+	<select id="adminCategoryList" resultType="category">
+		select *
+		from category
+		where top_category = #{cno}
+	</select>
 </mapper>

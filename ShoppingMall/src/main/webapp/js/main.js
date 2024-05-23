@@ -86,7 +86,8 @@ function changePage(divId, updown) {
 	let currentPage = parseInt(div.getAttribute('data-page'), 10); // data-page를 10진수로 가져와 currentPage에 저장
 	showPage(divId, currentPage + updown); // 상품div의 data-page를 -1 , 1 변경
 }
-document.querySelectorAll('.nav-link').forEach(link => {
+
+/*document.querySelectorAll('.nav-link').forEach(link => {
 	link.addEventListener('click', function() {
 
 		const topCategory = this.getAttribute('data-no');
@@ -126,7 +127,7 @@ document.querySelectorAll('.nav-link').forEach(button => {
 			}
 		}
 	});
-});
+});*/
 document.querySelectorAll('.category-btn').forEach(button => {
 	button.addEventListener('click', function() {
 
@@ -169,23 +170,28 @@ function showList(products) {
 		productName.className = 'fw-bolder';
 		productName.textContent = product.prodName;
 
-		const productPrice = document.createElement('div'); // 상품가격
-		productPrice.textContent = product.prodPrice.numberFormat() + "원";
-
-		textCenterDiv.appendChild(productName);
-		textCenterDiv.appendChild(productPrice);
-		cardBodyDiv.appendChild(textCenterDiv);
-
 		const cardFooterDiv = document.createElement('div');
 		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
+		
 		const textCenterFDiv = document.createElement('div');
 		textCenterFDiv.className = 'text-center';
-		const viewButton = document.createElement('a');
-		viewButton.className = 'btn btn-outline-dark mt-auto';
-		viewButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		viewButton.textContent = 'View options';
+		textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
+				
+		const buyButton = document.createElement('a');
+		buyButton.className = 'btn btn-outline-dark mt-auto';
+		buyButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		buyButton.textContent = 'Buy';
+		const cartButton = document.createElement('a');
+		cartButton.className = 'btn btn-outline-dark mt-auto';
+		cartButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		cartButton.textContent = 'Cart';
 
-		textCenterFDiv.appendChild(viewButton);
+
+		textCenterDiv.appendChild(productName);
+		cardBodyDiv.appendChild(textCenterDiv);
+		
+		textCenterFDiv.appendChild(buyButton);
+		textCenterFDiv.appendChild(cartButton);
 		cardFooterDiv.appendChild(textCenterFDiv);
 
 		cardDiv.appendChild(img);
@@ -197,19 +203,21 @@ function showList(products) {
 	})
 }
 
-function showBody(products) {
+/*function showBody(products) {
 	console.log(products);
 
 	const section = document.getElementById('section');
 	section.innerHTML = '';
 	
+	const conDiv = document.createElement('div');
+	conDiv.className = 'container px-4 px-lg-5 mt-5';
+	const contDiv = document.createElement('div');
+	contDiv.className = 'content_box';
+	const rowDiv = document.createElement('div');
+	rowDiv.className = 'row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center'
+		
+	
 	products.forEach(product => {
-		const conDiv = document.createElement('div');
-		conDiv.className ='container px-4 px-lg-5 mt-5';
-		const contDiv = document.createElement('div');
-		contDiv.className ='content_box';
-		const rowDiv = document.createElement('div');
-		rowDiv.className = 'row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'
 		const colDiv = document.createElement('div');
 		colDiv.className = 'col mb-5';
 		const cardDiv = document.createElement('div');
@@ -228,22 +236,25 @@ function showBody(products) {
 		productName.className = 'fw-bolder';
 		productName.textContent = product.prodName;
 
-		const productPrice = document.createElement('div'); // 상품가격
-		productPrice.textContent = product.prodPrice.numberFormat() + "원";
-
 		const cardFooterDiv = document.createElement('div');
 		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
 		const textCenterFDiv = document.createElement('div');
 		textCenterFDiv.className = 'text-center';
-		const viewButton = document.createElement('a');
-		viewButton.className = 'btn btn-outline-dark mt-auto';
-		viewButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		viewButton.textContent = 'View options';
+		textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
+		
+		const buyButton = document.createElement('a');
+		buyButton.className = 'btn btn-outline-dark mt-auto';
+		buyButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		buyButton.textContent = 'Buy';
+		const cartButton = document.createElement('a');
+		cartButton.className = 'btn btn-outline-dark mt-auto';
+		cartButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		cartButton.textContent = 'Cart';
 
 		textCenterDiv.appendChild(productName);
-		textCenterDiv.appendChild(productPrice);
 		cardBodyDiv.appendChild(textCenterDiv);
-		textCenterFDiv.appendChild(viewButton);
+		textCenterFDiv.appendChild(buyButton);
+		textCenterFDiv.appendChild(cartButton);
 		cardFooterDiv.appendChild(textCenterFDiv);
 
 		cardDiv.appendChild(img);
@@ -252,7 +263,10 @@ function showBody(products) {
 
 		colDiv.appendChild(cardDiv);
 		rowDiv.appendChild(colDiv);
+		
+	});
 		conDiv.appendChild(rowDiv);
 		section.appendChild(conDiv);
-	});
 }
+
+*/
