@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -23,8 +23,9 @@
         <style>
         	body{
         		padding-top:50px;
+        		width: 100%;
         	}
-        	
+        
         </style>
     </head>
     <body>
@@ -32,13 +33,14 @@
         	<tiles:insertAttribute name="nav" />
         <!-- Header-->
        		<tiles:insertAttribute name="header" />
-        <!-- SideBar-->
         <div id ="main-content">
+        <!-- SideBar-->
       		<tiles:insertAttribute name="menu" />
         <!-- Section-->
         	<tiles:insertAttribute name="body" />
         </div>
         <!-- Footer-->
         	<tiles:insertAttribute name="footer" />
+        	<script src="js/mainMenu.js"></script>
     </body>
 </html>

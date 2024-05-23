@@ -11,19 +11,26 @@ Number.prototype.numberFormat = function() {
 	}
 	return nstr;
 };
-document.querySelectorAll('.nav-all').forEach(button => {
-	button.addEventListener('click', function() {
+
+document.querySelectorAll('.nav-link').forEach(link => {
+	link.addEventListener('click', function() {
 
 		const topCategory = this.getAttribute('data-no');
-		console.log(topCategory);
-		fetch('menuTopCategory.do?topCategory=' + topCategory)
-			.then(response => response.json())
-			.then(result => {
-				showList(result);
-			})
-			.catch(err => {
-				console.log(err);
-			});
+		if (topCategory != null) {
+			console.log(topCategory);
+			if (topCategory.length == 1) {
+				fetch('menuTopCategory.do?topCategory=' + topCategory)
+					.then(response => response.json())
+					.then(result => {
+						showBody(result);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+			}
+
+		}
+
 	});
 });
 document.querySelectorAll('.nav-link').forEach(button => {
@@ -31,14 +38,19 @@ document.querySelectorAll('.nav-link').forEach(button => {
 
 		const categoryCode = this.getAttribute('data-no');
 		console.log(categoryCode);
-		fetch('menuCategory.do?categoryCode=' + categoryCode)
-			.then(response => response.json())
-			.then(result => {
-				showList(result);
-			})
-			.catch(err => {
-				console.log(err);
-			});
+		if (categoryCode != null) {
+			if (categoryCode.length == 2) {
+				fetch('menuCategory.do?categoryCode=' + categoryCode)
+					.then(response => response.json())
+					.then(result => {
+
+						showBody(result);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+			}
+		}
 	});
 });
 
@@ -47,14 +59,16 @@ function showBody(products) {
 
 	const section = document.getElementById('section');
 	section.innerHTML = '';
-	
+
+	const conDiv = document.createElement('div');
+	conDiv.className = 'container px-4 px-lg-5 mt-5';
+	const contDiv = document.createElement('div');
+	contDiv.className = 'content_box';
+	const rowDiv = document.createElement('div')
+	rowDiv.className = 'row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'
+
 
 	products.forEach(product => {
-		const conDiv = document.createElement('div');
-		conDiv.className ='container px-4 px-lg-5 mt-5';
-		const contDiv = document.createElement('div');
-		contDiv.className ='content_box';
-		
 		const colDiv = document.createElement('div');
 		colDiv.className = 'col mb-5';
 		const cardDiv = document.createElement('div');
@@ -63,9 +77,9 @@ function showBody(products) {
 		img.className = 'card-img-top';
 		img.src = `images/${product.prodImage}`;
 		console.log(product.Image);
-
 		const cardBodyDiv = document.createElement('div');
 		cardBodyDiv.className = 'card-body p-4';
+
 		const textCenterDiv = document.createElement('div');
 		textCenterDiv.className = 'text-center';
 
@@ -73,23 +87,25 @@ function showBody(products) {
 		productName.className = 'fw-bolder';
 		productName.textContent = product.prodName;
 
-		const productPrice = document.createElement('div'); // 상품가격
-		productPrice.textContent = product.prodPrice.numberFormat() + "원";
-
-		textCenterDiv.appendChild(productName);
-		textCenterDiv.appendChild(productPrice);
-		cardBodyDiv.appendChild(textCenterDiv);
-
 		const cardFooterDiv = document.createElement('div');
 		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
 		const textCenterFDiv = document.createElement('div');
 		textCenterFDiv.className = 'text-center';
-		const viewButton = document.createElement('a');
-		viewButton.className = 'btn btn-outline-dark mt-auto';
-		viewButton.href = `productInfo.do?bno=${product.prodNo}`;
-		viewButton.textContent = 'View options';
+		textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
 
-		textCenterFDiv.appendChild(viewButton);
+		const buyButton = document.createElement('a');
+		buyButton.className = 'btn btn-outline-dark mt-auto';
+		buyButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		buyButton.textContent = 'Buy';
+		const cartButton = document.createElement('a');
+		cartButton.className = 'btn btn-outline-dark mt-auto';
+		cartButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+		cartButton.textContent = 'Cart';
+
+		textCenterDiv.appendChild(productName);
+		cardBodyDiv.appendChild(textCenterDiv);
+		textCenterFDiv.appendChild(buyButton);
+		textCenterFDiv.appendChild(cartButton);
 		cardFooterDiv.appendChild(textCenterFDiv);
 
 		cardDiv.appendChild(img);
@@ -97,7 +113,9 @@ function showBody(products) {
 		cardDiv.appendChild(cardFooterDiv);
 
 		colDiv.appendChild(cardDiv);
-		contDiv.appendChild(colDiv);
-		conDiv.appendChild(contDiv);
-	})
+		rowDiv.appendChild(colDiv);
+
+	});
+	conDiv.appendChild(rowDiv);
+	section.appendChild(conDiv);
 }
