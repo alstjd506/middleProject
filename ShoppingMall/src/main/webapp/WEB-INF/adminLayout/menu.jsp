@@ -4,13 +4,13 @@
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 		<div class="sb-sidenav-menu">
 			<div class="nav">
-				<div class="sb-sidenav-menu-heading">Core</div>
+				<div class="sb-sidenav-menu-heading">Home</div>
 				<a class="nav-link" href="admin.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
-					</div> Dashboard
+					</div> 매출현황
 				</a>
-				<div class="sb-sidenav-menu-heading">Interface</div>
+				<div class="sb-sidenav-menu-heading">관리목록</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 					data-bs-target="#collapseLayouts" aria-expanded="false"
 					aria-controls="collapseLayouts">
@@ -57,19 +57,19 @@
 							aria-labelledby="headingOne"
 							data-bs-parent="#sidenavAccordionPages">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">주문 현황</a> <a
-									class="nav-link" href="#">취소 현황</a> <a
-									class="nav-link" href="#">반품 현황</a>
+								<a class="nav-link" href="adminOrderList.do">주문 현황</a> <a
+									class="nav-link" href="adminCancleList.do">취소 현황</a> <a
+									class="nav-link" href="adminReturnList.do">반품 현황</a>
 							</nav>
 						</div>
 					</nav>
 				</div>
-				<div class="sb-sidenav-menu-heading">Addons</div>
-				<a class="nav-link" href="charts.html">
+				<div class="sb-sidenav-menu-heading">ㄴㅇ</div>
+				<a class="nav-link" href="adminAddProductForm.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-chart-area"></i>
-					</div> Charts
-				</a> <a class="nav-link" href="tables.html">
+					</div> 상품등록
+				</a> <a class="nav-link" href="#">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-table"></i>
 					</div> Tables

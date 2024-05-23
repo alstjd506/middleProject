@@ -2,6 +2,8 @@ package com.shop.vo;
 
 import java.util.Date;
 
+import lombok.Data;
+@Data
 public class OrderVO {
 	private int orderNo;
 	private String userId;
