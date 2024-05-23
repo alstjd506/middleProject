@@ -18,9 +18,14 @@ import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminProductList;
+
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
 import com.shop.admin.web.AdminCancleList;
+import com.shop.member.web.FindIdForm;
+import com.shop.member.web.FindPwForm;
+import com.shop.member.web.JoinForm;
+import com.shop.member.web.LoginForm;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
@@ -48,9 +53,12 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new menuCategory());
+
 		map.put("/menuTopCategory.do", new menuTopCategroy());
 		
 		
+	
+
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
@@ -81,8 +89,14 @@ public class FrontControl extends HttpServlet {
 		map.put("/cartList.do", new CartListControl());
 		map.put("/removeCart.do", new RemoveCartControl());
 		
+	
+		//로그인화면
+		map.put("/login.do", new LoginForm());
+		map.put("/findid.do", new FindIdForm());
+		map.put("/findpw.do", new FindPwForm());
+		//회원가입
+		map.put("/join.do", new JoinForm());
 
-	}
 
 	
 
