@@ -55,7 +55,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new menuCategory());
-
 		map.put("/menuTopCategory.do", new menuTopCategroy());		
 
 		
