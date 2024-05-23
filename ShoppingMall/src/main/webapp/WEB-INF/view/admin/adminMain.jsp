@@ -53,6 +53,21 @@
 								<th>${btitle }</th>
 							</c:forEach>
 						</tr>
+						<tr>
+							<c:forEach var="otitle" items="${orderTitle }">
+								<th>${otitle }</th>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="ctitle" items="${cancleTitle }">
+								<th>${ctitle }</th>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="rtitle" items="${returnTitle }">
+								<th>${rtitle }</th>
+							</c:forEach>
+						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="product" items="${productList }">
@@ -86,6 +101,56 @@
 										pattern="yyyy-MM-dd" /></td>
 							</tr>
 						</c:forEach>
+						<c:forEach var="order" items="${orderList }">
+						<tr>
+							<td>${order.orderNo }</td>
+							<td>${order.userId }</td>
+							<td>${order.orderAddr }</td>
+							<td>${order.orderDetailAddr }</td>
+							<td>${order.orderDate }</td>
+							<c:choose>
+								<c:when test="${order.orderStatus ==1 }">
+									<td>상품준비중</td>
+								</c:when>
+								<c:when test="${order.orderStatus == 2}">
+									<td>배송중</td>
+								</c:when>
+								<c:otherwise>
+									<td>배송완료</td>
+								</c:otherwise>
+							</c:choose>
+							</tr>
+						</c:forEach>
+						<c:forEach var="cancle" items="${cancleList }">
+							<tr>
+							<td>${cancle.orderNo }</td>
+							<td>${cancle.userId }</td>
+							<td>${cancle.orderDate }</td>
+							<c:choose>
+							<c:when test="${cancle.orderStatus == 4 }">
+								<td><a class="cancleLink" href="adminCancleAgree.do?ono=${cancle.orderNo }">취소요청</a></td>
+							</c:when>
+							<c:otherwise>
+								<td>취소완료</td>
+							</c:otherwise>
+							</c:choose>
+							</tr>
+						</c:forEach>
+						<c:forEach var="returns" items="${orderReturn }">
+							<tr>
+							<td>${returns.orderNo }</td>
+							<td>${returns.userId }</td>
+							<td>${returns.orderDate }</td>
+							<c:choose>
+								<c:when test="${returns.orderStatus == 6 }">
+								<td><a class="returnLink" href="adminReturnAgree.do?rno=${returns.orderNo }">반품요청</a></td>
+								</c:when>
+								<c:otherwise>
+								<td>반품완료</td>
+								</c:otherwise>
+							</c:choose>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -93,5 +158,5 @@
 	</div>
 </main>
 <script>
-console.log("${boardList}")
+	console.log("${boardList}")
 </script>
