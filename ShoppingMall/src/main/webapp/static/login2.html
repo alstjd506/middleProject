@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<!-- <link href="css/loginstyle.css" rel="stylesheet" /> -->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+	crossorigin="anonymous"></script>
+<style>
+/* zocial */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+
+h2 { /* Login */
+  color:#FF4500;
+  margin-left:12px;
+}
+
+body { /* 배경색 */
+  background: #272125;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+form {
+  position:relative;
+  margin: 50px auto;
+  width: 380px;
+  height: auto;
+}
+
+input {
+  padding: 16px;
+  border-radius:7px;
+  border:0px;
+  background: rgba(255,255,255,.2);
+  display: block;
+  margin: 15px;
+  width: 300px;  
+  color:white;
+  font-size:18px;
+  height: 54px;
+}
+
+input:focus {
+  outline-color: rgba(0,0,0,0);
+  background: rgba(255,255,255,.95);
+  color: #e74c3c;
+}
+
+button {
+  float:right;
+  height: 121px;
+  width: 50px;
+  border: 0px;
+  background: #e74c3c;
+  border-radius:7px;
+  padding: 10px;
+  color:white;
+  font-size:22px;
+}
+
+.inputUserIcon {
+  position:absolute;
+  top:68px;
+  right: 80px;
+  color:white;
+}
+
+.inputPassIcon {
+  position:absolute;
+  top:136px;
+  right: 80px;
+  color:white;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: #e74c3c;
+}
+</style>
+<html>
+
+
+<body>
+<form action="">
+  <h2><span class="entypo-login"><i class="fa fa-sign-in"></i></span> Login</h2>
+  <button class="submit"><span class="entypo-lock"><i class="fa fa-lock"></i></span></button>
+  <span class="entypo-user inputUserIcon">
+     <i class="fa fa-user"></i>
+   </span>
+  <input type="text" class="user" placeholder="USER ID"/>
+  <span class="entypo-key inputPassIcon">
+     <i class="fa fa-key"></i>
+   </span>
+  <input type="password" class="pass"placeholder="PASSWORD"/>
+  
+</form>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+	crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
