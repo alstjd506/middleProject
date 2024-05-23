@@ -22,7 +22,10 @@ import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
 import com.shop.admin.web.AdminCancleList;
 import com.shop.member.web.MyPageControl;
+import com.shop.order.web.CartControl;
+import com.shop.order.web.CartListControl;
 import com.shop.order.web.OrderControl;
+import com.shop.order.web.RemoveCartControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
@@ -70,12 +73,13 @@ public class FrontControl extends HttpServlet {
 
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
-	
 		
-
+		// 장바구니 화면
+		map.put("/cart.do", new CartControl());
+		map.put("/cartList.do", new CartListControl());
+		map.put("/removeCart.do", new RemoveCartControl());
 		
-
-}
+	}
 
 	// service
 	@Override
