@@ -21,4 +21,6 @@ const svc = {
 			.then(successCall)
 			.catch(errorCall);
 	}
+
+	
 }

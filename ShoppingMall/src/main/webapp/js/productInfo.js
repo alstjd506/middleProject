@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputQty = document.getElementById('inputQuantity');
     const productPrice = parseInt(document.getElementById('productPrice').dataset.price); 
     const sumPrice = document.getElementById('sum_p_price').querySelector('span');
-
+	const addCartBtn = document.getElementById('addCartBtn');
+	
     function TotalPrice() {
         const qty = parseInt(inputQty.value);
         const total = qty * productPrice;
@@ -46,8 +47,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         TotalPrice();
     });
+    
+    addCartBtn.addEventListener('click', function(){
+		const prodNo = document.getElementById('prodNo').textContent;
+		console.log(prodNo);		
+		const qty = parseInt(inputQty.value);
+		console.log(qty);
+		
+	})
+    
+    
 
     TotalPrice();
 });
+
 
  
