@@ -59,85 +59,72 @@ ul, li {
 </style>
 
 <section id="section" class="py-5">
-	<div class="container px-4 px-lg-5 my-5">
-		<c:forEach var="product" items="${productInfo}">
-			<div class="row gx-4 gx-lg-5 align-items-center">
-				<div class="col-md-6">
-					<img class="card-img-top mb-5 mb-md-0"
-						src="images/${product.prodImage}" alt="..." />
-				</div>
-				<div class="col-md-6 align-bottom">
-					<div>
-						<div class="small mb-1">상품코드:${product.prodNo}</div>
-						<h1 class="display-5 fw-bolder">${product.prodName}</h1>
-						<div class="fs-5 mb-5">
-							<span><fmt:formatNumber value="${product.prodPrice}" />원</span>
-						</div>
-						<div class="prod-comment">
-							<ul>
-								<li>배송비 : 무료</li>
-								<li>할인 : 면제</li>
-								<li>포인트 : 면제</li>
-							</ul>
-
-							${product.prodComment }
-
-						</div>
-						<p class="lead"></p>
-						<div class="d-flex">
-							<button id="subBtn" class="btn btn-outline-dark flex-shrink-0"
-								type="button">-</button>
-							<input class="form-control text-center me-3" id="inputQuantity"
-								type="num" value="1" style="max-width: 3rem" />
-							<button id="addBtn" class="btn btn-outline-dark flex-shrink-0"
-								type="button">+</button>
-						</div>
-					</div>
-					<div class="right-align">
-						<div class="bigtext box blue summoney" id="sum_p_price">
-							합계금액: <span>74,200</span>원
-						</div>
-					</div>
-					<div class="right-align">
-						<button class="btn btn-outline-dark flex-shrink-0" type="button">
-							<i class="bi-cart-fill me-1"></i> 바로구매
-						</button>
-						<button class="btn btn-outline-dark flex-shrink-0" type="button">
-							<i class="bi-cart-fill me-1"></i> 장바구니
-						</button>
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-	<div class="row gx-4 gx-lg-5 my-5">
-		<div class="col-md-12">
-			<ul class="nav nav-tabs" id="myTab" role="tablist">
-				<li class="nav-item" role="presentation">
-					<button class="nav-link active" id="description-tab"
-						data-bs-toggle="tab" data-bs-target="#description" type="button"
-						role="tab" aria-controls="description" aria-selected="true">상품정보</button>
-				</li>
-				<li class="nav-item" role="presentation">
-					<button class="nav-link" id="review-tab" data-bs-toggle="tab"
-						data-bs-target="#review" type="button" role="tab"
-						aria-controls="review" aria-selected="false">리뷰</button>
-				</li>
-			</ul>
-			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="description"
-					role="tabpanel" aria-labelledby="description-tab">
-					<div class="col-md-12">
-						<img class="card-img-top mb-5 mb-md-0" src="images/건식사료설명1.jpg"
-							alt="..." />
-					</div>
-				</div>
-				<div class="tab-pane fade" id="review" role="tabpanel"
-					aria-labelledby="review-tab">
-					<div class="reviewScore">
-					
-					</div>
-					<div class="reviewWrite">
+    <div class="container px-4 px-lg-5 my-5">
+        <c:forEach var="product" items="${productInfo}">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6">
+                    <img class="card-img-top mb-5 mb-md-0" src="images/${product.prodImage}" alt="..." />
+                </div>
+                <div class="col-md-6 align-bottom">
+                    <div>
+                        <div class="small mb-1">상품코드:${product.prodNo}</div>
+                        <h1 class="display-5 fw-bolder">${product.prodName}</h1>
+                        <div class="fs-5 mb-5">
+                            <span id="productPrice" data-price="${product.prodPrice}">
+                                <fmt:formatNumber value="${product.prodPrice}" />원
+                            </span>
+                        </div>
+                        <div class="prod-comment">
+                            <ul>
+                                <li>배송비 : 무료</li>
+                                <li>할인 : 면제</li>
+                                <li>포인트 : 면제</li>
+                            	<li>${product.prodComment}</li>
+                            </ul>
+                        </div>
+                        <p class="lead"></p>
+                        <div class="d-flex">
+                            <button id="subBtn" class="btn btn-outline-dark flex-shrink-0" type="button">-</button>
+                            <input class="form-control text-center me-3" id="inputQuantity" type="text" value="1" style="max-width: 3rem" />
+                            <button id="addBtn" class="btn btn-outline-dark flex-shrink-0" type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="right-align">
+                        <div class="bigtext box blue summoney" id="sum_p_price">
+                            합계금액: <span>74,200</span>원
+                        </div>
+                    </div>
+                    <div class="right-align">
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <i class="bi-cart-fill me-1"></i> 바로구매
+                        </button>
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <i class="bi-cart-fill me-1"></i> 장바구니
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+    <div class="row gx-4 gx-lg-5 my-5">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">상품정보</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">리뷰</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    <div class="col-md-12">
+                        <img class="card-img-top mb-5 mb-md-0" src="images/건식사료설명1.jpg" alt="..." />
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                    <div class="reviewScore"></div>
+                    <div class="reviewWrite">
                         <form id="reviewForm" class="review-form">
                             <input type="hidden" name="prodNo" value="${product.prodNo}" />
                             <div class="form-group">
@@ -156,14 +143,11 @@ ul, li {
                             </div>
                             <button type="submit" class="btn btn-primary">작성</button>
                         </form>
-                 
-					</div>
-					<div class="reviewList">
-					
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                    <div class="reviewList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
+<script src="js/productInfo.js"></script>

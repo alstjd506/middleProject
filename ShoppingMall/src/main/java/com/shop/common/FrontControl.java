@@ -33,6 +33,7 @@ import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
 import com.shop.order.web.OrderControl;
 import com.shop.order.web.RemoveCartControl;
+import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
@@ -55,7 +56,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new menuCategory());
-
 		map.put("/menuTopCategory.do", new menuTopCategroy());		
 
 		
@@ -78,8 +78,10 @@ public class FrontControl extends HttpServlet {
 
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());
-		
+		//상품 리뷰
+		map.put("/addReview.do", new AddReviewControl());
 
+		
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
 
