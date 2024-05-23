@@ -75,21 +75,22 @@ public class FrontControl extends HttpServlet {
 
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
-		
-
-
 
 		// 장바구니 화면
 		map.put("/cart.do", new CartControl());
 		map.put("/cartList.do", new CartListControl());
 		map.put("/removeCart.do", new RemoveCartControl());
 		
+
+	}
+
 	
 
 
 
 
 }
+
 
 	// service
 	@Override

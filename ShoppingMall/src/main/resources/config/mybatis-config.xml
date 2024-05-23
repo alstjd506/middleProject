@@ -11,6 +11,7 @@
 		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
 		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
 		<typeAlias alias="cart" type="com.shop.vo.CartVO" />
+
 		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
 		<typeAlias alias="order" type="com.shop.vo.OrderVO"/>
 		<typeAlias alias="category" type="com.shop.vo.CategoryVO"/>
