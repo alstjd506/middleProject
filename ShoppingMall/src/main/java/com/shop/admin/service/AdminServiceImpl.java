@@ -57,12 +57,16 @@ public class AdminServiceImpl implements AdminService {
 	public boolean adminReturnAgree(int rno) {
 		return mapper.adminReturnAgree(rno)==1;
 	}
-	//@Override
-	//public List<CategoryVO> topAdminCategoryList() {
-		//return mapper.topAdminCategoryList();
-	//}
+	@Override
+	public List<CategoryVO> topAdminCategoryList() {
+		return mapper.topAdminCategoryList();
+	}
 	@Override
 	public List<CategoryVO> adminCategoryList(int cno) {
 		return mapper.adminCategoryList(cno);
+	}
+	@Override
+	public boolean adminAddProductControl(ProductVO pvo) {
+		return mapper.adminAddProductControl(pvo)==1;
 	}
 }

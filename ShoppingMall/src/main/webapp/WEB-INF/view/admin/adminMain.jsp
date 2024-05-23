@@ -2,7 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<style>
+a {
+text-decoration: none;
+color: black;
+}
 
+</style>
 <main>
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">Dashboard</h1>
@@ -33,7 +39,7 @@
 		</div>
 		<div class="card mb-4">
 			<div class="card-header">
-				<i class="fas fa-table me-1"></i> DataTable Example
+				<i class="fas fa-table me-1"></i>
 			</div>
 			<div class="card-body">
 				<table id="datatablesSimple">
@@ -79,7 +85,7 @@
 								<td>${product.prodSale }</td>
 								<td><fmt:formatDate value="${product.prodDate }"
 										pattern="yyyy-MM-dd" /></td>
-								<td>${product.categoryCode }</td>
+								<td>${product.categoryName }</td>
 							</tr>
 						</c:forEach>
 						<c:forEach var="member" items="${memberList }">

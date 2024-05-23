@@ -4,9 +4,11 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.admin.mapper.AdminMapper">
 	<select id="adminProductList" resultType="product">
-		select *
-		from product
-		order by category_code
+		select
+		prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name
+		from product p join category c
+		on p.category_code = c.category_code
+		order by p.category_code
 	</select>
 	<select id="adminMemberList" resultType="member">
 		select *
@@ -56,9 +58,21 @@
 		order_status = 7
 		where order_no = #{rno}
 	</update>
+	<select id="topAdminCategoryList" resultType="category">
+		select *
+		from category
+		 <![CDATA[
+       where category_code < 10
+  			]]>
+	</select>
 	<select id="adminCategoryList" resultType="category">
 		select *
 		from category
 		where top_category = #{cno}
 	</select>
+	<insert id="adminAddProductControl" parameterType="product">
+		insert into
+		product(prod_no,category_code,prod_name,prod_comment,prod_price,prod_image)
+		values(90,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage})
+	</insert>
 </mapper>

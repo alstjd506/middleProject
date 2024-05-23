@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.admin.web.AdminAddProduct;
+import com.shop.admin.web.AdminAddProductControl;
 import com.shop.admin.web.AdminAddProductForm;
 import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminCancleAgree;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
+import com.shop.admin.web.AdminOrderAgreeControl;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminProductList;
 
@@ -70,9 +73,10 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인
 		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회
 		map.put("/adminReturnAgree.do", new AdminReturnAgree()); // 관리자 반품승인
-		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 상품등록 페이지
-		
-		
+		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기
+		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지
+		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능
+		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
 
@@ -100,20 +104,6 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/removeCart.do", new RemoveCartControl());
 		
-	
-		//로그인화면
-		map.put("/login.do", new LoginForm());
-		map.put("/findid.do", new FindIdForm());
-		map.put("/findpw.do", new FindPwForm());
-		//회원가입
-		map.put("/join.do", new JoinForm());
-
-
-	
-
-
-
-
 }
 
 
