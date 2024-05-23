@@ -40,7 +40,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new menuCategory());
 		map.put("/menuTopCategory.do", new menuTopCategroy());
-				
+		
+		
+		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회
@@ -60,7 +62,6 @@ public class FrontControl extends HttpServlet {
 	
 		
 
-		
 
 }
 

@@ -21,7 +21,6 @@
 	</definition>
   	<definition name="WILDCARD:product/*" extends="shop.mainLayout">
   		<put-attribute name="body" value="/WEB-INF/view/product/{1}.jsp" />
-
   	</definition>
 		
 	<definition name="shop.adminLayout" template="/WEB-INF/adminLayout/template.jsp">
