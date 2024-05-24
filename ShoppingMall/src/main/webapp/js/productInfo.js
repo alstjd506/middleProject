@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         TotalPrice();
     });
     
+    // 장바구니 버튼 클릭
     addCartBtn.addEventListener('click', function(){
 		const prodNo = document.getElementById('prodNo').textContent;
 		console.log(prodNo);		
@@ -55,10 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(qty);
 		
 	})
-    
-    
-
     TotalPrice();
+    
 });
 
 

@@ -40,8 +40,7 @@ import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
-import com.shop.product.web.menuCategory;
-import com.shop.product.web.menuTopCategroy;
+import com.shop.product.web.productListControl;
 
 
 public class FrontControl extends HttpServlet {
@@ -58,10 +57,8 @@ public class FrontControl extends HttpServlet {
 		// 메인 홈화면
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
-		map.put("/menuCategory.do", new menuCategory());
-		map.put("/menuTopCategory.do", new menuTopCategroy());		
+		map.put("/productList.do", new productListControl());
 
-		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회
@@ -77,6 +74,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능
 		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능
+		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
 
@@ -105,7 +103,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/removeCart.do", new RemoveCartControl());
 		
 }
-
 
 	// service
 	@Override

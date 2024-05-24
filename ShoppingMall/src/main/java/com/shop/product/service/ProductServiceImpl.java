@@ -21,8 +21,8 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.productNewList();
 	}
 	@Override
-	public List<ProductVO> categoryList(int topCategory) {
-		return mapper.categoryList(topCategory);
+	public List<ProductVO> categoryList(int categoryCode) {
+		return mapper.categoryList(categoryCode);
 	}
 	@Override
 	public List<ProductVO> productMdList() {
@@ -40,8 +40,5 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> menuCategory(int categoryCode) {
 		return mapper.menuCategory(categoryCode);
 	}
-	@Override
-	public List<ProductVO> menuTopCategory(int topCategory) {
-		return mapper.menuTopCategory(topCategory);
-	}
+
 }
