@@ -105,6 +105,7 @@ color: black;
 								<td>${board.userId }</td>
 								<td><fmt:formatDate value="${board.boardDate}"
 										pattern="yyyy-MM-dd" /></td>
+										<td>${board.boardStatus =='y' ? '답변완료' : '미답변' }</td>
 							</tr>
 						</c:forEach>
 						<c:forEach var="order" items="${orderList }">

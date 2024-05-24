@@ -67,6 +67,6 @@
 </form>
 
 <!--  상품이미지 끝 -->
-<script src="js/adminAddProduct.js">
+<script src="js/admin.js">
 
 </script>

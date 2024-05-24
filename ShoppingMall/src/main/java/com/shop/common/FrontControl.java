@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.admin.web.AadminReplyModi;
 import com.shop.admin.web.AdminAddProduct;
 import com.shop.admin.web.AdminAddProductControl;
 import com.shop.admin.web.AdminAddProductForm;
+import com.shop.admin.web.AdminBoadrControl;
 import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminCancleAgree;
@@ -20,6 +22,7 @@ import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderAgreeControl;
 import com.shop.admin.web.AdminOrderList;
+import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 
 
@@ -63,20 +66,26 @@ public class FrontControl extends HttpServlet {
 
 		
 		//관리자 화면
-		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
-		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회
-		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회
-		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&N목록조회
-		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&N 상세조회/답글남기기
-		map.put("/adminOrderList.do", new AdminOrderList()); // 관리자 주문현황 조회
-		map.put("/adminCancleList.do", new AdminCancleList()); // 관리자 취소현황 조회
-		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인
-		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회
-		map.put("/adminReturnAgree.do", new AdminReturnAgree()); // 관리자 반품승인
-		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기
-		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지
-		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능
-		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능
+		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
+		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
+		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회 o
+		map.put("/adminProductInfo.do", new AdminProductInfo()); // 관리자 상풍상세조회 x
+		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&A 목록조회 o
+		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&A 상세조회 o
+		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
+		map.put("/adminReplyModi.do ", new AadminReplyModi()); // 관리자 Q&A 답글 수정기능 x
+		map.put("/adminOrderList.do", new AdminOrderList()); // 관리자 주문현황 조회 o
+		map.put("/adminCancleList.do", new AdminCancleList()); // 관리자 취소현황 조회 o
+		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
+		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회 o  
+		map.put("/adminReturnAgree.do", new AdminReturnAgree()); // 관리자 반품승인 o
+		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
+		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
+		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
+		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능 x
+		
+		
+		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
 

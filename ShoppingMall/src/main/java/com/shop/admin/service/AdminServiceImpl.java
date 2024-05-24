@@ -11,6 +11,7 @@ import com.shop.vo.CategoryVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
+import com.shop.vo.ReplyVO;
 
 public class AdminServiceImpl implements AdminService {
 
@@ -68,5 +69,19 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public boolean adminAddProductControl(ProductVO pvo) {
 		return mapper.adminAddProductControl(pvo)==1;
+	}
+	@Override
+	public boolean adminBoardReply(ReplyVO rvo) {
+		return mapper.adminBoardReply(rvo)==1;
+	}@Override
+	public boolean adminBoardReplyUp(int bno) {
+		return mapper.adminBoardReplyUp(bno)==1;
+	}@Override
+	public BoardVO adminBoardInfon(int bno) {
+		return mapper.adminBoardInfon(bno);
+	}
+	@Override
+	public boolean adminReplyModi(ReplyVO rvo) {
+		return mapper.adminReplyModi(rvo)==1;
 	}
 }
