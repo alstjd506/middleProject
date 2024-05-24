@@ -16,21 +16,20 @@ import com.shop.admin.web.AdminAddProductForm;
 import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminCancleAgree;
+import com.shop.admin.web.AdminCancleList;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderAgreeControl;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminProductList;
-
-
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
-import com.shop.admin.web.AdminCancleList;
-
 import com.shop.member.web.FindIdForm;
 import com.shop.member.web.FindPwForm;
 import com.shop.member.web.JoinForm;
+import com.shop.member.web.LoginControl;
 import com.shop.member.web.LoginForm;
+import com.shop.member.web.LogoutControl;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
@@ -60,7 +59,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new menuCategory());
 		map.put("/menuTopCategory.do", new menuTopCategroy());		
-
+		
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면
@@ -84,18 +83,20 @@ public class FrontControl extends HttpServlet {
 		map.put("/productInfo.do", new ProductInfoControl());
 		//상품 리뷰
 		map.put("/addReview.do", new AddReviewControl());
-
+		
 		
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
 
 	
 		//로그인화면
-		map.put("/login.do", new LoginForm());
-		map.put("/findid.do", new FindIdForm());
-		map.put("/findpw.do", new FindPwForm());
+		map.put("/login.do", new LoginForm()); //로그인화면
+		map.put("/loginControl.do", new LoginControl()); 
+		map.put("/logout.do", new LogoutControl()); //로그아웃
+		map.put("/findid.do", new FindIdForm()); //아이디찾기
+		map.put("/findpw.do", new FindPwForm()); //비밀번호찾기
 		//회원가입
-		map.put("/join.do", new JoinForm());
+		map.put("/join.do", new JoinForm()); //회원가입
 
 
 		// 장바구니 화면

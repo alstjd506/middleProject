@@ -40,16 +40,15 @@
 									<a class="dropdown-item" href="#!">내 정보수정</a> <a
 									class="dropdown-item" href="#!">내 게시글 보기</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#!">로그아웃</a>
+									<a class="dropdown-item" href="logout.do">로그아웃</a>
 									</c:otherwise>
                    					</c:choose>
 								</div></li>
-                   			
+                   				<c:if test="${empty logId }">
                    				<li class="loginForm" list-style-type= none>
-                   					<a href="#!">Login</a>
+                   					<a href="login.do">Login</a>
                    				</li>
-                   				
-                   				
+                   				</c:if>
                    				<li class="OrderForm" list-style-type= none>
                    					<a href="#!">Order</a>
                    				</li>

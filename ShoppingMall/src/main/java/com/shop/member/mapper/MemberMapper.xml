@@ -2,8 +2,26 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace= "com.shop.member.mepper.MemberMapper">
+<mapper namespace= "com.shop.member.mapper.MemberMapper">
 
+<!-- 	회원가입-->
+<!-- 	<insert id="insertUser" parameterType="com.shop.vo.MemberVO"> -->
+<!-- 		insert into USERS(user_id, user_pw, user_name, user_phone, user_post, user_addr, user_detail_addr, user_resp) -->
+<!-- 		values(#{userId},#{userPw},#{userName},#{userPhone},#{userPost},#{userAddr},#{userDetailAddr} #{userResp}) -->
+<!-- 	</insert> -->
+	
+<!-- 	 --> 
+<!-- 	<select id="selectUserCountById" parameterType="String" resultType="int"> -->
+<!--         SELECT COUNT(*) FROM USERS WHERE user_id = #{userId} -->
+<!--     </select> -->
+    
+    <!--  -->
+    <select id ="selectMember" resultType="member">
+    	 select *
+   		 from users
+   		 where user_id = #{id}
+  		 and   user_pw = #{pw}
+    </select>
 
 
 

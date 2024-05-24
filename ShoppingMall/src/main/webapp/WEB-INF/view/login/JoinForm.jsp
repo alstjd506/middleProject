@@ -7,7 +7,18 @@
 <!DOCTYPE html >
 <html>
 <head>
- </head> 
+ <style>
+ #join{
+ margin-left: 27%;
+ text-align: center;
+ box_sizing:content-box;
+ 
+ }
+ #id{
+ width: 100%
+ }
+ </style>
+</head> 
 <body>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -53,23 +64,12 @@
         }).open();
     }
 </script> 
- <style>
- #join{
- margin-left: 27%;
- text-align: center;
- box_sizing:content-box;
+
  
- }
- #id{
- width: 100%
- }
- </style>
- 
-       
-         <form id="join" action="/member/joinproc.jsp" method="post">  <!--class="form-horizontal" -->
+       		<!--class="form-horizontal" -->
+<form id="join" action="/ShoppingMall/main.do" method="post">  <!--  -->
          
-        
-      <div >      
+           
 <div class="row">
      
     <div class="col-xs-12 col-sm-12">
@@ -174,13 +174,11 @@
          <div class="form-group" >
             <div class="col-sm-12  text-center">
             <input type="submit" value="회원가입" class="btn btn-success">
-            <input type="reset" value="취소" class="btn btn-warning">
+            <input type="submit" value="취소" class="btn btn-warning" onclick="location.href='main.do'">
+            
+<!--             <a href="main.do">취소</a> -->
             </div>
          </div>
-         
-         
+         </div>
+         </div>
         </form> 
-      </div>
-    </div>
- 
-</div>
