@@ -32,7 +32,7 @@ public class AadminReplyModi implements Control {
 			resp.getWriter().print("{\"retCode\": \"OK\"}");
 		} else {
 			resp.getWriter().print("{\"retCode\": \"NG\"}");
-		}
+		}   
 
 	}
 
