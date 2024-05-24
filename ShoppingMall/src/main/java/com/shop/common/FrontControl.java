@@ -18,22 +18,21 @@ import com.shop.admin.web.AdminBoadrControl;
 import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminCancleAgree;
+import com.shop.admin.web.AdminCancleList;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderAgreeControl;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
-
-
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
-import com.shop.admin.web.AdminCancleList;
-
 import com.shop.member.web.FindIdForm;
 import com.shop.member.web.FindPwForm;
 import com.shop.member.web.JoinForm;
+import com.shop.member.web.LoginControl;
 import com.shop.member.web.LoginForm;
+import com.shop.member.web.LogoutControl;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
@@ -62,6 +61,7 @@ public class FrontControl extends HttpServlet {
 		// 메인 홈화면
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
+
 		map.put("/productList.do", new productListControl());
 
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
@@ -81,6 +81,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능 x
+
+
+	
+		
+
 		
 		
 		
@@ -92,12 +97,21 @@ public class FrontControl extends HttpServlet {
 		//상품 리뷰
 		map.put("/addReview.do", new AddReviewControl());
 
+		
+		
+		// 주문 화면
+		map.put("/order.do", new OrderControl());
+
+	
+
 		//로그인화면
-		map.put("/login.do", new LoginForm());
-		map.put("/findid.do", new FindIdForm());
-		map.put("/findpw.do", new FindPwForm());
+		map.put("/login.do", new LoginForm()); //로그인화면
+		map.put("/loginControl.do", new LoginControl()); 
+		map.put("/logout.do", new LogoutControl()); //로그아웃
+		map.put("/findid.do", new FindIdForm()); //아이디찾기
+		map.put("/findpw.do", new FindPwForm()); //비밀번호찾기
 		//회원가입
-		map.put("/join.do", new JoinForm());
+		map.put("/join.do", new JoinForm()); //회원가입
 
 
 		// 주문 화면

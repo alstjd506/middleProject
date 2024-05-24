@@ -87,7 +87,7 @@
         
 		</div>
         <div class="links">
-            <a href="memberPw">비밀번호 찾기</a> | <a href="memberLogin">로그인</a> | <a href="memberRegist">회원가입</a>
+            <a href="findpw.do">비밀번호 찾기</a> | <a href="login.do">로그인</a> | <a href="join.do">회원가입</a>
 
         </div>
 	</div>

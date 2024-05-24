@@ -20,7 +20,7 @@ public class LoginControl implements Control {
 
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-
+		
 		MemberService svc = new MemberServiceImpl();
 		MemberVO mvo = svc.login(id, pw);
 

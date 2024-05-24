@@ -12,15 +12,15 @@
 	width: 100% ;
 }
 </style>
-<form id="login">
+<form id="login" action="loginControl.do">
 	<!-- Email input -->
 	<div data-mdb-input-init class="form-outline mb-4">
-		<input type="text" id="form2Example1" class="form-control"  placeholder="ID"/> 
+		<input type="text" id="userId" name="id" class="form-control"  placeholder="ID"/> 
 	</div>
 
 	<!-- Password input -->
 	<div data-mdb-input-init class="form-outline mb-4">
-		<input type="password" id="form2Example2" class="form-control"  placeholder="Password" /> 
+		<input type="password" id="userPw" name="pw" class="form-control"  placeholder="Password" /> 
 	</div>
 
 	<!-- 2 column grid layout for inline styling -->
@@ -34,44 +34,46 @@
 <!-- 			</div> -->
 		<div class="col">
 			<!-- Simple link -->
-			<a href="#!">아이디 찾기</a>
+			<a href="findid.do" >아이디 찾기</a>
 		</div>
+		<!-- onclick="location.href='findid.do'" -->
 <!-- 		<div class="col"> -->
 			<!-- Simple link -->
-			<a href="#!">비밀번호 찾기</a>
+			<a href="findpw.do">비밀번호 찾기</a>
 <!-- 		</div> -->
 		</div>
 
 	</div>
-
 	<!-- Submit button -->
-	<button type="button" data-mdb-button-init data-mdb-ripple-init
-		class="btn btn-primary btn-block mb-4" id="btn">Sign in</button>
+	
+	<!--data-mdb-button-init data-mdb-ripple-init 얘는 타입이랑 클래스사이에 있던애인데 뭐하는건지 모르겠음 -->
+	<button  type="submit" id="login_Btn" class="btn btn-primary btn-block mb-4" onclick="" id="btn">Sign in</button>
 
 	<!-- Register buttons -->
 	<div class="text-center">
 		<p>
-			회원이 아니신가요? <a href="#!">회원가입</a>
+			회원이 아니신가요? <a href="join.do" >회원가입</a>
 		</p>
 	
-		<button type="button" data-mdb-button-init data-mdb-ripple-init
-			class="btn btn-link btn-floating mx-1">
-			<i class="fab fa-facebook-f"></i>
-		</button>
+<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
+<!-- 			class="btn btn-link btn-floating mx-1"> -->
+<!-- 			<i class="fab fa-facebook-f"></i> -->
+<!-- 		</button> -->
 
-		<button type="button" data-mdb-button-init data-mdb-ripple-init
-			class="btn btn-link btn-floating mx-1">
-			<i class="fab fa-google"></i>
-		</button>
+<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
+<!-- 			class="btn btn-link btn-floating mx-1"> -->
+<!-- 			<i class="fab fa-google"></i> -->
+<!-- 		</button> -->
 
-		<button type="button" data-mdb-button-init data-mdb-ripple-init
-			class="btn btn-link btn-floating mx-1">
-			<i class="fab fa-twitter"></i>
-		</button>
+<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
+<!-- 			class="btn btn-link btn-floating mx-1"> -->
+<!-- 			<i class="fab fa-twitter"></i> -->
+<!-- 		</button> -->
 
-		<button type="button" data-mdb-button-init data-mdb-ripple-init
-			class="btn btn-link btn-floating mx-1">
-			<i class="fab fa-github"></i>
-		</button>
+<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
+<!-- 			class="btn btn-link btn-floating mx-1"> -->
+<!-- 			<i class="fab fa-github"></i> -->
+<!-- 		</button> -->
 	</div>
 </form>
+<script src="../../js/member.js"></script>
