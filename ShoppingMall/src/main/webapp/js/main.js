@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	loadCategory(1);
 
+
 });
-function loadCategory(topCategory) {
-	fetch('category.do?topCategory=' + topCategory)
+function loadCategory(categoryCode) {
+	fetch('category.do?categoryCode=' + categoryCode)
 		.then(response => response.json())
 		.then(result => {
 			showList(result);
@@ -87,53 +88,12 @@ function changePage(divId, updown) {
 	showPage(divId, currentPage + updown); // 상품div의 data-page를 -1 , 1 변경
 }
 
-/*document.querySelectorAll('.nav-link').forEach(link => {
-	link.addEventListener('click', function() {
-
-		const topCategory = this.getAttribute('data-no');
-		if (topCategory != null) {
-			console.log(topCategory);
-			if (topCategory.length == 1) {
-				fetch('menuTopCategory.do?topCategory=' + topCategory)
-					.then(response => response.json())
-					.then(result => {
-						showBody(result);
-					})
-					.catch(err => {
-						console.log(err);
-					});
-			}
-
-		}
-
-	});
-});
-document.querySelectorAll('.nav-link').forEach(button => {
-	button.addEventListener('click', function() {
-
-		const categoryCode = this.getAttribute('data-no');
-		console.log(categoryCode);
-		if (categoryCode != null) {
-			if (categoryCode.length == 2) {
-				fetch('menuCategory.do?categoryCode=' + categoryCode)
-					.then(response => response.json())
-					.then(result => {
-
-						showBody(result);
-					})
-					.catch(err => {
-						console.log(err);
-					});
-			}
-		}
-	});
-});*/
 document.querySelectorAll('.category-btn').forEach(button => {
 	button.addEventListener('click', function() {
 
-		const topCategory = this.getAttribute('data-type');
-		console.log(topCategory);
-		fetch('category.do?topCategory=' + topCategory)
+		const categoryCode = this.getAttribute('data-type');
+		console.log(categoryCode);
+		fetch('category.do?categoryCode=' + categoryCode)
 			.then(response => response.json())
 			.then(result => {
 				showList(result);
@@ -142,131 +102,95 @@ document.querySelectorAll('.category-btn').forEach(button => {
 			.catch(err => {
 				console.log(err);
 			});
-
 	});
 });
 
+//리스트 새로 생성시켜주는 
 function showList(products) {
-	console.log(products);
+   console.log(products);
 
-	const div = document.getElementById('ctgProducts');
-	div.innerHTML = '';
+   const div = document.getElementById('ctgProducts');
+   div.innerHTML = '';
 
-	products.forEach(product => {
-		const colDiv = document.createElement('div');
-		colDiv.className = 'col mb-5';
-		const cardDiv = document.createElement('div');
-		cardDiv.className = 'card h-100';
-		const img = document.createElement('img'); //이미지 지정
-		img.className = 'card-img-top';
-		img.src = `images/${product.prodImage}`;
+   products.forEach(product => {
+      const colDiv = document.createElement('div');
+      colDiv.className = 'col mb-5';
+      const cardDiv = document.createElement('div');
+      cardDiv.className = 'card h-100';
+      const imgButton = document.createElement('a');
+      imgButton.href = `productInfo.do?prodNo=${product.prodNo}`;
 
-		const cardBodyDiv = document.createElement('div');
-		cardBodyDiv.className = 'card-body p-4';
-		const textCenterDiv = document.createElement('div');
-		textCenterDiv.className = 'text-center';
+      const img = document.createElement('img'); //이미지 지정
+      img.className = 'card-img-top';
+      img.src = `images/${product.prodImage}`;
 
-		const productName = document.createElement('h5'); //상품명
-		productName.className = 'fw-bolder';
-		productName.textContent = product.prodName;
+      const cardBodyDiv = document.createElement('div');
+      cardBodyDiv.className = 'card-body p-4';
+      const textCenterDiv = document.createElement('div');
+      textCenterDiv.className = 'text-center';
 
-		const cardFooterDiv = document.createElement('div');
-		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
-		
-		const textCenterFDiv = document.createElement('div');
-		textCenterFDiv.className = 'text-center';
-		textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
-				
-		const buyButton = document.createElement('a');
-		buyButton.className = 'btn btn-outline-dark mt-auto';
-		buyButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		buyButton.textContent = 'Buy';
-		const cartButton = document.createElement('a');
-		cartButton.className = 'btn btn-outline-dark mt-auto';
-		cartButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		cartButton.textContent = 'Cart';
+      const nameButton = document.createElement('a');
+      nameButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+      const productName = document.createElement('h5'); //상품명
+      productName.className = 'fw-bolder';
+      productName.textContent = product.prodName;
 
+      const cardFooterDiv = document.createElement('div');
+      cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
 
-		textCenterDiv.appendChild(productName);
-		cardBodyDiv.appendChild(textCenterDiv);
-		
-		textCenterFDiv.appendChild(buyButton);
-		textCenterFDiv.appendChild(cartButton);
-		cardFooterDiv.appendChild(textCenterFDiv);
+      const textCenterFDiv = document.createElement('div');
+      textCenterFDiv.className = 'text-center';
+      textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
 
-		cardDiv.appendChild(img);
-		cardDiv.appendChild(cardBodyDiv);
-		cardDiv.appendChild(cardFooterDiv);
+      const cartButton = document.createElement('a');
+      cartButton.className = 'modal_open';
+      cartButton.textContent = 'Cart';
+      cartButton.addEventListener('click', function(){
+         document.querySelector('.modal').style.display = 'block';
+      })
 
-		colDiv.appendChild(cardDiv);
-		div.appendChild(colDiv);
-	})
-}
+      nameButton.appendChild(productName);
+      textCenterDiv.appendChild(nameButton);
+      cardBodyDiv.appendChild(textCenterDiv);
+      /*textCenterFDiv.appendChild(buyButton);*/
+      textCenterFDiv.appendChild(cartButton);
+      cardFooterDiv.appendChild(textCenterFDiv);
 
-/*function showBody(products) {
-	console.log(products);
+      imgButton.appendChild(img);
+      cardDiv.appendChild(imgButton);
+      cardDiv.appendChild(cardBodyDiv);
+      cardDiv.appendChild(cardFooterDiv);
 
-	const section = document.getElementById('section');
-	section.innerHTML = '';
-	
-	const conDiv = document.createElement('div');
-	conDiv.className = 'container px-4 px-lg-5 mt-5';
-	const contDiv = document.createElement('div');
-	contDiv.className = 'content_box';
-	const rowDiv = document.createElement('div');
-	rowDiv.className = 'row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center'
-		
-	
-	products.forEach(product => {
-		const colDiv = document.createElement('div');
-		colDiv.className = 'col mb-5';
-		const cardDiv = document.createElement('div');
-		cardDiv.className = 'card h-100';
-		const img = document.createElement('img'); //이미지 지정
-		img.className = 'card-img-top';
-		img.src = `images/${product.prodImage}`;
-		console.log(product.Image);
-		const cardBodyDiv = document.createElement('div');
-		cardBodyDiv.className = 'card-body p-4';
+      colDiv.appendChild(cardDiv);
+      div.appendChild(colDiv);
 
-		const textCenterDiv = document.createElement('div');
-		textCenterDiv.className = 'text-center';
+   })
 
-		const productName = document.createElement('h5'); //상품명
-		productName.className = 'fw-bolder';
-		productName.textContent = product.prodName;
+};
 
-		const cardFooterDiv = document.createElement('div');
-		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
-		const textCenterFDiv = document.createElement('div');
-		textCenterFDiv.className = 'text-center';
-		textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
-		
-		const buyButton = document.createElement('a');
-		buyButton.className = 'btn btn-outline-dark mt-auto';
-		buyButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		buyButton.textContent = 'Buy';
-		const cartButton = document.createElement('a');
-		cartButton.className = 'btn btn-outline-dark mt-auto';
-		cartButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		cartButton.textContent = 'Cart';
+//모달 관련
+document.addEventListener('DOMContentLoaded', function() {
+	const modal = document.querySelector('.modal');
+	const modalOpenButtons = document.querySelectorAll('.modal_open');
+	const modalCartBtn = document.querySelector('.cart_btn');
+	const modalClose = document.querySelector('.close_btn');
 
-		textCenterDiv.appendChild(productName);
-		cardBodyDiv.appendChild(textCenterDiv);
-		textCenterFDiv.appendChild(buyButton);
-		textCenterFDiv.appendChild(cartButton);
-		cardFooterDiv.appendChild(textCenterFDiv);
-
-		cardDiv.appendChild(img);
-		cardDiv.appendChild(cardBodyDiv);
-		cardDiv.appendChild(cardFooterDiv);
-
-		colDiv.appendChild(cardDiv);
-		rowDiv.appendChild(colDiv);
-		
+	//열기 버튼을 눌렀을 때 모달팝업이 열림
+	modalOpenButtons.forEach(button => {
+		button.addEventListener('click', function(event) {
+			event.preventDefault();
+			modal.style.display = 'block';
+		});
 	});
-		conDiv.appendChild(rowDiv);
-		section.appendChild(conDiv);
-}
 
-*/
+	modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
+		modal.style.display = 'none';
+		window.location.href = 'cart.do';
+	});
+
+	modalClose.addEventListener('click', function() {
+		modal.style.display = 'none';
+	});
+
+});
+

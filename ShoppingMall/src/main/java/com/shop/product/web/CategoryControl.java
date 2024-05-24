@@ -20,19 +20,26 @@ public class CategoryControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/json;charset=utf-8");
-		
-		String topCategory = req.getParameter("topCategory");
-		if(topCategory == null || topCategory.isEmpty()) {
-			topCategory = "1";
+
+		String categoryCode = req.getParameter("categoryCode");
+		if (categoryCode == null || categoryCode.isEmpty()) {
+			categoryCode = "1";
 		}
 		
 		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> categoryList = svc.categoryList(Integer.parseInt(topCategory));
-		
 		Gson gson = new GsonBuilder().create();
-		String json = gson.toJson(categoryList);
-		resp.getWriter().print(json);
-		
+		String json;
+
+		if (categoryCode.length() == 1) {
+			List<ProductVO> categoryList = svc.categoryList(Integer.parseInt(categoryCode));
+			json = gson.toJson(categoryList);
+			resp.getWriter().print(json);
+
+		} else if (categoryCode.length() == 2) {
+			List<ProductVO> menuCategory = svc.menuCategory(Integer.parseInt(categoryCode));
+			json = gson.toJson(menuCategory);
+			resp.getWriter().print(json);
+		}
 	}
 
 }
