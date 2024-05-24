@@ -32,8 +32,10 @@ import com.shop.member.web.FindPwForm;
 import com.shop.member.web.JoinForm;
 import com.shop.member.web.LoginForm;
 import com.shop.member.web.MyPageControl;
+import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
+import com.shop.order.web.EditCartControl;
 import com.shop.order.web.OrderControl;
 import com.shop.order.web.RemoveCartControl;
 import com.shop.product.web.AddReviewControl;
@@ -85,11 +87,6 @@ public class FrontControl extends HttpServlet {
 		//상품 리뷰
 		map.put("/addReview.do", new AddReviewControl());
 
-		
-		// 주문 화면
-		map.put("/order.do", new OrderControl());
-
-	
 		//로그인화면
 		map.put("/login.do", new LoginForm());
 		map.put("/findid.do", new FindIdForm());
@@ -98,11 +95,15 @@ public class FrontControl extends HttpServlet {
 		map.put("/join.do", new JoinForm());
 
 
+		// 주문 화면
+		map.put("/order.do", new OrderControl());
+		
 		// 장바구니 화면
 		map.put("/cart.do", new CartControl());
-		map.put("/cartList.do", new CartListControl());
-		
-		map.put("/removeCart.do", new RemoveCartControl());
+		map.put("/cartList.do", new CartListControl()); // 장바구니 목록
+		map.put("/removeCart.do", new RemoveCartControl()); // 장바구니 삭제
+		map.put("/editCart.do", new EditCartControl()); // 장바구니 수량 수정
+		map.put("/addCart.do", new AddCartControl()); // 장바구니 추가
 		
 }
 

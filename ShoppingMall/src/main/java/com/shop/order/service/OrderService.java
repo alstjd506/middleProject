@@ -8,4 +8,6 @@ import com.shop.vo.CartVO;
 public interface OrderService {
 	List<Map<String, Object>> cartList(String userId);
 	boolean removeCart(CartVO cvo);
+	boolean editCart(CartVO cvo);
+	boolean addCart(CartVO cvo);
 }

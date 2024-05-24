@@ -11,7 +11,7 @@ const svc = {
 		.catch(errorCall);
 	},
 	// 장바구니 삭제
-	cartRemove(userId, prodNo, successCall, errorCall) {
+	removeCart(userId, prodNo, successCall, errorCall) {
 		fetch('removeCart.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -20,6 +20,17 @@ const svc = {
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
+	},
+	// 장바구니 수정
+	editCart(userId, prodNo, cartCnt, successCall, errorCall) {
+		fetch('editCart.do', {
+			method: 'post',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: 'userId=' + userId + '&prodNo=' + prodNo + '&cartCnt=' + cartCnt
+		})
+			.then(resolve => resolve.json())
+			.then(successCall)
+			.then(errorCall)
 	}
 
 	

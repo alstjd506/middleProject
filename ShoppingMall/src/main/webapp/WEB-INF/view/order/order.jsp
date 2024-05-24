@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<style>
+ul{
+	list-style: none;
+}
+</style>
 <div class="container mt-3">
-  <table class="table">
+  <table class="table" id="cartTable">
     <thead class="table-dark">
       <tr align="center">
         <th colspan="6">주문상품</th>
@@ -10,23 +14,18 @@
     </thead>
     <tbody>
       <tr align="center">
-        <td><input type="checkbox" /></td>
         <td colspan="2">상품</td>
         <td>수량</td>
         <td>금액</td>
-        <td><input type="button" name="delAll" value="전체삭제"></td>
-      </tr>
-      <tr align="center">
-        <td><input type="checkbox" /></td>
-        <td><img src="" alt="상품이미지"></td>
-        <td>상품명</td>
-        <td><input type="number" min="1" value="1"></td>
-        <td>00,000원</td>
-        <td><input type="button" name="delProd" value="삭제"></td>
       </tr>
     </tbody>
   </table>
-
+  <div>
+    <ul>
+      <li>총 수량 <span id="totalCount">0</span>개</li>
+      <li>총 금액 <span id="totalPrice">00,000</span>원</li>
+    </ul>
+  </div>
   <table class="table">
     <thead class="table-dark">
       <tr align="center">
@@ -58,29 +57,10 @@
       </tr>
     </tbody>
   </table>
-  
-  <table class="table">
-    <thead class="table-dark">
-      <tr align="center">
-        <th colspan="2">주문/결제</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>총 수량</td>
-        <td align="right">0개</td>
-      </tr>
-      <tr>
-        <td>총 금액</td>
-        <td align="right">00,000원</td>
-      </tr>
-      <tr align="center">
-        <td colspan="2"><input type="submit" value="결제" /></td>
-      </tr>
-    </tbody>
-  </table>
 </div>
-
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="js/orderService.js"></script>
+<script src="js/order.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function execDaumPostcode() {
