@@ -82,7 +82,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능 x
 		
-		
+		// 내용바꾸기
 		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
