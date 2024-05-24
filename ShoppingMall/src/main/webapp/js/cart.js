@@ -28,30 +28,37 @@ let basket = {
 					let tr = $('<tr />').attr('align', 'center')
 										.css('vertical-align', 'middle')
 										.attr('id', cart.PROD_NO)
+										.append($('<input>').attr('type', 'hidden')
+															.attr('name', 'prodNo')
+															.val(cart.PROD_NO))
 							   			.append($('<td />').append($('<input>').attr('type', 'checkbox')
-							   												   .prop('checked', true)))
+							   												   .prop('checked', true)
+							   												   .on('click', basket.calcTotal)))
 										.append($('<td />').append($('<img />').attr('src', 'images/' + cart.PROD_IMAGE)
 														                       .attr('alt', '상품이미지')
 														                       .css('height', '100px')))
-										.append($('<td />').text(cart.PROD_NAME))
+										.append($('<td />').attr('align', 'left')
+														   .text(cart.PROD_NAME))
 										.append($('<td />').append($('<input>').attr('type', 'number')
+																			   .attr('id', 'count' + cart.PROD_NO)
 										   									   .attr('min', '1')
 										   									   .attr('max', '99')
-										  									   .attr('value', cart.CART_CNT)))
-										.append($('<td />').text((cart.PROD_PRICE * cart.CART_CNT).numberFormat() + '원'))
+										  									   .val(cart.CART_CNT)
+										  									   .on('change', basket.changeProdNo)))
+										.append($('<td />').append($('<input>').attr('type', 'hidden')
+														 				   	   .attr('id', 'price' + cart.PROD_NO)
+														   					   .val(cart.PROD_PRICE))
+														   .append($('<span />').attr('id', 'cartPrice' + cart.PROD_NO)
+														 					    .text((cart.PROD_PRICE * cart.CART_CNT).numberFormat()))
+														   .append('원'))
 										.append($('<td />').append($('<button />').attr('type', 'button')
 																				  .attr('class', 'btn btn-outline-danger btn-sm')
 																			      .text('삭제')
 																			      .on('click', basket.delItem)))
-					$('tbody').append(tr);
-					
-					basket.totalCount += Number(cart.CART_CNT);
-					basket.totalPrice += cart.PROD_PRICE * cart.CART_CNT;
-				})
 				
-				// 장바구니 총 금액, 총 수량
-				$('#totalCount').text(basket.totalCount);
-				$('#totalPrice').text((basket.totalPrice).numberFormat());
+					$('tbody').append(tr);
+				})
+				basket.calcTotal();
 			},
 			err => console.log(err)
 		);		
@@ -60,13 +67,15 @@ let basket = {
 	// 장바구니 개별삭제
 	delItem: function(e) {
 		let tr = $(e.target).parent().parent();
+		
 		let prodNo = tr.attr('id');
 		let userId = 'user01';
 		
-		svc.cartRemove(userId, prodNo,
+		svc.removeCart(userId, prodNo,
 			result => {
-				if(result.retCode == 'OK') {
+				if(result.retCode == 'OK') {					
 					tr.remove();
+					basket.calcTotal();
 				} else {
 					console.log('처리 실패');
 				}
@@ -74,16 +83,101 @@ let basket = {
 			err => console.log(err)
 		)
 	},
+	
 	// 장바구니 선택삭제
 	delCheckedItem: function() {
-		
+		$('input:checked').each((idx, item) => {
+			if($(item).attr('id') != 'allCheck') {
+				let tr = $(item).parent().parent();
+				
+				let prodNo = tr.attr('id');
+				let userId = 'user01';
+				
+				svc.removeCart(userId, prodNo,
+					result => {
+						if(result.retCode == 'OK') {
+							tr.remove();
+							basket.calcTotal();
+						} else {
+							console.log('처리 실패');
+						}
+					},
+					err => console.log(err)
+				)
+			}
+		})
 	},
+	
 	// 장바구니 전체삭제
 	delAllItem: function() {
+		$('#cartTable tbody tr').each((idx, item) => {
+			if(idx > 0) {
+				let tr = $(item);
+				let prodNo = tr.attr('id');
+				let userId = 'user01';
+								
+				svc.removeCart(userId, prodNo,
+					result => {
+						if(result.retCode == 'OK') {
+							tr.remove();
+							basket.calcTotal();
+						} else {
+							console.log('처리 실패');
+						}
+					},
+					err => console.log(err)
+				)
+			}
+		})
+	},
+	
+	// 체크된 장바구니 총 금액, 총 수량
+	calcTotal: function() {
+		basket.totalCount = 0;
+		basket.totalPrice = 0;
 		
+		$('input:checked').each((idx, item) => {
+			if($(item).attr('id') != 'allCheck') {
+				let tr = $(item).parent().parent();
+				let prodNo = tr.attr('id');
+				let price = tr.find($('#price' + prodNo)).val();
+				let count = tr.find($('#count' + prodNo)).val();
+				
+				basket.totalCount += Number(count);
+				basket.totalPrice += count * price;
+			}
+		})
+		
+		$('#totalCount').text(basket.totalCount);
+		$('#totalPrice').text((basket.totalPrice).numberFormat());
+	},
+	
+	// 수량 조절
+	changeProdNo: function(e) {
+		let tr = $(e.target).parent().parent();
+		
+		let userId = 'user01';
+		let prodNo = tr.attr('id');
+		
+		let price = tr.find($('#price' + prodNo)).val();
+		let count = tr.find($('#count' + prodNo)).val();
+		
+		svc.editCart(userId, prodNo, count,
+			result => {
+				if(result.retCode == 'OK') {
+					tr.find($('#cartPrice' + prodNo)).text((price * count).numberFormat());
+					
+					basket.calcTotal();
+				} else {
+					console.log('처리 실패');
+				}
+			},
+			err => console.log(err)
+		)	
 	}
 }
 
+// 이벤트
 // 전체 체크박스 선택/해제
 $('#allCheck').on('click', function() {	
 	if($('#allCheck').is(':checked')) {
@@ -91,7 +185,14 @@ $('#allCheck').on('click', function() {
 	} else {
 		$('input:checkbox').prop('checked', false);		
 	}
+	basket.calcTotal();
 });
+
+// 장바구니 선택삭제
+$('#selectDelete').on('click', basket.delCheckedItem);
+
+// 장바구니 전체삭제
+$('#allDelete').on('click', basket.delAllItem);
 
 // 메인
 basket.list();

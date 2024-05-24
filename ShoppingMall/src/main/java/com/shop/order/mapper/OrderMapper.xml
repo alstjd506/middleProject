@@ -16,4 +16,16 @@
 	where user_id = #{userId}
 	and prod_no = #{prodNo}
   </delete>
+  
+  <update id="updateCart" parameterType="cart">
+    update cart
+    set cart_cnt = #{cartCnt}
+    where prod_no = #{prodNo}
+    and user_id = #{userId}
+  </update>
+  
+  <insert id="insertCart" parameterType="cart">
+    insert into cart(cart_no, user_id, prod_no, cart_cnt)
+    values(cart_seq.nextval, #{userId}, #{prodNo}, #{cartCnt})
+  </insert>
 </mapper>

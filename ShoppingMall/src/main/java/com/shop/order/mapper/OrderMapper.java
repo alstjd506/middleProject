@@ -8,4 +8,6 @@ import com.shop.vo.CartVO;
 public interface OrderMapper {
 	List<Map<String, Object>> selectCartList(String userId);
 	int deleteCart(CartVO cvo);
+	int updateCart(CartVO cvo);
+	int insertCart(CartVO cvo);
 }

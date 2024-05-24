@@ -8,7 +8,7 @@
 				<a class="nav-link" href="admin.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
-					</div> 매출현황
+					</div> 미처리목록
 				</a>
 				<div class="sb-sidenav-menu-heading">관리목록</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

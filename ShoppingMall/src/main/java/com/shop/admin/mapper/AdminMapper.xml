@@ -17,10 +17,16 @@
 	<select id="adminBoardList" resultType="board">
 		select *
 		from board
-		where
-		board_status = 'n'
 	</select>
 	<select id="adminBoardInfo" resultType="board">
+		select
+		b.board_no,board_title,user_id,board_date,board_content,reply_content
+		from board b join reply r
+		on b.board_no=r.board_no
+		where b.board_no=
+		#{bno}
+	</select>
+	<select id="adminBoardInfon" resultType="board">
 		select *
 		from board
 		where
@@ -73,6 +79,22 @@
 	<insert id="adminAddProductControl" parameterType="product">
 		insert into
 		product(prod_no,category_code,prod_name,prod_comment,prod_price,prod_image)
-		values(90,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage})
+		values(products_seq.nextval,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage})
 	</insert>
+	<insert id="adminBoardReply" parameterType="com.shop.vo.ReplyVO">
+		insert into
+		reply(reply_no,board_no,reply_content)
+		values(reply_seq.nextval,#{boardNo},#{replyContent})
+	</insert>
+	<update id="adminBoardReplyUp" parameterType="int">
+		update board
+		set
+		board_status = 'y'
+		where board_no = #{bno}
+	</update>
+	<update id="adminReplyModi" parameterType="com.shop.vo.ReplyVO">
+		update reply
+		set reply_content=#{replyContent}
+		where board_no=#{boardNo}
+	</update>
 </mapper>

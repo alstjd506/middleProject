@@ -6,8 +6,10 @@ ul{
 	list-style: none;
 }
 </style>
+
 <div class="container mt-3">
-  <table class="table">
+<form action="order.do" method="post" enctype="multipart/form-data">
+  <table class="table" id="cartTable">
     <thead class="table-dark">
       <tr align="center">
         <th colspan="6">장바구니</th>
@@ -34,11 +36,12 @@ ul{
     </ul>
   </div>
   <div align="center">
-    <button type="button" class="btn btn-primary">선택상품 주문하기</button>
-    <button type="button" class="btn btn-primary">전체상품 주문하기</button>
+    <input type="submit" class="btn btn-primary" value="주문하기">
   </div>
 <hr>
+</form>
 </div>
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="js/cartService.js"></script>
 <script src="js/cart.js"></script>

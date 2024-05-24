@@ -88,8 +88,6 @@ a {
   text-decoration: none;
     color: black;
 }
-
-
 </style>
 
 <section id= "section" class="py-5">
@@ -116,8 +114,8 @@ a {
                             	<div class="text-center">
                                     <!-- Product price-->
                                  	<fmt:formatNumber value="${product.prodPrice }"/>원
-                                	<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Buy</a>
-                                	<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Cart</a>
+                                	
+                                	<a class="modal_open">Cart</a>
                             	</div>
                             </div>
                         </div>
@@ -139,12 +137,12 @@ a {
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/${product.prodImage}" alt="..." />
+                            <a href="productInfo.do?prodNo=${product.prodNo}"><img class="card-img-top" src="images/${product.prodImage}" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.prodName}</h5>
+                                    <a href="productInfo.do?prodNo=${product.prodNo}"><h5 class="fw-bolder">${product.prodName}</h5></a>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -152,8 +150,8 @@ a {
                                 <div class="text-center">
                                 	<!-- Product price-->
                                 	<fmt:formatNumber value="${product.prodPrice }"/>원
-                                	<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Buy</a>
-                                	<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Cart</a>
+                                
+                                	<a class="modal_open">Cart</a>
                                 </div>
                                
                             </div>
@@ -232,12 +230,12 @@ a {
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/${product.prodImage}" alt="..." />
+                            <a href="productInfo.do?prodNo=${product.prodNo}"><img class="card-img-top" src="images/${product.prodImage}" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.prodName}</h5>
+                                    <a href="productInfo.do?prodNo=${product.prodNo}"><h5 class="fw-bolder">${product.prodName}</h5></a>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -245,8 +243,8 @@ a {
                             	<div class="text-center">
                               		<!-- Product price-->
                               		<fmt:formatNumber value="${product.prodPrice }"/>원
-                               		<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Buy</a>
-                               		<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Cart</a>
+                               	
+                               		<a class="modal_open">Cart</a>
                             	</div>
                             </div>
                         </div>
@@ -267,12 +265,12 @@ a {
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/${product.prodImage}" alt="..." />
+                            <a href="productInfo.do?prodNo=${product.prodNo}"><img class="card-img-top" src="images/${product.prodImage}" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${product.prodName}</h5>
+                                    <a href="productInfo.do?prodNo=${product.prodNo}"><h5 class="fw-bolder">${product.prodName}</h5></a>
                                   
                                 </div>
                             </div>
@@ -281,8 +279,8 @@ a {
                                	<div class="text-center">
                                		<!-- Product price-->
                                		<fmt:formatNumber value="${product.prodPrice }"/>원
-                               		<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Buy</a>
-                               		<a class="btn btn-outline-dark mt-auto" href="productInfo.do?prodNo=${product.prodNo}">Cart</a>
+                               	
+                               		<a class="modal_open">Cart</a>
                             	</div>
                             </div>
                         </div>
@@ -294,6 +292,16 @@ a {
           			 <button id="next-cheap" class="btn btn-outline-dark mt-auto">></button>
        		 	</div>
             </div>
+            
+<!-- 모달 -->
+<div class="modal">
+    <div class="modal_popup">
+        <p>선택하신 상품이 장바구니에 담겼습니다.</p>
+        <button type="button" class="cart_btn">장바구니 가기</button>
+        <button type="button" class="close_btn">계속쇼핑 하기</button>
+    </div>
+</div>
+<!--end 모달 팝업-->
+
 </section>
 <script src="js/main.js"></script>
-<!--  <script src="js/mainMenu.js"></script>-->

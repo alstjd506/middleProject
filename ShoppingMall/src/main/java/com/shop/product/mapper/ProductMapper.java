@@ -9,13 +9,13 @@ public interface ProductMapper {
 	//메인화면
 	List<ProductVO> productList(); //인기목록
 	List<ProductVO> productNewList(); //최근등록
-	List<ProductVO> categoryList(int topCategory);
+	List<ProductVO> categoryList(int categoryCode);
 	List<ProductVO> productMdList();
 	List<ProductVO> productCheapList();
 	
 	//메뉴바선택
 	List<ProductVO> menuCategory(int categoryCode);
-	List<ProductVO> menuTopCategory(int topCategory);
+
 	
 	//상품상세
 	List<ProductVO> productInfo(int prodNo);

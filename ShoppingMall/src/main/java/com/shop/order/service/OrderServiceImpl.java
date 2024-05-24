@@ -24,4 +24,14 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.deleteCart(cvo) == 1;
 	}
 
+	@Override
+	public boolean editCart(CartVO cvo) {
+		return mapper.updateCart(cvo) == 1;
+	}
+
+	@Override
+	public boolean addCart(CartVO cvo) {
+		return mapper.insertCart(cvo) == 1;
+	}
+
 }

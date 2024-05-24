@@ -7,12 +7,17 @@ import com.shop.vo.CategoryVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
+import com.shop.vo.ReplyVO;
 
 public interface AdminMapper {
 	List<ProductVO> adminProductList(); // 관리자 상품목록 
 	List<MemberVO> adminMemberList(); // 관리자 회원목록 
 	List<BoardVO> adminBoardList(); // 관리자 Q&A 목록
-	BoardVO adminBoardInfo(int bno); //관리자 Q&A 상세보기
+	BoardVO adminBoardInfo(int bno); //관리자 답글있는 Q&A 상세보기
+	BoardVO adminBoardInfon(int bno); // 관리자 답글없는 Q&A 상세보기
+	int adminReplyModi(ReplyVO rvo); // 관리자 답글 수정기능
+	int adminBoardReply(ReplyVO rvo); // 관리자 Q&A 답글남기기기능
+	int adminBoardReplyUp(int bno); // 관리자 Q&A 답변상태 update
 	List<OrderVO> adminOrderList(); // 관리자주문목록
 	List<OrderVO> adminCancleList(); // 관리자주문취소목록
 	int adminCancleAgree(int ono); // 관리자 주문취소승인
