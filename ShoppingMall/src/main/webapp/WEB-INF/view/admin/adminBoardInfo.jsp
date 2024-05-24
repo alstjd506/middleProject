@@ -79,9 +79,7 @@ form label {
 				<c:if test="${empty board.replyContent }">
 					<input id="btn" type="submit" value="저장">
 				</c:if>
-				<div>
 					<button type="button" id="modBtn">수정</button>
-				</div>
 			</form>
 		</div>
 	</section>

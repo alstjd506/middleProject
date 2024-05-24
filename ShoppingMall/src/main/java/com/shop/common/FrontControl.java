@@ -19,9 +19,9 @@ import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminCancleAgree;
 import com.shop.admin.web.AdminCancleList;
+import com.shop.admin.web.AdminChartControl;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
-import com.shop.admin.web.AdminOrderAgreeControl;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
@@ -71,7 +71,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&A 목록조회 o
 		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&A 상세조회 o
 		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
-		map.put("/adminReplyModi.do ", new AadminReplyModi()); // 관리자 Q&A 답글 수정기능 x
+		map.put("/adminReplyModi.do", new AadminReplyModi()); // 관리자 Q&A 답글 수정기능 o
 		map.put("/adminOrderList.do", new AdminOrderList()); // 관리자 주문현황 조회 o
 		map.put("/adminCancleList.do", new AdminCancleList()); // 관리자 취소현황 조회 o
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
@@ -80,9 +80,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
-		map.put("/adminOrderAgreeControl.do", new AdminOrderAgreeControl()); // 관리자 배송정보 수정기능 x
-
-
+		map.put("/adminChartControl.do", new AdminChartControl()); // 관리자 매출차트 x
 	
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
