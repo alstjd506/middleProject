@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(prodNo);		
 		const qty = parseInt(inputQty.value);
 		console.log(qty);
+		console.log(userId);
 		
 	})
     TotalPrice();

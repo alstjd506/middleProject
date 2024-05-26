@@ -9,6 +9,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias alias="product" type="com.shop.vo.ProductVO" />
+		<typeAlias alias="search" type="com.shop.common.SearchVO" />
 		<typeAlias alias="member" type="com.shop.vo.MemberVO" />
 		<typeAlias alias="cart" type="com.shop.vo.CartVO" />
 		<typeAlias alias="review" type="com.shop.vo.ReviewVO" />

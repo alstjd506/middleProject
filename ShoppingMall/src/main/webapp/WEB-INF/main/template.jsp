@@ -30,6 +30,7 @@
         </style>
     </head>
     <body>
+    	<script src="js/search.js"></script>
         <!-- Navigation-->
         	<tiles:insertAttribute name="nav" />
         <!-- Header-->

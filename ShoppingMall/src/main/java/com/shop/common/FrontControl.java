@@ -46,6 +46,8 @@ import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
 import com.shop.product.web.MenuCategoryControl;
 import com.shop.product.web.ProductListControl;
+import com.shop.product.web.SearchControl;
+import com.shop.product.web.SearchFormControl;
 
 
 public class FrontControl extends HttpServlet {
@@ -64,6 +66,10 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new MenuCategoryControl());
 		map.put("/productList.do", new ProductListControl());
+		
+		//검색 화면
+		map.put("search.do", new SearchControl());
+		map.put("searchForm.do", new SearchFormControl());
 
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
