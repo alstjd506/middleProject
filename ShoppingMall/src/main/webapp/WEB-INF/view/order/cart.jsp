@@ -8,19 +8,19 @@ ul{
 </style>
 
 <div class="container mt-3">
-<form action="order.do" method="post" enctype="multipart/form-data">
   <table class="table" id="cartTable">
     <thead class="table-dark">
       <tr align="center">
-        <th colspan="6">장바구니</th>
+        <th colspan="7">장바구니</th>
       </tr>
     </thead>
     <tbody>
       <tr align="center">
         <td><input type="checkbox" id="allCheck" checked /></td>
         <td colspan="2">상품</td>
-        <td>수량</td>
         <td>금액</td>
+        <td>수량</td>
+        <td>합계</td>
         <td> </td>
       </tr>
     </tbody>
@@ -31,15 +31,14 @@ ul{
   </div>
   <div>
     <ul>
-      <li>총 수량 <span id="totalCount">0</span>개</li>
-      <li>총 금액 <span id="totalPrice">00,000</span>원</li>
+      <li>주문 수량 <span id="totalCount">0</span>개</li>
+      <li>합계 금액 <span id="totalPrice">00,000</span>원</li>
     </ul>
   </div>
   <div align="center">
-    <input type="submit" class="btn btn-primary" value="주문하기">
+    <button type="button" id="purchase" class="btn btn-primary">주문하기</button>
   </div>
 <hr>
-</form>
 </div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
