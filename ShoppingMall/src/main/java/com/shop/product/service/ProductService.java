@@ -2,6 +2,7 @@ package com.shop.product.service;
 
 import java.util.List;
 
+import com.shop.common.SearchVO;
 import com.shop.vo.ProductVO;
 
 public interface ProductService {
@@ -19,6 +20,9 @@ public interface ProductService {
 	//상품상세
 	List<ProductVO> productInfo(int prodNo);
 	
+	//상품검색
+	List<ProductVO> searchProduct(SearchVO search);
+	int getTotal(SearchVO search);
 	
 	
 }
