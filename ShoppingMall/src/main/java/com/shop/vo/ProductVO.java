@@ -16,4 +16,6 @@ public class ProductVO {
 	private String prodImage;
 	private String categoryName;
 	private String prodCommentImage;
+	private double prodScore;
+	
 }

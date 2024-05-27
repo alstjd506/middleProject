@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div id="top_icon" style="margin-left: auto;">
                     <ul style="display: flex; justify-content: flex-end; list-style-type: none;">
-                        <li class="search_tit"><span>Search</span></li>
+               <!--          <li class="search_tit"><span>Search</span></li>
                         <li class="top_search">
             <form class="d-flex" id="searchBarForm" name="searchBarForm" action="searchForm.do" method="get" style="width: 100%">
                             <div class="searchHeader">
@@ -19,7 +19,7 @@
                                 </fieldset>
                             </div>
                                  </form>
-                        </li>
+                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">(${empty logId ? 'Guest' : logId})</a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -28,7 +28,7 @@
                                         <a class="dropdown-item" href="#!">회원가입</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="dropdown-item" href="#!">내 정보수정</a>
+                                        <a class="dropdown-item" href="#!">마이페이지</a>
                                         <a class="dropdown-item" href="#!">내 게시글 보기</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="logout.do">로그아웃</a>

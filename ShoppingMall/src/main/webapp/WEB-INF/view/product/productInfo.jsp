@@ -95,7 +95,7 @@ div.reviewList div{
 <section id="section" class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<c:forEach var="product" items="${productInfo}">
-
+		
 			<form name="myFrm">
 				<input type="hidden" name="prodNo" value="${product.prodNo }">
 			
@@ -112,9 +112,17 @@ div.reviewList div{
 						</div>
 						<h1 class="display-5 fw-bolder">${product.prodName}</h1>
 						<div class="fs-5 mb-5">
-							<span id="productPrice" data-price="${product.prodPrice}">
-								<fmt:formatNumber value="${product.prodPrice}" />원
-							</span>
+							<div class="d-flex small text-warning mb-2">
+								<c:forEach var="star" begin="1" end="${avgScore}" step="1">
+                                        <div class="bi-star-fill"></div>
+                                    	</c:forEach>
+								<span id="productScore" style="color: black;">${avgScore }점</span>
+                                    </div>
+							<div class="price">
+								<span id="productPrice" data-price="${product.prodPrice}">
+									<fmt:formatNumber value="${product.prodPrice}" />원
+								</span>
+							</div>
 						</div>
 						<div class="prod-comment">
 							<ul>
@@ -136,7 +144,7 @@ div.reviewList div{
 					</div>
 					<div class="right-align">
 						<div class="bigtext box blue summoney" id="sum_p_price">
-							합계금액: <span>74,200</span>
+							합계금액: <span> </span>
 						</div>
 					</div>
 					<div class="right-align">
@@ -156,6 +164,7 @@ div.reviewList div{
 				const userId = '${logId}';
 				console.log(prodNo);
 			</script>
+			
 		</c:forEach>
 	</div>
 	<div class="row gx-4 gx-lg-5 my-5">
@@ -206,22 +215,34 @@ div.reviewList div{
 					</div>
 					<div class="reviewList">
 						<ul>
-							<li><span class="col-sm-2">글번호</span> <span class="col-sm-2">평점</span>
-								<span class="col-sm-5">댓글내용</span> <span class="col-sm-2">작성자</span>
-								<span class="col-sm-2">작성일</span> <span class="col-sm-2">삭제</span></li>
+							<li>
+								<span class="col-sm-2">글번호</span> 
+								<span class="col-sm-2">평점</span>
+								<span class="col-sm-5">댓글내용</span> 
+								<span class="col-sm-2">작성자</span>
+								<span class="col-sm-2">작성일</span> 
+								<span class="col-sm-2">삭제</span></li>
 							<li>
 								<hr />
+							
 							</li>
-							<li style="display: none;"><span class="col-sm-2">2</span> <span
-								class="col-sm-5">평점</span> <span class="col-sm-2">댓글내용</span> <span
-								class="col-sm-2">user02</span> <span class="col-sm-2">작성일</span>
-								<span class="col-sm-2"><button id="deleteBtn"
-										class="btn btn-warning">삭제</button></span></li>
+							<li style="display: none;">
+								<span class="col-sm-2">2</span> 
+								<span class="col-sm-5">평점</span> 
+								<span class="col-sm-2">댓글내용</span> 
+								<span class="col-sm-2">user02</span> 
+								<span class="col-sm-2">작성일</span>
+				
+								<span class="col-sm-2"><button id="deleteBtn" class="btn btn-warning">삭제</button></span></li>
+							
+							
 						</ul>
 						<div class="footer">
 							<div class="center">
 								<div class="pagination">
-									<a href="#">1</a> <a href="#" class="active">2</a> <a href="#">3</a>
+									<a href="#">1</a> 
+									<a href="#" class="active">2</a> 
+									<a href="#">3</a>
 									<a href="#">4</a>
 								</div>
 							</div>

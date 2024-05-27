@@ -15,6 +15,7 @@ public class SearchFormControl implements Control {
 		// TODO Auto-generated method stub
 
 		// TODO Auto-generated method stub
+//		String page = req.getParameter("page");
 //		String keyword = req.getParameter("keyword");
 //		String filter = req.getParameter("filter");
 //

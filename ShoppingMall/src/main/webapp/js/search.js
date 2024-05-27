@@ -1,36 +1,40 @@
-// function searchProducts(filter = 'sales') {
 
-function searchProducts() {
-	const keyword = document.getElementById('keyword').value;
-	console.log(keyword);
-	fetch('search.do?keyword=' + keyword)
-		.then(response => response.json())
-		.then(result => {
-			showSearchResults(result);
-		})
-		.catch(err => {
-			console.error(err);
-		});
+Number.prototype.numberFormat = function() {
+	if (this == 0)
+		return 0;
+	let regex = /(^[+-]?\d+)(\d{3})/;
+	let nstr = (this + '');
+	while (regex.test(nstr)) {
+		nstr = nstr.replace(regex, '$1' + ',' + '$2');
+	}
+	return nstr;
 };
+document.addEventListener("DOMContentLoaded", function(e) {
+	e.preventDefault();
+	const keywordBtn = document.getElementById('keywordBtn');
+	const filterSelect = document.querySelector('.filter-select');
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('searchBarForm').addEventListener('submit', function(event) {
-		event.preventDefault(); //
-		searchProducts();
-	});
-	function searchProducts() {
-		const keyword = document.getElementById('keyword').value;
-		console.log(keyword);
-		fetch('search.do?keyword=' +  encodeURIComponent(keyword))
-			.then(response => response.json())
-			.then(result => {
-				console.log(result);
-				showSearchResults(result);
-			})
-			.catch(err => {
-				console.error(err);
-			});
+	if (keywordBtn && filterSelect) {
+
+		function searchProduct() {
+			const keyword = document.getElementById('keyword').value;
+			const filter = document.querySelector('.filter-select').value;
+			console.log(keyword);
+			console.log(filter);
+			fetch('search.do?keyword=' + keyword + '&filter=' + filter)
+				.then(response => response.json())
+				.then(result => {
+					console.log(result);
+					showSearchResults(result);
+				})
+				.catch(err => {
+					console.error(err);
+				});
+		};
+		keywordBtn.addEventListener('click', searchProduct);
+		filterSelect.addEventListener('change', searchProduct);
 	};
+
 	function showSearchResults(products) {
 		const div = document.getElementById('searchResults');
 		div.innerHTML = '';
@@ -38,14 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		products.forEach(product => {
 			const colDiv = document.createElement('div');
 			colDiv.className = 'col mb-5';
-
 			const cardDiv = document.createElement('div');
 			cardDiv.className = 'card h-100';
-
 			const imgButton = document.createElement('a');
 			imgButton.href = `productInfo.do?prodNo=${product.prodNo}`;
 
-			const img = document.createElement('img');
+			const img = document.createElement('img'); // 이미지 지정
 			img.className = 'card-img-top';
 			img.src = `images/${product.prodImage}`;
 
@@ -56,15 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			const nameButton = document.createElement('a');
 			nameButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-			const productName = document.createElement('h5');
+			const productName = document.createElement('h5'); // 상품명
 			productName.className = 'fw-bolder';
 			productName.textContent = product.prodName;
 
 			const cardFooterDiv = document.createElement('div');
 			cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent';
-			const textCenterFDiv = document.createElement('div');
-			textCenterFDiv.className = 'text-center';
-			textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
+
+			const priceAndCartDiv = document.createElement('div');
+			priceAndCartDiv.className = 'price-and-cart';
+
+			const priceSpan = document.createElement('span');
+			priceSpan.className = 'price';
+			priceSpan.textContent = product.prodPrice.numberFormat() + "원";
 
 			const cartButton = document.createElement('a');
 			cartButton.className = 'modal_open';
@@ -73,11 +79,29 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.querySelector('.modal').style.display = 'block';
 			});
 
+			const starDiv = document.createElement('div');
+			starDiv.className = 'd-flex small text-warning mb-2 star';
+			for (let i = 1; i <= product.prodScore; i++) {
+				const starIcon = document.createElement('div');
+				starIcon.className = 'bi-star-fill';
+				starDiv.appendChild(starIcon);
+			}
+			const scoreSpan = document.createElement('span');
+			scoreSpan.id = 'productScore';
+			scoreSpan.style.color = 'black';
+			scoreSpan.style.marginLeft = '5px';
+			scoreSpan.textContent = product.prodScore + '점';
+
+			starDiv.appendChild(scoreSpan);
+
 			nameButton.appendChild(productName);
 			textCenterDiv.appendChild(nameButton);
 			cardBodyDiv.appendChild(textCenterDiv);
-			textCenterFDiv.appendChild(cartButton);
-			cardFooterDiv.appendChild(textCenterFDiv);
+
+			priceAndCartDiv.appendChild(priceSpan);
+			priceAndCartDiv.appendChild(cartButton);
+			cardFooterDiv.appendChild(priceAndCartDiv);
+			cardFooterDiv.appendChild(starDiv);
 
 			imgButton.appendChild(img);
 			cardDiv.appendChild(imgButton);

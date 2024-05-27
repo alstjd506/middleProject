@@ -21,4 +21,8 @@ public interface ReviewMapper {
 		
 	//리뷰 등록
 	int insertReview(ReviewVO rvo);
+	
+	//리뷰 평점
+	Double avgScore(int prodNo);
+	
 }

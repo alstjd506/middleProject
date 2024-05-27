@@ -97,6 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
 			tmpl.querySelector('span:nth-of-type(3)').innerText = review.reviewContent;
 			tmpl.querySelector('span:nth-of-type(4)').innerText = review.userId;
 			tmpl.querySelector('span:nth-of-type(5)').innerText = new Date(review.reviewDate).toLocaleString();
+			
+			const deleteBtn = tmpl.querySelector('#deleteBtn');
+			if (review.userId !== userId) {
+				deleteBtn.style.display = 'none';
+			}
+			
 			return tmpl;
 		}
 	document.querySelector('div.reviewList ul').addEventListener('click', function(e) {
