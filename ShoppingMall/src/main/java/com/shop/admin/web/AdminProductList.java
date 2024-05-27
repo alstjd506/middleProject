@@ -20,7 +20,8 @@ public class AdminProductList implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		AdminService svc = new AdminServiceImpl();
-		
+
+		int prodCnt = svc.adminProductCnt();
 		List<ProductVO> list = svc.adminProductList();
 		
 		List<String> olist = new ArrayList<>();
@@ -31,6 +32,7 @@ public class AdminProductList implements Control {
 		olist.add("상품 등록일");
 		olist.add("카테고리");
 		
+		req.setAttribute("prodCnt", prodCnt);
 		req.setAttribute("productTitle", olist);
 		req.setAttribute("productList", list);
 		String path = "admin/adminMain.tiles";

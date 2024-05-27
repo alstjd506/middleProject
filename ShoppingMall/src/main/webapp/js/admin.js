@@ -1,29 +1,38 @@
 /**
  * 
  */
-
-document.getElementById('item_catemain').addEventListener('change',function(e){
-	let cno= this.value;
+function setImg(event) {
+	var reader = new FileReader();
+	console.log('여기들어왔어요');
+	reader.onload = function(event) {
+		var img = document.createElement("img");
+		img.setAttribute("src", event.target.result);
+		document.querySelector("div#imgs").appendChild(img);
+	};
+	reader.readAsDataURL(event.target.files[0]);
+}
+document.getElementById('item_catemain').addEventListener('change', function(e) {
+	let cno = this.value;
 	let sel = document.getElementById('item_catesub');
 	deletecate();
-	fetch('adminAddProductForm.do?cno='+cno)
-	.then(resolve => resolve.json())
-	.then(result=>{
-		result.forEach(es =>{
-		let op = document.createElement('option');
-		op.innerText = es.categoryName;
-		op.value = es.categoryCode;
-		sel.appendChild(op);
-		return;
+	fetch('adminAddProductForm.do?cno=' + cno)
+		.then(resolve => resolve.json())
+		.then(result => {
+			result.forEach(es => {
+				let op = document.createElement('option');
+				op.innerText = es.categoryName;
+				op.value = es.categoryCode;
+				sel.appendChild(op);
+				return;
+			})
+
 		})
-		
-	})
 })
-function deletecate(){
-	let selEle =document.getElementById('item_catesub');
+function deletecate() {
+	let selEle = document.getElementById('item_catesub');
 	console.log(selEle.options.length);
-	selEle.options.length=0;
-	
+	selEle.options.length = 0;
+
 }
 /*function fnSubmit(){
 	let topTitle = document.getElementById('item_catemain').value;

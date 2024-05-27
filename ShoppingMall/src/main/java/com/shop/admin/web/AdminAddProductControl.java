@@ -29,21 +29,21 @@ public class AdminAddProductControl implements Control {
 		String name = mr.getParameter("item_name");
 		String price = mr.getParameter("item_price");
 		String comment = mr.getParameter("item_content");
-		String Imgae = mr.getParameter("itemMainImg");
-		String contentImg = mr.getParameter("temSubImg");
-		System.out.println("1"+topTitle +"2"+categoryCode+"3"+name+"4"+price+"5"+comment+"6"+Imgae);
-		
+		String Imgae = mr.getFilesystemName("itemMainImg");
+		String contentImg = mr.getFilesystemName("itemSubImg");
+
 		ProductVO pvo = new ProductVO();
 		pvo.setCategoryCode(Integer.parseInt(categoryCode));
 		pvo.setProdName(name);
 		pvo.setProdPrice(Integer.parseInt(price));
 		pvo.setProdComment(comment);
 		pvo.setProdImage(Imgae);
-		
+		pvo.setProdCommentImage(contentImg);
+
 		AdminService svc = new AdminServiceImpl();
-		if(svc.adminAddProductControl(pvo)) {
+		if (svc.adminAddProductControl(pvo)) {
 			resp.sendRedirect("adminProductList.do");
-		}else {
+		} else {
 			resp.sendRedirect("adminAddProduct.do");
 		}
 	}

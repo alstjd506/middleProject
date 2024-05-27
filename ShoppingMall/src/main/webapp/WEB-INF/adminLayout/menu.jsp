@@ -8,7 +8,7 @@
 				<a class="nav-link" href="admin.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
-					</div> 미처리목록
+					</div> 관리자메인화면
 				</a>
 				<div class="sb-sidenav-menu-heading">관리목록</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -64,20 +64,20 @@
 						</div>
 					</nav>
 				</div>
-				<div class="sb-sidenav-menu-heading">상품등록/주문현황수정</div>
+				<div class="sb-sidenav-menu-heading">상품등록</div>
 				<a class="nav-link" href="adminAddProduct.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-chart-area"></i>
 					</div> 상품등록
-				</a> <a class="nav-link" href="adminOrderAgreeControl.do">
+				</a> <a class="nav-link" href="adminChartControl.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-table"></i>
-					</div> 주문현황
+					</div> 판매차트
 				</a>
 			</div>
 		</div>
 		<div class="sb-sidenav-footer">
-			<div class="small">Logged in as:</div>
+			<div class="small"></div>
 			관리자짱짱맨
 		</div>
 	</nav>

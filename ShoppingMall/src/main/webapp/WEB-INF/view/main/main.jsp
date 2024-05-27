@@ -120,7 +120,7 @@ a {
                             </div>
                         </div>
                      </div>
-                     </a>
+                     
                      </c:forEach>
                 </div>
                 <div class="text-center mt-4">

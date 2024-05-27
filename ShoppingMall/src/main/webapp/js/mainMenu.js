@@ -18,7 +18,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 		const topCategory = this.getAttribute('data-no');
 		if (topCategory != null) {
 			console.log(topCategory);
-		/*	if (topCategory.length == 1) {*/
+			if (topCategory.length == 1) {
 				fetch('menuTopCategory.do?topCategory=' + topCategory)
 					.then(response => response.json())
 					.then(result => {
@@ -27,7 +27,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 					.catch(err => {
 						console.log(err);
 					});
-			/*}*/
+			}
 
 		}
 

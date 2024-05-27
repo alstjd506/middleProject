@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.shop.common.DataSource;
+import com.shop.common.SearchVO;
 import com.shop.product.mapper.ProductMapper;
 import com.shop.vo.ProductVO;
 
@@ -39,6 +40,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductVO> menuCategory(int categoryCode) {
 		return mapper.menuCategory(categoryCode);
+	}
+	@Override
+	public List<ProductVO> searchProduct(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.searchProduct(search);
+	}
+	@Override
+	public int getTotal(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.getTotalCnt(search);
 	}
 
 }
