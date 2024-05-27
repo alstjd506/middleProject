@@ -20,10 +20,18 @@ public class FindPwControl implements Control{
 		String id = req.getParameter("id");
 		String name = req.getParameter("name");
 		String phone = req.getParameter("phone");
-
-		
+	
 		MemberService svc = new MemberServiceImpl();
-		MemberVO mvo = svc.FindPw(id, name, phone);
+		
+		MemberVO mvo = new MemberVO();
+		mvo.setUserId(id);
+		mvo.setUserName(name);
+		mvo.setUserPhone(phone);
+		String find = svc.FindPw(mvo);
+		
+		req.setAttribute("find",find );
+		String path = "login/FindPwResultForm.tiles";
+		req.getRequestDispatcher(path).forward(req, resp);	
 	}
 
 }

@@ -14,7 +14,7 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>아이디 찾기</title>
+    <title>비밀번호 찾기</title>
     <style>
         @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 	
@@ -75,14 +75,15 @@
 			<h2 class="card-title" style="color:#f58b34; margin-left: auto; margin-right: auto;"><img src="images/귀여운강아지.png" /></h2>
 		</div>
             
-        
 		<div class="card-body">
-      <form action="findPw" class="form-signin" method="POST">
-        <input type="text" name="member_id" id="member_id" class="form-control" placeholder="아이디" required><br>
+      <form action="findPwControl.do" class="form-signin" method="POST">
+      
+        <input type="text" name="id" id="id" class="form-control" placeholder="아이디" required autofocus><br>
         <input type="text" name="name" id="name" class="form-control" placeholder="이름" required><BR>
-        <input type="email" name="email" id="email" class="form-control" placeholder="연락처 ex)01012345678" required><br>
-        <p class="checks" id="checks">${findpw_checkf}</p><br/>
+        <input type="text" name="phone" id="phone" class="form-control" placeholder="연락처 ex)010-1234-5678" required><br>
+       		<p class="checks" id="checks">${findpw_checkf}</p><br/>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">비밀번호 찾기</button>
+      
       </form>
       
 		</div>

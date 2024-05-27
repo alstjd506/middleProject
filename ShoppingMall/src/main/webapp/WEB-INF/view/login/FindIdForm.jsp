@@ -5,6 +5,7 @@
 <html lang="ko">
   <head>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,10 +77,11 @@
 		</div>
         
 		<div class="card-body">
-      <form action="findId" class="form-signin" method="POST">
+      <form action="findIdControl.do" class="form-signin" method="POST">
   		 <p class="text2"> ${findid2}</p>
+  		 
         <input type="text" name="name" id="name" class="form-control" placeholder="이름" required autofocus><BR>
-        <input type="text" name="phone" id="phone" class="form-control" placeholder="연락처 ex)01012345678" required><br>
+        <input type="text" name="phone" id="phone" class="form-control" placeholder="연락처 ex)010-1234-5678" required><br>
         	<p class="check" id="check">${check}</p><br/>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">아 이 디 찾 기</button>
       
@@ -95,8 +97,33 @@
   </body>
   <script type="text/javascript">
 		
-  		
+//   document.getElementById("name").addEventListener("focusout", function() {
+// 	    var nameInput = document.getElementById("name");
+// 	    var checkMessage = document.getElementById("check");
+
+// 	    if (nameInput.value == "") {
+// 	        checkMessage.textContent = '이름을 입력해주세요.';
+// 	        checkMessage.style.color = 'red';
+// 	    } else {
+// 	        checkMessage.style.display = 'none';
+// 	    }
+// 	});
+
+// 	document.getElementById("phone").addEventListener("focusout", function() {
+// 	    var phoneInput = document.getElementById("phone");
+// 	    var checkMessage = document.getElementById("check");
+
+// 	    if (phoneInput.value == "") {
+// 	        checkMessage.textContent = '연락처를 입력해주세요';
+// 	        checkMessage.style.color = 'red';
+// 	    } else {
+// 	        checkMessage.style.display = 'none';
+// 	    }
+// 	});  	
+// 	.action = "findIdResult.jsp";
   
+	
+	//제이쿼리
   		$("#name").focusout(function(){
   			
 	     if($('#name').val() == ""){
@@ -109,7 +136,7 @@
 	     });
 	     
   		$("#email").focusout(function(){
-	     if($('#email').val() == ""){
+	     if($('#phone').val() == ""){
 	   		$('#check').text('연락처를 입력해주세요');
 	   	  	$('#check').css('color', 'red');
 	     }else{

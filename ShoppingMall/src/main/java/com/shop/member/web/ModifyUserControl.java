@@ -11,7 +11,7 @@ import com.shop.member.service.MemberService;
 import com.shop.member.service.MemberServiceImpl;
 import com.shop.vo.MemberVO;
 
-public class JoinControl implements Control{
+public class ModifyUserControl implements Control{
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,8 +36,8 @@ public class JoinControl implements Control{
 		mvo.setUserAddr(addr);
 		mvo.setUserDetailAddr(detailaddr);
 		System.out.println(mvo);
-		if(svc.Join(mvo)) {
-			resp.sendRedirect("login.do");
+		if(svc.ModifyUser(mvo)) {
+			resp.sendRedirect("main.do");
 		}
 	
 	}

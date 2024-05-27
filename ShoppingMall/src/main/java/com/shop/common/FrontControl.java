@@ -27,12 +27,18 @@ import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
+import com.shop.member.web.FindIdControl;
 import com.shop.member.web.FindIdForm;
+import com.shop.member.web.FindIdResultForm;
+import com.shop.member.web.FindPwControl;
 import com.shop.member.web.FindPwForm;
+import com.shop.member.web.FindPwResultForm;
+import com.shop.member.web.JoinControl;
 import com.shop.member.web.JoinForm;
 import com.shop.member.web.LoginControl;
 import com.shop.member.web.LoginForm;
 import com.shop.member.web.LogoutControl;
+import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
@@ -104,11 +110,19 @@ public class FrontControl extends HttpServlet {
 		map.put("/login.do", new LoginForm()); //로그인화면
 		map.put("/loginControl.do", new LoginControl()); 
 		map.put("/logout.do", new LogoutControl()); //로그아웃
+		//아이디찾기
 		map.put("/findid.do", new FindIdForm()); //아이디찾기
+		map.put("/findIdControl.do", new FindIdControl());
+		map.put("/findidresult.do", new FindIdResultForm()); //아이디찾기 결과창
+		//비밀번호찾기
 		map.put("/findpw.do", new FindPwForm()); //비밀번호찾기
+		map.put("/findPwControl.do", new FindPwControl());
+		map.put("/findpwresult.do", new FindPwResultForm()); //비밀번호찾기 결과창
 		//회원가입
 		map.put("/join.do", new JoinForm()); //회원가입
-
+		map.put("/joinControl.do",new JoinControl());
+		//회원정보수정
+		map.put("/modifyuser.do", new ModifyUserForm()); //회원정보수정
 
 		// 주문 화면
 		map.put("/order.do", new OrderControl());

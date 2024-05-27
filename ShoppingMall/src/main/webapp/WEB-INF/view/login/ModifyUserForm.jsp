@@ -74,14 +74,13 @@
      
     <div class="col-xs-12 col-sm-12">
     <h2>&nbsp;</h2> 
-    <h2 class="text-center">회원가입</h2>
+    <h2 class="text-center">회원정보수정</h2>
     </div>        
      
 <!--     <div class="col-xs-3 col-sm-3"></div>    -->
     <div class="col-xs-8 col-sm-8">
         <p>&nbsp;</p>
-        
-        
+            
          <div class="form-group">
             <div class="col-sm-6 control-label">
                 <label for="id">아이디</label>
@@ -100,15 +99,6 @@
             </div>
          </div>
           
-<!--          <div class="form-group"> -->
-<!--             <div class="col-sm-2 control-label"> -->
-<!--                 <label id="pwdCheck">패스워드 체크</label> -->
-<!--             </div> -->
-<!--             <div class="col-sm-6"> -->
-<!--                 <input type="password" class="form-control" name="pwdCheck" id="pwdCheck"> -->
-<!--             </div> -->
-<!--          </div> -->
-         
          <div class="form-group">
             <div class="col-sm-2 control-label">
                 <label id="name">이름</label>
@@ -117,15 +107,6 @@
                 <input type="text" class="form-control" name="name" id="name" placeholder="한글로 입력하세요">
             </div>
          </div>        
-          
-<!--          <div class="form-group"> -->
-<!--             <div class="col-sm-2 control-label"> -->
-<!--                 <label id="email">이메일</label> -->
-<!--             </div> -->
-<!--             <div class="col-sm-6"> -->
-<!--                 <input type="email" class="form-control" name="email" id="email" value="macaronics@gmail.com"> -->
-<!--             </div> -->
-<!--          </div>    -->
 
           <div class="form-group">
             <div class="col-sm-2 control-label">
@@ -168,13 +149,12 @@
                <input type="text" id="sample6_address2" placeholder="상세주소" name="detailaddr"   class="form-control" >
                </div>
           </div>
-          
-          
+                
          <input type="hidden" name="ip" value="${GetIpAddress.getIp()}">
          <div class="form-group" >
             <div class="col-sm-12  text-center">
-            <input type="submit" value="회원가입" class="btn btn-success">
-            <input type="submit" value="취소" class="btn btn-warning" onclick="location.href='main.do'">
+            <input type="submit" value="회원정보수정" class="btn btn-success">
+            <input type="submit" value="메인으로" class="btn btn-warning" onclick="location.href='main.do'">
             
 <!--             <a href="main.do">취소</a> -->
             </div>

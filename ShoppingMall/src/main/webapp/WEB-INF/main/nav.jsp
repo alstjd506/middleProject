@@ -4,7 +4,7 @@
 
  <nav id ="nav" class="navbar navbar-expand-lg navbar-light bg-light">
    <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">마루쉐</a>
+                <a class="navbar-brand" href="main.do">마루쉐</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">    
                
@@ -33,11 +33,11 @@
 									<c:choose>
                    					<c:when test="${empty logId }">
                    					
-                   					<a class="dropdown-item" href="#!">회원가입</a>
+                   					<a class="dropdown-item" href="join.do">회원가입</a>
                    					
           							</c:when>
                    					<c:otherwise>
-									<a class="dropdown-item" href="#!">내 정보수정</a> <a
+									<a class="dropdown-item" href="modifyuser.do">내 정보수정</a> <a
 									class="dropdown-item" href="#!">내 게시글 보기</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="logout.do">로그아웃</a>
