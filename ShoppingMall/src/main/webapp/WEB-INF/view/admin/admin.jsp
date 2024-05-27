@@ -14,7 +14,7 @@ a {
 			<div class="card-body">인기상품</div>
 			<div
 				class="card-footer d-flex align-items-center justify-content-between">
-				<a class="small text-white stretched-link" href="productInfo.do?prodNo=${popProd }">View Details</a>
+				<a class="small text-white stretched-link" href="adminProductInfo.do?prodNo=${popProd }">상품바로가기</a>
 				<div class="small text-white">
 					<i class="fas fa-angle-right"></i>
 				</div>
@@ -26,7 +26,7 @@ a {
 			<div class="card-body">인기없는상품</div>
 			<div
 				class="card-footer d-flex align-items-center justify-content-between">
-				<a class="small text-white stretched-link" href="productInfo.do?prodNo=${leastProd }">View Details</a>
+				<a class="small text-white stretched-link" href="adminProductInfo.do?prodNo=${leastProd }">상품바로가기</a>
 				<div class="small text-white">
 					<i class="fas fa-angle-right"></i>
 				</div>
@@ -38,7 +38,7 @@ a {
 			<div class="card-body">리뷰많은상품</div>
 			<div
 				class="card-footer d-flex align-items-center justify-content-between">
-				<a class="small text-white stretched-link" href="#">View Details</a>
+				<a class="small text-white stretched-link" href="adminProductInfo.do?prodNo=${popRevi }">상품바로가기</a>
 				<div class="small text-white">
 					<i class="fas fa-angle-right"></i>
 				</div>
@@ -47,10 +47,10 @@ a {
 	</div>
 	<div class="col-xl-3 col-md-6">
 		<div class="card bg-danger text-white mb-4">
-			<div class="card-body">질문많은상품</div>
+			<div class="card-body">별점높은상품</div>
 			<div
 				class="card-footer d-flex align-items-center justify-content-between">
-				<a class="small text-white stretched-link" href="#">View Details</a>
+				<a class="small text-white stretched-link" href="adminProductInfo.do?prodNo=${highStar }">상품바로가기</a>
 				<div class="small text-white">
 					<i class="fas fa-angle-right"></i>
 				</div>

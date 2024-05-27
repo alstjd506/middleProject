@@ -129,5 +129,16 @@ public class AdminServiceImpl implements AdminService {
 	public int adminleastProduct() {
 		return mapper.adminleastProduct();
 	}
-
+	@Override
+	public int adminPopulaReview() {
+		return mapper.adminPopulaReview();
+	}
+	@Override
+	public int adminhighStar() {
+		return mapper.adminhighStar();
+	}
+	@Override
+	public ProductVO adminProductInfo(int prodNo) {
+		return mapper.adminProductInfo(prodNo);
+	}
 }

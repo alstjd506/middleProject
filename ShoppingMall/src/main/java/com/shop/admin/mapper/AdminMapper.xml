@@ -5,7 +5,7 @@
 <mapper namespace="com.shop.admin.mapper.AdminMapper">
 	<select id="adminProductList" resultType="product">
 		select
-		prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name
+		p.prod_no,prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name
 		from product p join category c
 		on p.category_code = c.category_code
 		order by p.category_code
@@ -144,7 +144,35 @@
 	</select>
 	<select id="adminleastProduct" resultType="int">
 		select MIN( prod_no
-		) KEEP ( DENSE_RANK LAST ORDER BY prod_sale DESC )
+		)
+		KEEP ( DENSE_RANK LAST ORDER BY prod_sale DESC )
 		from product
+	</select>
+	<select id="adminPopulaReview" resultType="int">
+		SELECT prod_no
+		FROM (
+		SELECT prod_no, COUNT(*) AS cnt
+		FROM review
+		GROUP BY
+		prod_no
+		 <![CDATA[
+		HAVING COUNT(*) > 1
+		]]>
+		ORDER BY cnt DESC
+		)
+		WHERE ROWNUM = 1
+	</select>
+	<select id="adminhighStar" resultType="int">
+		select max ( prod_no )
+		KEEP ( DENSE_RANK LAST ORDER BY review_score DESC )
+		from review
+	</select>
+	<select id="adminProductInfo" resultType="product">
+		select
+		p.prod_no,prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name,prod_image
+		from product p join category c
+		on p.category_code = c.category_code
+		where prod_no = #{prodNo}
+		order by p.category_code
 	</select>
 </mapper>

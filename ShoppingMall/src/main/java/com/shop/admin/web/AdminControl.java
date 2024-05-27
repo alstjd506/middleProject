@@ -40,7 +40,7 @@ public class AdminControl implements Control {
 		clist.add("취소상태");
 		req.setAttribute("cvo", cvo);
 		req.setAttribute("clist", clist);
-		System.out.println(cvo);
+
 		List<OrderVO> rvo = svc.adminUnprocessedReturns(); // 미처리반품목록
 		List<String> rlist = new ArrayList<>();
 		rlist.add("주문번호");
@@ -65,6 +65,11 @@ public class AdminControl implements Control {
 		int leastProd = svc.adminleastProduct(); // 비인기상품
 		req.setAttribute("leastProd",leastProd);
 		
+		int popRevi = svc.adminPopulaReview(); // 리뷰많은 상품
+		req.setAttribute("popRevi",popRevi);
+		
+		int highStar = svc.adminhighStar(); // 별점 높은 상품
+		req.setAttribute("highStar",highStar);
 		
 		String path = "admin/admin.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);

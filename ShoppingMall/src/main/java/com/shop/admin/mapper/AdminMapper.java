@@ -12,6 +12,7 @@ import com.shop.vo.ReplyVO;
 public interface AdminMapper {
 	List<ProductVO> adminProductList(); // 관리자 상품목록 
 	int adminProductCnt(); // 관리자 상품총갯수
+	ProductVO adminProductInfo(int prodNo); // 관리자 상품상세보기
 	List<MemberVO> adminMemberList(); // 관리자 회원목록 
 	List<BoardVO> adminBoardList(); // 관리자 Q&A 목록
 	BoardVO adminBoardInfo(int bno); //관리자 답글있는 Q&A 상세보기
@@ -34,5 +35,7 @@ public interface AdminMapper {
 	List<BoardVO> adminUnprocessedReply(); // 관리자 메인 미처리Q&A
 	int adminPopularProduct();// 관리자 메인 인기상품
 	int adminleastProduct(); // 관리자 메인 비인기상품
+	int adminPopulaReview(); // 관리자 메인 리뷰많은상품
+	int adminhighStar(); // 관리자 메인 별점높은상품
 
 }

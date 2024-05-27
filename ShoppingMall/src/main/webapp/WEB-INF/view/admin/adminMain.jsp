@@ -52,7 +52,7 @@ color: black;
 					<tbody>
 						<c:forEach var="product" items="${productList }">
 							<tr>
-								<td><a class="productLink" href="#">${product.prodName }</a></td>
+								<td><a class="productLink" href="adminProductInfo.do?prodNo=${product.prodNo }">${product.prodName }</a></td>
 								<td>${product.prodComment }</td>
 								<td><fmt:formatNumber value="${product.prodPrice }"
 										pattern="#,###" />원</td>

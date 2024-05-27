@@ -26,6 +26,8 @@ import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminOrderStatusControl;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
+import com.shop.admin.web.AdminProductModify;
+import com.shop.admin.web.AdminProductModifyForm;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
 import com.shop.member.web.FindIdControl;
@@ -83,7 +85,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new MenuCategoryControl());
-		map.put("/productList.do", new ProductListControl());
+		//map.put("/productList.do", new ProductListControl());
 
 		//검색 화면
 		map.put("/search.do", new SearchControl());
@@ -105,7 +107,10 @@ public class FrontControl extends HttpServlet {
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
 		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회 o
-		map.put("/adminProductInfo.do", new AdminProductInfo()); // 관리자 상풍상세조회 x
+		map.put("/adminProductInfo.do", new AdminProductInfo()); // 관리자 상품상세조회 o
+		map.put("/adminProductModifyForm.do", new AdminProductModifyForm()); // 관리자 상품 수정화면 x
+		map.put("/adminProductModify.do", new AdminProductModify()); // 관리자 상품 수정기능 x
+		
 		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&A 목록조회 o
 		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&A 상세조회 o
 		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
@@ -119,7 +124,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
-		map.put("/adminChartControl.do", new AdminChartControl()); // 관리자 매출차트 x
+		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트 x
 
 
 		
