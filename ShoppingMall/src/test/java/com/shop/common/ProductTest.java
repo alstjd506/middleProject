@@ -8,8 +8,10 @@ public class ProductTest {
 	public static void main(String[] args) {
 		SqlSession session = DataSource.getInstance().openSession(true);
 		AdminMapper mapper = session.getMapper(AdminMapper.class);
-		int cno = 1;
-		//mapper.adminProductList().forEach(list -> System.out.println(list));
-		System.out.println(mapper.adminBoardInfo(5));
+		int cno = mapper.adminPopularProduct();
+		System.out.println(cno);
+		
+		//mapper.adminUnprocessedCancle().forEach(list -> System.out.println("123"+list));
+		//System.out.println(mapper.adminProductCnt());
 	}
 }

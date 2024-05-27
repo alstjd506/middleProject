@@ -15,4 +15,5 @@ public class ProductVO {
 	private Date prodDate;
 	private String prodImage;
 	private String categoryName;
+	private String prodCommentImage;
 }

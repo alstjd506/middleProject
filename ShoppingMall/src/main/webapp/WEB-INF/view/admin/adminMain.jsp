@@ -13,6 +13,7 @@ color: black;
 		<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table me-1"></i>
+			      총 ${prodCnt }개의 상품이 등록되어었습니다.
 			</div>
 			<div class="card-body">
 				<table id="datatablesSimple">
@@ -87,16 +88,21 @@ color: black;
 							<td>${order.userId }</td>
 							<td>${order.orderAddr }</td>
 							<td>${order.orderDetailAddr }</td>
-							<td>${order.orderDate }</td>
+							<td><fmt:formatDate value="${order.orderDate}"
+													pattern="yyyy-MM-dd" /></td>
 							<c:choose>
 								<c:when test="${order.orderStatus ==1 }">
-									<td>상품준비중</td>
+									<td><a href="adminOrderStatus.do?bno=${order.orderNo }">상품준비중</a></td>
 								</c:when>
 								<c:when test="${order.orderStatus == 2}">
-									<td>배송중</td>
+									<td><a href="adminOrderStatus.do?bno=${order.orderNo }">배송중
+									</a></td>
+								</c:when>
+								<c:when test="${order.orderStatus == 3}">
+									<td><a href="adminOrderStatus.do?bno=${order.orderNo }">배송완료</a></td>
 								</c:when>
 								<c:otherwise>
-									<td>배송완료</td>
+									<td>구매확정</td>
 								</c:otherwise>
 							</c:choose>
 							</tr>
@@ -105,9 +111,10 @@ color: black;
 							<tr>
 							<td>${cancle.orderNo }</td>
 							<td>${cancle.userId }</td>
-							<td>${cancle.orderDate }</td>
+							<td><fmt:formatDate value="${cancle.orderDate}"
+													pattern="yyyy-MM-dd" /></td>
 							<c:choose>
-							<c:when test="${cancle.orderStatus == 4 }">
+							<c:when test="${cancle.orderStatus == 5 }">
 								<td><a class="cancleLink" href="adminCancleAgree.do?ono=${cancle.orderNo }">취소요청</a></td>
 							</c:when>
 							<c:otherwise>
@@ -120,9 +127,10 @@ color: black;
 							<tr>
 							<td>${returns.orderNo }</td>
 							<td>${returns.userId }</td>
-							<td>${returns.orderDate }</td>
+							<td><fmt:formatDate value="${returns.orderDate}"
+													pattern="yyyy-MM-dd" /></td>
 							<c:choose>
-								<c:when test="${returns.orderStatus == 6 }">
+								<c:when test="${returns.orderStatus == 7 }">
 								<td><a class="returnLink" href="adminReturnAgree.do?rno=${returns.orderNo }">반품요청</a></td>
 								</c:when>
 								<c:otherwise>
@@ -138,5 +146,4 @@ color: black;
 	
 </main>
 <script>
-	console.log("${boardList}")
 </script>
