@@ -1,12 +1,18 @@
 /**
  * orderService.js
  */
-const svc = {
+const orderSvc = {
 	// 주문목록
-	cartList(userId, successCall, errorCall) {
-		fetch('cartList.do?userId=' + userId)
+	orderList(userId, prodNo, successCall, errorCall) {
+		fetch('orderList.do?userId=' + userId + '&prodNo=' + prodNo)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
+	},
+	orderInfo(userId, successCall, errorCall) {
+		fetch('orderInfo.do?userId=' + userId)
+			.then(resolve => resolve.json())
+			.then(successCall)
+			.then(errorCall);
 	}
 }

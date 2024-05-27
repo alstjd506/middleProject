@@ -13,6 +13,7 @@ Number.prototype.numberFormat = function() {
 	return nstr;
 };
 
+
 let order = {
 	// 전체 수량
 	totalCount: 0,
@@ -21,7 +22,8 @@ let order = {
 	
 	// 장바구니로부터 가져온 주문상품 목록
 	list: function() {
-		svc.cartList('user01',
+		let userId = 'user01';
+		orderSvc.orderList(userId, prodNo,
 			result => {
 				result.forEach(cart => {
 					let tr = $('<tr />').attr('align', 'center')
@@ -36,10 +38,7 @@ let order = {
 																			   .attr('id', 'count' + cart.PROD_NO)
 										  									   .val(cart.CART_CNT))
 										  				   .append(cart.CART_CNT + '개'))
-										.append($('<td />').append($('<input>').attr('type', 'hidden')
-														 				   	   .attr('id', 'price' + cart.PROD_NO)
-														   					   .val(cart.PROD_PRICE * cart.CART_CNT))
-														   .append($('<span />').text((cart.PROD_PRICE * cart.CART_CNT).numberFormat()))
+										.append($('<td />').append($('<span />').text((cart.PROD_PRICE * cart.CART_CNT).numberFormat()))
 														   .append('원'))				
 					$('#cartTable tbody').append(tr);
 					
@@ -51,8 +50,77 @@ let order = {
 			},
 			err => console.log(err)
 		)
+	},
+	
+	// 주문회원 정보
+	info: function() {
+		let userId = 'user01';
+		orderSvc.orderInfo(userId, 
+			result => {
+				$('#name').val(result.userName)
+						  .attr('readonly', true)
+				$('#postcode').val(result.userPost)
+							  .attr('readonly', true)
+				$('#search').attr('type', 'hidden')
+				$('#address').val(result.userAddr)
+							 .attr('readonly', true)
+				$('#detailAddress').val(result.userDetailAddr)
+								   .attr('readonly', true)
+			},
+			err => console.log(err)
+		)
 	}
 }
 
+// 이벤트
+// 배송지 설정
+$('input:radio[name=deliveryAddr]').on('change', function() {
+	if($('input:radio[name=deliveryAddr]:checked').val() == 'old') {
+		order.info();
+	} else {
+		$('#name').val('')
+				  .attr('readonly', false)
+		$('#postcode').val('')
+					  .attr('readonly', false)
+		$('#search').attr('type', 'button')
+		$('#address').val('')
+					 .attr('readonly', false)
+		$('#detailAddress').val('')
+						   .attr('readonly', false)
+	}
+})
+
+// 주문
+$('#purchase').on('click', function() {
+	let userId = 'user01';
+	let prodNoVal = '';
+	let prodCntVal = '';
+	
+	$('#cartTable tbody tr').each((idx, item) => {
+		if(idx > 0) {
+			let prodNo = $(item).attr('id');
+			prodNoVal += prodNo + ',';
+			prodCntVal += $('#count' + prodNo).val() + ',';
+		}
+	})
+	
+	let form = $('<form />').attr('action', 'orderForm.do')
+				 			.attr('method', 'post')
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'prodNo')
+				 								.val(prodNoVal))
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'prodCnt')
+				 								.val(prodCntVal))
+	// 회원아이디, 우편번호, 주소, 상세주소 추가해야 함
+	
+	//$('body').append(form);
+	
+	//form.submit();
+})
+
+
+
 // 메인
 order.list();
+order.info();

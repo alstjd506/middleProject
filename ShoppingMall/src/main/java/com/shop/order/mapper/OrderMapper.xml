@@ -11,6 +11,15 @@
     where c.user_id = #{userId}
   </select>
   
+  <select id="selectCart" resultType="map">
+    select p.prod_no, p.prod_name, p.prod_price, p.prod_image, c.cart_cnt
+    from cart c
+    join product p
+    on c.prod_no = p.prod_no
+    where c.user_id = #{userId}
+    and c.prod_no = #{prodNo}    
+  </select>
+  
   <delete id="deleteCart" parameterType="cart">
     delete from cart
 	where user_id = #{userId}
@@ -28,4 +37,10 @@
     insert into cart(cart_no, user_id, prod_no, cart_cnt)
     values(cart_seq.nextval, #{userId}, #{prodNo}, #{cartCnt})
   </insert>
+  
+  <select id="selectMember" parameterType="String" resultType="member">
+    select user_name, user_post, user_addr, user_detail_addr
+    from users
+    where user_id = #{userId}
+  </select>
 </mapper>
