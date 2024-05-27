@@ -46,42 +46,88 @@ public class AdminServiceImpl implements AdminService {
 	public List<OrderVO> adminCancleList() {
 		return mapper.adminCancleList();
 	}
+
 	@Override
 	public boolean adminCancleAgree(int ono) {
-		return mapper.adminCancleAgree(ono)==1;
+		return mapper.adminCancleAgree(ono) == 1;
 	}
+
 	@Override
 	public List<OrderVO> adminReturnList() {
 		return mapper.adminReturnList();
 	}
+
 	@Override
 	public boolean adminReturnAgree(int rno) {
-		return mapper.adminReturnAgree(rno)==1;
+		return mapper.adminReturnAgree(rno) == 1;
 	}
+
 	@Override
 	public List<CategoryVO> topAdminCategoryList() {
 		return mapper.topAdminCategoryList();
 	}
+
 	@Override
 	public List<CategoryVO> adminCategoryList(int cno) {
 		return mapper.adminCategoryList(cno);
 	}
+
 	@Override
 	public boolean adminAddProductControl(ProductVO pvo) {
-		return mapper.adminAddProductControl(pvo)==1;
+		return mapper.adminAddProductControl(pvo) == 1;
 	}
+
 	@Override
 	public boolean adminBoardReply(ReplyVO rvo) {
-		return mapper.adminBoardReply(rvo)==1;
-	}@Override
+		return mapper.adminBoardReply(rvo) == 1;
+	}
+
+	@Override
 	public boolean adminBoardReplyUp(int bno) {
-		return mapper.adminBoardReplyUp(bno)==1;
-	}@Override
+		return mapper.adminBoardReplyUp(bno) == 1;
+	}
+
+	@Override
 	public BoardVO adminBoardInfon(int bno) {
 		return mapper.adminBoardInfon(bno);
 	}
+
 	@Override
 	public boolean adminReplyModi(ReplyVO rvo) {
-		return mapper.adminReplyModi(rvo)==1;
+		return mapper.adminReplyModi(rvo) == 1;
 	}
+
+	@Override
+	public List<OrderVO> adminUnprocessedOrder() {
+		return mapper.adminUnprocessedOrder();
+	}
+	@Override
+	public List<OrderVO> adminUnprocessedCancle() {
+		return mapper.adminUnprocessedCancle();
+	}
+	@Override
+	public List<OrderVO> adminUnprocessedReturns() {
+		return mapper.adminUnprocessedReturns();
+	}
+	@Override
+	public List<BoardVO> adminUnprocessedReply() {
+		return mapper.adminUnprocessedReply();
+	}
+	@Override
+	public int adminProductCnt() {
+		return mapper.adminProductCnt();
+	}
+	@Override
+	public boolean adminOrderStatus(int bno) {
+		return mapper.adminOrderStatus(bno)==1;
+	}
+	@Override
+	public int adminPopularProduct() {
+		return mapper.adminPopularProduct();
+	}
+	@Override
+	public int adminleastProduct() {
+		return mapper.adminleastProduct();
+	}
+
 }

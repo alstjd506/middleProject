@@ -3,14 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<form action="adminAddProductControl.do" method="post" name="itemInsertForm"
-	id="itemInsertForm" enctype="multipart/form-data">
+<form action="adminAddProductControl.do" method="post"
+	name="itemInsertForm" id="itemInsertForm" enctype="multipart/form-data">
 
 	<div class="tab-content">
 		<!-- 상품등록 -->
 		<div class="tab-pane active" id="itemInsert_1">
 			<div class="form-group" style="">
-				<input type="hidden" value="${TopCategoryList.categoryCode }"/>
+				<input type="hidden" value="${TopCategoryList.categoryCode }" />
 				<h3>대분류</h3>
 				<select class="form-control" name="item_catemain" id="item_catemain"
 					title="상품 대분류">
@@ -52,21 +52,23 @@
 
 				<div class="form-group">
 					<h3>메인이미지 ( 썸네일 )</h3>
-					<input class="form-control input-lg" type="file" name="itemMainImg"
-						id="itemMainImg" />
+					<input type="file" name="itemMainImg" id="itemMainImg"
+						accept="image/*" onchange="setImg(event);" />
 				</div>
 
 				<div class="form-group">
 					<h3>내용이미지</h3>
-					<input class="form-control input-lg" type="file" name="itemSubImg"
-						id="itemSubImg" />
+					<input type="file" name="itemSubImg" accept="image/*"
+						id="itemSubImg" onchange="setImg(event);" />
 				</div>
-					<input type="submit" value="상풍등록">
+				<div id="imgs"></div>
+				<hr />
+				<input type="submit" value="상풍등록">
 
 			</div>
 </form>
 
 <!--  상품이미지 끝 -->
 <script src="js/admin.js">
-
+	
 </script>

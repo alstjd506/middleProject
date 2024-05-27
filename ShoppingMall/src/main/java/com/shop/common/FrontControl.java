@@ -23,6 +23,7 @@ import com.shop.admin.web.AdminChartControl;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderList;
+import com.shop.admin.web.AdminOrderStatusControl;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminReturnAgree;
@@ -80,6 +81,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
 		map.put("/adminReplyModi.do", new AadminReplyModi()); // 관리자 Q&A 답글 수정기능 o
 		map.put("/adminOrderList.do", new AdminOrderList()); // 관리자 주문현황 조회 o
+		map.put("/adminOrderStatus.do", new AdminOrderStatusControl()); // 관리자 주문상태 변경 o
 		map.put("/adminCancleList.do", new AdminCancleList()); // 관리자 취소현황 조회 o
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
 		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회 o  
@@ -88,7 +90,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminChartControl.do", new AdminChartControl()); // 관리자 매출차트 x
-	
+
+		
+		
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
 
