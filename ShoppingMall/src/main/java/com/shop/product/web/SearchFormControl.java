@@ -13,6 +13,7 @@ public class SearchFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		// TODO Auto-generated method stub
 //		String keyword = req.getParameter("keyword");
 //		String filter = req.getParameter("filter");
@@ -25,7 +26,9 @@ public class SearchFormControl implements Control {
 //		List<ProductVO> searchResult = svc.searchProduct(search);
 //		req.setAttribute("searchResult", searchResult);
 
-		String path = "product/searchResult.tiles";
+		String path = "product/search.tiles";
+
+
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

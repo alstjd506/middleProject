@@ -4,7 +4,7 @@
 const svc = {
 	// 댓글목록 => 페이지, 성공콜백, 실패콜백
 	reviewList(param = {}, successCall, errorCall) {
-		fetch('reviewList.do?bno=' + param.prodNo + '&page=' + param.page)
+		fetch('reviewList.do?prodNo=' + param.prodNo + '&rpage=' + param.rpage)
 			.then(resolve => resolve.json()) // json -> 객체.
 			.then(successCall)
 			.catch(errorCall);
@@ -15,22 +15,22 @@ const svc = {
 		fetch('addReview.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'prodNo=' + param.prodNo + '&replyer=' + param.writer + '&reply=' + param.reply
+			body: 'prodNo=' + param.prodNo + '&userId=' + param.userId + '&reviewContent=' + param.reviewContent + '&reviewScore=' + param.reviewScore
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
 	// 댓글삭제 => 삭제할번호, 성공콜백, 실패콜백
-	removeReview(rno = 1, successCall, errorCall) {
-		fetch('removeReview.do?rno=' + rno)
+	removeReview(reviewNo = 1, successCall, errorCall) {
+		fetch('removeReview.do?reviewNo=' + reviewNo)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
 	// 댓글 전체건수
-	getTotalCount(bno = 1, successCall, errorCall) {
-		fetch('getTotalCnt.do?bno=' + bno)
+	getTotalCount(prodNo = 1, successCall, errorCall) {
+		fetch('getTotalCnt.do?prodNo=' + prodNo)
 			.then(resolve => resolve.json()) // {totalCount = 10}
 			.then(successCall)
 			.catch(errorCall);
@@ -40,7 +40,7 @@ const svc = {
 		fetch('addReview.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'reviewNo=' + param.reviewNo + '&review=' + param.review
+			body: 'reviewNo=' + param.reviewNo + '&reviewContent=' + param.reviewContent
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)

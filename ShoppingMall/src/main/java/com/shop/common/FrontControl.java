@@ -23,31 +23,49 @@ import com.shop.admin.web.AdminChartControl;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderList;
+import com.shop.admin.web.AdminOrderStatusControl;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
+import com.shop.member.web.FindIdControl;
 import com.shop.member.web.FindIdForm;
+import com.shop.member.web.FindIdResultForm;
+import com.shop.member.web.FindPwControl;
 import com.shop.member.web.FindPwForm;
+import com.shop.member.web.FindPwResultForm;
+import com.shop.member.web.JoinControl;
 import com.shop.member.web.JoinForm;
 import com.shop.member.web.LoginControl;
 import com.shop.member.web.LoginForm;
 import com.shop.member.web.LogoutControl;
+import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
 import com.shop.order.web.EditCartControl;
 import com.shop.order.web.OrderControl;
+import com.shop.order.web.OrderInfoControl;
+import com.shop.order.web.OrderListControl;
 import com.shop.order.web.RemoveCartControl;
 import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
 import com.shop.product.web.MenuCategoryControl;
+import com.shop.product.web.ModifyReviewControl;
 import com.shop.product.web.ProductListControl;
+
 import com.shop.product.web.SearchControl;
 import com.shop.product.web.SearchFormControl;
+
+
+import com.shop.product.web.RemoveReviewControl;
+import com.shop.product.web.ReviewControl;
+import com.shop.product.web.SearchControl;
+import com.shop.product.web.SearchFormControl;
+import com.shop.product.web.TotalCountControl;
 
 
 public class FrontControl extends HttpServlet {
@@ -66,11 +84,24 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new MenuCategoryControl());
 		map.put("/productList.do", new ProductListControl());
-		
-		//검색 화면
-		map.put("search.do", new SearchControl());
-		map.put("searchForm.do", new SearchFormControl());
 
+		//검색 화면
+		map.put("/search.do", new SearchControl());
+		map.put("/searchForm.do",new SearchFormControl());
+
+		//마이페이지 화면
+		map.put("/myPage.do", new MyPageControl());
+		
+		//상품 상세 화면
+		map.put("/productInfo.do", new ProductInfoControl());		
+		//상품 리뷰
+		map.put("/reviewList.do", new ReviewControl());
+		map.put("/removeReview.do", new RemoveReviewControl());
+		map.put("/addReview.do", new AddReviewControl());
+		map.put("/modifyReview.do", new ModifyReviewControl());
+		map.put("/getTotalCnt.do", new TotalCountControl());
+		
+		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
 		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회 o
@@ -80,6 +111,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
 		map.put("/adminReplyModi.do", new AadminReplyModi()); // 관리자 Q&A 답글 수정기능 o
 		map.put("/adminOrderList.do", new AdminOrderList()); // 관리자 주문현황 조회 o
+		map.put("/adminOrderStatus.do", new AdminOrderStatusControl()); // 관리자 주문상태 변경 o
 		map.put("/adminCancleList.do", new AdminCancleList()); // 관리자 취소현황 조회 o
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
 		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회 o  
@@ -88,34 +120,32 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminChartControl.do", new AdminChartControl()); // 관리자 매출차트 x
-	
-		//마이페이지 화면
-		map.put("/myPage.do", new MyPageControl());
 
-		//상품 상세 화면
-		map.put("/productInfo.do", new ProductInfoControl());
-		//상품 리뷰
-		map.put("/addReview.do", new AddReviewControl());
 
 		
 		
-		// 주문 화면
-		map.put("/order.do", new OrderControl());
-
-	
-
 		//로그인화면
 		map.put("/login.do", new LoginForm()); //로그인화면
 		map.put("/loginControl.do", new LoginControl()); 
 		map.put("/logout.do", new LogoutControl()); //로그아웃
+		//아이디찾기
 		map.put("/findid.do", new FindIdForm()); //아이디찾기
+		map.put("/findIdControl.do", new FindIdControl());
+		map.put("/findidresult.do", new FindIdResultForm()); //아이디찾기 결과창
+		//비밀번호찾기
 		map.put("/findpw.do", new FindPwForm()); //비밀번호찾기
+		map.put("/findPwControl.do", new FindPwControl());
+		map.put("/findpwresult.do", new FindPwResultForm()); //비밀번호찾기 결과창
 		//회원가입
 		map.put("/join.do", new JoinForm()); //회원가입
-
+		map.put("/joinControl.do",new JoinControl());
+		//회원정보수정
+		map.put("/modifyuser.do", new ModifyUserForm()); //회원정보수정
 
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
+		map.put("/orderList.do", new OrderListControl());
+		map.put("/orderInfo.do", new OrderInfoControl());
 		
 		// 장바구니 화면
 		map.put("/cart.do", new CartControl());

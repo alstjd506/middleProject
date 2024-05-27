@@ -2,7 +2,7 @@
  * cartService.js
  */
 
-const svc = {
+const cartSvc = {
 	// 장바구니 목록.
 	cartList(userId, successCall, errorCall) {
 	fetch('cartList.do?userId=' + userId)

@@ -38,7 +38,6 @@ public class SearchControl implements Control {
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(searchResult);
         resp.getWriter().print(json);
-		
 	}
 
 }

@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <style>
-footer{
-margin-top:0px;
+footer {
+	margin-top: 0px;
 }
-
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,16 +24,20 @@ margin-top:0px;
 	crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-	<tiles:insertAttribute name ="nav" />
+	<tiles:insertAttribute name="nav" />
 	<div id="layoutSidenav">
-		<tiles:insertAttribute name ="menu" />
+		<tiles:insertAttribute name="menu" />
 		<div id="layoutSidenav_content">
+		 <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        </div>
 			<main>
-				<div class="container-fluid px-4">
-					<tiles:insertAttribute name="content" />
-				</div>
+				<tiles:insertAttribute name="content" />
 			</main>
-			<tiles:insertAttribute name="footer"/>
+			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>
 	<script

@@ -9,10 +9,12 @@ Number.prototype.numberFormat = function() {
 	return nstr;
 };
 document.addEventListener('DOMContentLoaded', function() {
+
 	   document.getElementById('searchBarForm').addEventListener('submit', function(event) {
         event.preventDefault(); //
         searchProducts();
     });
+
 	showPage('popProducts', 0); // 리스트 초기 페이지 설정
 	showPage('newProducts', 0);
 	showPage('ctgProducts', 0);

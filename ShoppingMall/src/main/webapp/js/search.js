@@ -14,6 +14,23 @@ function searchProducts() {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+	document.getElementById('searchBarForm').addEventListener('submit', function(event) {
+		event.preventDefault(); //
+		searchProducts();
+	});
+	function searchProducts() {
+		const keyword = document.getElementById('keyword').value;
+		console.log(keyword);
+		fetch('search.do?keyword=' +  encodeURIComponent(keyword))
+			.then(response => response.json())
+			.then(result => {
+				console.log(result);
+				showSearchResults(result);
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	};
 	function showSearchResults(products) {
 		const div = document.getElementById('searchResults');
 		div.innerHTML = '';

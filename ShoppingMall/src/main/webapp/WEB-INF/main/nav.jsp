@@ -15,7 +15,7 @@
                             <div class="searchHeader">
                                 <fieldset title>
                                     <input id="keyword" name="keyword" class="inputTypeText"  value="" type="text" style="border: none; border-bottom: 1px solid black; height:30px;">
-                                    <button id ="keywordBtn"class="btn btn-outline-success" type="submit"></button>
+                                    <button id ="keywordBtn"class="btn btn-outline-success" type="submit">검색</button>
                                 </fieldset>
                             </div>
                                  </form>

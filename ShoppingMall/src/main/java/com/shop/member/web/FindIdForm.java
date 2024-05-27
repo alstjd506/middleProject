@@ -12,9 +12,9 @@ public class FindIdForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
-		String path = "login/FindIdForm.tiles";
+		String path = "WEB-INF/login/FindIdForm.tiles";
+		path = "login/FindIdForm.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

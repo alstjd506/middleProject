@@ -10,6 +10,10 @@
 		on p.category_code = c.category_code
 		order by p.category_code
 	</select>
+	<select id="adminProductCnt" resultType="int">
+		select count(prod_no)
+		from product
+	</select>
 	<select id="adminMemberList" resultType="member">
 		select *
 		from users
@@ -36,32 +40,39 @@
 		select *
 		from orders
 		where
-		order_status = 1 or order_status = 2 or order_status = 3
+		order_status = 1 or order_status = 2 or order_status = 3 or
+		order_status = 4
 		order by
 		order_status
 	</select>
+	<update id="adminOrderStatus" parameterType="int">
+		update orders
+		set
+		order_status = order_status+1
+		where order_no = #{bno}
+	</update>
 	<select id="adminCancleList" resultType="order">
 		select *
 		from orders
-		where order_status = 4 or order_status = 5
+		where order_status = 5 or order_status = 6
 		order by order_status
 	</select>
 	<update id="adminCancleAgree" parameterType="int">
 		update orders
 		set
-		order_status = 5
+		order_status = 6
 		where order_no = #{ono}
 	</update>
 	<select id="adminReturnList" resultType="order">
 		select *
 		from orders
-		where order_status = 6 or order_status = 7
+		where order_status = 7 or order_status = 8
 		order by order_status
 	</select>
 	<update id="adminReturnAgree" parameterType="int">
 		update orders
 		set
-		order_status = 7
+		order_status = 8
 		where order_no = #{rno}
 	</update>
 	<select id="topAdminCategoryList" resultType="category">
@@ -78,8 +89,8 @@
 	</select>
 	<insert id="adminAddProductControl" parameterType="product">
 		insert into
-		product(prod_no,category_code,prod_name,prod_comment,prod_price,prod_image)
-		values(products_seq.nextval,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage})
+		product(prod_no,category_code,prod_name,prod_comment,prod_price,prod_image,prod_comment_image)
+		values(products_seq.nextval,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage},#{prodCommentImage})
 	</insert>
 	<insert id="adminBoardReply" parameterType="com.shop.vo.ReplyVO">
 		insert into
@@ -94,7 +105,46 @@
 	</update>
 	<update id="adminReplyModi" parameterType="com.shop.vo.ReplyVO">
 		update reply
-		set reply_content=#{replyContent}
+		set
+		reply_content=#{replyContent}
 		where board_no=#{boardNo}
 	</update>
+	<select id="adminUnprocessedOrder" parameterType="order">
+		select *
+		from
+		orders
+		where
+		order_status = 1 or order_status = 2 or order_status = 3
+		order by
+		order_status
+	</select>
+	<select id="adminUnprocessedCancle" parameterType="order">
+		select *
+		from
+		orders
+		where order_status = 5
+	</select>
+	<select id="adminUnprocessedReturns" parameterType="order">
+		select *
+		from
+		orders
+		where order_status = 7
+	</select>
+	<select id="adminUnprocessedReply" parameterType="board">
+		select *
+		from
+		board
+		where
+		board_status = 'n'
+	</select>
+	<select id="adminPopularProduct" resultType="int">
+		select MAX( prod_no
+		) KEEP ( DENSE_RANK FIRST ORDER BY prod_sale DESC )
+		from product
+	</select>
+	<select id="adminleastProduct" resultType="int">
+		select MIN( prod_no
+		) KEEP ( DENSE_RANK LAST ORDER BY prod_sale DESC )
+		from product
+	</select>
 </mapper>

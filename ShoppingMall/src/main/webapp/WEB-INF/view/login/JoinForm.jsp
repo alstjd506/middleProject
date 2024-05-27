@@ -20,6 +20,7 @@
  </style>
 </head> 
 <body>
+
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
@@ -64,10 +65,9 @@
         }).open();
     }
 </script> 
-
  
        		<!--class="form-horizontal" -->
-<form id="join" action="/ShoppingMall/main.do" method="post">  <!--  -->
+<form id="join" action="joinControl.do" method="post">  <!--  -->
          
            
 <div class="row">
@@ -93,10 +93,10 @@
           
          <div class="form-group">
             <div class="col-sm-2 control-label">
-                <label id="pwd">패스워드</label>
+                <label id="pw">패스워드</label>
             </div>
             <div class="col-sm-6">
-                <input type="password" class="form-control" name="pwd" id="pwd">
+                <input type="password" class="form-control" name="pw" id="pw">
             </div>
          </div>
           
@@ -132,7 +132,7 @@
                 <label id="phone">전화번호</label>
             </div>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="ex)010-1234-5678">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="ex)01012345678">
             </div>
          </div>
       
@@ -142,7 +142,7 @@
                 <label id="zip_num">우편번호</label>
             </div>
             <div class="col-sm-3">
-             <input type="text" id="sample6_postcode" placeholder="우편번호"  name="zip_num" class="form-control" >
+             <input type="text" id="sample6_postcode" placeholder="우편번호"  name="post" class="form-control" >
             </div>
             <div class="col-sm-3">
             <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-primary">
@@ -156,7 +156,7 @@
              </div>
              <div class="col-sm-6">
                 <input type="text" id="sample6_address"
-                placeholder="주소"  name="address1"   class="form-control" >
+                placeholder="주소"  name="addr"   class="form-control" >
              </div>   
            </div>
       
@@ -165,7 +165,7 @@
                 <label id="address1">상세주소</label>
              </div>
              <div class="col-sm-6"> 
-               <input type="text" id="sample6_address2" placeholder="상세주소" name="address2"   class="form-control" >
+               <input type="text" id="sample6_address2" placeholder="상세주소" name="detailaddr"   class="form-control" >
                </div>
           </div>
           

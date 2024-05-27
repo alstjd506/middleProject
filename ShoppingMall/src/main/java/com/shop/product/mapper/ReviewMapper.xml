@@ -17,15 +17,22 @@
         	     where prod_no = #{prodNo}
            		 order by r.review_no) a
            	<![CDATA[
-     		where rownum <= (#{rpage} * 5)) r
+     		where rownum <= (#{rpage} * 10)) r
      		]]>
-		where r.rn > (#{rpage} -1) *5
+		where r.rn > (#{rpage} -1) *10
 	</select>
+	
+	<select id="reviewTotalCnt" resultType ="int">
+		select count(1)
+		from review
+		where prod_no=#{prodNo}
+	</select>
+	
 
 	<insert id="insertReview" parameterType="review">
-	<selectKey resultType = "int" keyProperty="reveiwNo" order="BEFORE">
-		select review_seq.nextval from dual
-	</selectKey>
+		<selectKey resultType = "int" keyProperty="reviewNo" order="BEFORE">
+			select review_seq.nextval from dual
+		</selectKey>
 		insert into review(review_no, prod_no, user_id, review_content, review_score)
 		values(#{reviewNo}, #{prodNo}, #{userId}, #{reviewContent}, #{reviewScore})
 	</insert>

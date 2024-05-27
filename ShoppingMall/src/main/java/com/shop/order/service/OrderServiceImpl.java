@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.shop.common.DataSource;
 import com.shop.order.mapper.OrderMapper;
 import com.shop.vo.CartVO;
+import com.shop.vo.MemberVO;
 
 public class OrderServiceImpl implements OrderService {
 	
@@ -17,6 +18,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Map<String, Object>> cartList(String userId) {
 		return mapper.selectCartList(userId);
+	}
+	
+	@Override
+	public Map<String, Object> getCart(String userId, int prodNo) {
+		return mapper.selectCart(userId, prodNo);
 	}
 
 	@Override
@@ -32,6 +38,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public boolean addCart(CartVO cvo) {
 		return mapper.insertCart(cvo) == 1;
+	}
+
+	@Override
+	public MemberVO getUser(String userId) {
+		return mapper.selectMember(userId);
 	}
 
 }

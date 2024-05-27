@@ -15,8 +15,7 @@ public class JoinControl implements Control{
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		System.out.println("여기들어옴");
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		String name = req.getParameter("name");
@@ -26,7 +25,21 @@ public class JoinControl implements Control{
 		String detailaddr = req.getParameter("detailaddr");
 		
 		MemberService svc = new MemberServiceImpl();
-		MemberVO mvo = svc.FindPw(id, name, phone);
+		
+		MemberVO mvo = new MemberVO();
+		
+		mvo.setUserId(id);
+		mvo.setUserPw(pw);
+		mvo.setUserName(name);
+		mvo.setUserPhone(phone);
+		mvo.setUserPost(Integer.parseInt(post));
+		mvo.setUserAddr(addr);
+		mvo.setUserDetailAddr(detailaddr);
+		System.out.println(mvo);
+		if(svc.Join(mvo)) {
+			resp.sendRedirect("login.do");
+		}
+	
 	}
 
 }

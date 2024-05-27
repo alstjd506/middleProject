@@ -43,5 +43,6 @@
         </div>
         <!-- Footer-->
         	<tiles:insertAttribute name="footer" />
+    	<!-- <script src="js/search.js"></script> -->
     </body>
 </html>
