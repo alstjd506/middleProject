@@ -11,6 +11,7 @@ Number.prototype.numberFormat = function() {
 };
 document.addEventListener("DOMContentLoaded", function(e) {
 	e.preventDefault();
+
 	const keywordBtn = document.getElementById('keywordBtn');
 	const filterSelect = document.querySelector('.filter-select');
 
@@ -110,6 +111,27 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 			colDiv.appendChild(cardDiv);
 			div.appendChild(colDiv);
+		});
+		
+		const modal = document.querySelector('.modal');
+		const modalOpenButtons = document.querySelectorAll('.modal_open');
+		const modalCartBtn = document.querySelector('.cart_btn');
+		const modalClose = document.querySelector('.close_btn');
+
+		modalOpenButtons.forEach(button => {
+			button.addEventListener('click', function(event) {
+				event.preventDefault();
+				modal.style.display = 'block';
+			});
+		});
+
+		modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
+			modal.style.display = 'none';
+			window.location.href = 'cart.do';
+		});
+
+		modalClose.addEventListener('click', function() {
+			modal.style.display = 'none';
 		});
 	}
 });
