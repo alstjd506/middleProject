@@ -42,6 +42,16 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return mapper.modifyReview(review) == 1;
 	}
+	@Override
+	public double avgScore(int prodNo) {
+		// TODO Auto-generated method stub
+		Double avgScore = mapper.avgScore(prodNo);
+		if (avgScore != null)
+			return avgScore;
+		else
+			return 0.0;
+	}
+	
 	
 
 	

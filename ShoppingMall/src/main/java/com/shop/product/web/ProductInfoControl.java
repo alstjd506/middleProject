@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.common.Control;
 import com.shop.product.service.ProductService;
 import com.shop.product.service.ProductServiceImpl;
+import com.shop.product.service.ReviewService;
+import com.shop.product.service.ReviewServiceImpl;
 import com.shop.vo.ProductVO;
 
 public class ProductInfoControl implements Control {
@@ -22,9 +24,12 @@ public class ProductInfoControl implements Control {
 		String prodNo = req.getParameter("prodNo");
 		
 		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> productInfo = svc.productInfo(Integer.parseInt(prodNo));
+		ReviewService rvc = new ReviewServiceImpl();
+		Double avgScore = rvc.avgScore(Integer.parseInt(prodNo));
 		
+		List<ProductVO> productInfo = svc.productInfo(Integer.parseInt(prodNo));
 		req.setAttribute("productInfo",productInfo);
+		req.setAttribute("avgScore", avgScore);
 		req.getRequestDispatcher(path).forward(req, resp);
 		
 		

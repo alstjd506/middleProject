@@ -49,6 +49,10 @@
 		where review_no = #{reviewNo}
 	</update>
 	
-	
+	<select id="avgScore" parameterType="int" resultType="double">
+		select round(avg(review_score),1)
+		from review
+		where prod_no = #{prodNo}
+	</select>
 
 </mapper>

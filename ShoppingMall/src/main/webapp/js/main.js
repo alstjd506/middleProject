@@ -10,11 +10,6 @@ Number.prototype.numberFormat = function() {
 };
 document.addEventListener('DOMContentLoaded', function() {
 
-	   document.getElementById('searchBarForm').addEventListener('submit', function(event) {
-        event.preventDefault(); //
-        searchProducts();
-    });
-
 	showPage('popProducts', 0); // 리스트 초기 페이지 설정
 	showPage('newProducts', 0);
 	showPage('ctgProducts', 0);
@@ -113,66 +108,84 @@ document.querySelectorAll('.category-btn').forEach(button => {
 
 //리스트 새로 생성시켜주는 
 function showList(products) {
-	console.log(products);
+    console.log(products);
 
-	const div = document.getElementById('ctgProducts');
-	div.innerHTML = '';
+    const div = document.getElementById('ctgProducts');
+    div.innerHTML = '';
 
-	products.forEach(product => {
-		const colDiv = document.createElement('div');
-		colDiv.className = 'col mb-5';
-		const cardDiv = document.createElement('div');
-		cardDiv.className = 'card h-100';
-		const imgButton = document.createElement('a');
-		imgButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+    products.forEach(product => {
+        const colDiv = document.createElement('div');
+        colDiv.className = 'col mb-5';
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card h-100';
+        const imgButton = document.createElement('a');
+        imgButton.href = `productInfo.do?prodNo=${product.prodNo}`;
 
-		const img = document.createElement('img'); //이미지 지정
-		img.className = 'card-img-top';
-		img.src = `images/${product.prodImage}`;
+        const img = document.createElement('img'); // 이미지 지정
+        img.className = 'card-img-top';
+        img.src = `images/${product.prodImage}`;
 
-		const cardBodyDiv = document.createElement('div');
-		cardBodyDiv.className = 'card-body p-4';
-		const textCenterDiv = document.createElement('div');
-		textCenterDiv.className = 'text-center';
+        const cardBodyDiv = document.createElement('div');
+        cardBodyDiv.className = 'card-body p-4';
+        const textCenterDiv = document.createElement('div');
+        textCenterDiv.className = 'text-center';
 
-		const nameButton = document.createElement('a');
-		nameButton.href = `productInfo.do?prodNo=${product.prodNo}`;
-		const productName = document.createElement('h5'); //상품명
-		productName.className = 'fw-bolder';
-		productName.textContent = product.prodName;
+        const nameButton = document.createElement('a');
+        nameButton.href = `productInfo.do?prodNo=${product.prodNo}`;
+        const productName = document.createElement('h5'); // 상품명
+        productName.className = 'fw-bolder';
+        productName.textContent = product.prodName;
 
-		const cardFooterDiv = document.createElement('div');
-		cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent'
+        const cardFooterDiv = document.createElement('div');
+        cardFooterDiv.className = 'card-footer p-4 pt-0 border-top-0 bg-transparent';
 
-		const textCenterFDiv = document.createElement('div');
-		textCenterFDiv.className = 'text-center';
-		textCenterFDiv.textContent = product.prodPrice.numberFormat() + "원";
+        const priceAndCartDiv = document.createElement('div');
+        priceAndCartDiv.className = 'price-and-cart';
 
-		const cartButton = document.createElement('a');
-		cartButton.className = 'modal_open';
-		cartButton.textContent = 'Cart';
-		cartButton.addEventListener('click', function() {
-			document.querySelector('.modal').style.display = 'block';
-		})
+        const priceSpan = document.createElement('span');
+        priceSpan.className = 'price';
+        priceSpan.textContent = product.prodPrice.numberFormat() + "원";
 
-		nameButton.appendChild(productName);
-		textCenterDiv.appendChild(nameButton);
-		cardBodyDiv.appendChild(textCenterDiv);
-		/*textCenterFDiv.appendChild(buyButton);*/
-		textCenterFDiv.appendChild(cartButton);
-		cardFooterDiv.appendChild(textCenterFDiv);
+        const cartButton = document.createElement('a');
+        cartButton.className = 'modal_open';
+        cartButton.textContent = 'Cart';
+        cartButton.addEventListener('click', function() {
+            document.querySelector('.modal').style.display = 'block';
+        });
 
-		imgButton.appendChild(img);
-		cardDiv.appendChild(imgButton);
-		cardDiv.appendChild(cardBodyDiv);
-		cardDiv.appendChild(cardFooterDiv);
+        const starDiv = document.createElement('div');
+        starDiv.className = 'd-flex small text-warning mb-2 star';
+        for (let i = 1; i <= product.prodScore; i++) {
+            const starIcon = document.createElement('div');
+            starIcon.className = 'bi-star-fill';
+            starDiv.appendChild(starIcon);
+        }
+        const scoreSpan = document.createElement('span');
+        scoreSpan.id = 'productScore';
+        scoreSpan.style.color = 'black';
+        scoreSpan.style.marginLeft = '5px';
+        scoreSpan.textContent = product.prodScore + '점';
 
-		colDiv.appendChild(cardDiv);
-		div.appendChild(colDiv);
+        starDiv.appendChild(scoreSpan);
 
-	})
+        nameButton.appendChild(productName);
+        textCenterDiv.appendChild(nameButton);
+        cardBodyDiv.appendChild(textCenterDiv);
 
-};
+        priceAndCartDiv.appendChild(priceSpan);
+        priceAndCartDiv.appendChild(cartButton);
+        cardFooterDiv.appendChild(priceAndCartDiv);
+        cardFooterDiv.appendChild(starDiv);
+
+        imgButton.appendChild(img);
+        cardDiv.appendChild(imgButton);
+        cardDiv.appendChild(cardBodyDiv);
+        cardDiv.appendChild(cardFooterDiv);
+
+        colDiv.appendChild(cardDiv);
+        div.appendChild(colDiv);
+    });
+}
 
 //모달 관련
 document.addEventListener('DOMContentLoaded', function() {

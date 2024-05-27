@@ -12,6 +12,11 @@
 						<i class="fas fa-tachometer-alt"></i>
 					</div> 메인화면
 				</a>
+					<a class="nav-link" href="searchForm.do">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-tachometer-alt"></i>
+					</div> 검색화면
+				</a>
 				<div class="sb-sidenav-menu-heading">Interface</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 					data-bs-target="#collapseFood" aria-expanded="false"
@@ -166,3 +171,7 @@
 		</div>
 	</nav>
 </div>
+<script>
+	const categoryCode = '${date-no}'
+	console.log(categoryCode);
+</script>

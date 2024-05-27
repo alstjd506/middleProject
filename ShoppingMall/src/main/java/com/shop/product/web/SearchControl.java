@@ -22,15 +22,15 @@ public class SearchControl implements Control {
 		// TODO Auto-generated method stub
 	    resp.setContentType("application/json;charset=utf-8");
 
-//		String page = req.getParameter("page");
+
         String keyword = req.getParameter("keyword");
-//        String filter = req.getParameter("filter");
+        String filter = req.getParameter("filter");
 
 //		page = page == null ? "1" : page;
         SearchVO search = new SearchVO();
 //		search.setPage(Integer.parseInt(page));
         search.setKeyword(keyword);
-//        search.setFilter(filter);
+        search.setFilter(filter);
 
         ProductService svc = new ProductServiceImpl();
         List<ProductVO> searchResult = svc.searchProduct(search);

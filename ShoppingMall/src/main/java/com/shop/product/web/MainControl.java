@@ -13,7 +13,8 @@ import com.shop.common.SearchVO;
 
 import com.shop.product.service.ProductService;
 import com.shop.product.service.ProductServiceImpl;
-
+import com.shop.product.service.ReviewService;
+import com.shop.product.service.ReviewServiceImpl;
 import com.shop.vo.ProductVO;
 
 public class MainControl implements Control {
@@ -24,19 +25,37 @@ public class MainControl implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 
 		String path = "main/main.tiles";
+		
+	
 
 		ProductService svc = new ProductServiceImpl();
-
+		ReviewService rvc = new ReviewServiceImpl();
+		
 		List<ProductVO> poplist = svc.productList();
-		req.setAttribute("productList", poplist);
-
 		List<ProductVO> newlist = svc.productNewList();
-		req.setAttribute("productNewList", newlist);
-
 		List<ProductVO> mdlist = svc.productMdList();
-		req.setAttribute("productMdList", mdlist);
-
 		List<ProductVO> cheaplist = svc.productCheapList();
+		
+		for(ProductVO product : poplist) {
+			Double avgScore = rvc.avgScore(product.getProdNo());
+			product.setProdScore(avgScore);
+		}
+		for(ProductVO product : newlist) {
+			Double avgScore = rvc.avgScore(product.getProdNo());
+			product.setProdScore(avgScore);
+		}
+		for(ProductVO product : mdlist) {
+			Double avgScore = rvc.avgScore(product.getProdNo());
+			product.setProdScore(avgScore);
+		}
+		for(ProductVO product : cheaplist) {
+			Double avgScore = rvc.avgScore(product.getProdNo());
+			product.setProdScore(avgScore);
+		}
+		
+		req.setAttribute("productList", poplist);
+		req.setAttribute("productNewList", newlist);
+		req.setAttribute("productMdList", mdlist);
 		req.setAttribute("productCheapList", cheaplist);
 
 		req.getRequestDispatcher(path).forward(req, resp);
