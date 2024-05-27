@@ -12,10 +12,9 @@ public class FindPwForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		String path = "login/FindPwForm.tiles";
+		
+		String path = "WEB-INF/login/FindPwForm.tiles";
+		path = "login/FindPwForm.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
-
 }

@@ -1,79 +1,95 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<style>
-#login {
-	margin-left: 35%;
-	margin-top: 10%;
-	box_sizing:content-box;
-	width: 300px;
-}
-#btn {
-	width: 100% ;
-}
-</style>
-<form id="login" action="loginControl.do">
-	<!-- Email input -->
-	<div data-mdb-input-init class="form-outline mb-4">
-		<input type="text" id="userId" name="id" class="form-control"  placeholder="ID"/> 
-	</div>
-
-	<!-- Password input -->
-	<div data-mdb-input-init class="form-outline mb-4">
-		<input type="password" id="userPw" name="pw" class="form-control"  placeholder="Password" /> 
-	</div>
-
-	<!-- 2 column grid layout for inline styling -->
-	<div class="row mb-4">
-		<div class="col d-flex justify-content-center">
-			<!-- Checkbox -->
-<!-- 			<div class="form-check"> -->
-<!-- 				<input class="form-check-input" type="checkbox" value="" -->
-<!-- 					id="form2Example31" checked /> <label class="form-check-label" -->
-<!-- 					for="form2Example31"> Remember me </label> -->
-<!-- 			</div> -->
-		<div class="col">
-			<!-- Simple link -->
-			<a href="findid.do" >아이디 찾기</a>
-		</div>
-		<!-- onclick="location.href='findid.do'" -->
-<!-- 		<div class="col"> -->
-			<!-- Simple link -->
-			<a href="findpw.do">비밀번호 찾기</a>
-<!-- 		</div> -->
-		</div>
-
-	</div>
-	<!-- Submit button -->
+    pageEncoding="UTF-8"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>로그인 폼</title>
+    <style>
+        @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 	
-	<!--data-mdb-button-init data-mdb-ripple-init 얘는 타입이랑 클래스사이에 있던애인데 뭐하는건지 모르겠음 -->
-	<button  type="submit" id="login_Btn" class="btn btn-primary btn-block mb-4" onclick="" id="btn">Sign in</button>
-
-	<!-- Register buttons -->
-	<div class="text-center">
-		<p>
-			회원이 아니신가요? <a href="join.do" >회원가입</a>
-		</p>
+	html {
+		height: 100%;
+	}
 	
-<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
-<!-- 			class="btn btn-link btn-floating mx-1"> -->
-<!-- 			<i class="fab fa-facebook-f"></i> -->
-<!-- 		</button> -->
+	body {
+	    width:100%;
+	    height:100%;
+	    margin: 0;
+  		padding-top: 200px;
+  		padding-bottom: 40px;
+  		font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+  		background-repeat: no-repeat;
+	}
+	
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+	}
 
-<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
-<!-- 			class="btn btn-link btn-floating mx-1"> -->
-<!-- 			<i class="fab fa-google"></i> -->
-<!-- 		</button> -->
+    #btn-Yes{
+        background-color: #e4932b;
+        border: none;
+    }
+	
+	.login .form-control {
+  		position: relative;
+  		height: auto;
+  		-webkit-box-sizing: border-box;
+     	-moz-box-sizing: border-box;
+        	 box-sizing: border-box;
+  		padding: 10px;
+  		font-size: 16px;
+	}
 
-<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
-<!-- 			class="btn btn-link btn-floating mx-1"> -->
-<!-- 			<i class="fab fa-twitter"></i> -->
-<!-- 		</button> -->
 
-<!-- 		<button type="button" data-mdb-button-init data-mdb-ripple-init -->
-<!-- 			class="btn btn-link btn-floating mx-1"> -->
-<!-- 			<i class="fab fa-github"></i> -->
-<!-- 		</button> -->
+    .links{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    a{ 
+    	color: #f58b34; text-decoration: none; 
+    }
+    .check{
+    	color : red;
+    }
+	 
+    </style>
+  </head>
+
+  <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
+
+	<div class="card align-middle" style="width:35rem;">
+		<div class="card-title" style="text-align: center;">
+            
+			<h2 class="card-title" style="color:#f58b34; margin-left: auto; margin-right: auto;"><img src="images/귀여운강아지.png"/></h2>
+		</div>
+      <form action="loginControl.do" class="login" method="POST">
+
+		<div class="card-body">
+  
+        <input type="text" name="userId" id="userId" class="form-control" placeholder="아이디" autofocus required><BR>
+        <input type="password" name="userPw" id="userPw" class="form-control" placeholder="비밀번호"  required><br>
+         <p id="check" class="check">${login_msg}</p><br/>
+        <input id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" value="로 그 인">
+      </form>
+    
+		</div>
+        <div class="links">
+            <a href="findid.do">아이디 찾기</a> | <a href="findpw.do">비밀번호 찾기</a> | <a href="join.do">회원가입</a>
+
+        </div>
 	</div>
-</form>
-<script src="../../js/member.js"></script>
+   
+  </body>
+</html>

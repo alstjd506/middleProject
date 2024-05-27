@@ -6,44 +6,34 @@ import com.shop.common.DataSource;
 import com.shop.member.mapper.MemberMapper;
 import com.shop.vo.MemberVO;
 
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
 	SqlSession session = DataSource.getInstance().openSession(true);
 	MemberMapper mapper = session.getMapper(MemberMapper.class);
+
 	@Override
 	public MemberVO login(String id, String pw) {
 		return mapper.selectMember(id, pw);
 	}
+	
 	@Override
-	public MemberVO FindId(String name, String phone) {
-		return null;
+	public String FindId(MemberVO mvo) {
+		return mapper.selectMember2(mvo);
 	}
+
 	@Override
-	public MemberVO FindPw(String id, String name, String phone) {
-		return null;
+	public String FindPw(MemberVO mvo) {
+		return mapper.selectMember3(mvo);
 	}
+
 	@Override
-	public MemberVO Join(String id, String pw, String name, String phone, int post, String addr, String detailaddr) {
-		return null;
+	public boolean Join(MemberVO mvo) {
+		return mapper.selectMember4(mvo)==1;
 	}
-	
-	
-	
-//	@Override
-//	public MemberVO FindId(String name, String phone) {
-//			return mapper.selectMember2(name, phone);
-//	}
-//
-//	@Override
-//	public MemberVO FindPw(String id, String name, String phone) {
-//		return mapper.selectMember3(id, name, phone);
-//	}
-//
-//	@Override
-//	public MemberVO Join(String id, String pw, String name, String phone, int post, String addr, String detailaddr) {
-//		return mapper.selectMember4(id, pw, name, phone, post, addr, detailaddr);
-//	}
-	
-	
-	
+
+	@Override
+	public boolean ModifyUser(MemberVO mvo) {
+		return mapper.selectMembermodify(mvo)==1;
+	}
+
 }

@@ -2,27 +2,70 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace= "com.shop.member.mapper.MemberMapper">
+<mapper namespace="com.shop.member.mapper.MemberMapper">
 
-<!-- 	회원가입-->
-<!-- 	<insert id="insertUser" parameterType="com.shop.vo.MemberVO"> -->
-<!-- 		insert into USERS(user_id, user_pw, user_name, user_phone, user_post, user_addr, user_detail_addr, user_resp) -->
-<!-- 		values(#{userId},#{userPw},#{userName},#{userPhone},#{userPost},#{userAddr},#{userDetailAddr} #{userResp}) -->
-<!-- 	</insert> -->
+	<!-- 로그인 -->
+	<select id="selectMember" resultType="member">
+		select *
+		from users
+		where
+		user_id = #{userId}
+		and user_pw = #{userPw}
+	</select>
 	
-<!-- 	 --> 
-<!-- 	<select id="selectUserCountById" parameterType="String" resultType="int"> -->
-<!--         SELECT COUNT(*) FROM USERS WHERE user_id = #{userId} -->
-<!--     </select> -->
-    
-    <!--  -->
-    <select id ="selectMember" resultType="member">
-    	 select *
-   		 from users
-   		 where user_id = #{id}
-  		 and   user_pw = #{pw}
-    </select>
+	<!-- 회원가입 -->
+	<insert id="selectMember4" parameterType="com.shop.vo.MemberVO">
+		insert into
+		USERS(user_id, user_pw, user_name, user_phone, user_post, user_addr,
+		user_detail_addr)
+		values(#{userId},#{userPw},#{userName},#{userPhone},#{userPost},#{userAddr},#{userDetailAddr})
+	</insert>
 
+	<!-- 아이디찾기 -->
+	<select id="selectMember2" parameterType="member">
+		select      user_Id
+		from        users
+		where
+					user_Name = #{userName}
+		and
+					user_Phone = #{userPhone}
+	</select>
+	
+	<!-- 비밀번호찾기 -->
+	<select id="selectMember3" parameterType="member">
+		select 		user_Pw
+		from	    users
+		where
+					user_Id = #{userId}  
+		and    
+				    user_Name = #{userName}
+		and
+					user_Phone = #{userPhone}
+	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="selectMembermodify" parameterType="member">
+	update 		users
+	set			user_Id = #{userId}
+      			user_Pw = #{userPw}
+       			user_Name = #{userName}
+       			user_Phone = #{userPhone}
+       			user_Post = #{userPost}
+       			user_Addr = #{userAddr}
+      			user_DetailAddr = #{userDetailAddr}
+    where user_Id = #{userId}
+    
+	</update>
+
+
+
+
+	<!-- -->
+	<!-- <select id="selectUserCountById" parameterType="String" resultType="int"> -->
+	<!-- SELECT COUNT(*) FROM USERS WHERE user_id = #{userId} -->
+	<!-- </select> -->
+
+	<!-- -->
 
 
 

@@ -18,9 +18,11 @@ public class LoginControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
+		String id = req.getParameter("userId");
+		String pw = req.getParameter("userPw");
 		
+		System.out.println("id: "+id);
+		System.out.println("pw: "+pw);
 		MemberService svc = new MemberServiceImpl();
 		MemberVO mvo = svc.login(id, pw);
 

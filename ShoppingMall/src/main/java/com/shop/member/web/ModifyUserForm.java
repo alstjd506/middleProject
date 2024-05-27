@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shop.common.Control;
 
-public class FindIdForm implements Control {
+public class ModifyUserForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String path = "WEB-INF/login/FindIdForm.tiles";
-		path = "login/FindIdForm.tiles";
+		String path = "WEB-INF/login/ModifyUserForm.tiles";
+		path = "login/ModifyUserForm.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
-
+	
 }
