@@ -90,11 +90,11 @@
 				<div class="collapse" id="collapseBowel"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a data-no="4" class="nav-link" href="productList.do" >전체</a> 
-						<a data-no="40" class="nav-link" href="productList.do" >배변패드</a> 
-						<a data-no="41" class="nav-link" href="productList.do" >배변봉투</a>
-						<a data-no="42" class="nav-link" href="productList.do" >배변판</a> 
-						<a data-no="43" class="nav-link" href="productList.do" >기저귀</a> 
+						<a data-no="4" class="nav-link" href="productList.do?categoryCode=4" >전체</a> 
+						<a data-no="40" class="nav-link" href="productList.do?categoryCode=40" >배변패드</a> 
+						<a data-no="41" class="nav-link" href="productList.do?categoryCode=41" >배변봉투</a>
+						<a data-no="42" class="nav-link" href="productList.do?categoryCode=42" >배변판</a> 
+						<a data-no="43" class="nav-link" href="productList.do?categoryCode=43" >기저귀</a> 
 					</nav>
 				</div>
 				
@@ -111,12 +111,12 @@
 				<div class="collapse" id="collapseToy"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a data-no="5" class="nav-link" href="productList.do" >전체</a> 
-						<a data-no="50" class="nav-link" href="productList.do" >봉제</a> 
-						<a data-no="51" class="nav-link" href="productList.do" >라텍스</a>
-						<a data-no="52" class="nav-link" href="productList.do" >공</a>
-						<a data-no="53" class="nav-link" href="productList.do" >노즈워크</a>
-						<a data-no="54" class="nav-link" href="productList.do" >자동장난감</a> 
+						<a data-no="5" class="nav-link" href="productList.do?categoryCode=5" >전체</a> 
+						<a data-no="50" class="nav-link" href="productList.do?categoryCode=50" >봉제</a> 
+						<a data-no="51" class="nav-link" href="productList.do?categoryCode=51" >라텍스</a>
+						<a data-no="52" class="nav-link" href="productList.do?categoryCode=52" >공</a>
+						<a data-no="53" class="nav-link" href="productList.do?categoryCode=53" >노즈워크</a>
+						<a data-no="54" class="nav-link" href="productList.do?categoryCode=54" >자동장난감</a> 
 					</nav>
 				</div>
 				
@@ -133,12 +133,12 @@
 				<div class="collapse" id="collapseBeauty"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a data-no="6" class="nav-link" href="productList.do" >전체</a> 
-						<a data-no="60" class="nav-link" href="productList.do" >샴푸/린스</a> 
-						<a data-no="61" class="nav-link" href="productList.do" >브러쉬</a>
-						<a data-no="62" class="nav-link" href="productList.do" >발톱/가위</a> 
-						<a data-no="63" class="nav-link" href="productList.do" >물티슈/크리너</a> 
-						<a data-no="64" class="nav-link" href="productList.do" >타올</a>
+						<a data-no="6" class="nav-link" href="productList.do?categoryCode=6" >전체</a> 
+						<a data-no="60" class="nav-link" href="productList.do?categoryCode=60" >샴푸/린스</a> 
+						<a data-no="61" class="nav-link" href="productList.do?categoryCode=61" >브러쉬</a>
+						<a data-no="62" class="nav-link" href="productList.do?categoryCode=62" >발톱/가위</a> 
+						<a data-no="63" class="nav-link" href="productList.do?categoryCode=63" >물티슈/크리너</a> 
+						<a data-no="64" class="nav-link" href="productList.do?categoryCode=64" >타올</a>
 					</nav>
 				</div>
 				
@@ -155,10 +155,10 @@
 				<div class="collapse" id="collapseLiving"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a data-no="7" class="nav-link" href="productList.do" >전체</a> 
-						<a data-no="70" class="nav-link" href="productList.do" >하우스/방석</a> 
-						<a data-no="71" class="nav-link" href="productList.do" >안전문/울타리</a>
-						<a data-no="72" class="nav-link" href="productList.do" >식기/급수기</a> 
+						<a data-no="7" class="nav-link" href="productList.do?categoryCode=7" >전체</a> 
+						<a data-no="70" class="nav-link" href="productList.do?categoryCode=70" >하우스/방석</a> 
+						<a data-no="71" class="nav-link" href="productList.do?categoryCode=71" >안전문/울타리</a>
+						<a data-no="72" class="nav-link" href="productList.do?categoryCode=72" >식기/급수기</a> 
 					
 					</nav>
 				</div>

@@ -3,39 +3,159 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<style>
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: 100%;
+}
 
+#section {
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	margin-right: -15px;
+	margin-left: -15px;
+	justify-content: center;
+	gap: 15px;
+}
+
+.col {
+	padding-right: 0px;
+	padding-left: 0px;
+	border: 1px solid #ccc;
+	margin: 5px;
+	width: 250px;
+}
+
+.card {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	border: none;
+}
+
+.card-img-top {
+	width: 100%;
+	heigth: auto;
+}
+
+.card-body {
+	flex-grow: 1;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.card-footer {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 0;
+	padding-right: 0 !important;
+	padding-left: 15px !important;
+	background: none;
+	border-top: none;
+	text-align: center !important;
+}
+
+.btn-outline-dark {
+	margin-top: auto;
+}
+
+.category-btn {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+	border-radius: 40%;
+	margin: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.category-icon img {
+	width: 60px;
+	height: 60px;
+	object-fit: cover;
+}
+
+.categroy-icon span {
+	font-size: 12px;
+	text-align: center;
+}
+
+.scoll-box {
+	text-align: center;
+}
+
+.content_box h3 {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+</style>
 <section id="section" class="py-5">
+	<div class="filter-buttons">
+		<button class="filter-btn" data-filter="sales">판매량순</button>
+		<button class="filter-btn" data-filter="new">신상품순</button>
+		<button class="filter-btn" data-filter="highPrice">높은가격순</button>
+		<button class="filter-btn" data-filter="lowPrice">낮은가격순</button>
+		<button class="filter-btn" data-filter="reviews">상품평 많은 순</button>
+	</div>
 	<div id="bodyContainer" class="container px-4 px-lg-5 mt-5">
 		<div class="content_box"></div>
-		<div id="products" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" data-page="0">
-			  <c:forEach var="product" items="${productList}">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <a href="productInfo.do?prodNo=${product.prodNo}"><img class="card-img-top" src="images/${product.prodImage}" alt="..." /></a>
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <a href="productInfo.do?prodNo=${product.prodNo}"><h5 class="fw-bolder">${product.prodName}</h5></a>
-                                   
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            	<div class="text-center">
-                                    <!-- Product price-->
-                                 	<fmt:formatNumber value="${product.prodPrice }"/>원
-                                	
-                                	<a class="modal_open">Cart</a>
-                            	</div>
-                            </div>
-                        </div>
-                     </div>
-                     
-                     </c:forEach>
-		
+		<div id="products"
+			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+			data-page="0">
+			<c:forEach var="product" items="${productList}">
+				<input type="hidden" name="prodNo" value="${product.prodNo }">
+				<div class="col mb-5">
+					<div class="card h-100">
+						<!-- Product image-->
+						<a href="productInfo.do?prodNo=${product.prodNo}"><img
+							class="card-img-top" src="images/${product.prodImage}" alt="..." /></a>
+						<!-- Product details-->
+						<div class="card-body p-4">
+							<div class="text-center">
+								<!-- Product name-->
+								<a href="productInfo.do?prodNo=${product.prodNo}"><h5
+										class="fw-bolder">${product.prodName}</h5></a>
+
+							</div>
+						</div>
+						<!-- Product actions-->
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+							<div class="text-center">
+								<!-- Product price-->
+								<fmt:formatNumber value="${product.prodPrice }" />
+								원 <a class="modal_open">Cart</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</c:forEach>
+
 		</div>
 	</div>
+	<!-- 모달 -->
+	<div class="modal">
+		<div class="modal_popup">
+			<p>선택하신 상품이 장바구니에 담겼습니다.</p>
+			<button type="button" class="cart_btn">장바구니 가기</button>
+			<button type="button" class="close_btn">계속쇼핑 하기</button>
+		</div>
+	</div>
+	<!--end 모달 팝업-->
 </section>
+<script>
+	const prodNo = '${product.prodNo }';
+	const userId = '${logId}';
+</script>
 <script src="js/productList.js"></script>

@@ -30,7 +30,6 @@
         </style>
     </head>
     <body>
-    	<script src="js/search.js"></script>
         <!-- Navigation-->
         	<tiles:insertAttribute name="nav" />
         <!-- Header-->
@@ -43,5 +42,6 @@
         </div>
         <!-- Footer-->
         	<tiles:insertAttribute name="footer" />
+    	<!-- <script src="js/search.js"></script> -->
     </body>
 </html>

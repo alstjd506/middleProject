@@ -97,6 +97,7 @@ a {
 				</div>
                 <div id ="popProducts" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" data-page ="0">
                     <c:forEach var="product" items="${productList}">
+                    
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
@@ -304,4 +305,9 @@ a {
 <!--end 모달 팝업-->
 
 </section>
+<script>
+	const prodNo = '${product.prodNo}';
+	const userId = '${logId}';
+</script>
+
 <script src="js/main.js"></script>
