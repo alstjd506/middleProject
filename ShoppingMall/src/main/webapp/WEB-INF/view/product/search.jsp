@@ -194,6 +194,16 @@ a {
 		class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
 	</div>
+	
+	 <!-- 모달 -->
+    <div class="modal">
+        <div class="modal_popup">
+            <p>선택하신 상품이 장바구니에 담겼습니다.</p>
+            <button type="button" class="cart_btn">장바구니 가기</button>
+            <button type="button" class="close_btn">계속쇼핑 하기</button>
+        </div>
+    </div>
+    <!-- 모달 끝 -->
 <my:paging pageInfo="${paging }" />
 
 </section>
