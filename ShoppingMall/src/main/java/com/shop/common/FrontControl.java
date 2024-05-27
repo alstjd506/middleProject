@@ -54,10 +54,13 @@ import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
 import com.shop.product.web.MenuCategoryControl;
+import com.shop.product.web.ModifyReviewControl;
 import com.shop.product.web.ProductListControl;
+import com.shop.product.web.RemoveReviewControl;
+import com.shop.product.web.ReviewControl;
 import com.shop.product.web.SearchControl;
 import com.shop.product.web.SearchFormControl;
-
+import com.shop.product.web.TotalCountControl;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -75,10 +78,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new MenuCategoryControl());
 		map.put("/productList.do", new ProductListControl());
-		
-		//검색 화면
-		map.put("search.do", new SearchControl());
-		map.put("searchForm.do", new SearchFormControl());
+		map.put("/search.do", new SearchControl());
+		map.put("/searchForm.do",new SearchFormControl());
 
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
@@ -106,8 +107,21 @@ public class FrontControl extends HttpServlet {
 
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());
+
 		//상품 리뷰
 		map.put("/addReview.do", new AddReviewControl());	
+
+		
+		//상품 리뷰
+		map.put("/reviewList.do", new ReviewControl());
+		map.put("/removeReview.do", new RemoveReviewControl());
+		map.put("/addReview.do", new AddReviewControl());
+		map.put("/modifyReview.do", new ModifyReviewControl());
+		map.put("/getTotalCnt.do", new TotalCountControl());
+		
+		// 주문 화면
+		map.put("/order.do", new OrderControl());
+
 
 		//로그인화면
 		map.put("/login.do", new LoginForm()); //로그인화면

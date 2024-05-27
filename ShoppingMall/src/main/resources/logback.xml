@@ -2,13 +2,19 @@
 <!DOCTYPE configuration>
 <configuration>
 
-	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+	<appender name="stdout"
+		class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%5level [%thread] - %msg%n</pattern>
 		</encoder>
 	</appender>
-
 	<logger name="com.shop.product.mapper.ProductMapper">
 		<level value="debug" />
 	</logger>
+	<logger name="com.shop.product.mapper.ReviewMapper">
+		<level value="debug" />
+	</logger>
+	<root level="error">
+		<appender-ref ref="stdout" />
+	</root>
 </configuration>

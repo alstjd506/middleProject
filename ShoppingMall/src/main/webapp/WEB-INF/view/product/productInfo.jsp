@@ -69,30 +69,39 @@ ul, li {
 	border-bottom: 1px solid #ddd;
 	padding: 10px 0;
 }
-div.reviewList div{
-		margin : auto;
-	}
-	div.review ul {
-		list-style-type : none;
-		margin-top: 5px;
-	}
-	div.review li {
-		padding-top: 1px;
-		padding-bottom: 1px;
-	}
-	div.review span {
-		display: inline-block;
-	}
 
-.reviewList {
-  text-align: center;
+div.reviewList div {
+	margin: auto;
 }
 
+div.review ul {
+	list-style-type: none;
+	margin-top: 5px;
+}
+
+div.review li {
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+div.review span {
+	display: inline-block;
+}
+
+.reviewList {
+	text-align: center;
+}
 </style>
+<link href="css/pagging.css" rel="stylesheet" />
 
 <section id="section" class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<c:forEach var="product" items="${productInfo}">
+			<form name="myFrm">
+				<input type="hidden" name="prodNo" value="${product.prodNo }">
+			
+				
+			</form>
 			<div class="row gx-4 gx-lg-5 align-items-center">
 				<div class="col-md-6">
 					<img class="card-img-top mb-5 mb-md-0"
@@ -144,6 +153,11 @@ div.reviewList div{
 					</div>
 				</div>
 			</div>
+			<script>
+				const prodNo = '${product.prodNo}';
+				const userId = '${logId}';
+				console.log(prodNo);
+			</script>
 		</c:forEach>
 	</div>
 	<div class="row gx-4 gx-lg-5 my-5">
@@ -189,32 +203,27 @@ div.reviewList div{
 								<textarea id="reviewContent" name="reviewContent"
 									class="form-control" required></textarea>
 							</div>
-							<button type="submit" class="btn btn-primary">작성</button>
+							<button id="addReview" type="submit" class="btn btn-primary">작성</button>
 						</form>
 					</div>
 					<div class="reviewList">
-							<ul>
-								<li><span class="col-sm-2">글번호</span>
-									<span class ="col-sm-2">평점</span>
-								 	<span class="col-sm-5">댓글내용</span>
-								 	<span class="col-sm-2">작성자</span>
-									<span class="col-sm-2">삭제</span></li>
-								<li>
-									<hr />
-								</li>
-								<li style="display: none;">
-									<span class="col-sm-2">2</span>
-									<span class="col-sm-5">2댓글내용</span> 
-									<span class="col-sm-2">user02</span>
-									<span class="col-sm-2"><button	onclick="deleteRow(event)" class="btn btn-warning">삭제</button></span>
-								</li>
-							</ul>
+						<ul>
+							<li><span class="col-sm-2">글번호</span> <span class="col-sm-2">평점</span>
+								<span class="col-sm-5">댓글내용</span> <span class="col-sm-2">작성자</span>
+								<span class="col-sm-2">작성일</span> <span class="col-sm-2">삭제</span></li>
+							<li>
+								<hr />
+							</li>
+							<li style="display: none;"><span class="col-sm-2">2</span> <span
+								class="col-sm-5">평점</span> <span class="col-sm-2">댓글내용</span> <span
+								class="col-sm-2">user02</span> <span class="col-sm-2">작성일</span>
+								<span class="col-sm-2"><button id="deleteBtn"
+										class="btn btn-warning">삭제</button></span></li>
+						</ul>
 						<div class="footer">
 							<div class="center">
 								<div class="pagination">
-									<a href="#">1</a>
-									<a href="#" class="active">2</a>
-									<a href="#">3</a>
+									<a href="#">1</a> <a href="#" class="active">2</a> <a href="#">3</a>
 									<a href="#">4</a>
 								</div>
 							</div>
@@ -225,7 +234,5 @@ div.reviewList div{
 		</div>
 	</div>
 </section>
-<script>
-	const userId = '${logId}';
-</script>
+<script src="js/reviewService.js"></script>
 <script src="js/productInfo.js"></script>

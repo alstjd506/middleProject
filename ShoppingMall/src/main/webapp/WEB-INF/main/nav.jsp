@@ -68,14 +68,14 @@
                     <ul style="display: flex; justify-content: flex-end; list-style-type: none;">
                         <li class="search_tit"><span>Search</span></li>
                         <li class="top_search">
-            <form class="d-flex" id="searchBarForm" name="searchBarForm" action="searchForm.do" method="get" style="width: 100%">
+          				  <form class="d-flex" id="searchBarForm" name="searchBarForm" action="searchForm.do" method="get" style="width: 100%">
                             <div class="searchHeader">
                                 <fieldset title>
                                     <input id="keyword" name="keyword" class="inputTypeText"  value="" type="text" style="border: none; border-bottom: 1px solid black; height:30px;">
-                                    <button id ="keywordBtn"class="btn btn-outline-success" type="submit"></button>
+                                    <button id ="keywordBtn"class="btn btn-outline-success" type="submit" >검색</button>
                                 </fieldset>
                             </div>
-                                 </form>
+                           </form>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">(${empty logId ? 'Guest' : logId})</a>
@@ -110,6 +110,3 @@
         </div>
     </div>
 </nav>
-
-
-<script src="js/search.js"></script>

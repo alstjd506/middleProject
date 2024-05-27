@@ -11,29 +11,36 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.shop.common.Control;
 import com.shop.common.SearchVO;
-import com.shop.product.service.ProductService;
-import com.shop.product.service.ProductServiceImpl;
-import com.shop.vo.ProductVO;
+import com.shop.product.service.*;
+import com.shop.vo.ReviewVO;
 
-public class SearchControl implements Control {
+public class ReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/json;charset=utf-8");
-
-		String keyword = req.getParameter("keyword");
-
+		
+		String prodNo = req.getParameter("prodNo");
+		String rpage = req.getParameter("rpage");
+		
+		rpage = rpage == null ? "1" : rpage;
+		
 		SearchVO search = new SearchVO();
-		search.setKeyword(keyword);
-
-		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> searchResult = svc.searchProduct(search);
-
+		search.setProdNo(Integer.parseInt(prodNo));
+		search.setRpage(Integer.parseInt(rpage));
+		
+		ReviewService svc = new ReviewServiceImpl();
+		List<ReviewVO> list = svc.reviewList(search);
+		
 		Gson gson = new GsonBuilder().create();
-		String json = gson.toJson(searchResult);
+		String json = gson.toJson(list);
+		
 		resp.getWriter().print(json);
-
+		
+		
+		
+		
 	}
 
 }

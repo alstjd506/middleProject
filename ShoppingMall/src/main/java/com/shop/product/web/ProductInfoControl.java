@@ -20,6 +20,7 @@ public class ProductInfoControl implements Control {
 		String path = "product/productInfo.tiles";
 		
 		String prodNo = req.getParameter("prodNo");
+		
 		ProductService svc = new ProductServiceImpl();
 		List<ProductVO> productInfo = svc.productInfo(Integer.parseInt(prodNo));
 		

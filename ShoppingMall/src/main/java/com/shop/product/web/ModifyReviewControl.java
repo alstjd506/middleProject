@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shop.common.Control;
 
-public class SearchFormControl implements Control {
+public class ModifyReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "product/search.tiles";
-		req.getRequestDispatcher(path).forward(req, resp);
+
 	}
 
 }

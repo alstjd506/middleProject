@@ -12,7 +12,7 @@ Number.prototype.numberFormat = function() {
 	return nstr;
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     console.log('리스트화면 이벤트발생');
 
     // 이벤트 위임 사용: document 또는 상위 요소에 이벤트 핸들러 등록
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const categoryCode = this.getAttribute('data-no');
             if (categoryCode != null) {
                 console.log( categoryCode); // 디버깅용 로그
-              /*  if (categoryCode.length == 1) {*/
+                if (categoryCode.length == 1) {
                     fetch('category.do?categoryCode=' + categoryCode)
                         .then(response => response.json())
                         .then(result => {
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             showList(result);
                         })
                         .catch(err => {
-                            console.error("Fetch error:", err); // 에러 로그
+                            console.error(err); // 에러 로그
                         });
-               /* } else if (categoryCode.length == 2) {
+                } else if (categoryCode.length == 2) {
                     fetch('category.do?categoryCode=' + categoryCode)
                         .then(response => response.json())
                         .then(result => {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         .catch(err => {
                             console.error("Fetch error:", err); // 에러 로그
                         });
-                }*/
+                }
             }
         });
     });
@@ -107,4 +107,28 @@ function showList(products) {
 		colDiv.appendChild(cardDiv);
 		div.appendChild(colDiv);
 	});
-}
+}*/
+document.addEventListener('DOMContentLoaded', function() {
+	const modal = document.querySelector('.modal');
+	const modalOpenButtons = document.querySelectorAll('.modal_open');
+	const modalCartBtn = document.querySelector('.cart_btn');
+	const modalClose = document.querySelector('.close_btn');
+
+	//열기 버튼을 눌렀을 때 모달팝업이 열림
+	modalOpenButtons.forEach(button => {
+		button.addEventListener('click', function(event) {
+			event.preventDefault();
+			modal.style.display = 'block';
+		});
+	});
+
+	modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
+		modal.style.display = 'none';
+		window.location.href = 'cart.do';
+	});
+
+	modalClose.addEventListener('click', function() {
+		modal.style.display = 'none';
+	});
+
+});

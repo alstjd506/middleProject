@@ -48,7 +48,7 @@
 	</select>
 
 	<select id="searchProduct" parameterType="search" resultType="product">
-		select p.*
+		select p.* , c.category_name
 		from product p
 		join category c on p.category_code = c.category_code
 		where (c.category_name like '%' || #{keyword} || '%'
@@ -60,8 +60,7 @@
 	<select id="getTotalCnt" parameterType="search" resultType="int">
 		select count(1)
 		from product
-		where (c.category_name like '% ||
-		#{keyword} || '%'
+		where (c.category_name like '% || #{keyword} || '%'
 		or p.prod_name like '%' || #{keyword} || '%'
 		or p.prod_no like '%' || #{keyword} || '%')
 	</select>
