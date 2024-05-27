@@ -24,7 +24,7 @@ let basket = {
 	// 장바구니 목록
 	list: function() {
 		let userId = 'user01';
-		svc.cartList(userId,
+		cartSvc.cartList(userId,
 			result => {
 				// 장바구니 상품
 				result.forEach(cart => {
@@ -76,7 +76,7 @@ let basket = {
 		let prodNo = tr.attr('id');
 		let userId = 'user01';
 		
-		svc.removeCart(userId, prodNo,
+		cartSvc.removeCart(userId, prodNo,
 			result => {
 				if(result.retCode == 'OK') {					
 					tr.remove();
@@ -98,7 +98,7 @@ let basket = {
 				let prodNo = tr.attr('id');
 				let userId = 'user01';
 				
-				svc.removeCart(userId, prodNo,
+				cartSvc.removeCart(userId, prodNo,
 					result => {
 						if(result.retCode == 'OK') {
 							tr.remove();
@@ -121,7 +121,7 @@ let basket = {
 				let prodNo = tr.attr('id');
 				let userId = 'user01';
 								
-				svc.removeCart(userId, prodNo,
+				cartSvc.removeCart(userId, prodNo,
 					result => {
 						if(result.retCode == 'OK') {
 							tr.remove();
@@ -167,7 +167,7 @@ let basket = {
 		let price = tr.find($('#price' + prodNo)).val();
 		let count = tr.find($('#count' + prodNo)).val();
 		
-		svc.editCart(userId, prodNo, count,
+		cartSvc.editCart(userId, prodNo, count,
 			result => {
 				if(result.retCode == 'OK') {
 					tr.find($('#cartPrice' + prodNo)).text((price * count).numberFormat());
@@ -200,15 +200,10 @@ $('#selectDelete').on('click', basket.delCheckedItem);
 $('#allDelete').on('click', basket.delAllItem);
 
 // 주문
-// <form action="order.do" method="post" enctype="multipart/form-data">
 $('#purchase').on('click', function() {
 	let userId = 'user01';
 	let val = '';
 	
-	let form = $('<form />').attr('action', 'order.do')
-				 			.attr('method', 'post')
-				 			.attr('enctype', 'multipart/form-data')
-
 	$('input:checked').each((idx, item) => {
 		if($(item).attr('id') != 'allCheck') {
 			let tr = $(item).parent().parent();
@@ -218,8 +213,12 @@ $('#purchase').on('click', function() {
 		}
 	})
 	
-	form.html('<input type="hidden" name="prodNo" value="' + val + '">');				
-	
+	let form = $('<form />').attr('action', 'order.do')
+				 			.attr('method', 'post')
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'prodNo')
+				 								.val(val))
+
 	$('body').append(form);
 	
 	form.submit();

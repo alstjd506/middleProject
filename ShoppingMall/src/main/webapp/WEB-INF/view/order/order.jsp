@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
 ul{
 	list-style: none;
@@ -35,16 +35,16 @@ ul{
     </thead>
     <tbody>
       <tr>
-        <td><input type="radio" name="deliveryAddr" checked> 기존 배송지</td>
-        <td><input type="radio" name="deliveryAddr"> 새 배송지</td>
+        <td><input type="radio" name="deliveryAddr" value="old" checked> 기존 배송지</td>
+        <td><input type="radio" name="deliveryAddr" value="new"> 새 배송지</td>
       </tr>
       <tr>
         <td>받는사람</td>
-        <td><input type="text" name="name" /></td>
+        <td><input type="text" name="name" id="name"/></td>
       </tr>
       <tr>
         <td rowspan="3">주소</td>
-        <td><input type="text" id="postcode" placeholder="우편번호"> <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"></td>
+        <td><input type="text" id="postcode" placeholder="우편번호"> <input type="button" id="search" onclick="execDaumPostcode()" value="우편번호 찾기"></td>
       </tr>
       <tr>
         <td><input type="text" id="address" placeholder="주소" size="80"></td>
@@ -52,13 +52,16 @@ ul{
       <tr>
         <td><input type="text" id="detailAddress" placeholder="상세주소" size="80"></td>
       </tr>
-      <tr>
-        <td>연락처</td>
-        <td><input type="tel" /></td>
-      </tr>
     </tbody>
   </table>
+  <div align="center">
+    <button type="button" id="purchase" class="btn btn-primary">주문하기</button>
+  </div>
+  <hr>
 </div>
+<script>
+let prodNo = '${prodNo}';
+</script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="js/orderService.js"></script>
 <script src="js/order.js"></script>
