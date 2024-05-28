@@ -117,15 +117,6 @@
                 <input type="text" class="form-control" name="name" id="name" placeholder="한글로 입력하세요">
             </div>
          </div>        
-          
-<!--          <div class="form-group"> -->
-<!--             <div class="col-sm-2 control-label"> -->
-<!--                 <label id="email">이메일</label> -->
-<!--             </div> -->
-<!--             <div class="col-sm-6"> -->
-<!--                 <input type="email" class="form-control" name="email" id="email" value="macaronics@gmail.com"> -->
-<!--             </div> -->
-<!--          </div>    -->
 
           <div class="form-group">
             <div class="col-sm-2 control-label">
@@ -176,7 +167,6 @@
             <input type="submit" value="회원가입" class="btn btn-success">
             <input type="submit" value="취소" class="btn btn-warning" onclick="location.href='main.do'">
             
-<!--             <a href="main.do">취소</a> -->
             </div>
          </div>
          </div>

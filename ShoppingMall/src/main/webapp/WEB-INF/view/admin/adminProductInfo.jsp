@@ -93,57 +93,64 @@ div.review span {
 }
 </style>
 <link href="css/pagging.css" rel="stylesheet" />
-
 <section id="section" class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 
-		<form name="myFrm">
+		<form name="myFrm"
+			action="adminProductModifyForm.do?prodNo=${product.prodNo }">
+			
 			<input type="hidden" name="prodNo" value="${product.prodNo }">
 
+
+			<div class="row gx-4 gx-lg-5 align-items-center">
+				<div class="col-md-6">
+					<img class="card-img-top mb-5 mb-md-0"
+						src="images/${product.prodImage}" />
+				</div>
+				<div class="col-md-6 align-bottom">
+					<div>
+						<div class="small mb-1">
+							상품코드: <span>${product.prodNo}</span>
+						</div>
+						<input type="hidden" id="prodNo" value="${product.prodNo}">
+						<h1 class="display-5 fw-bolder">상품명 : ${product.prodName}</h1>
+						<input type="hidden" name="prodName" value=" ${product.prodName}">
+						<div class="fs-5 mb-5">
+							<span id="productPrice" data-price="${product.prodPrice}">가격
+								: <fmt:formatNumber value="${product.prodPrice}" />원
+							</span> <input type="hidden" name="price" value=" ${product.prodPrice}">
+						</div>
+						<div>
+							<span id="productCode">카테고리명 : ${product.categoryName }</span> <input
+								type="hidden" name="category" value=" ${product.categoryName}">
+						</div>
+						<div>
+							<span id="productCode">판매수 : ${product.prodSale }</span>
+						</div>
+						<div>
+							<span id="productCode">등록일 : <fmt:formatDate
+									value="${product.prodDate }" pattern="yyyy-MM-dd" /></span>
+						</div>
+						<input type="hidden" name="prodDate" value=" ${product.prodDate}">
+
+
+
+					</div>
+					<div class="right-align">
+						<button id="modBtn" class="btn btn-outline-dark flex-shrink-0"
+							type="submit">
+							<i class="bi-cart-fill me-1"></i> 상품수정
+						</button>
+						<button id="delBtn" class="btn btn-outline-dark flex-shrink-0"
+							type="button">
+							<i class="bi-cart-fill me-1"></i> 상품삭제
+						</button>
+					</div>
+				</div>
+			</div>
 		</form>
-		<div class="row gx-4 gx-lg-5 align-items-center">
-			<div class="col-md-6">
-				<img class="card-img-top mb-5 mb-md-0"
-					src="images/${product.prodImage}" alt="..." />
-			</div>
-			<div class="col-md-6 align-bottom">
-				<div>
-					<div class="small mb-1">
-						상품코드: <span id="prodNo">${product.prodNo}</span>
-					</div>
-					<h1 class="display-5 fw-bolder">상품명 : ${product.prodName}</h1>
-					<div class="fs-5 mb-5">
-						<span id="productPrice" data-price="${product.prodPrice}">가격
-							: <fmt:formatNumber value="${product.prodPrice}" />원
-						</span>
-					</div>
-					<div>
-						<span id="productCode">카테고리명 : ${product.categoryName }</span>
-					</div>
-					<div>
-						<span id="productCode">판매수 : ${product.prodSale }</span>
-					</div>
-					<div>
-						<span id="productCode">등록일 : <fmt:formatDate
-								value="${product.prodDate }" pattern="yyyy-MM-dd" /></span>
-					</div>
-
-
-
-				</div>
-				<div class="right-align">
-					<button id="modBtn" class="btn btn-outline-dark flex-shrink-0"
-						type="button">
-						<i class="bi-cart-fill me-1"></i> 상품수정
-					</button>
-					<button id="delBtn" class="btn btn-outline-dark flex-shrink-0"
-						type="button">
-						<i class="bi-cart-fill me-1"></i> 상품삭제
-					</button>
-				</div>
-			</div>
-		</div>
 	</div>
+
 	<div class="row gx-4 gx-lg-5 my-5">
 		<div class="col-md-12">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -154,7 +161,7 @@ div.review span {
 				</li>
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="review-tab" data-bs-toggle="tab"
-						data-bs-target="#review" type="button" role="tab"
+						data-bs-target="#review" type="submit" role="tab"
 						aria-controls="review" aria-selected="false">리뷰</button>
 				</li>
 			</ul>
@@ -162,61 +169,43 @@ div.review span {
 				<div class="tab-pane fade show active" id="description"
 					role="tabpanel" aria-labelledby="description-tab">
 					<div class="col-md-12">
-						<img class="card-img-top mb-5 mb-md-0" src="images/건식사료설명1.jpg"
-							alt="..." />
+						<img class="card-img-top mb-5 mb-md-0"
+							src="images/${product.prodCommentImage }" />
 					</div>
 				</div>
-				<div class="tab-pane fade" id="review" role="tabpanel"
-					aria-labelledby="review-tab">
-					<div class="reviewScore"></div>
-					<div class="reviewWrite">
-						<form id="reviewForm" class="review-form">
-							<input type="hidden" name="prodNo" value="${product.prodNo}" />
-							<div class="form-group">
-								<label for="reviewScore">평점</label> <select id="reviewScore"
-									name="reviewScore" class="form-control" required>
-									<option value="5">5</option>
-									<option value="4">4</option>
-									<option value="3">3</option>
-									<option value="2">2</option>
-									<option value="1">1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="reviewContent">리뷰 작성</label>
-								<textarea id="reviewContent" name="reviewContent"
-									class="form-control" required></textarea>
-							</div>
-							<button id="addReview" type="submit" class="btn btn-primary">작성</button>
-						</form>
+				<div class="card mb-4">
+					<div class="card-header">
+						<i class="fas fa-table me-1"></i> DataTable Example
 					</div>
-					<div class="reviewList">
-						<ul>
-							<li><span class="col-sm-2">글번호</span> <span class="col-sm-2">평점</span>
-								<span class="col-sm-5">댓글내용</span> <span class="col-sm-2">작성자</span>
-								<span class="col-sm-2">작성일</span> <span class="col-sm-2">삭제</span></li>
-							<li>
-								<hr />
-							</li>
-							<li style="display: none;"><span class="col-sm-2">2</span> <span
-								class="col-sm-5">평점</span> <span class="col-sm-2">댓글내용</span> <span
-								class="col-sm-2">user02</span> <span class="col-sm-2">작성일</span>
-								<span class="col-sm-2"><button id="deleteBtn"
-										class="btn btn-warning">삭제</button></span></li>
-						</ul>
-						<div class="footer">
-							<div class="center">
-								<div class="pagination">
-									<a href="#">1</a> <a href="#" class="active">2</a> <a href="#">3</a>
-									<a href="#">4</a>
-								</div>
-							</div>
-						</div>
+					<div class="card-body">
+						<table id="datatablesSimple">
+							<thead>
+								<tr>
+									<c:forEach var="rtitle" items="${reviewTitle }">
+										<th>${rtitle }</th>
+									</c:forEach>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="review" items="${reviewList }">
+									<tr>
+										<td>${review.prodNo }</td>
+										<td>${review.reviewScore }</td>
+										<td>${review.reviewContent }</td>
+										<td>${review.userId }</td>
+										<td><fmt:formatDate value="${review.reviewDate }"
+												pattern="yyyy-MM-dd" /></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </section>
-<script src="js/adminreview.js"></script>
-<script src="js/adminProductInfo.js"></script>
+<script>
+console.log(${product.prodNo });
+</script>

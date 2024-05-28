@@ -8,11 +8,15 @@ import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
 import com.shop.vo.ReplyVO;
+import com.shop.vo.ReviewVO;
 
 public interface AdminMapper {
 	List<ProductVO> adminProductList(); // 관리자 상품목록 
 	int adminProductCnt(); // 관리자 상품총갯수
 	ProductVO adminProductInfo(int prodNo); // 관리자 상품상세보기
+	List<ReviewVO> adminReviewList(int prodNo); // 관리자 리뷰리스트
+	int adminProductModify(ProductVO pvo); // 관리자 상품수정
+	int adminProductRemove(int prodNo); // 관리자 상품삭제
 	List<MemberVO> adminMemberList(); // 관리자 회원목록 
 	List<BoardVO> adminBoardList(); // 관리자 Q&A 목록
 	BoardVO adminBoardInfo(int bno); //관리자 답글있는 Q&A 상세보기

@@ -28,8 +28,14 @@ import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminProductModify;
 import com.shop.admin.web.AdminProductModifyForm;
+import com.shop.admin.web.AdminProductRemove;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
+
+import com.shop.admin.web.AdminReviewList;
+
+import com.shop.member.web.DeleteUserControl;
+
 import com.shop.member.web.FindIdControl;
 import com.shop.member.web.FindIdForm;
 import com.shop.member.web.FindIdResultForm;
@@ -41,6 +47,7 @@ import com.shop.member.web.JoinForm;
 import com.shop.member.web.LoginControl;
 import com.shop.member.web.LoginForm;
 import com.shop.member.web.LogoutControl;
+import com.shop.member.web.ModifyUserControl;
 import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.AddCartControl;
@@ -112,9 +119,10 @@ public class FrontControl extends HttpServlet {
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
 		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회 o
 		map.put("/adminProductInfo.do", new AdminProductInfo()); // 관리자 상품상세조회 o
-		map.put("/adminProductModifyForm.do", new AdminProductModifyForm()); // 관리자 상품 수정화면 x
-		map.put("/adminProductModify.do", new AdminProductModify()); // 관리자 상품 수정기능 x
-		
+		map.put("/adminReviewList.do", new AdminReviewList());// 관리자 리뷰리스트 o
+		map.put("/adminProductModifyForm.do", new AdminProductModifyForm()); // 관리자 상품 수정화면 o
+		map.put("/adminProductModify.do", new AdminProductModify()); // 관리자 상품 수정기능 o
+		map.put("/adminProductRemove.do", new AdminProductRemove()); // 관리자 상품 삭제기능 o
 		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&A 목록조회 o
 		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&A 상세조회 o
 		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
@@ -128,9 +136,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
-		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트 x
-
-
+		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
+		
 		
 		
 		//로그인화면
@@ -150,7 +157,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/joinControl.do",new JoinControl());
 		//회원정보수정
 		map.put("/modifyuser.do", new ModifyUserForm()); //회원정보수정
-
+		map.put("/ModifyUserControl.do", new ModifyUserControl());
+		//회원탈퇴
+		map.put("/DeleteUserControl.do", new DeleteUserControl());
+		
+		
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
 		map.put("/orderList.do", new OrderListControl()); // 장바구니 주문상품 목록
