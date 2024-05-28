@@ -14,7 +14,9 @@ public interface MemberMapper {
 
 	int selectMember4(MemberVO mvo); //회원가입
 	
-	int selectMembermodify(MemberVO mvo); //회원정보
+	int selectMembermodify(MemberVO mvo); //회원정보수정
+	
+	int deleteMember(MemberVO mvo); //회원탈퇴
 
 
 }

@@ -64,10 +64,14 @@
             }
         }).open();
     }
+    
+
+
+
 </script> 
  
        		<!--class="form-horizontal" -->
-<form id="join" action="joinControl.do" method="post">  <!--  -->
+<form id="join" action="ModifyUserControl.do" method="post"> 
          
            
 <div class="row">
@@ -113,7 +117,7 @@
                 <label id="phone">전화번호</label>
             </div>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="ex)01012345678">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="ex)010-1234-5678">
             </div>
          </div>
       
@@ -149,14 +153,14 @@
                <input type="text" id="sample6_address2" placeholder="상세주소" name="detailaddr"   class="form-control" >
                </div>
           </div>
-                
+
          <input type="hidden" name="ip" value="${GetIpAddress.getIp()}">
          <div class="form-group" >
             <div class="col-sm-12  text-center">
             <input type="submit" value="회원정보수정" class="btn btn-success">
-            <input type="submit" value="메인으로" class="btn btn-warning" onclick="location.href='main.do'">
+			<input type="button" value="홈으로" class="btn btn-warning"  onclick="location.href='main.do'">
             
-<!--             <a href="main.do">취소</a> -->
+            
             </div>
          </div>
          </div>

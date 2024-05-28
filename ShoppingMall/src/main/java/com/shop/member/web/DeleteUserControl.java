@@ -11,10 +11,11 @@ import com.shop.member.service.MemberService;
 import com.shop.member.service.MemberServiceImpl;
 import com.shop.vo.MemberVO;
 
-public class ModifyUserControl implements Control{
+public class DeleteUserControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		String name = req.getParameter("name");
@@ -35,12 +36,9 @@ public class ModifyUserControl implements Control{
 		mvo.setUserAddr(addr);
 		mvo.setUserDetailAddr(detailaddr);
 		System.out.println(mvo);
-		if(svc.ModifyUser(mvo)) {
+		if(svc.Join(mvo)) {
 			resp.sendRedirect("main.do");
 		}
-	
 	}
 
 }
-
-
