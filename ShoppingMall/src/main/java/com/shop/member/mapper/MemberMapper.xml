@@ -13,14 +13,6 @@
 		and user_pw = #{userPw}
 	</select>
 	
-	<!-- 회원가입 -->
-	<insert id="selectMember4" parameterType="com.shop.vo.MemberVO">
-		insert into
-		USERS(user_id, user_pw, user_name, user_phone, user_post, user_addr,
-		user_detail_addr)
-		values(#{userId},#{userPw},#{userName},#{userPhone},#{userPost},#{userAddr},#{userDetailAddr})
-	</insert>
-
 	<!-- 아이디찾기 -->
 	<select id="selectMember2" parameterType="member">
 		select      user_Id
@@ -43,21 +35,33 @@
 					user_Phone = #{userPhone}
 	</select>
 	
+	<!-- 회원가입 -->
+	<insert id="selectMember4" parameterType="com.shop.vo.MemberVO">
+		insert into
+		USERS(user_id, user_pw, user_name, user_phone, user_post, user_addr,
+		user_detail_addr)
+		values(#{userId},#{userPw},#{userName},#{userPhone},#{userPost},#{userAddr},#{userDetailAddr})
+	</insert>
+	
 	<!-- 회원정보수정 -->
 	<update id="selectMembermodify" parameterType="member">
 	update 		users
-	set			user_Id = #{userId}
-      			user_Pw = #{userPw}
-       			user_Name = #{userName}
-       			user_Phone = #{userPhone}
-       			user_Post = #{userPost}
-       			user_Addr = #{userAddr}
-      			user_DetailAddr = #{userDetailAddr}
+	set			user_Id = #{userId},
+      			user_Pw = #{userPw},
+       			user_Name = #{userName},
+       			user_Phone = #{userPhone},
+       			user_Post = #{userPost},
+       			user_Addr = #{userAddr},
+      			user_Detail_Addr = #{userDetailAddr}
     where user_Id = #{userId}
-    
 	</update>
 
-
+	<delete id="deleteMember" parameterType="member">
+	delete from users
+	
+	where user_Id = #{userId}
+	
+	</delete>
 
 
 	<!-- -->

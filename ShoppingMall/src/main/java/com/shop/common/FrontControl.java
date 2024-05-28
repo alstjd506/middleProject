@@ -31,7 +31,11 @@ import com.shop.admin.web.AdminProductModifyForm;
 import com.shop.admin.web.AdminProductRemove;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
+
 import com.shop.admin.web.AdminReviewList;
+
+import com.shop.member.web.DeleteUserControl;
+
 import com.shop.member.web.FindIdControl;
 import com.shop.member.web.FindIdForm;
 import com.shop.member.web.FindIdResultForm;
@@ -43,6 +47,7 @@ import com.shop.member.web.JoinForm;
 import com.shop.member.web.LoginControl;
 import com.shop.member.web.LoginForm;
 import com.shop.member.web.LogoutControl;
+import com.shop.member.web.ModifyUserControl;
 import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
 import com.shop.order.web.AddCartControl;
@@ -148,7 +153,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/joinControl.do",new JoinControl());
 		//회원정보수정
 		map.put("/modifyuser.do", new ModifyUserForm()); //회원정보수정
-
+		map.put("/ModifyUserControl.do", new ModifyUserControl());
+		//회원탈퇴
+		map.put("/DeleteUserControl.do", new DeleteUserControl());
+		
+		
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
 		map.put("/orderList.do", new OrderListControl());
