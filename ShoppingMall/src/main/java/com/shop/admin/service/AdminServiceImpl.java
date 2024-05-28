@@ -154,6 +154,9 @@ public class AdminServiceImpl implements AdminService {
 	public List<ReviewVO> adminReviewList(int prodNo) {
 		return mapper.adminReviewList(prodNo);
 	}
-
+	@Override
+	public int adminReviewStar(int prodNo) {
+		return mapper.adminReviewStar(prodNo);
+	}
 
 }

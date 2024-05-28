@@ -144,5 +144,3 @@ color: black;
 			</div>
 		</div>
 </main>
-<script>
-</script>

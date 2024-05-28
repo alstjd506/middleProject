@@ -119,7 +119,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
 		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회 o
 		map.put("/adminProductInfo.do", new AdminProductInfo()); // 관리자 상품상세조회 o
-		map.put("/adminReviewList.do", new AdminReviewList());// 관리자 리뷰리스트 o
 		map.put("/adminProductModifyForm.do", new AdminProductModifyForm()); // 관리자 상품 수정화면 o
 		map.put("/adminProductModify.do", new AdminProductModify()); // 관리자 상품 수정기능 o
 		map.put("/adminProductRemove.do", new AdminProductRemove()); // 관리자 상품 삭제기능 o

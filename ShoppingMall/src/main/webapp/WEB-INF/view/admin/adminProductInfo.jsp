@@ -92,13 +92,20 @@ div.review span {
 	text-align: center;
 }
 </style>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+	rel="stylesheet">
+
 <link href="css/pagging.css" rel="stylesheet" />
 <section id="section" class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 
 		<form name="myFrm"
 			action="adminProductModifyForm.do?prodNo=${product.prodNo }">
-			
+
 			<input type="hidden" name="prodNo" value="${product.prodNo }">
 
 
@@ -116,9 +123,16 @@ div.review span {
 						<h1 class="display-5 fw-bolder">상품명 : ${product.prodName}</h1>
 						<input type="hidden" name="prodName" value=" ${product.prodName}">
 						<div class="fs-5 mb-5">
+
 							<span id="productPrice" data-price="${product.prodPrice}">가격
 								: <fmt:formatNumber value="${product.prodPrice}" />원
 							</span> <input type="hidden" name="price" value=" ${product.prodPrice}">
+						</div>
+						<div class="d-flex justify-content small text-warning mb-2">
+							평균별점:   
+							<c:forEach begin="1" end="${star}" step="1">
+								<div class="bi-star-fill"></div>
+							</c:forEach>
 						</div>
 						<div>
 							<span id="productCode">카테고리명 : ${product.categoryName }</span> <input
@@ -190,7 +204,12 @@ div.review span {
 								<c:forEach var="review" items="${reviewList }">
 									<tr>
 										<td>${review.prodNo }</td>
-										<td>${review.reviewScore }</td>
+										<td><div
+												class="d-flex justify-content-center small text-warning mb-2">
+												<c:forEach begin="1" end="${review.reviewScore }" step="1">
+													<div class="bi bi-star-fill"></div>
+												</c:forEach>
+											</div></td>
 										<td>${review.reviewContent }</td>
 										<td>${review.userId }</td>
 										<td><fmt:formatDate value="${review.reviewDate }"
@@ -204,8 +223,7 @@ div.review span {
 			</div>
 		</div>
 	</div>
-
 </section>
 <script>
-console.log(${product.prodNo });
+console.log(${star});
 </script>

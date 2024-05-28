@@ -177,16 +177,24 @@
 	</select>
 	<update id="adminProductModify" parameterType="product">
 		update product
-		set prod_name = #{prodName},prod_price =#{prodPrice},prod_comment=#{prodComment},
-		   prod_image=#{prodImage},PROD_COMMENT_IMAGE = #{prodCommentImage}
-		   where prod_no=#{prodNo}
+		set
+		prod_name = #{prodName},prod_price
+		=#{prodPrice},prod_comment=#{prodComment},
+		prod_image=#{prodImage},PROD_COMMENT_IMAGE = #{prodCommentImage}
+		where prod_no=#{prodNo}
 	</update>
 	<delete id="adminProductRemove" parameterType="int">
-		delete from product
+		delete from
+		product
 		where prod_no = #{prodNo}
 	</delete>
 	<select id="adminReviewList" resultType="review">
 		select *
+		from review
+		where prod_no = #{prodNo}
+	</select>
+	<select id="adminReviewStar" resultType="int">
+		select nvl(round(avg(review_score),1),0)
 		from review
 		where prod_no = #{prodNo}
 	</select>
