@@ -35,6 +35,9 @@ public class AdminProductInfo implements Control {
 		
 		List<ReviewVO> rvo = svc.adminReviewList(Integer.parseInt(prodNo));
 		
+		int star = svc.adminReviewStar(Integer.parseInt(prodNo));
+		
+		req.setAttribute("star", star);
 		req.setAttribute("reviewList", rvo);
 		req.setAttribute("reviewTitle", rlist);
 		req.setAttribute("product", pvo);

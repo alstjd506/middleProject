@@ -14,6 +14,7 @@ public interface AdminMapper {
 	List<ProductVO> adminProductList(); // 관리자 상품목록 
 	int adminProductCnt(); // 관리자 상품총갯수
 	ProductVO adminProductInfo(int prodNo); // 관리자 상품상세보기
+	int adminReviewStar(int prodNo); // 별찍기 
 	List<ReviewVO> adminReviewList(int prodNo); // 관리자 리뷰리스트
 	int adminProductModify(ProductVO pvo); // 관리자 상품수정
 	int adminProductRemove(int prodNo); // 관리자 상품삭제
