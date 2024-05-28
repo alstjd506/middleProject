@@ -16,7 +16,7 @@ public class ProductListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/json;charset=utf-8");
+		
 		String path = "product/productList.tiles";
 
 		String categoryCode = req.getParameter("categoryCode");

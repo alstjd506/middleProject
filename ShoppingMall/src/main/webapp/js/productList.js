@@ -15,33 +15,32 @@ Number.prototype.numberFormat = function() {
 /*document.addEventListener('DOMContentLoaded', function() {
     console.log('리스트화면 이벤트발생');
 
-    // 이벤트 위임 사용: document 또는 상위 요소에 이벤트 핸들러 등록
     document.querySelectorAll('.nav-link').forEach(function(link) {
         link.addEventListener('click', function(event) {
-            event.preventDefault();  // 기본 동작 방지
+            event.preventDefault();  
 
             const categoryCode = this.getAttribute('data-no');
             if (categoryCode != null) {
-                console.log( categoryCode); // 디버깅용 로그
+                console.log( categoryCode); 
                 if (categoryCode.length == 1) {
                     fetch('category.do?categoryCode=' + categoryCode)
                         .then(response => response.json())
                         .then(result => {
-                            console.log(result); // 디버깅용 로그
+                            console.log(result); 
                             showList(result);
                         })
                         .catch(err => {
-                            console.error(err); // 에러 로그
+                            console.error(err); 
                         });
                 } else if (categoryCode.length == 2) {
                     fetch('category.do?categoryCode=' + categoryCode)
                         .then(response => response.json())
                         .then(result => {
-                            console.log("Fetched result:", result); // 디버깅용 로그
+                            console.log("Fetched result:", result); 
                             showList(result);
                         })
                         .catch(err => {
-                            console.error("Fetch error:", err); // 에러 로그
+                            console.error("Fetch error:", err); 
                         });
                 }
             }
@@ -92,7 +91,6 @@ function showList(products) {
 		cartButton.addEventListener('click', function() {
 			document.querySelector('.modal').style.display = 'block';
 		});
-
 		nameButton.appendChild(productName);
 		textCenterDiv.appendChild(nameButton);
 		cardBodyDiv.appendChild(textCenterDiv);
@@ -108,14 +106,13 @@ function showList(products) {
 		div.appendChild(colDiv);
 	});
 }*/
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
 	const modal = document.querySelector('.modal');
 	const modalOpenButtons = document.querySelectorAll('.modal_open');
 	const modalCartBtn = document.querySelector('.cart_btn');
 	const modalClose = document.querySelector('.close_btn');
 	let prodNo = null;
 	let cartCnt =1;
-
 	//열기 버튼을 눌렀을 때 모달팝업이 열림
 	modalOpenButtons.forEach(button => {
 		button.addEventListener('click', function(event) {
@@ -127,36 +124,50 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 	modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
 		modal.style.display = 'none';
-	
 		console.log('상품번호:'+prodNo);
 		console.log('수량:'+cartCnt);
 		console.log('유저id:' + userId);
-		cartSvc.addCart(userId, prodNo, cartCnt,
+		cartSvc.checkCart(userId, prodNo,
 			result => {
-				if(result.retCode == 'OK') {
-					window.location.href = 'cart.do';
+				if (result.retCode == 'OK') {
+					alert('해당상품이 장바구니에 있습니다.')
 				} else {
-					console.log('처리실패');
+					cartSvc.addCart(userId, prodNo, cartCnt,
+						result => {
+							if (result.retCode == 'OK') {
+								window.location.href="cart.do"
+							} else {
+								console.log('처리실패');
+							}
+						},
+						err => console.log(err)
+					)
 				}
 			},
 			err => console.log(err)
 		)
-		
 	});
-
 	modalClose.addEventListener('click', function() {
 		modal.style.display = 'none';
-		cartSvc.addCart(userId, prodNo, cartCnt,
+		cartSvc.checkCart(userId, prodNo,
 			result => {
-				if(result.retCode == 'OK') {
-					alert('장바구니에 담겼습니다.');
+				if (result.retCode == 'OK') {
+					alert('해당상품이 장바구니에 있습니다.')
 				} else {
-					console.log('처리실패');
+					cartSvc.addCart(userId, prodNo, cartCnt,
+						result => {
+							if (result.retCode == 'OK') {
+								alert('장바구니에 담겼습니다.')
+							} else {
+								console.log('처리실패');
+							}
+						},
+						err => console.log(err)
+					)
 				}
 			},
 			err => console.log(err)
 		)
-		
 	});
-
 });
+*/

@@ -167,5 +167,6 @@ a {
 	
 	const userId = '${logId}';
 </script>
+<script src="js/modal.js"></script>
 <script src="js/cartService.js"></script>
 <script src="js/productList.js"></script>

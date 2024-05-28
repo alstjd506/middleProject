@@ -40,6 +40,18 @@ const cartSvc = {
 			.then(successCall)
 			.catch(errorCall)
 		
+	},
+	//물품중복 체크
+	checkCart(userId, prodNo, successCall, errorCall) {
+		fetch('checkCart.do', {
+			method: 'post',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: 'userId=' + userId + '&prodNo=' +prodNo
+		})
+			.then(resolve => resolve.json())
+			.then(successCall)
+			.catch(errorCall)
+		
 	}
 
 	

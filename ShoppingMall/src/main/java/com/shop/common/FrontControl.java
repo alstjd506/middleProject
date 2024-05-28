@@ -62,6 +62,7 @@ import com.shop.order.web.OrderInfoControl;
 import com.shop.order.web.OrderListControl;
 import com.shop.order.web.OrderSuccessControl;
 import com.shop.order.web.RemoveCartControl;
+import com.shop.order.web.checkCartControl;
 import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
@@ -176,6 +177,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/removeCart.do", new RemoveCartControl()); // 장바구니 삭제
 		map.put("/editCart.do", new EditCartControl()); // 장바구니 수량 수정
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 추가
+		map.put("/checkCart.do", new checkCartControl()); //물품등록 중복체크
 		
 		// 상품Q&A
 }

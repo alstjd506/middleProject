@@ -3,14 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  <nav id ="nav" class="navbar navbar-expand-lg navbar-light bg-light">
    <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">마루쉐</a>
+                <a class="navbar-brand" href="main.do">마루쉐</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">    
                
                     <form class="d-flex" style="width: 100%">
                    		<div id ="top_icon" style="margin-left: auto;" >
                    			<ul style="display: flex; justify-content: flex-end; list-style-type: none;">
-                   				<li class="search_tit" ><span>Search</span></li>
+                   				<!-- <li class="search_tit" ><span>Search</span></li>
                    				<li class="top_search" >
                    					 <form id ="searchBarForm" name="searchBarForm" action="" method="get" target="_self"> 
                    						<input id="banner_action" name="banner_action" value="" type="hidden">
@@ -21,15 +21,14 @@
                    						</fieldest>
                    						</div>
                    					</form> 
-                   				</li>
+                   				</li> -->
                    				<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 									role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">(${logId})</a>
+									aria-expanded="false">${logId}</a>
 								<div class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarDropdown">
-                   				
-								
+                   			
 									<a class="dropdown-item" href="#!">내 정보수정</a> <a
 									class="dropdown-item" href="#!">내 게시글 보기</a>
 									<div class="dropdown-divider"></div>
@@ -37,10 +36,9 @@
 		
 								</div></li>
                    			
-                   				<li class="loginForm" list-style-type= none>
-                   					<a href="#!">Logout</a>
+                   				<li class="mainForm" list-style-type= none>
+                   					<a href="main.do">Shopping</a>
                    				</li>
-                   				
                    				
                    				<li class="OrderForm" list-style-type= none>
                    					<a href="#!">Order</a>
@@ -48,6 +46,10 @@
                    				<li class="cartForm" list-style-type= none>
                    					<a href="#!">Cart</a>
                    				</li>
+                   				 </li>
+                          		<li class="BoardForm" list-style-type="none">
+                           			<a href="#">Q&A게시판</a>
+                        		</li>
                    			</ul>
                    		
                    		</div>
