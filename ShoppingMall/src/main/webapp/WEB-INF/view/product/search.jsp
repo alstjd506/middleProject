@@ -207,4 +207,8 @@ a {
 <my:paging pageInfo="${paging }" />
 
 </section>
+<script>
+	const userId = '${logId}';
+</script>
+<script src="js/cartService.js"></script>
 <script src="js/search.js"></script>

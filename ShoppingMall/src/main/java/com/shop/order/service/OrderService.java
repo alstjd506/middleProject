@@ -20,7 +20,11 @@ public interface OrderService {
 	Map<String, Object> getCart(String userId, int prodNo);
 	ProductVO getProduct(int prodNo);
 	MemberVO getUser(String userId);
+
 	boolean addOrder(OrderVO ovo);
 	int getOrderNo();
 	boolean addOrderDetail(OrderDetailVO dvo);
+
+	boolean checkCart(CartVO cvo);
+
 }

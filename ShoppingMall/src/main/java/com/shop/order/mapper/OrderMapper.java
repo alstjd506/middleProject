@@ -22,8 +22,12 @@ public interface OrderMapper {
 	Map<String, Object> selectCart(@Param("userId") String userId, @Param("prodNo") int prodNo);
 	ProductVO selectProduct(int prodNo);
 	MemberVO selectMember(String userId);
+
 	int insertOrder(OrderVO ovo);
 	int selectOrderNo();
 	int insertOrderDetail(OrderDetailVO dvo);
+
+	int checkCart(CartVO cvo);
+
 	
 }

@@ -113,22 +113,50 @@ document.addEventListener('DOMContentLoaded', function() {
 	const modalOpenButtons = document.querySelectorAll('.modal_open');
 	const modalCartBtn = document.querySelector('.cart_btn');
 	const modalClose = document.querySelector('.close_btn');
+	let prodNo = null;
+	let cartCnt =1;
 
 	//열기 버튼을 눌렀을 때 모달팝업이 열림
 	modalOpenButtons.forEach(button => {
 		button.addEventListener('click', function(event) {
 			event.preventDefault();
+			prodNo = this.getAttribute('data-prodNo')
+			event.preventDefault();
 			modal.style.display = 'block';
 		});
 	});
-
 	modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
 		modal.style.display = 'none';
-		window.location.href = 'cart.do';
+	
+		console.log('상품번호:'+prodNo);
+		console.log('수량:'+cartCnt);
+		console.log('유저id:' + userId);
+		cartSvc.addCart(userId, prodNo, cartCnt,
+			result => {
+				if(result.retCode == 'OK') {
+					window.location.href = 'cart.do';
+				} else {
+					console.log('처리실패');
+				}
+			},
+			err => console.log(err)
+		)
+		
 	});
 
 	modalClose.addEventListener('click', function() {
 		modal.style.display = 'none';
+		cartSvc.addCart(userId, prodNo, cartCnt,
+			result => {
+				if(result.retCode == 'OK') {
+					alert('장바구니에 담겼습니다.');
+				} else {
+					console.log('처리실패');
+				}
+			},
+			err => console.log(err)
+		)
+		
 	});
 
 });

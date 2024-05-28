@@ -23,12 +23,13 @@
     where prod_no = #{prodNo}
     and user_id = #{userId}
   </update>
-  
+    
   <insert id="insertCart" parameterType="cart">
     insert into cart(cart_no, user_id, prod_no, cart_cnt)
     values(cart_seq.nextval, #{userId}, #{prodNo}, #{cartCnt})
   </insert>
   
+
   
   <select id="selectCart" resultType="map">
     select p.prod_no, p.prod_name, p.prod_price, p.prod_image, c.cart_cnt
@@ -43,6 +44,12 @@
     select prod_no, prod_name, prod_price, prod_image
     from product
     where prod_no = #{prodNo}
+    </select>
+
+  <select id="checkCart" parameterType="cart" resultType="int">
+  	select count(*)
+    from cart
+    where user_id = #{userId} and prod_no = #{prodNo} 
   </select>
   
   <select id="selectMember" parameterType="String" resultType="member">
@@ -51,6 +58,7 @@
     where user_id = #{userId}
   </select>
   
+
   <insert id="insertOrder" parameterType="order">
     insert into orders(order_no, user_id, order_status, order_post, order_addr, order_detail_addr)
     values(orders_seq.nextval, #{userId}, 1, #{orderPost}, #{orderAddr}, #{orderDetailAddr})
@@ -64,4 +72,5 @@
     insert into order_detail(order_detail_no, order_no, prod_no, order_cnt)
     values(order_detail_seq.nextval, #{orderNo}, #{prodNo}, #{orderCnt})
   </insert>
+
 </mapper>

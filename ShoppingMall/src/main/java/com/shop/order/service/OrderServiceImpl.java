@@ -54,6 +54,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
+
 	public boolean addOrder(OrderVO ovo) {
 		return mapper.insertOrder(ovo) == 1;
 	}
@@ -66,6 +67,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public boolean addOrderDetail(OrderDetailVO dvo) {
 		return mapper.insertOrderDetail(dvo) == 1;
+	}
+	
+	public boolean checkCart(CartVO cvo) {
+		// TODO Auto-generated method stub
+		return mapper.checkCart(cvo)==1;
+
 	}
 
 }

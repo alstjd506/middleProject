@@ -26,9 +26,9 @@ public class SearchControl implements Control {
         String keyword = req.getParameter("keyword");
         String filter = req.getParameter("filter");
 
-//		page = page == null ? "1" : page;
+	
         SearchVO search = new SearchVO();
-//		search.setPage(Integer.parseInt(page));
+
         search.setKeyword(keyword);
         search.setFilter(filter);
 

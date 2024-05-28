@@ -51,11 +51,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// 장바구니 버튼 클릭
 	addCartBtn.addEventListener('click', function() {
-		const prodNo = document.getElementById('prodNo').textContent;
+		const cartCnt = parseInt(inputQty.value);
 		console.log(prodNo);
-		const qty = parseInt(inputQty.value);
-		console.log(qty);
+		console.log(cartCnt);
 		console.log(userId);
+		cartSvc.addCart(userId, prodNo, cartCnt,
+			result => {
+					if(result.retCode == 'OK') {
+						window.location.href='cart.do';
+					}else {
+						console.log('처리실패');
+					}	
+			},
+			err => console.log(err)
+		)
+		
 
 	})
 	TotalPrice();
