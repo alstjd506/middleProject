@@ -12,6 +12,7 @@ import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
 import com.shop.vo.ReplyVO;
+import com.shop.vo.ReviewVO;
 
 public class AdminServiceImpl implements AdminService {
 
@@ -141,4 +142,18 @@ public class AdminServiceImpl implements AdminService {
 	public ProductVO adminProductInfo(int prodNo) {
 		return mapper.adminProductInfo(prodNo);
 	}
+	@Override
+	public boolean adminProductModify(ProductVO pvo) {
+		return mapper.adminProductModify(pvo)==1;
+	}
+	@Override
+	public boolean adminProductRemove(int prodNo) {
+		return mapper.adminProductRemove(prodNo)==1;
+	}
+	@Override
+	public List<ReviewVO> adminReviewList(int prodNo) {
+		return mapper.adminReviewList(prodNo);
+	}
+
+
 }

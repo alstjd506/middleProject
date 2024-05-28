@@ -156,7 +156,7 @@
 		GROUP BY
 		prod_no
 		 <![CDATA[
-		HAVING COUNT(*) > 1
+		HAVING COUNT(*) >= 1
 		]]>
 		ORDER BY cnt DESC
 		)
@@ -169,10 +169,25 @@
 	</select>
 	<select id="adminProductInfo" resultType="product">
 		select
-		p.prod_no,prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name,prod_image
+		p.prod_no,prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name,prod_image,PROD_COMMENT_IMAGE
 		from product p join category c
 		on p.category_code = c.category_code
 		where prod_no = #{prodNo}
 		order by p.category_code
+	</select>
+	<update id="adminProductModify" parameterType="product">
+		update product
+		set prod_name = #{prodName},prod_price =#{prodPrice},prod_comment=#{prodComment},
+		   prod_image=#{prodImage},PROD_COMMENT_IMAGE = #{prodCommentImage}
+		   where prod_no=#{prodNo}
+	</update>
+	<delete id="adminProductRemove" parameterType="int">
+		delete from product
+		where prod_no = #{prodNo}
+	</delete>
+	<select id="adminReviewList" resultType="review">
+		select *
+		from review
+		where prod_no = #{prodNo}
 	</select>
 </mapper>

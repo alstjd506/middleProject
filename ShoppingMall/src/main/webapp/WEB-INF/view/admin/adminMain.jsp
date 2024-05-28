@@ -143,7 +143,6 @@ color: black;
 				</table>
 			</div>
 		</div>
-	
 </main>
 <script>
 </script>

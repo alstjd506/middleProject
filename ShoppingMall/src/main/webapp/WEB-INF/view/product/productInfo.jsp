@@ -232,8 +232,6 @@ div.reviewList div{
 								<span class="col-sm-2">댓글내용</span> 
 								<span class="col-sm-2">user02</span> 
 								<span class="col-sm-2">작성일</span>
-				
-								<span class="col-sm-2"><button id="deleteBtn" class="btn btn-warning">삭제</button></span></li>
 							
 							
 						</ul>

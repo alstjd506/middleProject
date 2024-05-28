@@ -11,20 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.admin.service.AdminService;
 import com.shop.admin.service.AdminServiceImpl;
 import com.shop.common.Control;
-import com.shop.vo.ProductVO;
 import com.shop.vo.ReviewVO;
 
-public class AdminProductInfo implements Control {
+
+public class AdminReviewList implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		String prodNo = req.getParameter("prodNo");
-		
+		System.out.println("여기들어옴");
+		String prodNo = req.getParameter("pno");
+		System.out.println(prodNo);
 		AdminService svc = new AdminServiceImpl();
-		
-		ProductVO pvo = svc.adminProductInfo(Integer.parseInt(prodNo));
 		
 		List<String> rlist = new ArrayList<>();
 		rlist.add("상품번호");
@@ -37,11 +35,8 @@ public class AdminProductInfo implements Control {
 		
 		req.setAttribute("reviewList", rvo);
 		req.setAttribute("reviewTitle", rlist);
-		req.setAttribute("product", pvo);
-		
 		String path = "admin/adminProductInfo.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-
 	}
 
 }
