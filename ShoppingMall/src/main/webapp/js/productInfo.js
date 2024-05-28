@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	const productPrice = parseInt(document.getElementById('productPrice').dataset.price);
 	const sumPrice = document.getElementById('sum_p_price').querySelector('span');
 	const addCartBtn = document.getElementById('addCartBtn');
+	const buyBtn = document.getElementById('buyBtn');
+	const orderForm = document.getElementById('orderForm');
+	const formProdCnt = document.getElementById('formProdCnt');
 
 	function TotalPrice() {
 		const qty = parseInt(inputQty.value);
@@ -55,19 +58,32 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(prodNo);
 		console.log(cartCnt);
 		console.log(userId);
-		cartSvc.addCart(userId, prodNo, cartCnt,
-			result => {
-					if(result.retCode == 'OK') {
-						window.location.href='cart.do';
-					}else {
-						console.log('처리실패');
-					}	
-			},
-			err => console.log(err)
-		)
+		 cartSvc.checkCart(userId, prodNo, result => {
+            if (result.retCode == 'OK') {
+                alert('해당상품이 장바구니에 있습니다.');
+            } else {
+                cartSvc.addCart(userId, prodNo, cartCnt, result => {
+                    if (result.retCode == 'OK') {
+                        window.location.href = 'cart.do';
+                    } else {
+                        console.log('처리실패');
+                    }
+                }, 
+                err => console.log(err));
+            }
+        }, 
+        err => console.log(err));
+	});
+	buyBtn.addEventListener('click', function() {
+		const cartCnt = parseInt(inputQty.value);
+		console.log('주문상품:'+prodNo);
+		console.log('주문수량:'+cartCnt);
 		
-
-	})
+		formProdCnt.value = cartCnt;
+		orderForm.submit();
+	});
+	
+	
 	TotalPrice();
 
 	console.log(userId);
@@ -102,17 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
 			tmpl.style.display = 'block';
 			tmpl.setAttribute('data-rno', review.reviewNo);
 			tmpl.setAttribute('data-userId', review.userId);
-			tmpl.querySelector('span:nth-of-type(1)').innerHTML = review.reviewNo;
-			tmpl.querySelector('span:nth-of-type(2)').innerText = review.reviewScore;
-			tmpl.querySelector('span:nth-of-type(3)').innerText = review.reviewContent;
-			tmpl.querySelector('span:nth-of-type(4)').innerText = review.userId;
-			tmpl.querySelector('span:nth-of-type(5)').innerText = new Date(review.reviewDate).toLocaleString();
+			tmpl.querySelector('span:nth-of-type(1)').innerText = review.reviewScore;
+			tmpl.querySelector('span:nth-of-type(2)').innerText = review.reviewContent;
+			tmpl.querySelector('span:nth-of-type(3)').innerText = review.userId;
+			tmpl.querySelector('span:nth-of-type(4)').innerText = new Date(review.reviewDate).toLocaleString();
 			
 			const deleteBtn = tmpl.querySelector('#deleteBtn');
 			if (review.userId !== userId) {
 				deleteBtn.style.display = 'none';
 			}
-			
+			const modifyBtn = tmpl.querySelector('#modifyBtn');
+			if(review.userId !== userId) {
+				modifyBtn.style.display = 'none';
+			}
 			return tmpl;
 		}
 	document.querySelector('div.reviewList ul').addEventListener('click', function(e) {
@@ -141,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
 	document.getElementById('addReview').addEventListener('click', function(e) {
 		e.preventDefault();
 		let reviewContent = document.getElementById('reviewContent').value;

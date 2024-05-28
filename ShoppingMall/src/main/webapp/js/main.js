@@ -188,19 +188,19 @@ function showList(products) {
 
 	});
 
-	  document.querySelectorAll('.modal_open').forEach(button => {
-        button.addEventListener('click', function(event) {
-            const prodNo = this.getAttribute('data-prodNo'); 
-            event.preventDefault();
-            document.querySelector('.modal').style.display = 'block';
-            document.querySelector('.modal').setAttribute('data-prodNo', prodNo);
-        });
-    });
+	document.querySelectorAll('.modal_open').forEach(button => {
+		button.addEventListener('click', function(e) {
+			const prodNo = this.getAttribute('data-prodNo');
+			e.preventDefault();
+			document.querySelector('.modal').style.display = 'block';
+			document.querySelector('.modal').setAttribute('data-prodNo', prodNo);
+		});
+	});
 }
 
 // 모달 관련
-document.addEventListener('DOMContentLoaded', function() {
-	
+/*document.addEventListener('DOMContentLoaded', function() {
+
 	const modal = document.querySelector('.modal');
 	const modalCartBtn = document.querySelector('.cart_btn');
 	const modalClose = document.querySelector('.close_btn');
@@ -214,12 +214,21 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log('유저id:' + userId);
 		console.log('상품번호:' + prodNo);
 		console.log('상품갯수:' + cartCnt);
-		cartSvc.addCart(userId, prodNo, cartCnt,
+		cartSvc.checkCart(userId, prodNo,
 			result => {
 				if (result.retCode == 'OK') {
-					window.location.href = 'cart.do';
+					alert('해당상품이 장바구니에 있습니다.')
 				} else {
-					console.log('처리실패');
+					cartSvc.addCart(userId, prodNo, cartCnt,
+						result => {
+							if (result.retCode == 'OK') {
+								window.location.href = 'cart.do';
+							} else {
+								console.log('처리실패');
+							}
+						},
+						err => console.log(err)
+					)
 				}
 			},
 			err => console.log(err)
@@ -233,16 +242,24 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log('유저id:' + userId);
 		console.log('상품번호:' + prodNo);
 		console.log('상품갯수:' + cartCnt);
-		cartSvc.addCart(userId, prodNo, cartCnt,
+		cartSvc.checkCart(userId, prodNo,
 			result => {
 				if (result.retCode == 'OK') {
-					alert('장바구니에 담겼습니다.');
+					alert('해당상품이 장바구니에 있습니다.')
 				} else {
-					console.log('처리실패');
+					cartSvc.addCart(userId, prodNo, cartCnt,
+						result => {
+							if (result.retCode == 'OK') {
+								alert('장바구니에 담겼습니다.')
+							} else {
+								console.log('처리실패');
+							}
+						},
+						err => console.log(err)
+					)
 				}
 			},
 			err => console.log(err)
 		)
-		
 	});
-});
+});*/

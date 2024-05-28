@@ -95,7 +95,11 @@ div.reviewList div{
 <section id="section" class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<c:forEach var="product" items="${productInfo}">
-	
+		
+			<form id="orderForm" action="order.do" method="post">
+				<input type="hidden" id="formProdNo" name="prodNo" value="${product.prodNo }">
+				<input type ="hidden" id="formProdCnt" name="prodCnt">
+			</form>
 			<div class="row gx-4 gx-lg-5 align-items-center">
 				<div class="col-md-6">
 					<img class="card-img-top mb-5 mb-md-0"
@@ -144,6 +148,7 @@ div.reviewList div{
 						</div>
 					</div>
 					<div class="right-align">
+					
 						<button id="buyBtn" class="btn btn-outline-dark flex-shrink-0"
 							type="button">
 							<i class="bi-cart-fill me-1"></i> 바로구매
@@ -212,22 +217,24 @@ div.reviewList div{
 					<div class="reviewList">
 						<ul>
 							<li>
-								<span class="col-sm-2">글번호</span> 
 								<span class="col-sm-2">평점</span>
 								<span class="col-sm-5">댓글내용</span> 
 								<span class="col-sm-2">작성자</span>
 								<span class="col-sm-2">작성일</span> 
 								<span class="col-sm-2">삭제</span></li>
+								<span class="col-sm-2">수정</span></li>
 							<li>
 								<hr />
 							
 							</li>
 							<li style="display: none;">
-								<span class="col-sm-2">2</span> 
 								<span class="col-sm-5">평점</span> 
 								<span class="col-sm-2">댓글내용</span> 
 								<span class="col-sm-2">user02</span> 
 								<span class="col-sm-2">작성일</span>
+								<span class="col-sm-2"><button id="deleteBtn" class="btn btn-warning">삭제</button></span>
+								<span class="col-sm-2"><button id="modifyBtn" class="btn btn-warning">수정</button></span>
+							</li>
 							
 							
 						</ul>
@@ -247,6 +254,6 @@ div.reviewList div{
 		</div>
 	</div>
 </section>
-<script src="js/reviewService.js"></script>
 <script src="js/cartService.js"></script>
+<script src="js/reviewService.js"></script>
 <script src="js/productInfo.js"></script>

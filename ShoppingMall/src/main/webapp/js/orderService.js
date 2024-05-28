@@ -22,5 +22,7 @@ const orderSvc = {
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.then(errorCall);
-	}
+	},
+	
+	
 }
