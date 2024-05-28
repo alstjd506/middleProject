@@ -125,7 +125,7 @@ a {
                                 <!-- 상품 가격 -->
                                 <span class="price"><fmt:formatNumber value="${product.prodPrice}"/>원</span>
                                 <!-- 장바구니 링크 -->
-                                <a class="modal_open">Cart</a>
+                                <a class="modal_open" data-prodNo="${product.prodNo }">Cart</a>
                             </div>
                             <div class="d-flex small text-warning mb-2 star">
                                 <!-- 별점 -->
@@ -167,7 +167,7 @@ a {
                                 <!-- 상품 가격 -->
                                 <span class="price"><fmt:formatNumber value="${product.prodPrice}"/>원</span>
                                 <!-- 장바구니 링크 -->
-                                <a class="modal_open">Cart</a>
+                                <a class="modal_open" data-prodNo="${product.prodNo }">Cart</a>
                             </div>
                             <div class="d-flex small text-warning mb-2 star">
                                 <!-- 별점 -->
@@ -266,7 +266,7 @@ a {
                                 <!-- 상품 가격 -->
                                 <span class="price"><fmt:formatNumber value="${product.prodPrice}"/>원</span>
                                 <!-- 장바구니 링크 -->
-                                <a class="modal_open">Cart</a>
+                                <a class="modal_open" data-prodNo="${product.prodNo }">Cart</a>
                             </div>
                             <div class="d-flex small text-warning mb-2 star">
                                 <!-- 별점 -->
@@ -308,7 +308,7 @@ a {
                                 <!-- 상품 가격 -->
                                 <span class="price"><fmt:formatNumber value="${product.prodPrice}"/>원</span>
                                 <!-- 장바구니 링크 -->
-                                <a class="modal_open">Cart</a>
+                                <a class="modal_open" data-prodNo="${product.prodNo }">Cart</a>
                             </div>
                             <div class="d-flex small text-warning mb-2 star">
                                 <!-- 별점 -->
@@ -338,7 +338,8 @@ a {
     <!-- 모달 끝 -->
 </section>
 <script>
-    const prodNo = '${product.prodNo}';
+
     const userId = '${logId}';
 </script>
+<script src="js/cartService.js"></script>
 <script src="js/main.js"></script>

@@ -45,7 +45,7 @@
                             <a href="#!">Order</a>
                         </li>
                         <li class="cartForm" list-style-type="none">
-                            <a href="#!">Cart</a>
+                            <a href="cart.do">Cart</a>
                         </li>
                     </ul>
                 </div>

@@ -171,7 +171,3 @@
 		</div>
 	</nav>
 </div>
-<script>
-	const categoryCode = '${date-no}'
-	console.log(categoryCode);
-</script>

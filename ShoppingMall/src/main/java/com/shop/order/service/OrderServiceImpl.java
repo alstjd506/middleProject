@@ -45,4 +45,10 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.selectMember(userId);
 	}
 
+	@Override
+	public boolean checkCart(CartVO cvo) {
+		// TODO Auto-generated method stub
+		return mapper.checkCart(cvo)==1;
+	}
+
 }

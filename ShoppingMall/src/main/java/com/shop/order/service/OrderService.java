@@ -13,4 +13,5 @@ public interface OrderService {
 	boolean editCart(CartVO cvo);
 	boolean addCart(CartVO cvo);
 	MemberVO getUser(String userId);
+	boolean checkCart(CartVO cvo);
 }

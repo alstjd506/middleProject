@@ -32,15 +32,23 @@
     where prod_no = #{prodNo}
     and user_id = #{userId}
   </update>
-  
+    
   <insert id="insertCart" parameterType="cart">
     insert into cart(cart_no, user_id, prod_no, cart_cnt)
     values(cart_seq.nextval, #{userId}, #{prodNo}, #{cartCnt})
   </insert>
+  
+  <select id="checkCart" parameterType="cart" resultType="int">
+  	select count(*)
+    from cart
+    where user_id = #{userId} and prod_no = #{prodNo} 
+  </select>
   
   <select id="selectMember" parameterType="String" resultType="member">
     select user_name, user_post, user_addr, user_detail_addr
     from users
     where user_id = #{userId}
   </select>
+  
+
 </mapper>

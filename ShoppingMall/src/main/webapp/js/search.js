@@ -9,6 +9,7 @@ Number.prototype.numberFormat = function() {
 	}
 	return nstr;
 };
+
 document.addEventListener("DOMContentLoaded", function(e) {
 	e.preventDefault();
 
@@ -16,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	const filterSelect = document.querySelector('.filter-select');
 
 	if (keywordBtn && filterSelect) {
-
 		function searchProduct() {
 			const keyword = document.getElementById('keyword').value;
 			const filter = document.querySelector('.filter-select').value;
@@ -75,10 +75,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 			const cartButton = document.createElement('a');
 			cartButton.className = 'modal_open';
+			cartButton.setAttribute('data-prodNo', `${product.prodNo}`);
 			cartButton.textContent = 'Cart';
-			cartButton.addEventListener('click', function() {
-				document.querySelector('.modal').style.display = 'block';
-			});
 
 			const starDiv = document.createElement('div');
 			starDiv.className = 'd-flex small text-warning mb-2 star';
@@ -112,26 +110,41 @@ document.addEventListener("DOMContentLoaded", function(e) {
 			colDiv.appendChild(cardDiv);
 			div.appendChild(colDiv);
 		});
-		
-		const modal = document.querySelector('.modal');
-		const modalOpenButtons = document.querySelectorAll('.modal_open');
-		const modalCartBtn = document.querySelector('.cart_btn');
-		const modalClose = document.querySelector('.close_btn');
-
-		modalOpenButtons.forEach(button => {
-			button.addEventListener('click', function(event) {
-				event.preventDefault();
-				modal.style.display = 'block';
-			});
-		});
-
-		modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
-			modal.style.display = 'none';
-			window.location.href = 'cart.do';
-		});
-
-		modalClose.addEventListener('click', function() {
-			modal.style.display = 'none';
-		});
 	}
+
+	/*const modal = document.querySelector('.modal');
+	const modalCartBtn = document.querySelector('.cart_btn');
+	const modalClose = document.querySelector('.close_btn');
+
+	document.getElementById('searchResults').addEventListener('click', function(event) {
+		if (event.target.classList.contains('modal_open')) {
+			const prodNo = event.target.getAttribute('data-prodNo');
+			event.preventDefault();
+			modal.setAttribute('data-prodNo', prodNo);
+			modal.style.display = 'block';
+		}
+	});
+
+	modalCartBtn.addEventListener('click', function() { //장바구니 넘어가는 이벤트
+		modal.style.display = 'none';
+		const prodNo = modal.getAttribute('data-prodNo');
+		const cartCnt = 1;
+		console.log('상품번호:' + prodNo);
+		console.log('유저id:' + userId);
+		console.log('수량:' + cartCnt);
+		cartSvc.addCart(userId, prodNo, cartCnt,
+			result => {
+				if (result.retCode == 'OK') {
+					window.location.href = 'cart.do';
+				} else {
+					console.log('처리실패');
+				}
+			},
+			err => console.log(err)
+		)
+	});
+
+	modalClose.addEventListener('click', function() {
+		modal.style.display = 'none';
+	});*/
 });

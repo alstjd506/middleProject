@@ -95,11 +95,7 @@ div.reviewList div{
 <section id="section" class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<c:forEach var="product" items="${productInfo}">
-		
-			<form name="myFrm">
-				<input type="hidden" name="prodNo" value="${product.prodNo }">
-			
-			</form>
+	
 			<div class="row gx-4 gx-lg-5 align-items-center">
 				<div class="col-md-6">
 					<img class="card-img-top mb-5 mb-md-0"
@@ -254,4 +250,5 @@ div.reviewList div{
 	</div>
 </section>
 <script src="js/reviewService.js"></script>
+<script src="js/cartService.js"></script>
 <script src="js/productInfo.js"></script>

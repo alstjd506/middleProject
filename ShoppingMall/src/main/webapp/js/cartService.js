@@ -31,6 +31,19 @@ const cartSvc = {
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.then(errorCall)
+	},
+	
+	//장바구니 등록
+	addCart(userId, prodNo, cartCnt, successCall, errorCall) {
+		fetch('addCart.do', {
+			method: 'post',
+			headers:  { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: 'userId=' +userId + '&prodNo=' + prodNo + '&cartCnt=' +cartCnt
+		})
+			.then(resolve => resolve.json())
+			.then(successCall)
+			.catch(errorCall)
+		
 	}
 
 	

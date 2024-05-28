@@ -15,4 +15,6 @@ public interface OrderMapper {
 	int updateCart(CartVO cvo);
 	int insertCart(CartVO cvo);
 	MemberVO selectMember(String userId);
+	int checkCart(CartVO cvo);
+	
 }
