@@ -9,6 +9,9 @@ import com.shop.common.DataSource;
 import com.shop.order.mapper.OrderMapper;
 import com.shop.vo.CartVO;
 import com.shop.vo.MemberVO;
+import com.shop.vo.OrderDetailVO;
+import com.shop.vo.OrderVO;
+import com.shop.vo.ProductVO;
 
 public class OrderServiceImpl implements OrderService {
 	
@@ -20,11 +23,6 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.selectCartList(userId);
 	}
 	
-	@Override
-	public Map<String, Object> getCart(String userId, int prodNo) {
-		return mapper.selectCart(userId, prodNo);
-	}
-
 	@Override
 	public boolean removeCart(CartVO cvo) {
 		return mapper.deleteCart(cvo) == 1;
@@ -41,8 +39,33 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
+	public Map<String, Object> getCart(String userId, int prodNo) {
+		return mapper.selectCart(userId, prodNo);
+	}
+	
+	@Override
+	public ProductVO getProduct(int prodNo) {
+		return mapper.selectProduct(prodNo);
+	}
+	
+	@Override
 	public MemberVO getUser(String userId) {
 		return mapper.selectMember(userId);
+	}
+
+	@Override
+	public boolean addOrder(OrderVO ovo) {
+		return mapper.insertOrder(ovo) == 1;
+	}
+
+	@Override
+	public int getOrderNo() {
+		return mapper.selectOrderNo();
+	}
+
+	@Override
+	public boolean addOrderDetail(OrderDetailVO dvo) {
+		return mapper.insertOrderDetail(dvo) == 1;
 	}
 
 }

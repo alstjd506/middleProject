@@ -2,15 +2,23 @@
  * orderService.js
  */
 const orderSvc = {
-	// 주문목록
-	orderList(userId, prodNo, successCall, errorCall) {
-		fetch('orderList.do?userId=' + userId + '&prodNo=' + prodNo)
+	// 장바구니 -> 주문 목록
+	orderList(prodNo, successCall, errorCall) {
+		fetch('orderList.do?prodNo=' + prodNo)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
-	orderInfo(userId, successCall, errorCall) {
-		fetch('orderInfo.do?userId=' + userId)
+	// 바로구매 목록
+	orderDirect(prodNo, successCall, errorCall) {
+		fetch('orderDirect.do?prodNo=' + prodNo)
+			.then(resolve => resolve.json())
+			.then(successCall)
+			.then(errorCall)
+	},
+	// 주문자 정보
+	orderInfo(successCall, errorCall) {
+		fetch('orderInfo.do')
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.then(errorCall);

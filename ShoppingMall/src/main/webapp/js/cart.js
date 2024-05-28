@@ -13,8 +13,6 @@ Number.prototype.numberFormat = function() {
 	return nstr;
 };
 
-// const userId = '${logId }';
-
 let basket = {
 	// 전체 수량
 	totalCount: 0,
@@ -23,8 +21,7 @@ let basket = {
 	
 	// 장바구니 목록
 	list: function() {
-		let userId = 'user01';
-		cartSvc.cartList(userId,
+		cartSvc.cartList(
 			result => {
 				// 장바구니 상품
 				result.forEach(cart => {
@@ -74,9 +71,8 @@ let basket = {
 		let tr = $(e.target).parent().parent();
 		
 		let prodNo = tr.attr('id');
-		let userId = 'user01';
 		
-		cartSvc.removeCart(userId, prodNo,
+		cartSvc.removeCart(prodNo,
 			result => {
 				if(result.retCode == 'OK') {					
 					tr.remove();
@@ -96,9 +92,8 @@ let basket = {
 				let tr = $(item).parent().parent();
 				
 				let prodNo = tr.attr('id');
-				let userId = 'user01';
 				
-				cartSvc.removeCart(userId, prodNo,
+				cartSvc.removeCart(prodNo,
 					result => {
 						if(result.retCode == 'OK') {
 							tr.remove();
@@ -119,9 +114,8 @@ let basket = {
 			if(idx > 0) {
 				let tr = $(item);
 				let prodNo = tr.attr('id');
-				let userId = 'user01';
 								
-				cartSvc.removeCart(userId, prodNo,
+				cartSvc.removeCart(prodNo,
 					result => {
 						if(result.retCode == 'OK') {
 							tr.remove();
@@ -161,13 +155,12 @@ let basket = {
 	changeProdNo: function(e) {
 		let tr = $(e.target).parent().parent();
 		
-		let userId = 'user01';
 		let prodNo = tr.attr('id');
 		
 		let price = tr.find($('#price' + prodNo)).val();
 		let count = tr.find($('#count' + prodNo)).val();
 		
-		cartSvc.editCart(userId, prodNo, count,
+		cartSvc.editCart(prodNo, count,
 			result => {
 				if(result.retCode == 'OK') {
 					tr.find($('#cartPrice' + prodNo)).text((price * count).numberFormat());
@@ -201,7 +194,11 @@ $('#allDelete').on('click', basket.delAllItem);
 
 // 주문
 $('#purchase').on('click', function() {
-	let userId = 'user01';
+	if(basket.totalCount == 0) {
+		alert('주문할 상품을 선택해주세요.')
+		return;
+	}
+	
 	let val = '';
 	
 	$('input:checked').each((idx, item) => {

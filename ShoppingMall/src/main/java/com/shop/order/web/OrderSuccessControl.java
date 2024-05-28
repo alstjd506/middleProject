@@ -8,18 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shop.common.Control;
 
-public class OrderControl implements Control {
+public class OrderSuccessControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "/order/order.tiles";
+		String path = "/order/orderSuccess.tiles";
 		
-		String prodNo = req.getParameter("prodNo");
-		req.setAttribute("prodNo", prodNo);
-		String prodCnt = req.getParameter("prodCnt");
-		req.setAttribute("prodCnt", prodCnt);
-
 		req.getRequestDispatcher(path).forward(req, resp);
+
 	}
 
 }

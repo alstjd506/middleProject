@@ -16,7 +16,8 @@
 		<typeAlias alias="board" type="com.shop.vo.BoardVO" />
 		<typeAlias alias="order" type="com.shop.vo.OrderVO" />
 		<typeAlias alias="category" type="com.shop.vo.CategoryVO" />
-
+		<typeAlias alias="orderDetail" type="com.shop.vo.OrderDetailVO" />
+		
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

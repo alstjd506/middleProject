@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,14 +22,14 @@ public class OrderListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		
-		String userId = req.getParameter("userId");
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("logId");
 		String prodNo = req.getParameter("prodNo");
 		
-		// if(prodNo.indexOf(",") != -1)
 		String[] prodNoList = prodNo.split(",");
 		
-		OrderService svc = new OrderServiceImpl();
 		List<Map<String, Object>> list = new ArrayList<>();
+		OrderService svc = new OrderServiceImpl();
 		
 		for(int i = 0; i < prodNoList.length; i++) {
 			Map<String, Object> map = svc.getCart(userId, Integer.parseInt(prodNoList[i]));
@@ -36,7 +37,8 @@ public class OrderListControl implements Control {
 		}
 		
 		Gson gson = new GsonBuilder().create();
-		resp.getWriter().print(gson.toJson(list));
+		resp.getWriter().print(gson.toJson(list));		
+		
 	}
 
 }

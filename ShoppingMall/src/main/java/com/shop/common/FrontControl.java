@@ -48,8 +48,12 @@ import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
 import com.shop.order.web.EditCartControl;
 import com.shop.order.web.OrderControl;
+import com.shop.order.web.OrderDirectControl;
+import com.shop.order.web.OrderFailedControl;
+import com.shop.order.web.OrderFormControl;
 import com.shop.order.web.OrderInfoControl;
 import com.shop.order.web.OrderListControl;
+import com.shop.order.web.OrderSuccessControl;
 import com.shop.order.web.RemoveCartControl;
 import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
@@ -149,8 +153,12 @@ public class FrontControl extends HttpServlet {
 
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
-		map.put("/orderList.do", new OrderListControl());
-		map.put("/orderInfo.do", new OrderInfoControl());
+		map.put("/orderList.do", new OrderListControl()); // 장바구니 주문상품 목록
+		map.put("/orderDirect.do", new OrderDirectControl()); // 바로구매 주문상품
+		map.put("/orderInfo.do", new OrderInfoControl()); // 주문자 정보
+		map.put("/orderForm.do", new OrderFormControl()); // 주문 처리
+		map.put("/orderSuccess.do", new OrderSuccessControl()); // 주문 성공 페이지
+		map.put("/orderFailed.do", new OrderFailedControl()); // 주문 실패 페이지
 		
 		// 장바구니 화면
 		map.put("/cart.do", new CartControl());
@@ -159,6 +167,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/editCart.do", new EditCartControl()); // 장바구니 수량 수정
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 추가
 		
+		// 상품Q&A
 }
 
 	// service

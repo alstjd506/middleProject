@@ -11,15 +11,6 @@
     where c.user_id = #{userId}
   </select>
   
-  <select id="selectCart" resultType="map">
-    select p.prod_no, p.prod_name, p.prod_price, p.prod_image, c.cart_cnt
-    from cart c
-    join product p
-    on c.prod_no = p.prod_no
-    where c.user_id = #{userId}
-    and c.prod_no = #{prodNo}    
-  </select>
-  
   <delete id="deleteCart" parameterType="cart">
     delete from cart
 	where user_id = #{userId}
@@ -38,9 +29,39 @@
     values(cart_seq.nextval, #{userId}, #{prodNo}, #{cartCnt})
   </insert>
   
+  
+  <select id="selectCart" resultType="map">
+    select p.prod_no, p.prod_name, p.prod_price, p.prod_image, c.cart_cnt
+    from cart c
+    join product p
+    on c.prod_no = p.prod_no
+    where c.user_id = #{userId}
+    and c.prod_no = #{prodNo}
+  </select>
+  
+  <select id="selectProduct" parameterType="int" resultType="product">
+    select prod_no, prod_name, prod_price, prod_image
+    from product
+    where prod_no = #{prodNo}
+  </select>
+  
   <select id="selectMember" parameterType="String" resultType="member">
-    select user_name, user_post, user_addr, user_detail_addr
+    select user_post, user_addr, user_detail_addr
     from users
     where user_id = #{userId}
   </select>
+  
+  <insert id="insertOrder" parameterType="order">
+    insert into orders(order_no, user_id, order_status, order_post, order_addr, order_detail_addr)
+    values(orders_seq.nextval, #{userId}, 1, #{orderPost}, #{orderAddr}, #{orderDetailAddr})
+  </insert>
+  
+  <select id="selectOrderNo" resultType="int">
+    select orders_seq.currval from dual
+  </select>
+  
+  <insert id="insertOrderDetail" parameterType="orderDetail">
+    insert into order_detail(order_detail_no, order_no, prod_no, order_cnt)
+    values(order_detail_seq.nextval, #{orderNo}, #{prodNo}, #{orderCnt})
+  </insert>
 </mapper>
