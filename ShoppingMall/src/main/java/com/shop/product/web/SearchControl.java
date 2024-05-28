@@ -22,7 +22,7 @@ public class SearchControl implements Control {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/json;charset=utf-8");
 
-
+		//테스트
         String keyword = req.getParameter("keyword");
         String filter = req.getParameter("filter");
 
