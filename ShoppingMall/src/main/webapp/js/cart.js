@@ -164,8 +164,20 @@ let basket = {
 		
 		let prodNo = tr.attr('id');
 		
-		let price = tr.find($('#price' + prodNo)).val();
-		let count = tr.find($('#count' + prodNo)).val();
+		let priceInput = tr.find($('#price' + prodNo));
+		let countInput = tr.find($('#count' + prodNo));
+		
+		if(countInput.val() > 99) {
+			alert('상품의 수량은 최대 99개까지 가능합니다.');
+			countInput.val(1);
+		}
+		if(countInput.val() <= 0) {
+			alert('상품의 수량은 1개부터 99개까지 가능합니다.');
+			countInput.val(1);
+		}
+		
+		let price = priceInput.val();
+		let count = countInput.val();
 		
 		cartSvc.editCart(prodNo, count,
 			result => {
