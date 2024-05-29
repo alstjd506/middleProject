@@ -160,11 +160,7 @@ div.reviewList div{
 					</div>
 				</div>
 			</div>
-			<script>
-				const prodNo = '${product.prodNo}';
-				const userId = '${logId}';
-				console.log(prodNo);
-			</script>
+		
 			
 		</c:forEach>
 	</div>

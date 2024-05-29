@@ -44,10 +44,10 @@
                             </li>
                         </c:if>
                         <li class="OrderForm" list-style-type="none">
-                            <a href="order.do">Order</a>
+                            <a href="myPageOrder.do">Order</a>
                         </li>
                         <li class="cartForm" list-style-type="none">
-                            <a href="cart.do">Cart</a>
+                            <a href="cart.do?userId=${logId}">Cart</a>
                         </li>
                           <li class="BoardForm" list-style-type="none">
                             <a href="board.do">Q&A</a>

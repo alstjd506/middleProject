@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.shop.common.DataSource;
 import com.shop.member.mapper.MemberMapper;
+import com.shop.vo.BoardVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.ProductVO;
 
@@ -111,6 +112,24 @@ public class MemberServiceImpl implements MemberService {
 	public List<Map<String, Object>> mypageUserDetail(String userId, int orderNo) {
 		// TODO Auto-generated method stub
 		return mapper.mypageUserDetail(userId, orderNo);
+	}
+
+	@Override
+	public List<BoardVO> boardList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.boardList(userId);
+	}
+
+	@Override
+	public List<BoardVO> boardInfo(String userId, int boardNo) {
+		// TODO Auto-generated method stub
+		return mapper.boardInfo(userId, boardNo);
+	}
+
+	@Override
+	public boolean updateBoard(BoardVO board) {
+		// TODO Auto-generated method stub
+		return mapper.updateBoard(board) == 1;
 	}
 
 	

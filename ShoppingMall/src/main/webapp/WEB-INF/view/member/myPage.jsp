@@ -109,9 +109,9 @@ body {
 				<h3>상품 Q&A</h3>
 				<ul>
 					<li>"답변 처리중인 질문" <span><b><a href="#"
-								title="답변 처리중인 질문">${mypageBoardY }건</a></b></span></li>
+								title="답변 처리중인 질문">${mypageBoardN }건</a></b></span></li>
 					<li>"답변 완료된 상담" <span><b><a href="#"
-								title="답변 완료된 상담">${mypageBoardN }건</a></b></span></li>
+								title="답변 완료된 상담">${mypageBoardY }건</a></b></span></li>
 				</ul>
 			</div>
 			<div class="con">
@@ -145,15 +145,15 @@ body {
                         <c:forEach var="order" items="${mypageRecentOrderList}">
                             <tr>
                                 <td><fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy-MM-dd"/></td>
-                                <td colspan="2">${order.PROD_NAME}</td>
+                                <td colspan="2"><a href="productInfo.do?prodNo=${order.PROD_NO}">${order.PROD_NAME}</td>
                                <c:choose>
 								<c:when test="${order.ORDER_STATUS ==1 }">
                                 <td>상품준비중</td>
-                                <td><button>주문취소</button></td>
+                                <td><button class="cancleBtn">주문취소</button></td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==2 }">
                                 <td>배송중</td>
-                                <td><button>주문취소</button></td>
+                                <td><button class="cancleBtn">주문취소</button></td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==3 }">
                                 <td>배송완료</td>
