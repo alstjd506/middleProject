@@ -92,15 +92,16 @@
     height: 100px;
 }
 </style>
-<div class="orderBox">
-    <c:forEach var="order" items="${mypageOrderList}">
+<div class="sc-1wglx39-0 jxMipk">
+	<div class="sc-1h67xiw-0 edeWbb">
+		<h1 class="sc-1h67xiw-1 jzBiTv">주문상세</h1>
+	</div>
+    <c:forEach var="order" items="${mypageOrderDetail}">
+	<div class="orderBox">
         <div class="order">
             <div class="order-header">
-            <form id="orderForm${order.ORDER_NO}" action="myPageOrderDetail.do" method="post">
-                    <input type="hidden" id="formOrderNo${order.ORDER_NO}" name="orderNo" value="${order.ORDER_NO}">
-                </form>
                 <span>주문날짜: <fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy. MM. dd"/></span>
-                  <span><a href="#" class="detail" data-order-no="${order.ORDER_NO}">주문 상세보기</a></span>
+                
             </div>
             <div class="order-details">
                 <div>
@@ -142,6 +143,78 @@
                 </div>
             </div>
         </div>
+        </div>
     </c:forEach>
-</div>
-<script src ="js/myPageOrder.js"></script>
+
+<div class="sc-h20x0n-0 gcWEbw"></div>
+	<div class="sc-1m6uvm7-0 khiofo">
+		<h1 class="sc-1m6uvm7-2 berHYP">
+			<span>받는사람 정보</span>
+		</h1>
+		<c:forEach var="order" items="${mypageUserDetail}">
+		<table class="sc-1m6uvm7-3 jqnXTj">
+			<caption class="sc-1m6uvm7-1 dSygCD">받는사람 정보</caption>
+			<colgroup>
+				<col width="105">
+				<col>
+				<col width="100">
+			</colgroup>
+			<tbody class="sc-zknpht-1 dMXLkO">
+				<tr class="sc-cdh0rx-0 kpnmCu">
+					<th class="sc-cdh0rx-1 hYQyEN" style="color: rgb(85, 85, 85);">받는사람</th>
+					<td class="sc-cdh0rx-2 jRUPB">${order.USER_NAME }</td>
+					<td class="sc-cdh0rx-2 gIRWDV"></td>
+				</tr>
+				<tr class="sc-cdh0rx-0 kpnmCu">
+					<th class="sc-cdh0rx-1 hYQyEN" style="color: rgb(85, 85, 85);">연락처</th>
+					<td class="sc-cdh0rx-2 jRUPB">${order.USER_PHONE }</td>
+					<td class="sc-cdh0rx-2 gIRWDV"></td>
+				</tr>
+				<tr class="sc-cdh0rx-0 kpnmCu">
+					<th class="sc-cdh0rx-1 hYQyEN" style="color: rgb(85, 85, 85);">받는주소</th>
+					<td class="sc-cdh0rx-2 jRUPB">(${order.ORDER_POST}) ${order.ORDER_ADDR} ${order.ORDER_DETAIL_ADDR}
+					</td>
+					<td class="sc-cdh0rx-2 gIRWDV"></td>
+				</tr>
+				
+			</tbody>
+		</table>
+			</c:forEach>
+	</div>
+	<div class="sc-1m6uvm7-0 khiofo">
+		<h1 class="sc-1m6uvm7-2 berHYP">
+			<span>결제 정보</span>
+		</h1>
+		<c:forEach var="order" items="${mypageUserDetail}">
+		<table class="sc-1m6uvm7-3 jqnXTj">
+			<caption class="sc-1m6uvm7-1 dSygCD">결제 정보</caption>
+			<colgroup>
+				<col>
+				<col width="340">
+			</colgroup>
+			<tbody class="sc-189zx6p-1 dYVCWG">
+				<tr class="sc-189zx6p-2 dmEQfU">
+					<td>
+						<div class="sc-cqdfxt-0 iUCDca">
+							<div class="sc-cqdfxt-5 NYtvr" style="color: rgb(17, 17, 17);">
+								<strong>총 결제금액 </strong>
+							</div>
+							<div class="sc-cqdfxt-6 sc-cqdfxt-7 fTOSfp eiVXJZ">
+								<strong><fmt:formatNumber value="${order.ORDER_PRICE}"/> 원</strong>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</c:forEach>
+	</div>
+	<div class="sc-1vg575n-0 hnMMRm">
+		<div class="sc-1vg575n-2 fEXcBR">
+			<button class="sc-1vg575n-1 iZblhb">	
+				<a href = "myPageOrder.do">주문목록 돌아가기</a>
+			</button>
+		</div>
+		
+	</div>
+</div>	

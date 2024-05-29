@@ -107,7 +107,7 @@
   		and user_id = #{userId}
 	</select>
 	
-	<select id="mypageOrderList" resultType="map">
+	<select id="mypageOrderList"  resultType="map">
 		select p.prod_name, p.prod_image, p.prod_no, o.*, od.order_cnt
 		from order_detail od join orders o
 							 on o.order_no = od.order_no
@@ -118,7 +118,7 @@
 		or o.order_status = 3
 		and user_id = #{userId}
 	</select>
-	
+		
 	<select id="mypageReturnList" resultType="map">
 		select p.prod_name, o.order_date, o.order_status
 		from order_detail od join orders o
@@ -129,6 +129,27 @@
 		or o.order_status = 6 
 		or o.order_status = 7
 		and user_id = #{userId}
+	</select>
+	
+	<select id="mypageOrderDetail" resultType="map">
+		select p.prod_name, p.prod_image, p.prod_no, o.*, od.order_cnt
+		from order_detail od join orders o
+							 on o.order_no = od.order_no
+							 join product p
+							 on p.prod_no = od.prod_no
+		where o.order_status = 1 
+		or o.order_status = 2 
+		or o.order_status = 3
+		and o.user_id = #{userId}
+		and o.order_no = #{orderNo}
+	</select>
+	
+	<select id="mypageUserDetail" resultType="map">
+		select u.*, o.*
+		from users u join orders o 
+					 on u.user_id = o.user_id
+		where o.user_id = #{userId}
+		and o.order_no = #{orderNo}
 	</select>
 	
 	

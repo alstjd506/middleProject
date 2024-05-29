@@ -26,7 +26,7 @@
 									class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 									role="button" data-bs-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false">${logId}</a>
-								<div class="dropdown-menu dropdown-menu-end"
+									<div class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarDropdown">
                    			
 									<a class="dropdown-item" href="#!">내 정보수정</a> <a
@@ -37,7 +37,7 @@
 								</div></li>
                    			
                    				<li class="mainForm" list-style-type= none>
-                   					<a href="main.do">Shopping</a>
+                   					<a href="main.do">Shop</a>
                    				</li>
                    				
                    				<li class="OrderForm" list-style-type= none>

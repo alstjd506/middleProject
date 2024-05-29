@@ -101,5 +101,21 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	@Override
+	public List<Map<String, Object>> mypageOrderDetail(String userId, int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.mypageOrderDetail(userId, orderNo);
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageUserDetail(String userId, int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.mypageUserDetail(userId, orderNo);
+	}
+
+	
+
+
+
 
 }
