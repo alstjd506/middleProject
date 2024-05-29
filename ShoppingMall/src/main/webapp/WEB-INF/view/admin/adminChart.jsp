@@ -13,7 +13,7 @@
 	crossorigin="anonymous"></script>
 </head>
 
-
+<div class="container-fluid px-4">
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">매출차트</h1>
 		<ol class="breadcrumb mb-4">
@@ -64,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

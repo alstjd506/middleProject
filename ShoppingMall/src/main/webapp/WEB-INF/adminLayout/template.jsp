@@ -28,9 +28,9 @@ footer {
 	<div id="layoutSidenav">
 		<tiles:insertAttribute name="menu" />
 		<div id="layoutSidenav_content">
-			<main>
+			
 				<tiles:insertAttribute name="content" />
-			</main>
+			
 			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>

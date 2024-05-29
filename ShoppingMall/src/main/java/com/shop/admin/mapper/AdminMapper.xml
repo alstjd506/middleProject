@@ -201,19 +201,42 @@
 		where prod_no = #{prodNo}
 	</select>
 	<select id="adminBarChart" resultType="chart">
-		select trunc(order_date) as "chart_date" , sum(order_price) as "chart_value"
+		select trunc(order_date)
+		as "chart_date" , sum(order_price) as "chart_value"
 		from orders
+		where
+		order_date >= SYSDATE - INTERVAL '8' DAY
 		group by trunc(order_date)
 		order by trunc(order_date)
 	</select>
-	<select id="adminOrderInfo" resultType="orderDetail">
-		select *
-		from order_detail
-		where order_no=#{ono}
+	<select id="adminOrderInfo" resultType="order">
+		select
+		o.order_date,o.order_no,u.user_name,u.user_phone,o.order_post,
+		o.order_addr,o.order_detail_addr,o.order_status
+		from orders o join
+		users u
+		on o.user_id= u.user_id
+		where o.user_id=#{uid} and order_no=
+		#{ono}
 	</select>
-	<select id="adminOrderInfos" resultType="order">
-		select *
-		from orders
-		where order_no=#{ono}
+	<select id="adminOrderDetail" resultType="product">
+		select
+		p.prod_name,p.prod_price,p.prod_image,d.order_cnt,p.prod_no
+		from
+		product p join
+		order_detail d
+		on p.prod_no=d.prod_no
+		where d.order_no =
+		#{ono}
+	</select>
+	<select id="adminPieChart" resultType="chart">
+		select c.TOP_CATEGORY as "chart_name" ,sum(order_price) as "chart_value"
+		from orders o join order_detail d
+		on o.order_no=d.order_no
+		join product p
+		on p.prod_no = d.prod_no
+		join category c
+		on c.category_code = p.category_code
+		group by c.top_category
 	</select>
 </mapper>

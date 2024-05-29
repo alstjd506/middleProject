@@ -22,7 +22,6 @@ public class AdminBarChart implements Control {
 		AdminService svc = new AdminServiceImpl();
 		
 		List<ChartVO> cvo = svc.adminBarChart();
-		System.out.println(cvo);
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(cvo);
 		resp.getWriter().print(json);

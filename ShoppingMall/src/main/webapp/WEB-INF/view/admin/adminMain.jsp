@@ -9,6 +9,7 @@ a {
 }
 </style>
 <main>
+<div class="container-fluid px-4">
 	<div class="card mb-4">
 		<div class="card-header">
 			<i class="fas fa-table me-1"></i> 총 ${prodCnt }개의 상품이 등록되어었습니다.
@@ -84,7 +85,7 @@ a {
 					<c:forEach var="order" items="${orderList }">
 						<tr>
 							<td><a class="orderLink"
-								href="adminOrderInfo.do?ono=${order.orderNo }">${order.orderNo }</a></td>
+								href="adminOrderInfo.do?ono=${order.orderNo }&uid=${order.userId }">${order.orderNo }</a></td>
 							<td>${order.userId }</td>
 							<td>${order.orderAddr }</td>
 							<td>${order.orderDetailAddr }</td>
@@ -110,7 +111,7 @@ a {
 					<c:forEach var="cancle" items="${cancleList }">
 						<tr>
 							<td><a class="orderLink"
-								href="adminOrderInfo.do?ono=${cancle.orderNo }">${cancle.orderNo }</a></td>
+								href="adminOrderInfo.do?ono=${cancle.orderNo }&uid=${cancle.userId }">${cancle.orderNo }</a></td>
 							<td>${cancle.userId }</td>
 							<td><fmt:formatDate value="${cancle.orderDate}"
 									pattern="yyyy-MM-dd" /></td>
@@ -128,7 +129,7 @@ a {
 					<c:forEach var="returns" items="${orderReturn }">
 						<tr>
 							<td><a class="orderLink"
-								href="adminOrderInfo.do?ono=${returns.orderNo }">${returns.orderNo }</a></td>
+								href="adminOrderInfo.do?ono=${returns.orderNo }&uid=${returns.userId }">${returns.orderNo }</a></td>
 							<td>${returns.userId }</td>
 							<td><fmt:formatDate value="${returns.orderDate}"
 									pattern="yyyy-MM-dd" /></td>
@@ -147,11 +148,8 @@ a {
 			</table>
 		</div>
 	</div>
+	</div>
 </main>
-<script>
-const message = "${message}";
-if(message=='OK'){
-	alert("처리완료!");
-}
-console.log(message);
+<script src="js/adminalert.js">
+
 </script>
