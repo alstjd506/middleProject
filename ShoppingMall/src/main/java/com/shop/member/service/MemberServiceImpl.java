@@ -93,6 +93,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<Map<String, Object>> mypageReturnList(String userId) {
 		// TODO Auto-generated method stub
 		return mapper.mypageReturnList(userId);
+	}
 
 	public boolean DeleteUser(MemberVO mvo) {
 		// TODO Auto-generated method stub
