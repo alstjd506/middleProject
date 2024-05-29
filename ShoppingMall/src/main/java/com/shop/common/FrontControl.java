@@ -41,6 +41,7 @@ import com.shop.board.web.BoardFailedControl;
 import com.shop.board.web.BoardSuccessControl;
 import com.shop.member.web.DeleteUserControl;
 
+import com.shop.member.web.DeleteUserForm;
 import com.shop.member.web.FindIdControl;
 import com.shop.member.web.FindIdForm;
 import com.shop.member.web.FindIdResultForm;
@@ -165,6 +166,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/modifyuser.do", new ModifyUserForm()); //회원정보수정
 		map.put("/ModifyUserControl.do", new ModifyUserControl());
 		//회원탈퇴
+		map.put("/Deleteuser.do", new DeleteUserForm());
 		map.put("/DeleteUserControl.do", new DeleteUserControl());
 		
 		

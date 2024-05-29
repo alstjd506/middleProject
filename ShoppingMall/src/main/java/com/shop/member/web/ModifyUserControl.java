@@ -35,10 +35,15 @@ public class ModifyUserControl implements Control{
 		mvo.setUserAddr(addr);
 		mvo.setUserDetailAddr(detailaddr);
 		System.out.println(mvo);
+		
 		if(svc.ModifyUser(mvo)) {
+			req.setAttribute("message", "회원정보가 수정되었습니다.");
 			resp.sendRedirect("main.do");
 		}
-	
+//		else {
+//            req.setAttribute("error", "회원정보가 수정되지 않습니다.");
+//            req.getRequestDispatcher("Deleteuser.do").forward(req, resp);
+//		}
 	}
 
 }

@@ -27,4 +27,7 @@ public interface MemberService {
 	int mypageBoardY(String userId); //q&a 답변 갯수
 	int mypageBoardN(String userId); //q&a 미답변 갯수
 	
+	boolean DeleteUser(String password);
+
+
 }
