@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.shop.vo.BoardVO;
 import com.shop.vo.CategoryVO;
+import com.shop.vo.ChartVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
@@ -42,5 +43,6 @@ public interface AdminMapper {
 	int adminleastProduct(); // 관리자 메인 비인기상품
 	int adminPopulaReview(); // 관리자 메인 리뷰많은상품
 	int adminhighStar(); // 관리자 메인 별점높은상품
+	List<ChartVO> adminBarChart(); // 관리자 바 형식 차트
 
 }

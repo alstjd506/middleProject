@@ -17,6 +17,7 @@
 		<typeAlias alias="order" type="com.shop.vo.OrderVO" />
 		<typeAlias alias="category" type="com.shop.vo.CategoryVO" />
 		<typeAlias alias="orderDetail" type="com.shop.vo.OrderDetailVO" />
+		<typeAlias alias="chart" type="com.shop.vo.ChartVO" />
 		
 	</typeAliases>
 	<environments default="development">

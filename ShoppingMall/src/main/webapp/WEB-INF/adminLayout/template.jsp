@@ -15,7 +15,7 @@ footer {
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>like dog</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
@@ -28,12 +28,6 @@ footer {
 	<div id="layoutSidenav">
 		<tiles:insertAttribute name="menu" />
 		<div id="layoutSidenav_content">
-		 <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        </div>
 			<main>
 				<tiles:insertAttribute name="content" />
 			</main>
