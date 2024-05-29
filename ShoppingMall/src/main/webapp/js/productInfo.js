@@ -13,7 +13,6 @@ Number.prototype.numberFormat = function() {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-	console.log('js 가장 첫번째:' +prodNo);
 	const subBtn = document.getElementById('subBtn');
 	const addBtn = document.getElementById('addBtn');
 	const inputQty = document.getElementById('inputQuantity');
@@ -23,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const buyBtn = document.getElementById('buyBtn');
 	const orderForm = document.getElementById('orderForm');
 	const formProdCnt = document.getElementById('formProdCnt');
-
+	const prodNo = document.getElementById('prodNo').textContent;
+	
 	function TotalPrice() {
 		const qty = parseInt(inputQty.value);
 		const total = qty * productPrice;
@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	document.getElementById('review-tab').addEventListener('click', function() {
 		const prodNo = document.getElementById('prodNo').textContent;
+		console.log(prodNo);
 		showList();
 		function showList() {
 			document.querySelectorAll('div.reviewList ul li').forEach((li, idx) => {

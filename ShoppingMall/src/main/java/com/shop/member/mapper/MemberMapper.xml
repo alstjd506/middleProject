@@ -88,23 +88,27 @@
 							 on o.order_no = od.order_no
     						 join product p 
     						 on p.prod_no = od.prod_no
+    	<![CDATA[	
 		where o.order_date >= SYSDATE - INTERVAL '3' DAY
+		]]>
   		and user_id = #{userId}
 	</select>
 	
 	<select id="mypagePastOrderList" resultType="map">
-		select p.prod_name, o.order_date, o.order_status
+		select p.prod_name, o.*, od.order_cnt
 		from order_detail od join orders o 
 							 on o.order_no = od.order_no
     						 join product p 
     						 on p.prod_no = od.prod_no
-    						
-		where o.order_date >= SYSDATE - INTERVAL '3' DAY
+    	<![CDATA[				
+		where o.order_date < SYSDATE - INTERVAL '3' DAY
+		]]>
+		and order_status = 4
   		and user_id = #{userId}
 	</select>
 	
 	<select id="mypageOrderList" resultType="map">
-		select p.prod_name, o.order_date, o.order_status
+		select p.prod_name, p.prod_image, p.prod_no, o.*, od.order_cnt
 		from order_detail od join orders o
 							 on o.order_no = od.order_no
 							 join product p
@@ -112,6 +116,18 @@
 		where o.order_status = 1 
 		or o.order_status = 2 
 		or o.order_status = 3
+		and user_id = #{userId}
+	</select>
+	
+	<select id="mypageReturnList" resultType="map">
+		select p.prod_name, o.order_date, o.order_status
+		from order_detail od join orders o
+							 on o.order_no = od.order_no
+							 join product p
+							 on p.prod_no = od.prod_no
+		where o.order_status = 5 
+		or o.order_status = 6 
+		or o.order_status = 7
 		and user_id = #{userId}
 	</select>
 	
