@@ -181,7 +181,8 @@
 		prod_name = #{prodName},prod_price
 		=#{prodPrice},prod_comment=#{prodComment},
 		prod_image=#{prodImage},PROD_COMMENT_IMAGE = #{prodCommentImage}
-		where prod_no=#{prodNo}
+		where
+		prod_no=#{prodNo}
 	</update>
 	<delete id="adminProductRemove" parameterType="int">
 		delete from
@@ -194,8 +195,15 @@
 		where prod_no = #{prodNo}
 	</select>
 	<select id="adminReviewStar" resultType="int">
-		select nvl(round(avg(review_score),1),0)
+		select
+		nvl(round(avg(review_score),1),0)
 		from review
 		where prod_no = #{prodNo}
+	</select>
+	<select id="adminBarChart" resultType="chart">
+		select trunc(order_date) as "chart_date" , sum(order_price) as "chart_value"
+		from orders
+		group by trunc(order_date)
+		order by trunc(order_date)
 	</select>
 </mapper>

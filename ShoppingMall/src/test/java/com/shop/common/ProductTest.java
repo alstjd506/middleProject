@@ -11,7 +11,7 @@ public class ProductTest {
 		int cno = mapper.adminPopulaReview();
 		//System.out.println(cno);
 		
-		//mapper.adminUnprocessedCancle().forEach(list -> System.out.println("123"+list));
-		System.out.println(mapper.adminProductInfo(4));
+		mapper.adminBarChart().forEach(list -> System.out.println(list));
+		//System.out.println(mapper.adminProductInfo(4));
 	}
 }

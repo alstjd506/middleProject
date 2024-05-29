@@ -8,6 +8,7 @@ import com.shop.admin.mapper.AdminMapper;
 import com.shop.common.DataSource;
 import com.shop.vo.BoardVO;
 import com.shop.vo.CategoryVO;
+import com.shop.vo.ChartVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
@@ -158,5 +159,9 @@ public class AdminServiceImpl implements AdminService {
 	public int adminReviewStar(int prodNo) {
 		return mapper.adminReviewStar(prodNo);
 	}
-
+	@Override
+	public List<ChartVO> adminBarChart() {
+		return mapper.adminBarChart();
+	}
+	
 }
