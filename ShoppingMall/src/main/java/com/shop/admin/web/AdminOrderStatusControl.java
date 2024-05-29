@@ -20,9 +20,11 @@ public class AdminOrderStatusControl implements Control {
 		AdminService svc = new AdminServiceImpl();
 
 		if (svc.adminOrderStatus(Integer.parseInt(bno))) {
+			req.setAttribute("message", "OK");
 			resp.sendRedirect("adminOrderList.do");
 		} else {
 			resp.sendRedirect("adminMain.do");
+			req.setAttribute("message", "NG");
 		}
 
 	}

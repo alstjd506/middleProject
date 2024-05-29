@@ -10,6 +10,7 @@ import com.shop.vo.BoardVO;
 import com.shop.vo.CategoryVO;
 import com.shop.vo.ChartVO;
 import com.shop.vo.MemberVO;
+import com.shop.vo.OrderDetailVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
 import com.shop.vo.ReplyVO;
@@ -163,5 +164,12 @@ public class AdminServiceImpl implements AdminService {
 	public List<ChartVO> adminBarChart() {
 		return mapper.adminBarChart();
 	}
-	
+	@Override
+	public List<OrderDetailVO> adminOrderInfo(int ono) {
+		return mapper.adminOrderInfo(ono);
+	}
+	@Override
+	public OrderVO adminOrderInfos(int ono) {
+		return mapper.adminOrderInfos(ono);
+	}
 }
