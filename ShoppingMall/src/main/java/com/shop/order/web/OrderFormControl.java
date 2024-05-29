@@ -53,7 +53,9 @@ public class OrderFormControl implements Control {
 			}
 			
 			req.setAttribute("prodNo", prodNo);
-			resp.sendRedirect("orderSuccess.do");
+			
+			String path = "orderSuccess.do";
+			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
 			// 주문 실패
 			System.out.println("주문 실패");
