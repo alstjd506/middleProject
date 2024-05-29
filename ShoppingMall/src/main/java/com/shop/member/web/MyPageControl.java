@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.shop.common.Control;
 import com.shop.member.service.MemberService;
@@ -20,8 +21,10 @@ public class MyPageControl implements Control {
 		// TODO Auto-generated method stub
 		String path = "member/myPage.tiles";
 
-		String userId = req.getParameter("userId");
-
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("logId");
+		
+		
 		System.out.println(userId);
 		MemberService svc = new MemberServiceImpl();
 		List<ProductVO> cartList = svc.mypageCart(userId); //장바구니 리스트

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.shop.vo.BoardVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
@@ -35,5 +36,7 @@ public interface MemberMapper {
 	
 	int mypageBoardY(String userId);
 	int mypageBoardN(String userId);
-	
+	List<BoardVO> boardList(String userId);
+	List<BoardVO> boardInfo(@Param("userId") String userId, @Param("boardNo") int boardNo);
+	int updateBoard(BoardVO board);
 }

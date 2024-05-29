@@ -21,9 +21,9 @@
 				<div class="collapse" id="collapseShop"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="myPageOrder.do">주문/배송조회</a> 
-						<a class="nav-link" href="#">취소/반품/교환조회</a>
-						<a class="nav-link" href="#">과거주문이력</a>
+						<a class="nav-link" href="myPageOrder.do?userId=${logId}">주문/배송조회</a> 
+						<a class="nav-link" href="myPageReturn.do?userId=${logId}">취소/반품/교환조회</a>
+						<a class="nav-link" href="myPagePastOrder.do?userId=${logId}">과거주문이력</a>
 					</nav>
 				</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -39,9 +39,9 @@
 				<div class="collapse" id="collapseActivity"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="#">상품Q&A</a> 
+						<a class="nav-link" href="myPageBoard.do">상품Q&A</a> 
 						<a class="nav-link" href="#">리뷰</a>
-						<a class="nav-link" href="cart.do">장바구니</a>
+						<a class="nav-link" href="cart.do?userId=${logId}">장바구니</a>
 					</nav>
 				</div>
 				<div class="sb-sidenav-menu-heading">Core</div>

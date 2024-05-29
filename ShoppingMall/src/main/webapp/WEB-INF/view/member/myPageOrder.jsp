@@ -93,6 +93,11 @@
 }
 </style>
 <div class="orderBox">
+ 	<c:if test="${empty mypageRecentOrderList}">
+                           
+        <h1>최근 구매 상품이 없습니다.</h1>
+    
+    </c:if>
     <c:forEach var="order" items="${mypageOrderList}">
         <div class="order">
             <div class="order-header">
@@ -116,11 +121,14 @@
                         </c:when>
                     </c:choose>
                 </div>
-                <img class="prodImage" src="images/${order.PROD_IMAGE}" alt="상품 이미지">
+                <a href="productInfo.do?prodNo=${order.PROD_NO}"><img class="prodImage" src="images/${order.PROD_IMAGE}" alt="상품 이미지"></a>
                 <div class="product-info">
                     <div class="info">
                         <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.PROD_NAME}</a>
-                        <span><fmt:formatNumber value="${order.ORDER_PRICE}"/> 원 · ${order.ORDER_CNT} 개</span>
+                        <span>
+                        <c:set var="totalPrice" value = "${order.PROD_PRICE * order.ORDER_CNT }"/>
+                        <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.ORDER_CNT} 개
+                        </span>
                     </div>
                 </div>
             </div>
@@ -144,4 +152,5 @@
         </div>
     </c:forEach>
 </div>
+
 <script src ="js/myPageOrder.js"></script>
