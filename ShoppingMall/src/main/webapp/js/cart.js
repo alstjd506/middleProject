@@ -23,6 +23,9 @@ let basket = {
 	list: function() {
 		cartSvc.cartList(
 			result => {
+				if(result.length == 0) {
+					basket.emptyBasket();
+				} else {
 				// 장바구니 상품
 				result.forEach(cart => {
 					let tr = $('<tr />').attr('align', 'center')
@@ -61,6 +64,7 @@ let basket = {
 					$('tbody').append(tr);
 				})
 				basket.calcTotal();
+				}
 			},
 			err => console.log(err)
 		);		
@@ -77,6 +81,7 @@ let basket = {
 				if(result.retCode == 'OK') {					
 					tr.remove();
 					basket.calcTotal();
+					basket.emptyBasket();
 				} else {
 					console.log('처리 실패');
 				}
@@ -98,6 +103,7 @@ let basket = {
 						if(result.retCode == 'OK') {
 							tr.remove();
 							basket.calcTotal();
+							basket.emptyBasket();
 						} else {
 							console.log('처리 실패');
 						}
@@ -120,6 +126,7 @@ let basket = {
 						if(result.retCode == 'OK') {
 							tr.remove();
 							basket.calcTotal();
+							basket.emptyBasket();
 						} else {
 							console.log('처리 실패');
 						}
@@ -172,6 +179,18 @@ let basket = {
 			},
 			err => console.log(err)
 		)	
+	},
+	
+	// 빈 장바구니
+	emptyBasket: function() {
+		if(basket.totalCount == 0) {
+			$('#totalInfo').hide();
+			$('tbody').append($('<tr />').append($('<td />').attr('colspan', '7')
+															.attr('align', 'center')
+															.text('장바구니에 상품이 없습니다.')));
+			$('#delbtns').hide();
+			$('#purchase').attr('disabled', true);
+		}
 	}
 }
 
