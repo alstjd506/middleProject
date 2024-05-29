@@ -38,5 +38,6 @@
 		<mapper resource="com/shop/product/mapper/ReviewMapper.xml" />
 		<mapper resource="com/shop/admin/mapper/AdminMapper.xml" />
 		<mapper resource="com/shop/member/mapper/MemberMapper.xml" />
+		<mapper resource="com/shop/board/mapper/BoardMapper.xml" />
 	</mappers>
 </configuration>

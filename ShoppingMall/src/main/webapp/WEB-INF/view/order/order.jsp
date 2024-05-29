@@ -21,13 +21,13 @@ ul{
       </tr>
     </tbody>
   </table>
-  <div>
+  <div id="totalInfo">
     <ul>
       <li>총 수량 <span id="totalCount">0</span>개</li>
       <li>총 금액 <span id="totalPrice">00,000</span>원</li>
     </ul>
   </div>
-  <table class="table">
+  <table class="table" id="orderTable">
     <thead class="table-dark">
       <tr align="center">
         <th colspan="2">주문/결제</th>

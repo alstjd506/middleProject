@@ -60,8 +60,8 @@
   
 
   <insert id="insertOrder" parameterType="order">
-    insert into orders(order_no, user_id, order_status, order_post, order_addr, order_detail_addr)
-    values(orders_seq.nextval, #{userId}, 1, #{orderPost}, #{orderAddr}, #{orderDetailAddr})
+    insert into orders(order_no, user_id, order_status, order_post, order_addr, order_detail_addr, order_price)
+    values(orders_seq.nextval, #{userId}, 1, #{orderPost}, #{orderAddr}, #{orderDetailAddr}, #{orderPrice})
   </insert>
   
   <select id="selectOrderNo" resultType="int">
