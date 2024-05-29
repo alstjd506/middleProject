@@ -41,8 +41,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean DeleteUser(MemberVO mvo) {
-		return mapper.selectMembermodify(mvo)==1;
+	public boolean DeleteUser(String pw) {
+		return mapper.deleteMember(pw)==1;
 	}
 
 	@Override
@@ -77,6 +77,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+
 	public List<Map<String, Object>> mypagePastOrderList(String userId) {
 		// TODO Auto-generated method stub
 		return mapper.mypagePastOrderList(userId);
@@ -92,6 +93,11 @@ public class MemberServiceImpl implements MemberService {
 	public List<Map<String, Object>> mypageReturnList(String userId) {
 		// TODO Auto-generated method stub
 		return mapper.mypageReturnList(userId);
+
+	public boolean DeleteUser(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return false;
+
 	}
 
 

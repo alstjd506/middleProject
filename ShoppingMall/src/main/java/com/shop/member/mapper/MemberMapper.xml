@@ -56,11 +56,9 @@
     where user_Id = #{userId}
 	</update>
 
-	<delete id="deleteMember" parameterType="member">
+	<delete id="deleteMember" parameterType="String">
 	delete from users
-	
-	where user_Id = #{userId}
-	
+	where user_id = #{userId}
 	</delete>
 
 

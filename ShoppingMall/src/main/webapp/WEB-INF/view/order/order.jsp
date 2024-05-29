@@ -23,8 +23,8 @@ ul{
   </table>
   <div id="totalInfo">
     <ul>
-      <li>총 수량 <span id="totalCount">0</span>개</li>
-      <li>총 금액 <span id="totalPrice">00,000</span>원</li>
+      <li>주문 수량 <span id="totalCount">0</span>개</li>
+      <li>합계 금액 <span id="totalPrice">00,000</span>원</li>
     </ul>
   </div>
   <table class="table" id="orderTable">

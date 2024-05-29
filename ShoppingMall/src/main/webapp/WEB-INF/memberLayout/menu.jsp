@@ -50,7 +50,7 @@
 						<i class="fas fa-tachometer-alt"></i>
 					</div> 개인정보변경
 				</a>
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="Deleteuser.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
 					</div> 회원탈퇴

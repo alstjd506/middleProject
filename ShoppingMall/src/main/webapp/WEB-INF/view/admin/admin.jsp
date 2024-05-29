@@ -221,3 +221,10 @@ a {
 		</div>
 	</div>
 </div>
+<script>
+const message = "${message}";
+if(message=='OK'){
+	alert("처리완료!");
+}
+console.log(message);
+</script>

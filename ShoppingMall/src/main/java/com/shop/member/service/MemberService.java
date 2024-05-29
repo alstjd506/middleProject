@@ -31,4 +31,7 @@ public interface MemberService {
 	List<Map<String, Object>> mypageReturnList(String userId); //취소/반품중인 상품조회
 	
 	
+	boolean DeleteUser(String password);
+
+
 }
