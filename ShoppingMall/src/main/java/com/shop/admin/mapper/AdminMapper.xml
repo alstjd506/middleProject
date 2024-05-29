@@ -206,4 +206,14 @@
 		group by trunc(order_date)
 		order by trunc(order_date)
 	</select>
+	<select id="adminOrderInfo" resultType="orderDetail">
+		select *
+		from order_detail
+		where order_no=#{ono}
+	</select>
+	<select id="adminOrderInfos" resultType="order">
+		select *
+		from orders
+		where order_no=#{ono}
+	</select>
 </mapper>

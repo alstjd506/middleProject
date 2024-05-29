@@ -20,8 +20,10 @@ public class AdminReturnAgree implements Control {
 		AdminService svc = new AdminServiceImpl();
 		
 		if(svc.adminReturnAgree(Integer.parseInt(rno))) {
+			req.setAttribute("message", "OK");
 			resp.sendRedirect("adminReturnList.do");
 		}else {
+			req.setAttribute("message", "NG");
 			resp.sendRedirect("adminMain.do");
 		}
 

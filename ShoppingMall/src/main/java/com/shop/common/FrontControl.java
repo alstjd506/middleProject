@@ -23,6 +23,7 @@ import com.shop.admin.web.AdminCancleList;
 import com.shop.admin.web.AdminChartControl;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
+import com.shop.admin.web.AdminOrderInfo;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminOrderStatusControl;
 import com.shop.admin.web.AdminProductInfo;
@@ -137,6 +138,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
 		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회 o  
 		map.put("/adminReturnAgree.do", new AdminReturnAgree()); // 관리자 반품승인 o
+		map.put("/adminOrderInfo.do", new AdminOrderInfo()); // 관리자 주문상세보기 x
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
