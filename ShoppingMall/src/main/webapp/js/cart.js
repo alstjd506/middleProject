@@ -183,7 +183,7 @@ let basket = {
 	
 	// 빈 장바구니
 	emptyBasket: function() {
-		if(basket.totalCount == 0) {
+		if($('#cartTable tbody tr').length == 1) {
 			$('#totalInfo').hide();
 			$('tbody').append($('<tr />').append($('<td />').attr('colspan', '7')
 															.attr('align', 'center')
