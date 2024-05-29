@@ -76,5 +76,23 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.mypageBoardN(userId);
 	}
 
+	@Override
+	public List<Map<String, Object>> mypagePastOrderList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypagePastOrderList(userId);
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageOrderList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageOrderList(userId);
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageReturnList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageReturnList(userId);
+	}
+
 
 }

@@ -54,6 +54,9 @@ import com.shop.member.web.LogoutControl;
 import com.shop.member.web.ModifyUserControl;
 import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
+import com.shop.member.web.MyPageOrderControl;
+import com.shop.member.web.MyPagePastControl;
+import com.shop.member.web.MyPageReturnControl;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
@@ -81,8 +84,6 @@ import com.shop.product.web.SearchFormControl;
 
 import com.shop.product.web.RemoveReviewControl;
 import com.shop.product.web.ReviewControl;
-import com.shop.product.web.SearchControl;
-import com.shop.product.web.SearchFormControl;
 import com.shop.product.web.TotalCountControl;
 
 
@@ -109,6 +110,10 @@ public class FrontControl extends HttpServlet {
 
 		//마이페이지 화면
 		map.put("/myPage.do", new MyPageControl());
+		map.put("/myPageOrder.do", new MyPageOrderControl());
+		map.put("/myPagePastOrder.do", new MyPagePastControl());
+		map.put("/myPageReturn.do", new MyPageReturnControl());
+		
 		
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());		

@@ -137,12 +137,12 @@ body {
 						</tr>
 					</thead>
 					<tbody>
-						 <c:if test="${empty mypageOrderList}">
+						 <c:if test="${empty mypageRecentOrderList}">
                             <tr>
                                 <td colspan="5">최근 구매 상품이 없습니다.</td>
                             </tr>
                         </c:if>
-                        <c:forEach var="order" items="${mypageOrderList}">
+                        <c:forEach var="order" items="${mypageRecentOrderList}">
                             <tr>
                                 <td><fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy-MM-dd"/></td>
                                 <td colspan="2">${order.PROD_NAME}</td>
