@@ -26,6 +26,7 @@ import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderInfo;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminOrderStatusControl;
+import com.shop.admin.web.AdminPieChart;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminProductModify;
@@ -149,7 +150,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
-		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트		
+		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트	
+		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트
 		
 		
 		//로그인화면

@@ -104,72 +104,92 @@ public class AdminServiceImpl implements AdminService {
 	public List<OrderVO> adminUnprocessedOrder() {
 		return mapper.adminUnprocessedOrder();
 	}
+
 	@Override
 	public List<OrderVO> adminUnprocessedCancle() {
 		return mapper.adminUnprocessedCancle();
 	}
+
 	@Override
 	public List<OrderVO> adminUnprocessedReturns() {
 		return mapper.adminUnprocessedReturns();
 	}
+
 	@Override
 	public List<BoardVO> adminUnprocessedReply() {
 		return mapper.adminUnprocessedReply();
 	}
+
 	@Override
 	public int adminProductCnt() {
 		return mapper.adminProductCnt();
 	}
+
 	@Override
 	public boolean adminOrderStatus(int bno) {
-		return mapper.adminOrderStatus(bno)==1;
+		return mapper.adminOrderStatus(bno) == 1;
 	}
+
 	@Override
 	public int adminPopularProduct() {
 		return mapper.adminPopularProduct();
 	}
+
 	@Override
 	public int adminleastProduct() {
 		return mapper.adminleastProduct();
 	}
+
 	@Override
 	public int adminPopulaReview() {
 		return mapper.adminPopulaReview();
 	}
+
 	@Override
 	public int adminhighStar() {
 		return mapper.adminhighStar();
 	}
+
 	@Override
 	public ProductVO adminProductInfo(int prodNo) {
 		return mapper.adminProductInfo(prodNo);
 	}
+
 	@Override
 	public boolean adminProductModify(ProductVO pvo) {
-		return mapper.adminProductModify(pvo)==1;
+		return mapper.adminProductModify(pvo) == 1;
 	}
+
 	@Override
 	public boolean adminProductRemove(int prodNo) {
-		return mapper.adminProductRemove(prodNo)==1;
+		return mapper.adminProductRemove(prodNo) == 1;
 	}
+
 	@Override
 	public List<ReviewVO> adminReviewList(int prodNo) {
 		return mapper.adminReviewList(prodNo);
 	}
+
 	@Override
 	public int adminReviewStar(int prodNo) {
 		return mapper.adminReviewStar(prodNo);
 	}
+
 	@Override
 	public List<ChartVO> adminBarChart() {
 		return mapper.adminBarChart();
 	}
+
 	@Override
-	public List<OrderDetailVO> adminOrderInfo(int ono) {
-		return mapper.adminOrderInfo(ono);
+	public List<ProductVO> adminOrderDetail(int ono) {
+		return mapper.adminOrderDetail(ono);
 	}
 	@Override
-	public OrderVO adminOrderInfos(int ono) {
-		return mapper.adminOrderInfos(ono);
+	public OrderVO adminOrderInfo(String uid, int ono) {
+		return mapper.adminOrderInfo(uid, ono);
+	}
+@Override
+	public List<ChartVO> adminPieChart() {
+		return mapper.adminPieChart();
 	}
 }

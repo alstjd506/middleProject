@@ -105,6 +105,7 @@ textarea {
 	background-color: #45a049;
 }
 </style>
+<div class="container-fluid px-4">
 <div class="container">
 	<h1>상품 수정</h1>
 	<form action="adminProductModify.do"
@@ -129,6 +130,7 @@ textarea {
 		<input type="submit" value="상품수정" class="new-button" id="modBtn"><input
 			type="button" value="취소" id="cancelBtn" class="new-button">
 	</form>
+</div>
 </div>
 <script src="js/adminMod.js">
 
