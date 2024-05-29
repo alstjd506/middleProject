@@ -77,9 +77,27 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+
+	public List<Map<String, Object>> mypagePastOrderList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypagePastOrderList(userId);
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageOrderList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageOrderList(userId);
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageReturnList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageReturnList(userId);
+
 	public boolean DeleteUser(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		return false;
+
 	}
 
 

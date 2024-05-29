@@ -36,7 +36,7 @@ public class MyPageControl implements Control {
 		
 		req.setAttribute("mypageBoardY", mypageBoardY);
 		req.setAttribute("mypageBoardN", mypageBoardN);
-		req.setAttribute("mypageOrderList", mypageRecentOrderList);
+		req.setAttribute("mypageRecentOrderList", mypageRecentOrderList);
 		req.setAttribute("mypageReviewCnt", mypageReviewCnt);
 		req.setAttribute("cartList", cartList);
 		req.getRequestDispatcher(path).forward(req, resp);
