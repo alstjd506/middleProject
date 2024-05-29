@@ -1,8 +1,12 @@
 package com.shop.member.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.shop.vo.MemberVO;
+import com.shop.vo.ProductVO;
 
 public interface MemberMapper {
 
@@ -18,5 +22,11 @@ public interface MemberMapper {
 	
 	int deleteMember(MemberVO mvo); //회원탈퇴
 
-
+	//mypage
+	List<ProductVO> mypageCart(String userId);
+	int mypageReviewCnt(String userId);
+	List<Map<String, Object>> mypageRecentOrderList(String userId); //최근 3일 조회
+	int mypageBoardY(String userId);
+	int mypageBoardN(String userId);
+	
 }

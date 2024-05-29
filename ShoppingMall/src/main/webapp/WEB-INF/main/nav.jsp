@@ -28,7 +28,7 @@
                                         <a class="dropdown-item" href="join.do">회원가입</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="dropdown-item" href="myPage.do">마이페이지</a>
+                                        <a class="dropdown-item" href="myPage.do?userId=${logId }">마이페이지</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="logout.do">로그아웃</a>
                                     </c:otherwise>
@@ -55,6 +55,8 @@
         </div>
     </div>
 </nav>
-
+<script>
+	const userId = "${logId}";
+</script>
 
 <script src="js/search.js"></script>

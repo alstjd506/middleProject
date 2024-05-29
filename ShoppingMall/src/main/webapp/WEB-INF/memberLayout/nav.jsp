@@ -44,7 +44,7 @@
                    					<a href="#!">Order</a>
                    				</li>
                    				<li class="cartForm" list-style-type= none>
-                   					<a href="#!">Cart</a>
+                   					<a href="cart.do">Cart</a>
                    				</li>
                    				 </li>
                           		<li class="BoardForm" list-style-type="none">
@@ -57,3 +57,7 @@
                 </div>
             </div>
           </nav>
+          
+ <script>
+	 const userId = "${logId}";
+ </script>

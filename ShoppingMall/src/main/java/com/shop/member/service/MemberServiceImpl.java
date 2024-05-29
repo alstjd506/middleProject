@@ -1,10 +1,14 @@
 package com.shop.member.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.shop.common.DataSource;
 import com.shop.member.mapper.MemberMapper;
 import com.shop.vo.MemberVO;
+import com.shop.vo.ProductVO;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -40,5 +44,37 @@ public class MemberServiceImpl implements MemberService {
 	public boolean DeleteUser(MemberVO mvo) {
 		return mapper.selectMembermodify(mvo)==1;
 	}
+
+	@Override
+	public List<ProductVO> mypageCart(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageCart(userId);
+		
+	}
+
+	@Override
+	public int mypageReviewCnt(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageReviewCnt(userId);
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageRecentOrderList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageRecentOrderList(userId);
+	}
+
+	@Override
+	public int mypageBoardY(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageBoardY(userId);
+	}
+
+	@Override
+	public int mypageBoardN(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageBoardN(userId);
+	}
+
 
 }

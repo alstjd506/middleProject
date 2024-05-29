@@ -338,7 +338,6 @@ a {
     <!-- 모달 끝 -->
 </section>
 <script>
-
     const userId = '${logId}';
 </script>
 <script src ="js/modal.js"></script>
