@@ -147,6 +147,9 @@ $('#purchase').on('click', function() {
 				 			.append($('<input>').attr('type', 'hidden')
 				 								.attr('name', 'userDetailAddr')
 				 								.val($('#detailAddress').val()))
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'orderPrice')
+				 								.val(order.totalPrice))
 	
 	$('body').append(form);
 	
@@ -154,9 +157,24 @@ $('#purchase').on('click', function() {
 })
 
 // 메인
-if(prodNo.indexOf(',') != -1) {
-	order.cartList();	
+// 주문상품
+if(prodNo == '') {
+	// 주문 상품이 없을 경우
+	$('#cartTable tbody').append($('<tr />').append($('<td />').attr('colspan', '4')
+										 					   .attr('align', 'center')
+										 					   .text('주문 상품이 없습니다.')))
+		
+	$('#totalInfo').hide();
+	$('#purchase').attr('disabled', true);
 } else {
-	order.directOrder();
+	// 주문 상품이 있는 경우
+	if(prodNo.indexOf(',') != -1) {
+		// 장바구니 주문
+		order.cartList();	
+	} else {
+		// 바로구매 주문
+		order.directOrder();
+	}	
 }
+// 주문/결제
 order.info();

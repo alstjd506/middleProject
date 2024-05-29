@@ -17,7 +17,7 @@ public class OrderFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 회원아이디, 우편번호, 주소, 상세주소, 상품번호, 수량
+		// 회원아이디, 우편번호, 주소, 상세주소, 상품번호, 수량, 총금액
 		HttpSession session = req.getSession();
 		String userId = (String) session.getAttribute("logId");
 		String userPost = req.getParameter("userPost");
@@ -25,6 +25,7 @@ public class OrderFormControl implements Control {
 		String userDetailAddr = req.getParameter("userDetailAddr");
 		String prodNo = req.getParameter("prodNo");
 		String prodCnt = req.getParameter("prodCnt");
+		String orderPrice = req.getParameter("orderPrice");
 
 		// 주문 테이블 데이터 추가
 		OrderVO ovo = new OrderVO();
@@ -32,6 +33,7 @@ public class OrderFormControl implements Control {
 		ovo.setOrderPost(Integer.parseInt(userPost));
 		ovo.setOrderAddr(userAddr);
 		ovo.setOrderDetailAddr(userDetailAddr);
+		ovo.setOrderPrice(Integer.parseInt(orderPrice));
 		
 		OrderService svc = new OrderServiceImpl();
 		
@@ -50,6 +52,7 @@ public class OrderFormControl implements Control {
 				svc.addOrderDetail(dvo);
 			}
 			
+			req.setAttribute("prodNo", prodNo);
 			resp.sendRedirect("orderSuccess.do");
 		} else {
 			// 주문 실패

@@ -34,7 +34,10 @@ import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
 
 import com.shop.admin.web.AdminReviewList;
-
+import com.shop.board.web.AddBoardControl;
+import com.shop.board.web.BoardControl;
+import com.shop.board.web.BoardFailedControl;
+import com.shop.board.web.BoardSuccessControl;
 import com.shop.member.web.DeleteUserControl;
 
 import com.shop.member.web.FindIdControl;
@@ -180,7 +183,12 @@ public class FrontControl extends HttpServlet {
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 추가
 		map.put("/checkCart.do", new checkCartControl()); //물품등록 중복체크
 		
-		// 상품Q&A
+		// Q&A
+		map.put("/board.do", new BoardControl()); // Q&A 작성페이지
+		map.put("/addBoard.do", new AddBoardControl()); // Q&A 추가
+		map.put("/boardSuccess.do", new BoardSuccessControl()); // 작성 성공 페이지
+		map.put("/boardFailed.do", new BoardFailedControl()); // 작성 실패 페이지
+		
 }
 
 	// service

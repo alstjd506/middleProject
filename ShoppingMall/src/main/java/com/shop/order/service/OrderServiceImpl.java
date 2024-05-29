@@ -69,10 +69,9 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.insertOrderDetail(dvo) == 1;
 	}
 	
+	@Override
 	public boolean checkCart(CartVO cvo) {
-		// TODO Auto-generated method stub
-		return mapper.checkCart(cvo)==1;
-
+		return mapper.checkCart(cvo) == 1;
 	}
 
 }

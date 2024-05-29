@@ -41,14 +41,14 @@
                    				</li>
                    				
                    				<li class="OrderForm" list-style-type= none>
-                   					<a href="#!">Order</a>
+                   					<a href="order.do">Order</a>
                    				</li>
                    				<li class="cartForm" list-style-type= none>
                    					<a href="cart.do">Cart</a>
                    				</li>
                    				 </li>
                           		<li class="BoardForm" list-style-type="none">
-                           			<a href="#">Q&A게시판</a>
+                           			<a href="board.do">Q&A</a>
                         		</li>
                    			</ul>
                    		
