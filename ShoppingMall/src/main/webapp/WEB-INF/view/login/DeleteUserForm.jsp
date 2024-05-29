@@ -14,7 +14,7 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>비밀번호 찾기</title>
+    <title>회원탈퇴</title>
     <style>
         @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 	
@@ -76,57 +76,33 @@
 		</div>
             
 		<div class="card-body">
-      <form action="findPwControl.do" class="form-signin" method="POST">
+      <form action="DeleteUserControl.do" class="form-signin" method="POST">
       
-        <input type="text" name="id" id="id" class="form-control" placeholder="아이디" required autofocus><br>
-        <input type="text" name="name" id="name" class="form-control" placeholder="이름" required><BR>
-        <input type="text" name="phone" id="phone" class="form-control" placeholder="연락처 ex)010-1234-5678" required><br>
+        <input type="password" name="pw" id="pw" class="form-control" placeholder="비밀번호를 입력하세요" required autofocus><br>
        		<p class="checks" id="checks">${findpw_checkf}</p><br/>
-        <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">비밀번호 찾기</button>
+        <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">회원탈퇴</button>
       
       </form>
       
 		</div>
-        <div class="links">
-            <a href="findid.do">아이디 찾기</a> | <a href="login.do">로그인</a> | <a href="join.do">회원가입</a>
 
-        </div>
 	</div>
   
   </body>
     <script type="text/javascript">
 
-	
-	  	//아이디 정규식
-		var idJ = /^[a-z0-9]{5,20}$/;
-		
-  		$("#member_id").focusout(function(){
-	     if($('#member_id').val() == ""){
-	   		$('#checks').text('아이디를 입력해주세요.');
-	   	  	$('#checks').css('color', 'red');
-	     }
-	     });
-  		
-  		$("#member_id").focusout(function(){
-  			if(!idJ.test($(this).val())){
-  			$('#checks').text('5~20자의 영문 소문자, 숫자만 사용가능합니다');
-  			$('#checks').css('color', 'red');
-  		}
-  		 });
-  		
-  		$("#name").focusout(function(){
-	     if($('#name').val() == ""){
-	   		$('#checks').text('이름을 입력해주세요.');
-	   	  	$('#checks').css('color', 'red');
-	     }
-	     });
-	     
-  		$("#phone").focusout(function(){
-	     if($('#phone').val() == ""){
-	   		$('#checks').text('연락처를 입력해주세요');
-	   	  	$('#checks').css('color', 'red');
-	     }
-	     });
-  
+	$("#pw").focusout(function(){
+    if($('#pw').val() == ""){
+  		$('#check').text('비밀번호를 입력해주세요.');
+  	  	$('#check').css('color', 'red');
+  	
+  	
+//   	if(confirm("탈퇴하시겠습니까?")){
+//   		alert("회원탈퇴 완료");
+//   	}else{
+//   		alert("회원탈퇴 실패");
+//   	}
+  	  	
+  	  	
   </script>
 </html>

@@ -14,9 +14,15 @@
  box_sizing:content-box;
  
  }
- #id{
- width: 100%
+ #all{
+ width: 200%;
+ text-align: left;
  }
+ 
+ #form-group{
+ width: 200%;
+ }
+ 
  </style>
 </head> 
 <body>
@@ -87,7 +93,7 @@
                 <label for="id">아이디</label>
             </div>
             <div class="col-sm-6 text-left">
-                <input type="text" class="form-control" name="id" id="id" >
+                <input type="text" class="form-control" name="id" id="all" >
             </div>
          </div>
           
@@ -96,7 +102,7 @@
                 <label id="pw">패스워드</label>
             </div>
             <div class="col-sm-6">
-                <input type="password" class="form-control" name="pw" id="pw">
+                <input type="password" class="form-control" name="pw" id="all">
             </div>
          </div>
           
@@ -114,7 +120,7 @@
                 <label id="name">이름</label>
             </div>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="name" id="name" placeholder="한글로 입력하세요">
+                <input type="text" class="form-control" name="name" id="all" placeholder="한글로 입력하세요">
             </div>
          </div>        
 
@@ -123,7 +129,7 @@
                 <label id="phone">전화번호</label>
             </div>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="ex)01012345678">
+                <input type="text" class="form-control" name="phone" id="all" placeholder="ex)010-1234-5678">
             </div>
          </div>
       
@@ -133,7 +139,7 @@
                 <label id="zip_num">우편번호</label>
             </div>
             <div class="col-sm-3">
-             <input type="text" id="sample6_postcode" placeholder="우편번호"  name="post" class="form-control" >
+             <input type="text" id="sample6_postcode" placeholder="우편번호"  name="post" id="all" class="form-control" >
             </div>
             <div class="col-sm-3">
             <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-primary">
@@ -146,7 +152,7 @@
                 <label id="address1">주소</label>
              </div>
              <div class="col-sm-6">
-                <input type="text" id="sample6_address"
+                <input type="text" id="sample6_address" id="all"
                 placeholder="주소"  name="addr"   class="form-control" >
              </div>   
            </div>
@@ -156,7 +162,7 @@
                 <label id="address1">상세주소</label>
              </div>
              <div class="col-sm-6"> 
-               <input type="text" id="sample6_address2" placeholder="상세주소" name="detailaddr"   class="form-control" >
+               <input type="text" id="sample6_address2" placeholder="상세주소" name="detailaddr" id="all" class="form-control" >
                </div>
           </div>
           

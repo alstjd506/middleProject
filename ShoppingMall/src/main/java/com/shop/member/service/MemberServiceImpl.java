@@ -37,8 +37,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean DeleteUser(MemberVO mvo) {
-		return mapper.selectMembermodify(mvo)==1;
+	public boolean DeleteUser(String pw) {
+		return mapper.deleteMember(pw)==1;
 	}
+
+
 
 }
