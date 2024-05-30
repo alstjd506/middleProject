@@ -63,7 +63,7 @@
 				</div>
 				<div id="imgs"></div>
 				<hr />
-				<input type="submit" value="상풍등록">
+				<input type="submit" value="상품등록">
 
 			</div>
 </form>

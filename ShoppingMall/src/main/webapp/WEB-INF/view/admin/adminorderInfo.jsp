@@ -28,9 +28,9 @@ a {
 	</div>
 	<div class="sc-llyby5-0 cpmwZc">
 		<div class="sc-llyby5-1 hEqipt">
-			<span class="sc-llyby5-2 dslKAU"><strong><fmt:formatDate value="${order.orderDate}"
+			<span class="sc-llyby5-2 dslKAU"><strong>주문날짜:<fmt:formatDate value="${order.orderDate}"
 									pattern="yyyy-MM-dd" />
-					주문</strong></span><span class="sc-llyby5-2 jtryGp" style="color: rgb(85, 85, 85);">주문번호
+					</strong></span><span class="sc-llyby5-2 jtryGp" style="color: rgb(85, 85, 85);">주문번호 :
 				${order.orderNo }</span>
 		</div>
 		<div class="sc-llyby5-3 fROrYB"></div>
@@ -76,6 +76,12 @@ a {
 																class="sc-13xhsmd-1 joIhoV"></span></span><span
 																class="sc-755zt3-0 jtWNEg">${prod.orderCnt }개</span>
 														</div>
+														<div>
+														<span>
+														상품총금액:<fmt:formatNumber value="${prod.prodTotal }"
+									pattern="#,###" />원
+														</span>
+														</div>
 													</div>
 												<div class="sc-fxyxvg-0 igPkOG"></div>
 											</div>
@@ -90,6 +96,8 @@ a {
 	</div>
 	</c:forEach>
 	<div class="sc-h20x0n-0 gcWEbw"></div>
+	<h3>주문 총금액 :<fmt:formatNumber value="${order.orderPrice }"
+									pattern="#,###" />원</h3>
 	<div class="sc-1m6uvm7-0 khiofo">
 		<h1 class="sc-1m6uvm7-2 berHYP">
 			<span>받는사람 정보</span>
