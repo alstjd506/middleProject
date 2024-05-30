@@ -137,16 +137,16 @@
                     <button>장바구니 담기</button>
                      <c:choose>
                         <c:when test="${order.ORDER_STATUS == 1}">
-                    		<button>주문취소 신청</button>
+                    		<button class ="cancelBtn">주문취소 신청</button>
                     	</c:when>
                     	 <c:when test="${order.ORDER_STATUS == 2}">
-                    		<button>주문취소 신청</button>
+                    		<button class ="cancelBtn">주문취소 신청</button>
                     	</c:when>
                     	 <c:when test="${order.ORDER_STATUS == 3}">
-                    		<button>반품 신청</button>
+                    		<button class ="returnBtn">반품 신청</button>
                     	</c:when>
                      </c:choose>
-                    <button>리뷰 작성하기</button>
+                    <button><a href="productInfo.do?prodNo=${order.PROD_NO}">리뷰 작성하기</button></a>
                 </div>
             </div>
         </div>

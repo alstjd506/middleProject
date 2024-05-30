@@ -129,6 +129,24 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.mypageReturnList(userId);
 	}
 
+	@Override
+	public boolean cancleOrder(int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.cancleOrder(orderNo)==1;
+	}
+
+	@Override
+	public boolean confOrder(int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.confOrder(orderNo)==1;
+	}
+
+	@Override
+	public boolean returnOrder(int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.returnOrder(orderNo)==1;
+	}
+
 	
 
 

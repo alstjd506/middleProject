@@ -11,6 +11,9 @@ document.getElementById('saveBtn').addEventListener('click', function() {
     const boardNo = document.getElementById('boardNo').value;
     const boardTitle = document.getElementById('boardTitle').value;
     const boardContent = document.getElementById('boardContent').value;
+   	console.log(boardNo);
+   	console.log(boardTitle);
+   	console.log(boardContent);
    	
    	 const params = new valueParam({
         boardNo: boardNo,
@@ -24,7 +27,7 @@ document.getElementById('saveBtn').addEventListener('click', function() {
     })
     .then(resolve => resolve())
     .then(result => {
-        if (result.includes("성공")) {
+        if (result.retCode == "OK") {
             window.location.href = 'myPageBoard.do';
         } else {
             alert('업데이트에 실패했습니다.');

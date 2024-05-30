@@ -56,11 +56,14 @@ import com.shop.member.web.LoginForm;
 import com.shop.member.web.LogoutControl;
 import com.shop.member.web.ModifyUserControl;
 import com.shop.member.web.ModifyUserForm;
+import com.shop.member.web.MyPageCancleOrder;
+import com.shop.member.web.MyPageConfOder;
 import com.shop.member.web.MyPageControl;
 import com.shop.member.web.MyPageOrderControl;
 import com.shop.member.web.MyPageOrderDetail;
 import com.shop.member.web.MyPagePastControl;
 import com.shop.member.web.MyPageReturnControl;
+import com.shop.member.web.MyPageReturnfOder;
 import com.shop.member.web.myPageBoardControl;
 import com.shop.member.web.myPageBoardInfo;
 import com.shop.member.web.myPageBoardUpdate;
@@ -122,6 +125,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/myPageReturn.do", new MyPageReturnControl());
 		map.put("/myPageOrderDetail.do", new MyPageOrderDetail());
 		map.put("/myPageReturn.do", new MyPageReturnControl());
+		
+		//마이페이지 주문처리
+		map.put("/myPageCancleOrder.do", new MyPageCancleOrder());
+		map.put("/myPageConfOrder.do", new MyPageConfOder());
+		map.put("/myPageReturnOrder.do", new MyPageReturnfOder());
 		
 		//마이페이지 Q&A
 		map.put("/myPageBoard.do", new myPageBoardControl());
