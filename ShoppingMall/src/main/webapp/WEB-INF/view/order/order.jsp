@@ -56,12 +56,15 @@ ul{
   <hr>
 </div>
 <script>
+let userId = '${userId}';
 let prodNo = '${prodNo}';
 let prodCnt = '${prodCnt}';
 </script>
+<!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="js/orderService.js"></script>
 <script src="js/order.js"></script>
+<!-- 카카오 지도 api -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function execDaumPostcode() {
