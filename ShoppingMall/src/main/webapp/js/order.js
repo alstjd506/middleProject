@@ -94,6 +94,76 @@ let order = {
 			},
 			err => console.log(err)
 		)
+	},
+	
+	// 결제
+	payment: function() {
+		let prodNo = $('#cartTable tbody tr').eq(1).attr('id');
+		let prodName = $('#name' + prodNo).text();
+		let orderName;
+		
+		if(order.totalCount > 1) {
+			orderName = prodName + ' 외 ' + (order.totalCount - 1) + '건';
+		} else {
+			orderName = prodName;
+		}
+		
+		IMP.init("imp37176432");
+		IMP.request_pay(
+			{
+			    pg: "kakaopay.TC0ONETIME",
+			    pay_method: "card",
+			    merchant_uid: `payment-${crypto.randomUUID()}`,
+			    name: orderName,
+			    amount: order.totalPrice,
+			    buyer_name: userId
+			},
+		    function (resp) {
+				// 결제 성공 시
+				if(resp.success) {
+					console.log(resp);
+					
+					let prodNoVal = '';
+					let prodCntVal = '';
+					
+					$('#cartTable tbody tr').each((idx, item) => {
+						if(idx > 0) {
+							let prodNo = $(item).attr('id');
+							prodNoVal += prodNo + ',';
+							prodCntVal += $('#count' + prodNo).val() + ',';
+						}
+					})
+					
+					let form = $('<form />').attr('action', 'orderForm.do')
+								 			.attr('method', 'post')
+								 			.append($('<input>').attr('type', 'hidden')
+								 								.attr('name', 'prodNo')
+								 								.val(prodNoVal))
+								 			.append($('<input>').attr('type', 'hidden')
+								 								.attr('name', 'prodCnt')
+								 								.val(prodCntVal))
+								 			.append($('<input>').attr('type', 'hidden')
+								 								.attr('name', 'userPost')
+								 								.val($('#postcode').val()))
+								 			.append($('<input>').attr('type', 'hidden')
+								 								.attr('name', 'userAddr')
+								 								.val($('#address').val()))
+								 			.append($('<input>').attr('type', 'hidden')
+								 								.attr('name', 'userDetailAddr')
+								 								.val($('#detailAddress').val()))
+								 			.append($('<input>').attr('type', 'hidden')
+								 								.attr('name', 'orderPrice')
+								 								.val(order.totalPrice))
+					
+					$('body').append(form);
+					
+					form.submit();
+				} else {
+					console.log(resp);
+				}
+			}
+		);
+		
 	}
 }
 
@@ -120,41 +190,8 @@ $('#purchase').on('click', function() {
 		return;
 	}
 	
-	let prodNoVal = '';
-	let prodCntVal = '';
-	
-	$('#cartTable tbody tr').each((idx, item) => {
-		if(idx > 0) {
-			let prodNo = $(item).attr('id');
-			prodNoVal += prodNo + ',';
-			prodCntVal += $('#count' + prodNo).val() + ',';
-		}
-	})
-	
-	let form = $('<form />').attr('action', 'orderForm.do')
-				 			.attr('method', 'post')
-				 			.append($('<input>').attr('type', 'hidden')
-				 								.attr('name', 'prodNo')
-				 								.val(prodNoVal))
-				 			.append($('<input>').attr('type', 'hidden')
-				 								.attr('name', 'prodCnt')
-				 								.val(prodCntVal))
-				 			.append($('<input>').attr('type', 'hidden')
-				 								.attr('name', 'userPost')
-				 								.val($('#postcode').val()))
-				 			.append($('<input>').attr('type', 'hidden')
-				 								.attr('name', 'userAddr')
-				 								.val($('#address').val()))
-				 			.append($('<input>').attr('type', 'hidden')
-				 								.attr('name', 'userDetailAddr')
-				 								.val($('#detailAddress').val()))
-				 			.append($('<input>').attr('type', 'hidden')
-				 								.attr('name', 'orderPrice')
-				 								.val(order.totalPrice))
-	
-	$('body').append(form);
-	
-	form.submit();
+	// 결제
+	order.payment();
 })
 
 // 메인
