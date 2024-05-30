@@ -21,18 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
         prodNo = modal.getAttribute('data-prodNo');
 
-        console.log('유저id:' + userId);
         console.log('상품번호:' + prodNo);
         console.log('상품갯수:' + cartCnt);
 
-        cartSvc.checkCart(userId, prodNo, result => {
+        cartSvc.checkCart(prodNo, result => {
             if (result.retCode == 'OK') {
                 alert('해당상품이 장바구니에 있습니다.');
             } else {
-                cartSvc.addCart(userId, prodNo, cartCnt, result => {
+                cartSvc.addCart(prodNo, cartCnt, result => {
                     if (result.retCode == 'OK') {
                         window.location.href = 'cart.do';
                     } else {
+						alert('로그인이 필요한 서비스입니다.');
+						location.href='login.do';
                         console.log('처리실패');
                     }
                 }, err => console.log(err));
@@ -42,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modalClose.addEventListener('click', function() {
         modal.style.display = 'none';
-        cartSvc.checkCart(userId, prodNo, result => {
+        cartSvc.checkCart(prodNo, result => {
             if (result.retCode == 'OK') {
                 alert('해당상품이 장바구니에 있습니다.');
             } else {
-                cartSvc.addCart(userId, prodNo, cartCnt, result => {
+                cartSvc.addCart(prodNo, cartCnt, result => {
                     if (result.retCode == 'OK') {
                         alert('장바구니에 담겼습니다.');
                     } else {

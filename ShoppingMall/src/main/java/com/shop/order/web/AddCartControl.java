@@ -21,21 +21,27 @@ public class AddCartControl implements Control {
 		HttpSession session = req.getSession();
 		String userId = (String) session.getAttribute("logId");
 		
-		String prodNo = req.getParameter("prodNo");
-		String cartCnt = req.getParameter("cartCnt");
-		
-		CartVO cvo = new CartVO();
-		cvo.setUserId(userId);
-		cvo.setProdNo(Integer.parseInt(prodNo));
-		cvo.setCartCnt(Integer.parseInt(cartCnt));
-		
-		OrderService svc = new OrderServiceImpl();
-		if(svc.addCart(cvo)) {
-			// {"retCode": "OK"}
-			resp.getWriter().print("{\"retCode\": \"OK\"}");
-		} else {
+		if(userId == null) {
 			resp.getWriter().print("{\"retCode\": \"NG\"}");			
-		}		
+		} else {
+			String prodNo = req.getParameter("prodNo");
+			String cartCnt = req.getParameter("cartCnt");
+			
+			CartVO cvo = new CartVO();
+			cvo.setUserId(userId);
+			cvo.setProdNo(Integer.parseInt(prodNo));
+			cvo.setCartCnt(Integer.parseInt(cartCnt));
+			
+			OrderService svc = new OrderServiceImpl();
+			if(svc.addCart(cvo)) {
+				// {"retCode": "OK"}
+				resp.getWriter().print("{\"retCode\": \"OK\"}");
+			} else {
+				resp.getWriter().print("{\"retCode\": \"NG\"}");		
+			}		
+			
+		}
+		
 
 	}
 
