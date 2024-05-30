@@ -51,7 +51,7 @@ ul{
     </tbody>
   </table>
   <div align="center">
-    <button type="button" id="purchase" class="btn btn-primary">주문하기</button>
+    <button type="button" id="purchase" class="btn btn-primary">결제하기</button>
   </div>
   <hr>
 </div>
