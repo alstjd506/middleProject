@@ -93,10 +93,10 @@
 }
 </style>
 <div class="orderBox">
- 	<c:if test="${empty mypageRecentOrderList}">
-                           
+ 	<c:if test="${empty mypageOrderList}">
+               
         <h1>최근 구매 상품이 없습니다.</h1>
-    
+
     </c:if>
     <c:forEach var="order" items="${mypageOrderList}">
         <div class="order">

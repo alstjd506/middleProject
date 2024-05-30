@@ -156,7 +156,7 @@
 		</h1>
 		<c:forEach var="order" items="${mypageUserDetail}">
 		<table class="sc-1m6uvm7-3 jqnXTj">
-			<caption class="sc-1m6uvm7-1 dSygCD">받는사람 정보</caption>
+			<caption class="sc-1m6uvm7-1 dSygCD"></caption>
 			<colgroup>
 				<col width="105">
 				<col>
@@ -190,7 +190,7 @@
 		</h1>
 		<c:forEach var="order" items="${mypageUserDetail}">
 		<table class="sc-1m6uvm7-3 jqnXTj">
-			<caption class="sc-1m6uvm7-1 dSygCD">결제 정보</caption>
+			<caption class="sc-1m6uvm7-1 dSygCD"></caption>
 			<colgroup>
 				<col>
 				<col width="340">

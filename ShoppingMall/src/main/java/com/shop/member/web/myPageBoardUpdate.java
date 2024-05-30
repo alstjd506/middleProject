@@ -22,12 +22,16 @@ public class myPageBoardUpdate implements Control {
 		String boardContent = req.getParameter("boardContent");
 		
 		System.out.println(boardNo);
+		System.out.println(boardTitle);
+		System.out.println(boardContent);
+		
 		BoardVO vo = new BoardVO();
 		vo.setBoardNo(Integer.parseInt(boardNo));
 		vo.setBoardTitle(boardTitle);
 		vo.setBoardContent(boardContent);
 		
 		MemberService svc = new MemberServiceImpl();
+	
 		
 		if (svc.updateBoard(vo)) {
 			System.out.println("성공");

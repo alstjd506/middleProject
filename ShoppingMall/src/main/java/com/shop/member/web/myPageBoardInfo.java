@@ -25,6 +25,8 @@ public class myPageBoardInfo implements Control {
         String userId = (String) session.getAttribute("logId");
         String boardNo = req.getParameter("boardNo");
         
+        System.out.println(boardNo);
+        
         MemberService svc = new MemberServiceImpl();
         
         List<BoardVO> boardInfo = svc.boardInfo(userId, Integer.parseInt(boardNo));
