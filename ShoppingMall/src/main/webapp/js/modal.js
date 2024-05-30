@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('modal_open')) {
             e.preventDefault();
-            prodNo = event.target.getAttribute('data-prodNo');
+            prodNo = e.target.getAttribute('data-prodNo');
             modal.style.display = 'block';
             modal.setAttribute('data-prodNo', prodNo);
         }
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
         prodNo = modal.getAttribute('data-prodNo');
 
-        console.log('유저id:' + userId);
         console.log('상품번호:' + prodNo);
         console.log('상품갯수:' + cartCnt);
 
