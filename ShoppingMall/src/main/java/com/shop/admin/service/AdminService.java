@@ -47,5 +47,6 @@ public interface AdminService {
 	int adminhighStar(); // 관리자 메인 별점높은상품
 	List<ChartVO> adminBarChart(); // 관리자 바 형식 차트
 	List<ChartVO> adminPieChart(); // 관리자 파이 형식 차트
+	List<ChartVO> adminTimeChart(); // 관리자 시간대별 차트
 
 }

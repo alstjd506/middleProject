@@ -18,4 +18,5 @@ public class ProductVO {
 	private String prodCommentImage;
 	private double prodScore;
 	private int orderCnt;
+	private int prodTotal;
 }

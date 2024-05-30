@@ -21,7 +21,7 @@
 			<ul class="dropdown-menu dropdown-menu-end"
 				aria-labelledby="navbarDropdown">
 				<li><a class="dropdown-item" href="main.do">상품판매페이지이동</a></li>
-				<li><a class="dropdown-item" href="login.do">로그아웃</a></li>
+				<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
 			</ul></li>
 	</ul>
 </nav>

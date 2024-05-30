@@ -192,4 +192,9 @@ public class AdminServiceImpl implements AdminService {
 	public List<ChartVO> adminPieChart() {
 		return mapper.adminPieChart();
 	}
+@Override
+public List<ChartVO> adminTimeChart() {
+	return mapper.adminTimeChart();
+	
+}
 }

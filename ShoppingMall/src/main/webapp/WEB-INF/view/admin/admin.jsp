@@ -80,7 +80,8 @@ a {
 					<tbody>
 						<c:forEach var="ovo" items="${ovo }">
 							<tr>
-								<td>${ovo.orderNo }</td>
+								<td><a class="orderLink"
+								href="adminOrderInfo.do?ono=${ovo.orderNo }&uid=${ovo.userId }">${ovo.orderNo }</a></td>
 								<td>${ovo.userId }</td>
 								<td>${ovo.orderAddr }</td>
 								<td>${ovo.orderDetailAddr }</td>
@@ -141,7 +142,8 @@ a {
 							<tbody>
 								<c:forEach var="cvo" items="${cvo }">
 									<tr data-index="">
-										<td>${cvo.orderNo }</td>
+										<td><a class="orderLink"
+								href="adminOrderInfo.do?ono=${cvo.orderNo }&uid=${cvo.userId }">${cvo.orderNo }</a></td>
 										<td>${cvo.userId }</td>
 										<td><fmt:formatDate value="${cvo.orderDate}"
 												pattern="yyyy-MM-dd" /></td>
@@ -218,7 +220,8 @@ a {
 							<tbody>
 								<c:forEach var="rvo" items="${rvo }">
 									<tr data-index="">
-										<td>${rvo.orderNo }</td>
+										<td><a class="orderLink"
+								href="adminOrderInfo.do?ono=${rvo.orderNo }&uid=${rvo.userId }">${rvo.orderNo }</a></td>
 										<td>${rvo.userId }</td>
 										<td><fmt:formatDate value="${rvo.orderDate}"
 												pattern="yyyy-MM-dd" /></td>
