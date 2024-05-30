@@ -83,7 +83,7 @@
 	</select>
 	
 	<select id="mypageRecentOrderList" resultType="map">
-		select p.prod_name, p.prod_no, p.prod_price, o.order_date, o.order_status
+		select p.prod_name, p.prod_no, p.prod_price, o.*, o.order_date, o.order_status
 		from order_detail od join orders o 
 							 on o.order_no = od.order_no
     						 join product p 
@@ -95,15 +95,17 @@
 	</select>
 	
 	<select id="mypagePastOrderList" resultType="map">
-		select p.prod_name, p.prod_no,p.prod_price, o.*, od.order_cnt
+		select p.prod_name, p.prod_image, p.prod_price, p.prod_no, o.*, od.order_cnt
 		from order_detail od join orders o 
 							 on o.order_no = od.order_no
     						 join product p 
     						 on p.prod_no = od.prod_no
     	<![CDATA[				
-		where o.order_date < SYSDATE - INTERVAL '7' DAY
+		where o.order_date < SYSDATE - INTERVAL '3' DAY
 		]]>
-		and o.order_status = 4
+		and (o.order_status = 4 
+		or o.order_status = 6 
+		or o.order_status = 8)
   		and user_id = #{userId}
 	</select>
 	
@@ -120,14 +122,15 @@
 	</select>
 		
 	<select id="mypageReturnList" resultType="map">
-		select p.prod_name, p.prod_no,p.prod_price, o.order_date, o.order_status
+		select p.prod_name, p.prod_image, p.prod_price, p.prod_no, o.*, od.order_cnt 
 		from order_detail od join orders o
 							 on o.order_no = od.order_no
 							 join product p
 							 on p.prod_no = od.prod_no
 		where (o.order_status = 5 
 		or o.order_status = 6 
-		or o.order_status = 7)
+		or o.order_status = 7
+		or o.order_status = 8)
 		and user_id = #{userId}
 	</select>
 	
@@ -183,6 +186,22 @@
     	set boardTitle = #{boardTitle},
         	boardContent = #{boardContent}
     	where boardNo = #{boardNo}
-</update>
+	</update>
+	
+	<update id="cancleOrder" parameterType="int">
+		update orders 
+    	set order_status = 5
+    	where order_no = #{orderNo}
+	</update>
+	<update id="confOrder" parameterType="int">
+		update orders 
+    	set order_status = 4
+    	where order_no = #{orderNo}
+	</update>
+	<update id="returnOrder" parameterType="int">
+		update orders 
+    	set order_status = 7
+    	where order_no = #{orderNo}
+	</update>
 	
 </mapper>

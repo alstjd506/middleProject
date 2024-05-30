@@ -38,6 +38,12 @@ public interface MemberService {
 	List<Map<String, Object>> mypageOrderDetail(@Param("userId") String userId, @Param("orderNo") int orderNo);
 	List<Map<String, Object>> mypageUserDetail(@Param("userId") String userId, @Param("orderNo") int orderNo);
 	
+	boolean cancleOrder(int orderNo);
+	boolean confOrder(int orderNo);
+	boolean returnOrder(int orderNo);
+	
+	
+	
 	List<BoardVO> boardList(String userId);
 	List<BoardVO> boardInfo(@Param("userId") String userId, @Param("boardNo") int boardNo);
 	boolean updateBoard(BoardVO board);

@@ -77,8 +77,6 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.mypageBoardN(userId);
 	}
 
-	@Override
-
 	public List<Map<String, Object>> mypagePastOrderList(String userId) {
 		// TODO Auto-generated method stub
 		return mapper.mypagePastOrderList(userId);
@@ -90,16 +88,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.mypageOrderList(userId);
 	}
 
-	@Override
-	public List<Map<String, Object>> mypageReturnList(String userId) {
-		// TODO Auto-generated method stub
-		return mapper.mypageReturnList(userId);
-	}
-
 	public boolean DeleteUser(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		return false;
-
 	}
 
 	@Override
@@ -130,6 +121,30 @@ public class MemberServiceImpl implements MemberService {
 	public boolean updateBoard(BoardVO board) {
 		// TODO Auto-generated method stub
 		return mapper.updateBoard(board) == 1;
+	}
+
+	@Override
+	public List<Map<String, Object>> mypageReturnList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.mypageReturnList(userId);
+	}
+
+	@Override
+	public boolean cancleOrder(int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.cancleOrder(orderNo)==1;
+	}
+
+	@Override
+	public boolean confOrder(int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.confOrder(orderNo)==1;
+	}
+
+	@Override
+	public boolean returnOrder(int orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.returnOrder(orderNo)==1;
 	}
 
 	

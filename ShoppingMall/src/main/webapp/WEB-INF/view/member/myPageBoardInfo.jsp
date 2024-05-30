@@ -41,13 +41,14 @@ form label {
 			<img class="u-expanded-width u-image u-image-contain u-image-1" src="images/rkddkwl1.jpg" data-image-width="100%" data-image-height="100%">
 			<c:forEach var="board" items="${boardInfo}">
 				<form action="myPageBoardUpdate.do" method="post" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" enctype="multipart/form-data" id="myForm">
+					
 					<div class="u-form-address u-form-group u-form-group-1">
 						<label>게시글번호</label>
-						<input type="text" id="bodno" name="boardNo" value="${board.boardNo}" readonly>
+						<input type="text" id="boardNo" name="boardNo" value="${board.boardNo}" readonly>
 					</div>
 					<div class="u-form-group u-form-name">
 						<label>제목</label>
-						<input type="text" id="bodna" name="boardTitle" value="${board.boardTitle}" readonly>
+						<input type="text" id="boardTitle" name="boardTitle" value="${board.boardTitle}" readonly>
 					</div>
 					<div class="u-form-group u-form-partition-factor-2 u-form-phone u-form-group-3">
 						<label>회원아이디</label>
@@ -59,7 +60,7 @@ form label {
 					</div>
 					<div class="u-form-group u-form-message">
 						<label>게시글내용</label>
-						<textarea rows="4" cols="50" id="bodco" name="boardContent" readonly>${board.boardContent}</textarea>
+						<textarea rows="4" cols="50" id="boardContent" name="boardContent" readonly>${board.boardContent}</textarea>
 					</div>
 					<div>
 						<button type="button" id="modBtn">수정</button>
