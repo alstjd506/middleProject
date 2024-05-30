@@ -62,6 +62,9 @@ let prodCnt = '${prodCnt}';
 </script>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- 포트원 결제 api -->
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<!-- 외부 js -->
 <script src="js/orderService.js"></script>
 <script src="js/order.js"></script>
 <!-- 카카오 지도 api -->
