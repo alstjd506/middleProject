@@ -25,10 +25,10 @@ public class AdminOrderList implements Control {
 		List<String> olist = new ArrayList<>();
 		olist.add("주문번호");
 		olist.add("주문자 ID");
-		olist.add("주문상태");
 		olist.add("주문자 주소");
 		olist.add("주문자 상세주소");
 		olist.add("주문일자");
+		olist.add("주문상태");
 		
 		List<OrderVO> list = svc.adminOrderList();
 		req.setAttribute("orderTitle", olist);

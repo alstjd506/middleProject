@@ -86,7 +86,7 @@ a {
 								<td>${ovo.orderAddr }</td>
 								<td>${ovo.orderDetailAddr }</td>
 								<td><fmt:formatDate value="${ovo.orderDate}"
-										pattern="yyyy-MM-dd" /></td>
+										pattern="yyyy-MM-dd hh:mm:ss" /></td>
 								<c:choose>
 									<c:when test="${ovo.orderStatus ==1 }">
 										<td><a href="adminOrderStatus.do?bno=${ovo.orderNo }">상품준비중</a></td>
@@ -146,7 +146,7 @@ a {
 								href="adminOrderInfo.do?ono=${cvo.orderNo }&uid=${cvo.userId }">${cvo.orderNo }</a></td>
 										<td>${cvo.userId }</td>
 										<td><fmt:formatDate value="${cvo.orderDate}"
-												pattern="yyyy-MM-dd" /></td>
+												pattern="yyyy-MM-dd hh:mm:ss" /></td>
 										<c:choose>
 											<c:when test="${cvo.orderStatus == 5 }">
 												<td><a class="cancleLink"
@@ -224,7 +224,7 @@ a {
 								href="adminOrderInfo.do?ono=${rvo.orderNo }&uid=${rvo.userId }">${rvo.orderNo }</a></td>
 										<td>${rvo.userId }</td>
 										<td><fmt:formatDate value="${rvo.orderDate}"
-												pattern="yyyy-MM-dd" /></td>
+												pattern="yyyy-MM-dd hh:mm:ss" /></td>
 										<c:choose>
 											<c:when test="${rvo.orderStatus == 7 }">
 												<td><a class="returnLink"
@@ -301,7 +301,7 @@ a {
 											href="adminBoardInfo.do?bno=${bvo.boardNo }">${bvo.boardTitle }</a></td>
 										<td>${bvo.userId }</td>
 										<td><fmt:formatDate value="${bvo.boardDate}"
-												pattern="yyyy-MM-dd" /></td>
+												pattern="yyyy-MM-dd hh:mm:ss" /></td>
 										<td>${bvo.boardStatus =='y' ? '답변완료' : '미답변' }</td>
 									</tr>
 								</c:forEach>
