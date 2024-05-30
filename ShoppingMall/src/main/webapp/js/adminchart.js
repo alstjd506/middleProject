@@ -118,21 +118,42 @@
             });
 
             // Fetch data for Bar Chart
-            fetch('adminBarChart.do') // API 엔드포인트를 입력하세요
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    // JSON 데이터에서 labels와 revenue를 추출합니다
-                    const labels = data.map(item => item.chartDate);
-                    const revenue = data.map(item => item.chartValue);
-                    console.log("날짜값 : " + labels);
-                    console.log("벨류값 : " + revenue);
-                    // 차트에 데이터를 반영합니다
-                    myBarChart.data.labels = labels;
-                    myBarChart.data.datasets[0].data = revenue;
-                    myBarChart.update();
-                })
-                .catch(error => console.error('Error fetching data:', error));
+fetch('adminBarChart.do')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // JSON 데이터에서 labels와 revenue를 추출합니다
+        const labels = data.map(item => formatDate(item.chartDate));
+        const revenue = data.map(item => item.chartValue);
+        console.log("날짜값 : " + labels);
+        console.log("벨류값 : " + revenue);
+        // 차트에 데이터를 반영합니다
+        myBarChart.data.labels = labels;
+        myBarChart.data.datasets[0].data = revenue;
+        myBarChart.update();
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+// 날짜 형식을 "MM-DD"로 변환하는 함수
+function formatDate(dateString) {
+    // 물음표 제거 및 공백 제거
+    dateString = dateString.replace('?', '').trim();
+
+    // "May 29, 2024, 12:00:00AM" 형식을 "May 29, 2024"로 변환
+    const dateParts = dateString.split(',');
+    if (dateParts.length > 1) {
+        dateString = dateParts[0] + ',' + dateParts[1].split(' ')[0];
+    }
+
+    const date = new Date(dateString);
+    if (isNaN(date)) {
+        console.error('Invalid date:', dateString);
+        return 'Invalid Date'; // 혹은 빈 문자열 등 원하는 기본값으로 대체
+    }
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${month}-${day}`;
+}
 
             // Fetch data for Pie Chart
             fetch('adminPieChart.do') // API 엔드포인트를 입력하세요
