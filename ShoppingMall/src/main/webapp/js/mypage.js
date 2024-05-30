@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			.then(response => response.json())
 			.then(result => {
 				if (result.retCode == 'OK') {
-					alert('주문이 취소요청 되었습니다.');
+					alert('구매확정 되었습니다.');
 					button.textContent = '구매확정';
 					button.disabled = true;
 				}
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			.then(response => response.json())
 			.then(result => {
 				if (result.retCode == 'OK') {
-					alert('주문이 취소요청 되었습니다.');
+					alert('반품요청 되었습니다.');
 					button.textContent = '반품요청';
 					button.disabled = true;
 				}

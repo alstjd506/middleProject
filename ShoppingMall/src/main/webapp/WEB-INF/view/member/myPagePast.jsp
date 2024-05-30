@@ -101,21 +101,24 @@
     <c:forEach var="order" items="${mypagePastOrderList}">
         <div class="order">
             <div class="order-header">
-           
+           	<form id="orderForm" action="order.do" method="post">
+				<input type="hidden" id="formProdNo" name="prodNo" value="${order.PROD_NO }">
+				<input type ="hidden" id="formProdCnt" name="prodCnt">
+			</form>
                 <span>주문날짜: <fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy. MM. dd"/></span>
                   <span><a href="#" class="detail" data-order-no="${order.ORDER_NO}">주문 상세보기</a></span>
             </div>
             <div class="order-details">
                 <div>
                     <c:choose>
-                        <c:when test="${order.ORDER_STATUS == 1}">
-                            <span style="font-weight: bold; color: #555;">상품준비중</span>
+                        <c:when test="${order.ORDER_STATUS == 4}">
+                            <span style="font-weight: bold; color: #555;">구매확정</span>
                         </c:when>
-                        <c:when test="${order.ORDER_STATUS == 2}">
-                            <span style="font-weight: bold; color: #555;">배송중</span>
+                        <c:when test="${order.ORDER_STATUS == 6}">
+                            <span style="font-weight: bold; color: #555;">취소완료</span>
                         </c:when>
-                        <c:when test="${order.ORDER_STATUS == 3}">
-                            <span style="font-weight: bold; color: #555;">배송완료</span>
+                        <c:when test="${order.ORDER_STATUS == 8}">
+                            <span style="font-weight: bold; color: #555;">반품완료</span>
                         </c:when>
                     </c:choose>
                 </div>
@@ -132,21 +135,13 @@
             </div>
             <div class="actions">
                 <div class="button-group">
-                    <button>장바구니 담기</button>
-                     <c:choose>
-                        <c:when test="${order.ORDER_STATUS == 1}">
-                    		<button>주문취소 신청</button>
-                    	</c:when>
-                    	 <c:when test="${order.ORDER_STATUS == 2}">
-                    		<button>주문취소 신청</button>
-                    	</c:when>
-                    	 <c:when test="${order.ORDER_STATUS == 3}">
-                    		<button>반품 신청</button>
-                    	</c:when>
-                     </c:choose>
-                    <button>리뷰 작성하기</button>
+                    <button class="cartBtn" data-prodno="${order.PROD_NO}">장바구니 담기</button>
+                    <button class="buyBtn" data-prodno="${order.PROD_NO}">주문하기</button>
                 </div>
             </div>
         </div>
     </c:forEach>
 </div>
+<script src="js/cartService.js"></script>
+<script src ="js/orderService.js"></script>
+<script src = "js/myPagePastOrder.js"></script>

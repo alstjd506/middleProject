@@ -134,17 +134,22 @@
             </div>
             <div class="actions">
                 <div class="button-group">
-                    <button>장바구니 담기</button>
+                    <button class="cartBtn" data-prodno="${order.PROD_NO}">장바구니 담기</button>
                      <c:choose>
                         <c:when test="${order.ORDER_STATUS == 1}">
-                    		<button class ="cancelBtn">주문취소 신청</button>
+                    		<button class="cancleBtn" data-orderno="${order.ORDER_NO}">주문취소 신청</button>
                     	</c:when>
                     	 <c:when test="${order.ORDER_STATUS == 2}">
-                    		<button class ="cancelBtn">주문취소 신청</button>
+                    		<button class="cancleBtn" data-orderno="${order.ORDER_NO}">주문취소 신청</button>
                     	</c:when>
-                    	 <c:when test="${order.ORDER_STATUS == 3}">
-                    		<button class ="returnBtn">반품 신청</button>
+                    	<c:when test="${order.ORDER_STATUS == 3}">
+                    	 	<button class="confBtn" data-orderno="${order.ORDER_NO}">구매 확정</button>
+                    		<button class="returnBtn" data-orderno="${order.ORDER_NO}">반품 신청</button>
                     	</c:when>
+                    	<c:when test="${order.ORDER_STATUS == 4}">
+                    		<button style="disable:true;">구매 확정</button>
+                    	</c:when>
+                    	
                      </c:choose>
                     <button><a href="productInfo.do?prodNo=${order.PROD_NO}">리뷰 작성하기</button></a>
                 </div>
@@ -152,5 +157,5 @@
         </div>
     </c:forEach>
 </div>
-
+<script src ="js/cartService.js"></script>
 <script src ="js/myPageOrder.js"></script>

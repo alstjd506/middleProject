@@ -103,7 +103,9 @@
     	<![CDATA[				
 		where o.order_date < SYSDATE - INTERVAL '3' DAY
 		]]>
-		and o.order_status = 4
+		and (o.order_status = 4 
+		or o.order_status = 6 
+		or o.order_status = 8)
   		and user_id = #{userId}
 	</select>
 	

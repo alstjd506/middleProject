@@ -111,14 +111,17 @@
             <div class="order-details">
                 <div>
                     <c:choose>
-                        <c:when test="${order.ORDER_STATUS == 1}">
-                            <span style="font-weight: bold; color: #555;">상품준비중</span>
+                        <c:when test="${order.ORDER_STATUS == 5}">
+                            <span style="font-weight: bold; color: #555;">취소대기중</span>
                         </c:when>
-                        <c:when test="${order.ORDER_STATUS == 2}">
-                            <span style="font-weight: bold; color: #555;">배송중</span>
+                        <c:when test="${order.ORDER_STATUS == 6}">
+                            <span style="font-weight: bold; color: #555;">취소완료</span>
                         </c:when>
-                        <c:when test="${order.ORDER_STATUS == 3}">
-                            <span style="font-weight: bold; color: #555;">배송완료</span>
+                        <c:when test="${order.ORDER_STATUS == 7}">
+                            <span style="font-weight: bold; color: #555;">반품대기중</span>
+                        </c:when>
+                         <c:when test="${order.ORDER_STATUS == 8}">
+                            <span style="font-weight: bold; color: #555;">반품완료</span>
                         </c:when>
                     </c:choose>
                 </div>
@@ -136,7 +139,7 @@
             <div class="actions">
                 <div class="button-group">
                     <button class="cartBtn" data-prodno="${order.PROD_NO}">장바구니 담기</button>
-                    <button id="buyBtn" data-prodno="${order.PROD_NO}">주문하기</button>
+                    <button class="buyBtn" data-prodno="${order.PROD_NO}">주문하기</button>
                 </div>
             </div>
         </div>
