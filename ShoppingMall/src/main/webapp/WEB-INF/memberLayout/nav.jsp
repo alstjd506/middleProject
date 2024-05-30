@@ -20,10 +20,9 @@
 									aria-labelledby="navbarDropdown">
                    				
 								
-									<a class="dropdown-item" href="modifyuser.do">회원정보수정</a> <a
-                   					
-									<a class="dropdown-item" href="myPage.do">마이페이지</a> <a
-									class="dropdown-item" href="#!">내 게시글 보기</a>
+									<a class="dropdown-item" href="modifyuser.do">회원정보수정</a>
+									<a class="dropdown-item" href="myPage.do">마이페이지</a>
+									<a class="dropdown-item" href="#!">내 게시글 보기</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#!">로그아웃</a>
 		
