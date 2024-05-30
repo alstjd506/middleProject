@@ -16,6 +16,8 @@ public class OrderControl implements Control {
 		
 		String prodNo = req.getParameter("prodNo");
 		req.setAttribute("prodNo", prodNo);
+		String prodCnt = req.getParameter("prodCnt");
+		req.setAttribute("prodCnt", prodCnt);
 
 		req.getRequestDispatcher(path).forward(req, resp);
 	}

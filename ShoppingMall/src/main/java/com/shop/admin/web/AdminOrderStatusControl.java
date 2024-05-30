@@ -20,9 +20,11 @@ public class AdminOrderStatusControl implements Control {
 		AdminService svc = new AdminServiceImpl();
 
 		if (svc.adminOrderStatus(Integer.parseInt(bno))) {
+			resp.getWriter().write("{\"status\":\"success\",\"message\":\"처리완료\"}");
 			resp.sendRedirect("adminOrderList.do");
 		} else {
-			resp.sendRedirect("adminMain.do");
+			resp.getWriter().write("{\"status\":\"fail\",\"message\":\"처리실패\"}");
+			req.setAttribute("message", "NG");
 		}
 
 	}

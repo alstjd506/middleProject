@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -26,7 +27,8 @@ public class AddReviewControl implements Control {
 			
 		String reviewScore = req.getParameter("reviewScore");
 		String reviewContent = req.getParameter("reviewContent");
-		String userId = req.getParameter("userId");
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("logId");
 		System.out.println(prodNo);
 		System.out.println(reviewScore);
 		System.out.println(reviewContent);

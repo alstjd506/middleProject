@@ -12,4 +12,8 @@ public class OrderVO {
 	private String orderAddr;
 	private String orderDetailAddr;
 	private Date orderDate;
+	private int orderPrice;
+	private String userName;
+	private String userPhone;
+	
 }

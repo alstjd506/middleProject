@@ -207,4 +207,7 @@ a {
 <my:paging pageInfo="${paging }" />
 
 </section>
+
+<script src="js/modal.js"></script>
+<script src="js/cartService.js"></script>
 <script src="js/search.js"></script>

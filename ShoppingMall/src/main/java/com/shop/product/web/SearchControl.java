@@ -20,15 +20,15 @@ public class SearchControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	    resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8");
 
-
+		//테스트
         String keyword = req.getParameter("keyword");
         String filter = req.getParameter("filter");
 
-//		page = page == null ? "1" : page;
+	
         SearchVO search = new SearchVO();
-//		search.setPage(Integer.parseInt(page));
+
         search.setKeyword(keyword);
         search.setFilter(filter);
 

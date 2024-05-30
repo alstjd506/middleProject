@@ -21,13 +21,13 @@ ul{
       </tr>
     </tbody>
   </table>
-  <div>
+  <div id="totalInfo">
     <ul>
-      <li>총 수량 <span id="totalCount">0</span>개</li>
-      <li>총 금액 <span id="totalPrice">00,000</span>원</li>
+      <li>주문 수량 <span id="totalCount">0</span>개</li>
+      <li>합계 금액 <span id="totalPrice">00,000</span>원</li>
     </ul>
   </div>
-  <table class="table">
+  <table class="table" id="orderTable">
     <thead class="table-dark">
       <tr align="center">
         <th colspan="2">주문/결제</th>
@@ -35,12 +35,8 @@ ul{
     </thead>
     <tbody>
       <tr>
-        <td><input type="radio" name="deliveryAddr" value="old" checked> 기존 배송지</td>
-        <td><input type="radio" name="deliveryAddr" value="new"> 새 배송지</td>
-      </tr>
-      <tr>
-        <td>받는사람</td>
-        <td><input type="text" name="name" id="name"/></td>
+        <td><input type="radio" name="deliveryAddr" value="old" id="old" checked> <label for="old">기존 배송지</label></td>
+        <td><input type="radio" name="deliveryAddr" value="new" id="new"> <label for="new">새 배송지</label></td>
       </tr>
       <tr>
         <td rowspan="3">주소</td>
@@ -61,6 +57,7 @@ ul{
 </div>
 <script>
 let prodNo = '${prodNo}';
+let prodCnt = '${prodCnt}';
 </script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="js/orderService.js"></script>

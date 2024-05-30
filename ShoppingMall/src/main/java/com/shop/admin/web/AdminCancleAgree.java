@@ -20,8 +20,10 @@ public class AdminCancleAgree implements Control {
 		AdminService svc = new AdminServiceImpl();
 		
 		if(svc.adminCancleAgree(Integer.parseInt(ono))) {
+			resp.getWriter().write("{\"status\":\"success\",\"message\":\"처리완료\"}");
 			resp.sendRedirect("adminCancleList.do");
 		}else {
+			resp.getWriter().write("{\"status\":\"fail\",\"message\":\"처리실패\"}");
 			resp.sendRedirect("adminMain.do");
 		}
 		

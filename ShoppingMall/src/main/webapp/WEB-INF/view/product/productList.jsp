@@ -138,7 +138,7 @@ a {
                                 <!-- 상품 가격 -->
                                 <span class="price"><fmt:formatNumber value="${product.prodPrice}"/>원</span>
                                 <!-- 장바구니 링크 -->
-                                <a class="modal_open">Cart</a>
+                                <a class="modal_open" data-prodNo="${product.prodNo }">Cart</a>
                             </div>
                             <div class="d-flex small text-warning mb-2 star">
                                 <!-- 별점 -->
@@ -151,7 +151,6 @@ a {
                     </div>
                 </div>
 			</c:forEach>
-
 		</div>
 	</div>
 	<!-- 모달 -->
@@ -164,8 +163,7 @@ a {
 	</div>
 	<!--end 모달 팝업-->
 </section>
-<script>
-	const prodNo = '${product.prodNo }';
-	const userId = '${logId}';
-</script>
+
+<script src="js/modal.js"></script>
+<script src="js/cartService.js"></script>
 <script src="js/productList.js"></script>

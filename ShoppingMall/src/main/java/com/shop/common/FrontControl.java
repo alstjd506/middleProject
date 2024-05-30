@@ -14,6 +14,7 @@ import com.shop.admin.web.AadminReplyModi;
 import com.shop.admin.web.AdminAddProduct;
 import com.shop.admin.web.AdminAddProductControl;
 import com.shop.admin.web.AdminAddProductForm;
+import com.shop.admin.web.AdminBarChart;
 import com.shop.admin.web.AdminBoadrControl;
 import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
@@ -22,15 +23,25 @@ import com.shop.admin.web.AdminCancleList;
 import com.shop.admin.web.AdminChartControl;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
+import com.shop.admin.web.AdminOrderInfo;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminOrderStatusControl;
+import com.shop.admin.web.AdminPieChart;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminProductModify;
 import com.shop.admin.web.AdminProductModifyForm;
+import com.shop.admin.web.AdminProductRemove;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
+
+import com.shop.admin.web.AdminReviewList;
+import com.shop.board.web.AddBoardControl;
+import com.shop.board.web.BoardControl;
+import com.shop.board.web.BoardFailedControl;
+import com.shop.board.web.BoardSuccessControl;
 import com.shop.member.web.DeleteUserControl;
+
 import com.shop.member.web.DeleteUserForm;
 import com.shop.member.web.FindIdControl;
 import com.shop.member.web.FindIdForm;
@@ -46,14 +57,26 @@ import com.shop.member.web.LogoutControl;
 import com.shop.member.web.ModifyUserControl;
 import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
+import com.shop.member.web.MyPageOrderControl;
+import com.shop.member.web.MyPageOrderDetail;
+import com.shop.member.web.MyPagePastControl;
+import com.shop.member.web.MyPageReturnControl;
+import com.shop.member.web.myPageBoardControl;
+import com.shop.member.web.myPageBoardInfo;
+import com.shop.member.web.myPageBoardUpdate;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
 import com.shop.order.web.EditCartControl;
 import com.shop.order.web.OrderControl;
+import com.shop.order.web.OrderDirectControl;
+import com.shop.order.web.OrderFailedControl;
+import com.shop.order.web.OrderFormControl;
 import com.shop.order.web.OrderInfoControl;
 import com.shop.order.web.OrderListControl;
+import com.shop.order.web.OrderSuccessControl;
 import com.shop.order.web.RemoveCartControl;
+import com.shop.order.web.checkCartControl;
 import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
 import com.shop.product.web.MainControl;
@@ -68,8 +91,6 @@ import com.shop.product.web.SearchFormControl;
 
 import com.shop.product.web.RemoveReviewControl;
 import com.shop.product.web.ReviewControl;
-import com.shop.product.web.SearchControl;
-import com.shop.product.web.SearchFormControl;
 import com.shop.product.web.TotalCountControl;
 
 
@@ -94,8 +115,18 @@ public class FrontControl extends HttpServlet {
 		map.put("/search.do", new SearchControl());
 		map.put("/searchForm.do",new SearchFormControl());
 
-		//마이페이지 화면
+		//마이페이지 주문관련화면
 		map.put("/myPage.do", new MyPageControl());
+		map.put("/myPageOrder.do", new MyPageOrderControl());
+		map.put("/myPagePastOrder.do", new MyPagePastControl());
+		map.put("/myPageReturn.do", new MyPageReturnControl());
+		map.put("/myPageOrderDetail.do", new MyPageOrderDetail());
+		map.put("/myPageReturn.do", new MyPageReturnControl());
+		
+		//마이페이지 Q&A
+		map.put("/myPageBoard.do", new myPageBoardControl());
+		map.put("/myPageBoardInfo.do", new myPageBoardInfo());
+		map.put("/myPageBoardUpdate.do", new myPageBoardUpdate());
 		
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());		
@@ -105,15 +136,16 @@ public class FrontControl extends HttpServlet {
 		map.put("/addReview.do", new AddReviewControl());
 		map.put("/modifyReview.do", new ModifyReviewControl());
 		map.put("/getTotalCnt.do", new TotalCountControl());
+	
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
 		map.put("/memberList.do", new AdminMemberList()); // 관리자 회원목록조회 o
 		map.put("/adminProductList.do", new AdminProductList()); // 관리자 상품목록조회 o
 		map.put("/adminProductInfo.do", new AdminProductInfo()); // 관리자 상품상세조회 o
-		map.put("/adminProductModifyForm.do", new AdminProductModifyForm()); // 관리자 상품 수정화면 x
-		map.put("/adminProductModify.do", new AdminProductModify()); // 관리자 상품 수정기능 x
-		
+		map.put("/adminProductModifyForm.do", new AdminProductModifyForm()); // 관리자 상품 수정화면 o
+		map.put("/adminProductModify.do", new AdminProductModify()); // 관리자 상품 수정기능 o
+		map.put("/adminProductRemove.do", new AdminProductRemove()); // 관리자 상품 삭제기능 o
 		map.put("/adminBoardList.do",new AdminBoardList()); // 관리자 Q&A 목록조회 o
 		map.put("/adminBoardInfo.do", new AdminBoardInfo()); // 관리자 Q&A 상세조회 o
 		map.put("/adminBoadrControl.do", new AdminBoadrControl()); // 관리자 Q&A 답글남기기 기능 o
@@ -124,12 +156,13 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
 		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회 o  
 		map.put("/adminReturnAgree.do", new AdminReturnAgree()); // 관리자 반품승인 o
+		map.put("/adminOrderInfo.do", new AdminOrderInfo()); // 관리자 주문상세보기 x
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
-		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트 x
-
-
+		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
+		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트	
+		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트
 		
 		
 		//로그인화면
@@ -157,8 +190,12 @@ public class FrontControl extends HttpServlet {
 		
 		// 주문 화면
 		map.put("/order.do", new OrderControl());
-		map.put("/orderList.do", new OrderListControl());
-		map.put("/orderInfo.do", new OrderInfoControl());
+		map.put("/orderList.do", new OrderListControl()); // 장바구니 주문상품 목록
+		map.put("/orderDirect.do", new OrderDirectControl()); // 바로구매 주문상품
+		map.put("/orderInfo.do", new OrderInfoControl()); // 주문자 정보
+		map.put("/orderForm.do", new OrderFormControl()); // 주문 처리
+		map.put("/orderSuccess.do", new OrderSuccessControl()); // 주문 성공 페이지
+		map.put("/orderFailed.do", new OrderFailedControl()); // 주문 실패 페이지
 		
 		// 장바구니 화면
 		map.put("/cart.do", new CartControl());
@@ -166,6 +203,13 @@ public class FrontControl extends HttpServlet {
 		map.put("/removeCart.do", new RemoveCartControl()); // 장바구니 삭제
 		map.put("/editCart.do", new EditCartControl()); // 장바구니 수량 수정
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 추가
+		map.put("/checkCart.do", new checkCartControl()); //물품등록 중복체크
+		
+		// Q&A
+		map.put("/board.do", new BoardControl()); // Q&A 작성페이지
+		map.put("/addBoard.do", new AddBoardControl()); // Q&A 추가
+		map.put("/boardSuccess.do", new BoardSuccessControl()); // 작성 성공 페이지
+		map.put("/boardFailed.do", new BoardFailedControl()); // 작성 실패 페이지
 		
 }
 

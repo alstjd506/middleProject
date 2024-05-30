@@ -3,10 +3,10 @@
 <footer class="py-4 bg-light mt-auto">
 	<div class="container-fluid px-4">
 		<div class="d-flex align-items-center justify-content-between small">
-			<div class="text-muted">Copyright &copy; Your Website 2023</div>
+			<div class="text-muted">이건 &copy; 지울까</div>
 			<div>
-				<a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp;
-					Conditions</a>
+				<a href="#">우리집</a> &middot; <a href="#">발바리 &amp;
+					관리자</a>
 			</div>
 		</div>
 	</div>

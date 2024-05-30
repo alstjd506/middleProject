@@ -13,7 +13,6 @@ Number.prototype.numberFormat = function() {
 	return nstr;
 };
 
-
 let order = {
 	// 전체 수량
 	totalCount: 0,
@@ -21,9 +20,8 @@ let order = {
 	totalPrice: 0,
 	
 	// 장바구니로부터 가져온 주문상품 목록
-	list: function() {
-		let userId = 'user01';
-		orderSvc.orderList(userId, prodNo,
+	cartList: function() {
+		orderSvc.orderList(prodNo,
 			result => {
 				result.forEach(cart => {
 					let tr = $('<tr />').attr('align', 'center')
@@ -52,13 +50,39 @@ let order = {
 		)
 	},
 	
+	// 바로구매 주문상품
+	directOrder: function() {
+		orderSvc.orderDirect(prodNo, 
+			result => {
+				let tr = $('<tr />').attr('align', 'center')
+									.css('vertical-align', 'middle')
+									.attr('id', result.prodNo)
+									.append($('<td />').append($('<img />').attr('src', 'images/' + result.prodImage)
+																		   .attr('alt', '상품이미지')
+																		   .css('height', '100px')))
+									.append($('<td />').attr('align', 'left')
+													   .text(result.prodName))
+									.append($('<td />').append($('<input>').attr('type', 'hidden')
+																		   .attr('id', 'count' + result.prodNo)
+										  								   .val(prodCnt))
+										  			   .append(prodCnt + '개'))
+									.append($('<td />').append($('<span />').text((result.prodPrice * prodCnt).numberFormat()))
+													   .append('원'))				
+				$('#cartTable tbody').append(tr);
+					
+				order.totalCount += Number(prodCnt);
+				order.totalPrice += result.prodPrice * prodCnt;
+				$('#totalCount').text(order.totalCount);
+				$('#totalPrice').text((order.totalPrice).numberFormat());
+			},
+			err => console.log(err)
+		)
+	},
+	
 	// 주문회원 정보
 	info: function() {
-		let userId = 'user01';
-		orderSvc.orderInfo(userId, 
+		orderSvc.orderInfo(
 			result => {
-				$('#name').val(result.userName)
-						  .attr('readonly', true)
 				$('#postcode').val(result.userPost)
 							  .attr('readonly', true)
 				$('#search').attr('type', 'hidden')
@@ -78,8 +102,6 @@ $('input:radio[name=deliveryAddr]').on('change', function() {
 	if($('input:radio[name=deliveryAddr]:checked').val() == 'old') {
 		order.info();
 	} else {
-		$('#name').val('')
-				  .attr('readonly', false)
 		$('#postcode').val('')
 					  .attr('readonly', false)
 		$('#search').attr('type', 'button')
@@ -92,7 +114,11 @@ $('input:radio[name=deliveryAddr]').on('change', function() {
 
 // 주문
 $('#purchase').on('click', function() {
-	let userId = 'user01';
+	if($('#postcode').val() == '' || $('#address').val() == '' || $('#detailAddress').val() == '') {
+		alert('배송지를 입력해주세요.');
+		return;
+	}
+	
 	let prodNoVal = '';
 	let prodCntVal = '';
 	
@@ -112,15 +138,43 @@ $('#purchase').on('click', function() {
 				 			.append($('<input>').attr('type', 'hidden')
 				 								.attr('name', 'prodCnt')
 				 								.val(prodCntVal))
-	// 회원아이디, 우편번호, 주소, 상세주소 추가해야 함
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'userPost')
+				 								.val($('#postcode').val()))
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'userAddr')
+				 								.val($('#address').val()))
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'userDetailAddr')
+				 								.val($('#detailAddress').val()))
+				 			.append($('<input>').attr('type', 'hidden')
+				 								.attr('name', 'orderPrice')
+				 								.val(order.totalPrice))
 	
-	//$('body').append(form);
+	$('body').append(form);
 	
-	//form.submit();
+	form.submit();
 })
 
-
-
 // 메인
-order.list();
+// 주문상품
+if(prodNo == '') {
+	// 주문 상품이 없을 경우
+	$('#cartTable tbody').append($('<tr />').append($('<td />').attr('colspan', '4')
+										 					   .attr('align', 'center')
+										 					   .text('주문 상품이 없습니다.')))
+		
+	$('#totalInfo').hide();
+	$('#purchase').attr('disabled', true);
+} else {
+	// 주문 상품이 있는 경우
+	if(prodNo.indexOf(',') != -1) {
+		// 장바구니 주문
+		order.cartList();	
+	} else {
+		// 바로구매 주문
+		order.directOrder();
+	}	
+}
+// 주문/결제
 order.info();

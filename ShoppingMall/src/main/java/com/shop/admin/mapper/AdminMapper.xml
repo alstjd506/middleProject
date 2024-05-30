@@ -156,7 +156,7 @@
 		GROUP BY
 		prod_no
 		 <![CDATA[
-		HAVING COUNT(*) > 1
+		HAVING COUNT(*) >= 1
 		]]>
 		ORDER BY cnt DESC
 		)
@@ -169,10 +169,78 @@
 	</select>
 	<select id="adminProductInfo" resultType="product">
 		select
-		p.prod_no,prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name,prod_image
+		p.prod_no,prod_name,prod_comment,prod_price,prod_sale,prod_date,category_name,prod_image,PROD_COMMENT_IMAGE
 		from product p join category c
 		on p.category_code = c.category_code
 		where prod_no = #{prodNo}
 		order by p.category_code
+	</select>
+	<update id="adminProductModify" parameterType="product">
+		update product
+		set
+		prod_name = #{prodName},prod_price
+		=#{prodPrice},prod_comment=#{prodComment},
+		prod_image=#{prodImage},PROD_COMMENT_IMAGE = #{prodCommentImage}
+		where
+		prod_no=#{prodNo}
+	</update>
+	<delete id="adminProductRemove" parameterType="int">
+		delete from
+		product
+		where prod_no = #{prodNo}
+	</delete>
+	<select id="adminReviewList" resultType="review">
+		select *
+		from review
+		where prod_no = #{prodNo}
+	</select>
+	<select id="adminReviewStar" resultType="int">
+		select
+		nvl(round(avg(review_score),1),0)
+		from review
+		where prod_no = #{prodNo}
+	</select>
+	<select id="adminBarChart" resultType="chart">
+	  select trunc(order_date)as "chart_date",
+         sum(order_price) as "chart_value"
+		from orders
+		where
+		order_date >= SYSDATE - INTERVAL '8' DAY
+		group by trunc(order_date)
+		order by trunc(order_date)
+	</select>
+	<select id="adminOrderInfo" resultType="order">
+		select
+		o.order_date,o.order_no,u.user_name,u.user_phone,o.order_post,
+		o.order_addr,o.order_detail_addr,o.order_status
+		from orders o join
+		users u
+		on o.user_id= u.user_id
+		where o.user_id=#{uid} and order_no=
+		#{ono}
+	</select>
+	<select id="adminOrderDetail" resultType="product">
+		select
+		p.prod_name,p.prod_price,p.prod_image,d.order_cnt,p.prod_no
+		from
+		product p join
+		order_detail d
+		on p.prod_no=d.prod_no
+		where d.order_no =
+		#{ono}
+	</select>
+	<select id="adminPieChart" resultType="chart">
+		select c.TOP_CATEGORY as
+		"chart_name" ,sum(order_price) as "chart_value"
+		from orders o join
+		order_detail d
+		on o.order_no=d.order_no
+		join product p
+		on p.prod_no =
+		d.prod_no
+		join category c
+		on c.category_code = p.category_code
+		group by
+		c.top_category
 	</select>
 </mapper>

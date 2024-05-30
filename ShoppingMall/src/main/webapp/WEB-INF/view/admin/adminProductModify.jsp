@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <style>
 body {
 	font-family: "Arial", sans-serif;
@@ -74,7 +75,7 @@ label {
 	font-weight: bold;
 }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], textarea {
 	width: calc(100% - 22px);
 	padding: 10px;
 	margin-bottom: 15px;
@@ -88,9 +89,10 @@ textarea {
 	resize: vertical;
 }
 
-.submit-button {
-	width: 100%;
+.new-button {
+	width: 30%;
 	padding: 10px;
+	margin: 10px;
 	background-color: #4CAF50;
 	color: white;
 	border: none;
@@ -99,21 +101,37 @@ textarea {
 	cursor: pointer;
 }
 
-.submit-button:hover {
+.new-button:hover {
 	background-color: #45a049;
 }
 </style>
+<div class="container-fluid px-4">
 <div class="container">
 	<h1>상품 수정</h1>
-	<form action="@{/board/modboard}" method="post" class="form-container">
-		<input type="hidden" name="page" value=""> 
-		<label for="name">상품명</label> <input type="text" id="name" required> 
-		<label for="price">가격</label> <input type="text" id="price" required> 
-		<label for="category">카테고리</label> <input type="text" id="category">
-		 <label for="date">등록일</label> <input type="text" id="date">
-		 <label for="content">내용</label> <textarea id="content" required></textarea>
-		 <label for="mainimg">메인이미지</label> <input type="file" name="mainImg" id="mainemg" accept="image/*">
-		 <label for="conimg">내용이미지</label> <input type="file" name="conImg" id="conemg" accept="image/*">
-		<input type="submit" value="상품수정" class="submit-button">
+	<form action="adminProductModify.do"
+		class="form-container" enctype="multipart/form-data" method="post">
+		<input type="hidden" name="prodNo" id="prodNo" value="${product.prodNo }"> <label
+			for="name">상품명</label> <input type="text" name="name"
+			value="${product.prodName }"> <label for="price">가격</label>
+		<input type="text" name="price" value="${product.prodPrice }"> <label
+			for="category">카테고리</label> <input type="text" name="category"
+			value="${product.categoryName }" readonly> <label for="date">등록일</label>
+		<input type="text" name="date"
+			value="<fmt:formatDate value="${product.prodDate}"
+									pattern="yyyy-MM-dd" />"
+			readOnly> <label for="content">내용</label>
+		<textarea name="content">${product.prodComment }</textarea>
+		<label for="mainimg">메인이미지</label> <input type="file" name="mainimg"
+			accept="image/*" onchange="setImg(event);"> <label
+			for="conimg">내용이미지</label> <input type="file" name="conimg"
+			accept="image/*" onchange="setImg(event);">
+		<div id="imgs"></div>
+		<hr />
+		<input type="submit" value="상품수정" class="new-button" id="modBtn"><input
+			type="button" value="취소" id="cancelBtn" class="new-button">
 	</form>
 </div>
+</div>
+<script src="js/adminMod.js">
+
+</script>

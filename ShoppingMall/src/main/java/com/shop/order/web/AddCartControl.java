@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.shop.common.Control;
 import com.shop.order.service.OrderService;
@@ -15,7 +16,11 @@ public class AddCartControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String userId = req.getParameter("userId");
+		resp.setContentType("text/json;charset=utf-8");
+		
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("logId");
+		
 		String prodNo = req.getParameter("prodNo");
 		String cartCnt = req.getParameter("cartCnt");
 		

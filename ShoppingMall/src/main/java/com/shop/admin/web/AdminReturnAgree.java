@@ -20,8 +20,10 @@ public class AdminReturnAgree implements Control {
 		AdminService svc = new AdminServiceImpl();
 		
 		if(svc.adminReturnAgree(Integer.parseInt(rno))) {
+			resp.getWriter().write("{\"status\":\"success\",\"message\":\"처리완료\"}");
 			resp.sendRedirect("adminReturnList.do");
 		}else {
+			resp.getWriter().write("{\"status\":\"fail\",\"message\":\"처리실패\"}");
 			resp.sendRedirect("adminMain.do");
 		}
 

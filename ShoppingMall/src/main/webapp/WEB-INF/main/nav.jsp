@@ -21,14 +21,15 @@
                                  </form>
                         </li> -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">(${empty logId ? 'Guest' : logId})</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${empty logId ? 'Guest' : logId}</a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <c:choose>
                                     <c:when test="${empty logId}">
                                         <a class="dropdown-item" href="join.do">회원가입</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="dropdown-item" href="myPage.do">마이페이지</a>
+                                        <a class="dropdown-item" href="myPage.do?userId=${logId }">마이페이지</a>
+                                       
                                         <a class="dropdown-item" href="modifyuser.do">회원정보수정</a>
                                         <a class="dropdown-item" href="#!">내 게시글 보기</a>
                                         <div class="dropdown-divider"></div>
@@ -43,10 +44,13 @@
                             </li>
                         </c:if>
                         <li class="OrderForm" list-style-type="none">
-                            <a href="#!">Order</a>
+                            <a href="myPageOrder.do">Order</a>
                         </li>
                         <li class="cartForm" list-style-type="none">
-                            <a href="#!">Cart</a>
+                            <a href="cart.do?userId=${logId}">Cart</a>
+                        </li>
+                          <li class="BoardForm" list-style-type="none">
+                            <a href="board.do">Q&A</a>
                         </li>
                     </ul>
                 </div>
@@ -54,6 +58,8 @@
         </div>
     </div>
 </nav>
-
+<script>
+	const userId = "${logId}";
+</script>
 
 <script src="js/search.js"></script>
