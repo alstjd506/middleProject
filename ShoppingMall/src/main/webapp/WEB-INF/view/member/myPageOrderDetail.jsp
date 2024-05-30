@@ -96,12 +96,15 @@
 	<div class="sc-1h67xiw-0 edeWbb">
 		<h1 class="sc-1h67xiw-1 jzBiTv">주문상세</h1>
 	</div>
+	
+	<c:set var="totalOrderPrice" value="0"/>
     <c:forEach var="order" items="${mypageOrderDetail}">
+		<c:set var="itemTotalPrice" value="${order.PROD_PRICE * order.ORDER_CNT}"/>
+		<c:set var="totalOrderPrice" value="${totalOrderPrice + itemTotalPrice}"/>
 	<div class="orderBox">
         <div class="order">
             <div class="order-header">
                 <span>주문날짜: <fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy. MM. dd"/></span>
-                
             </div>
             <div class="order-details">
                 <div>
@@ -122,8 +125,7 @@
                     <div class="info">
                         <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.PROD_NAME}</a>
                         <span>
-                         <c:set var="totalPrice" value = "${order.PROD_PRICE * order.ORDER_CNT }"/>
-                        <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.ORDER_CNT} 개
+                         <fmt:formatNumber value="${itemTotalPrice}"/> 원 · ${order.ORDER_CNT} 개
                         </span>
                     </div>
                 </div>
@@ -182,13 +184,12 @@
 				
 			</tbody>
 		</table>
-			</c:forEach>
+		</c:forEach>
 	</div>
 	<div class="sc-1m6uvm7-0 khiofo">
 		<h1 class="sc-1m6uvm7-2 berHYP">
 			<span>결제 정보</span>
 		</h1>
-		<c:forEach var="order" items="${mypageUserDetail}">
 		<table class="sc-1m6uvm7-3 jqnXTj">
 			<caption class="sc-1m6uvm7-1 dSygCD"></caption>
 			<colgroup>
@@ -203,14 +204,13 @@
 								<strong>총 결제금액 </strong>
 							</div>
 							<div class="sc-cqdfxt-6 sc-cqdfxt-7 fTOSfp eiVXJZ">
-								<strong><fmt:formatNumber value="${order.ORDER_PRICE}"/> 원</strong>
+								<strong><fmt:formatNumber value="${totalOrderPrice}"/> 원</strong>
 							</div>
 						</div>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		</c:forEach>
 	</div>
 	<div class="sc-1vg575n-0 hnMMRm">
 		<div class="sc-1vg575n-2 fEXcBR">
@@ -220,4 +220,4 @@
 		</div>
 		
 	</div>
-</div>	
+</div>

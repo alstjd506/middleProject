@@ -9,3 +9,4 @@ document.querySelectorAll('.detail').forEach(function(element) {
         form.submit();
     });
 });
+

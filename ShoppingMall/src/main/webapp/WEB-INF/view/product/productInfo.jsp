@@ -250,6 +250,9 @@ div.reviewList div{
 		</div>
 	</div>
 </section>
+<script>
+	const userId = "${logId}"
+</script>
 <script src="js/cartService.js"></script>
 <script src="js/reviewService.js"></script>
 <script src="js/productInfo.js"></script>

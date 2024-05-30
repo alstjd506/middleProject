@@ -58,8 +58,5 @@
         </div>
     </div>
 </nav>
-<script>
-	const userId = "${logId}";
-</script>
 
 <script src="js/search.js"></script>

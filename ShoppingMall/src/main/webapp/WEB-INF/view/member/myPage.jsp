@@ -146,22 +146,41 @@ body {
                             <tr>
                                 <td><fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy-MM-dd"/></td>
                                 <td colspan="2"><a href="productInfo.do?prodNo=${order.PROD_NO}">${order.PROD_NAME}</td>
-                               <c:choose>
+                                <c:choose>
 								<c:when test="${order.ORDER_STATUS ==1 }">
                                 <td>상품준비중</td>
-                                <td><button class="cancleBtn">주문취소</button></td>
+                                <td><button class="cancleBtn"  data-orderno="${order.ORDER_NO}">주문취소</button></td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==2 }">
                                 <td>배송중</td>
-                                <td><button class="cancleBtn">주문취소</button></td>
+                                <td><button class="cancleBtn" data-orderno="${order.ORDER_NO}">주문취소</button></td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==3 }">
                                 <td>배송완료</td>
                                 <td>
-                                	<button>구매확정</button>
-                                	<button>반품신청</button>
+                                	<button class="confBtn" data-orderno="${order.ORDER_NO}">구매확정</button>
+                                	<button class="returnBtn" data-orderno="${order.ORDER_NO}">반품신청</button>
                                 </td>
-                                
+                                </c:when>
+                                 <c:when test="${order.ORDER_STATUS ==4 }">
+                                <td>구매확정</td>
+                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">구매확정</button></td>
+                                </c:when>
+                                <c:when test="${order.ORDER_STATUS ==5 }">
+                                <td>취소대기중</td>
+                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">취소대기중</button></td>
+                                </c:when>
+                                <c:when test="${order.ORDER_STATUS ==6 }">
+                                <td>취소완료</td>
+                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">취소완료</button></td>
+                                </c:when>
+                                <c:when test="${order.ORDER_STATUS ==7 }">
+                                <td>반품대기중</td>
+                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">반품대기중</button></td>
+                                </c:when>
+                                <c:when test="${order.ORDER_STATUS ==8 }">
+                                <td>반품완료</td>
+                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">반품완료</button></td>
                                 </c:when>
                                 </c:choose>
                             </tr>

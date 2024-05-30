@@ -41,6 +41,7 @@ form label {
 			<img class="u-expanded-width u-image u-image-contain u-image-1" src="images/rkddkwl1.jpg" data-image-width="100%" data-image-height="100%">
 			<c:forEach var="board" items="${boardInfo}">
 				<form action="myPageBoardUpdate.do" method="post" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" enctype="multipart/form-data" id="myForm">
+					
 					<div class="u-form-address u-form-group u-form-group-1">
 						<label>게시글번호</label>
 						<input type="text" id="boardNo" name="boardNo" value="${board.boardNo}" readonly>

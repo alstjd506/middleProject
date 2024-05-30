@@ -34,6 +34,10 @@ public interface MemberMapper {
 	List<Map<String, Object>> mypageOrderDetail(@Param("userId") String userId, @Param("orderNo") int orderNo);
 	List<Map<String, Object>> mypageUserDetail(@Param("userId") String userId, @Param("orderNo") int orderNo);
 	
+	int cancleOrder(int orderNo);
+	int confOrder(int orderNo);
+	int returnOrder(int orderNo);
+	
 	int mypageBoardY(String userId);
 	int mypageBoardN(String userId);
 	List<BoardVO> boardList(String userId);
