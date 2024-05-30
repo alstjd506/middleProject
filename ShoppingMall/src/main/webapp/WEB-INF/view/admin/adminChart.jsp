@@ -22,32 +22,30 @@
 		</ol>
 		<div class="card mb-4">
 			<div class="card-body">
-				알ㄹ라라라라라라ㅏㅇ숄라라라라라라라이리이러이러이ㅏ강아지 귀엽지 알라라라나아나안ㅁ암ㄴ이ㅏ만아아아아아아아나나나나ㅏㄴ다다다다나나나나ㅣㅌㄴ티티티
-				ㅇ낟ㅈ안녕난영난ㄴ연ㅇ나여 넌나를 발<a
+				📊 매출 현황 분석 최신 매출 데이터를 한눈에 파악하세요. 트렌드를 분석하고 성장을 예측해보세요.<a
 					target="_blank" href="main.do">메인으로</a> .
 			</div>
 		</div>
 		<div class="card mb-4">
 			<div class="card-header">
-				<i class="fas fa-chart-area me-1"></i> 하루매출
+				<i class="fas fa-chart-area me-1"></i> 시간대별매출
 			</div>
 			<div class="card-body">
 				<canvas id="myAreaChart" width="100%" height="30"></canvas>
 			</div>
-			<div class="card-footer small text-muted">Updated yesterday at
-				11:59 PM</div>
+			<div class="card-footer small text-muted">매시간대별 매출을 표현합니다</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="fas fa-chart-bar me-1"></i> 주간매출
+						<i class="fas fa-chart-bar me-1"></i> 지난주매출
 					</div>
 					<div class="card-body">
 						<canvas id="myBarChart" width="100%" height="50"></canvas>
 					</div>
-					<div class="card-footer small text-muted">Updated yesterday
-						at 11:59 PM</div>
+					<div class="card-footer small text-muted">전날을 기준으로 7일 동안의 매출을
+						표현합니다</div>
 				</div>
 			</div>
 			<div class="col-lg-6">
@@ -58,8 +56,7 @@
 					<div class="card-body">
 						<canvas id="myPieChart" width="100%" height="50"></canvas>
 					</div>
-					<div class="card-footer small text-muted">Updated yesterday
-						at 11:59 PM</div>
+					<div class="card-footer small text-muted">각 카테고리별 총매출을 비교합니다</div>
 				</div>
 			</div>
 		</div>

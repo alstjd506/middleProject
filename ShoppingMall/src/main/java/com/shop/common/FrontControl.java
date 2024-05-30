@@ -36,6 +36,7 @@ import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
 
 import com.shop.admin.web.AdminReviewList;
+import com.shop.admin.web.AdminTimeChart;
 import com.shop.board.web.AddBoardControl;
 import com.shop.board.web.BoardControl;
 import com.shop.board.web.BoardFailedControl;
@@ -163,6 +164,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
 		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트	
 		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트
+		map.put("/adminTimeChart.do", new AdminTimeChart()); // 관리자 시간대별차트
 		
 		
 		//로그인화면

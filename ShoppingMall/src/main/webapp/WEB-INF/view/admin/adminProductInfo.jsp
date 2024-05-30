@@ -226,6 +226,6 @@ div.review span {
 	</div>
 	</div>
 </section>
-<script>
+<script src="js/adminProductInfo.js">
 console.log(${star});
 </script>

@@ -42,7 +42,7 @@ public class AdminProductModify implements Control {
 		pvo.setProdImage(mainimg);
 		pvo.setProdCommentImage(conimg);
 		if(svc.adminProductModify(pvo)) {
-			resp.sendRedirect("admin.do");
+			resp.sendRedirect("adminProductList.do");
 		}else {
 			resp.getWriter().print("{\"retCode\": \"NG\"}");
 		}

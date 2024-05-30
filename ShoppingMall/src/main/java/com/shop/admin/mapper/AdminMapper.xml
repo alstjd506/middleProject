@@ -90,7 +90,7 @@
 	<insert id="adminAddProductControl" parameterType="product">
 		insert into
 		product(prod_no,category_code,prod_name,prod_comment,prod_price,prod_image,prod_comment_image)
-		values(products_seq.nextval,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage},#{prodCommentImage})
+		values(product_seq.nextval,#{categoryCode},#{prodName},#{prodComment},#{prodPrice},#{prodImage},#{prodCommentImage})
 	</insert>
 	<insert id="adminBoardReply" parameterType="com.shop.vo.ReplyVO">
 		insert into
@@ -201,27 +201,32 @@
 		where prod_no = #{prodNo}
 	</select>
 	<select id="adminBarChart" resultType="chart">
-	  select trunc(order_date)as "chart_date",
-         sum(order_price) as "chart_value"
+		select trunc(order_date)as
+		"chart_date",
+		sum(order_price) as "chart_value"
 		from orders
 		where
-		order_date >= SYSDATE - INTERVAL '8' DAY
+		order_date >= SYSDATE - INTERVAL '8'
+		DAY
 		group by trunc(order_date)
 		order by trunc(order_date)
 	</select>
 	<select id="adminOrderInfo" resultType="order">
 		select
 		o.order_date,o.order_no,u.user_name,u.user_phone,o.order_post,
-		o.order_addr,o.order_detail_addr,o.order_status
-		from orders o join
+		o.order_addr,o.order_detail_addr,o.order_status,o.order_price
+		from
+		orders o join
 		users u
 		on o.user_id= u.user_id
-		where o.user_id=#{uid} and order_no=
+		where o.user_id=#{uid} and
+		order_no=
 		#{ono}
 	</select>
 	<select id="adminOrderDetail" resultType="product">
 		select
-		p.prod_name,p.prod_price,p.prod_image,d.order_cnt,p.prod_no
+		p.prod_name,p.prod_price,p.prod_image,d.order_cnt,p.prod_no,(p.prod_price*d.order_cnt)
+		as prod_total
 		from
 		product p join
 		order_detail d
@@ -242,5 +247,21 @@
 		on c.category_code = p.category_code
 		group by
 		c.top_category
+	</select>
+	<select id="adminTimeChart" resultType="chart">
+		WITH hours AS (
+		SELECT LEVEL - 1 AS hour
+		FROM DUAL
+				 <![CDATA[
+		CONNECT BY LEVEL <= 24
+		)
+			]]>
+		SELECT LPAD(h.hour, 2, '0') AS chart_name,
+		NVL(SUM(COALESCE(o.order_price, 0)), 0) AS chart_value
+		FROM hours h
+		LEFT JOIN orders o
+		ON TO_CHAR(o.order_date, 'HH24') = LPAD(h.hour, 2, '0')
+		GROUP BY LPAD(h.hour, 2, '0')
+		ORDER BY LPAD(h.hour, 2, '0')
 	</select>
 </mapper>

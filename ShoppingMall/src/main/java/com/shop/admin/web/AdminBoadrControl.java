@@ -30,7 +30,7 @@ public class AdminBoadrControl implements Control {
 		AdminService svc = new AdminServiceImpl();
 		
 		if(svc.adminBoardReply(rvo)&&svc.adminBoardReplyUp(Integer.parseInt(bno))) {
-			resp.sendRedirect("admin.do");
+			resp.sendRedirect("adminBoardList.do");
 		}
 		
 

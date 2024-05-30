@@ -7,7 +7,7 @@
 })*/
 document.getElementById('delBtn').addEventListener('click', function() {
 	let prodNo = document.getElementById('prodNo').value;
-	console.log(prodNo);
+	console.log("이거찍어"+prodNo);
 	fetch('adminProductRemove.do?prodNo=' + prodNo)
 		.then(resolve => resolve.json())
 		.then(result => {
