@@ -58,7 +58,7 @@ a {
 									pattern="#,###" />원</td>
 							<td>${product.prodSale }</td>
 							<td><fmt:formatDate value="${product.prodDate }"
-									pattern="yyyy-MM-dd" /></td>
+									pattern="yyyy-MM-dd hh:mm:ss" /></td>
 							<td>${product.categoryName }</td>
 						</tr>
 					</c:forEach>
@@ -90,7 +90,7 @@ a {
 							<td>${order.orderAddr }</td>
 							<td>${order.orderDetailAddr }</td>
 							<td><fmt:formatDate value="${order.orderDate}"
-									pattern="yyyy-MM-dd" /></td>
+									pattern="yyyy-MM-dd hh:mm:ss" /></td>
 							<c:choose>
 								<c:when test="${order.orderStatus ==1 }">
 									<td><a href="adminOrderStatus.do?bno=${order.orderNo }">상품준비중</a></td>
@@ -114,7 +114,7 @@ a {
 								href="adminOrderInfo.do?ono=${cancle.orderNo }&uid=${cancle.userId }">${cancle.orderNo }</a></td>
 							<td>${cancle.userId }</td>
 							<td><fmt:formatDate value="${cancle.orderDate}"
-									pattern="yyyy-MM-dd" /></td>
+									pattern="yyyy-MM-dd hh:mm:ss" /></td>
 							<c:choose>
 								<c:when test="${cancle.orderStatus == 5 }">
 									<td><a class="cancleLink"
