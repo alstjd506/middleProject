@@ -29,24 +29,24 @@ const cartSvc = {
 			.then(errorCall)
 	},
 	
-	//장바구니 등록
-	addCart(userId, prodNo, cartCnt, successCall, errorCall) {
+	// 장바구니 등록
+	addCart(prodNo, cartCnt, successCall, errorCall) {
 		fetch('addCart.do', {
 			method: 'post',
 			headers:  { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'userId=' +userId + '&prodNo=' + prodNo + '&cartCnt=' +cartCnt
+			body: 'prodNo=' + prodNo + '&cartCnt=' + cartCnt
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall)
 		
 	},
-	//물품중복 체크
-	checkCart(userId, prodNo, successCall, errorCall) {
+	// 물품중복 체크
+	checkCart(prodNo, successCall, errorCall) {
 		fetch('checkCart.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'userId=' + userId + '&prodNo=' +prodNo
+			body: 'prodNo=' + prodNo
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)

@@ -6,7 +6,6 @@ ul{
 	list-style: none;
 }
 </style>
-
 <div class="container mt-3">
   <table class="table" id="cartTable">
     <thead class="table-dark">
@@ -41,7 +40,9 @@ ul{
   </div>
 <hr>
 </div>
-
+<script>
+let userId = '${userId}';
+</script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="js/cartService.js"></script>
 <script src="js/cart.js"></script>
