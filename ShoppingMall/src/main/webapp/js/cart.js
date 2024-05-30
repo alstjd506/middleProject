@@ -253,4 +253,9 @@ $('#purchase').on('click', function() {
 })
 
 // 메인
-basket.list();
+if(userId == '') {
+	alert('로그인이 필요한 서비스입니다.');
+	location.href='/ShoppingMall/login.do';
+} else {
+	basket.list();
+}

@@ -31,6 +31,7 @@ let order = {
 																			   .attr('alt', '상품이미지')
 																			   .css('height', '100px')))
 										.append($('<td />').attr('align', 'left')
+														   .attr('id', 'name' + cart.PROD_NO)
 														   .text(cart.PROD_NAME))
 										.append($('<td />').append($('<input>').attr('type', 'hidden')
 																			   .attr('id', 'count' + cart.PROD_NO)
@@ -158,23 +159,28 @@ $('#purchase').on('click', function() {
 
 // 메인
 // 주문상품
-if(prodNo == '') {
-	// 주문 상품이 없을 경우
-	$('#cartTable tbody').append($('<tr />').append($('<td />').attr('colspan', '4')
-										 					   .attr('align', 'center')
-										 					   .text('주문 상품이 없습니다.')))
-		
-	$('#totalInfo').hide();
-	$('#purchase').attr('disabled', true);
+if(userId == '') {
+	alert('로그인이 필요한 서비스입니다.');
+	location.href='/ShoppingMall/login.do';
 } else {
-	// 주문 상품이 있는 경우
-	if(prodNo.indexOf(',') != -1) {
-		// 장바구니 주문
-		order.cartList();	
+	if(prodNo == '') {
+		// 주문 상품이 없을 경우
+		$('#cartTable tbody').append($('<tr />').append($('<td />').attr('colspan', '4')
+											 					   .attr('align', 'center')
+											 					   .text('주문 상품이 없습니다.')))
+			
+		$('#totalInfo').hide();
+		$('#purchase').attr('disabled', true);
 	} else {
-		// 바로구매 주문
-		order.directOrder();
-	}	
+		// 주문 상품이 있는 경우
+		if(prodNo.indexOf(',') != -1) {
+			// 장바구니 주문
+			order.cartList();	
+		} else {
+			// 바로구매 주문
+			order.directOrder();
+		}
+	}
+	// 주문/결제
+	order.info();
 }
-// 주문/결제
-order.info();

@@ -57,15 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		const cartCnt = parseInt(inputQty.value);
 		console.log(prodNo);
 		console.log(cartCnt);
-		console.log(userId);
-		 cartSvc.checkCart(userId, prodNo, result => {
+		cartSvc.checkCart(prodNo, result => {
             if (result.retCode == 'OK') {
                 alert('해당상품이 장바구니에 있습니다.');
             } else {
-                cartSvc.addCart(userId, prodNo, cartCnt, result => {
+                cartSvc.addCart(prodNo, cartCnt, result => {
                     if (result.retCode == 'OK') {
                         window.location.href = 'cart.do';
                     } else {
+						alert('로그인이 필요한 서비스입니다.');
+						location.href='login.do';
                         console.log('처리실패');
                     }
                 }, 
