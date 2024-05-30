@@ -45,7 +45,7 @@
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="myPageBoard.do">상품Q&A</a> 
-						<a class="nav-link" href="#">리뷰</a>
+						<a class="nav-link" href="myPageReview.do">리뷰</a>
 						<a class="nav-link" href="cart.do?userId=${logId}">장바구니</a>
 					</nav>
 				</div>

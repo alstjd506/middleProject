@@ -108,9 +108,9 @@ body {
 			<div class="con">
 				<h3>상품 Q&A</h3>
 				<ul>
-					<li>"답변 처리중인 질문" <span><b><a href="#"
+					<li>"답변 처리중인 질문" <span><b><a href="myPageBoard.do"
 								title="답변 처리중인 질문">${mypageBoardN }건</a></b></span></li>
-					<li>"답변 완료된 상담" <span><b><a href="#"
+					<li>"답변 완료된 상담" <span><b><a href="myPageBoard.do"
 								title="답변 완료된 상담">${mypageBoardY }건</a></b></span></li>
 				</ul>
 			</div>
@@ -119,7 +119,7 @@ body {
 				<ul>
 					<li>"작성가능 리뷰" <span><b><a href="#" title="작성가능 리뷰">0건</a></b></span></li>
 					
-					<li>"작성한 리뷰" <span><b><a href="#" title="작성한 리뷰">${mypageReviewCnt}건</a></b></span></li>
+					<li>"작성한 리뷰" <span><b><a href="myPageReview.do" title="작성한 리뷰">${mypageReviewCnt}건</a></b></span></li>
 					
 				</ul>
 			</div>

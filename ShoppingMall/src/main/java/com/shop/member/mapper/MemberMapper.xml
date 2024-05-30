@@ -204,4 +204,11 @@
     	where order_no = #{orderNo}
 	</update>
 	
+	<select id = "myPageReview" resultType="map">
+		select r.*, p.*
+		from review r join product p
+					  on r.prod_no = p.prod_no
+		where user_id = #{userId}
+	</select>
+	
 </mapper>

@@ -10,6 +10,7 @@ import com.shop.member.mapper.MemberMapper;
 import com.shop.vo.BoardVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.ProductVO;
+import com.shop.vo.ReviewVO;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -146,6 +147,14 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return mapper.returnOrder(orderNo)==1;
 	}
+
+	@Override
+	public List<Map<String, Object>> myPageReview(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.myPageReview(userId);
+	}
+
+
 
 	
 

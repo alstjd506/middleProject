@@ -12,25 +12,26 @@ import javax.servlet.http.HttpSession;
 import com.shop.common.Control;
 import com.shop.member.service.MemberService;
 import com.shop.member.service.MemberServiceImpl;
+import com.shop.vo.ReviewVO;
 
-public class MyPagePastControl implements Control {
+public class myPageReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "member/myPageReturn.tiles";
-
+		
+		String path = "member/myPageReviewList.tiles";
 		HttpSession session = req.getSession();
+		
 		String userId = (String) session.getAttribute("logId");
 		
-		System.out.println(userId);
 		MemberService svc = new MemberServiceImpl();
-		List<Map<String, Object>> mypagePastOrderList = svc.mypagePastOrderList(userId); // 최근 주문내역
-
-		System.out.println(mypagePastOrderList);
-
-		req.setAttribute("mypagePastOrderList", mypagePastOrderList);
+		List<Map<String, Object>> reviewList = svc.myPageReview(userId); // 최근 주문내역
+		
+		req.setAttribute("reviewList", reviewList);
 		req.getRequestDispatcher(path).forward(req, resp);
+		
+		
 	}
 
 }

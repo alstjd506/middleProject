@@ -68,6 +68,7 @@ import com.shop.member.web.MyPageReturnfOder;
 import com.shop.member.web.myPageBoardControl;
 import com.shop.member.web.myPageBoardInfo;
 import com.shop.member.web.myPageBoardUpdate;
+import com.shop.member.web.myPageReviewControl;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
@@ -137,8 +138,13 @@ public class FrontControl extends HttpServlet {
 		map.put("/myPageBoardInfo.do", new myPageBoardInfo());
 		map.put("/myPageBoardUpdate.do", new myPageBoardUpdate());
 		
+		//마이페이지 리뷰
+		map.put("/myPageReview.do", new myPageReviewControl());
+		
+		
 		//상품 상세 화면
-		map.put("/productInfo.do", new ProductInfoControl());		
+		map.put("/productInfo.do", new ProductInfoControl());	
+		
 		//상품 리뷰
 		map.put("/reviewList.do", new ReviewControl());
 		map.put("/removeReview.do", new RemoveReviewControl());

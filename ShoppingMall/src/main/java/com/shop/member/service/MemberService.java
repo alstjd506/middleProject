@@ -9,6 +9,7 @@ import com.shop.vo.BoardVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
+import com.shop.vo.ReviewVO;
 
 public interface MemberService {
 
@@ -47,4 +48,7 @@ public interface MemberService {
 	List<BoardVO> boardList(String userId);
 	List<BoardVO> boardInfo(@Param("userId") String userId, @Param("boardNo") int boardNo);
 	boolean updateBoard(BoardVO board);
+	
+	List<Map<String, Object>> myPageReview(String userId);
+	
 }
