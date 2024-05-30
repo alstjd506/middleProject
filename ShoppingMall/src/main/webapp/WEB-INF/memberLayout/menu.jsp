@@ -50,10 +50,10 @@
 					</nav>
 				</div>
 				<div class="sb-sidenav-menu-heading">Core</div>
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="modifyuser.do">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-tachometer-alt"></i>
-					</div> 개인정보변경
+					</div> 회원정보수정
 				</a>
 				<a class="nav-link" href="Deleteuser.do">
 					<div class="sb-nav-link-icon">

@@ -201,8 +201,8 @@
 		where prod_no = #{prodNo}
 	</select>
 	<select id="adminBarChart" resultType="chart">
-		select trunc(order_date)
-		as "chart_date" , sum(order_price) as "chart_value"
+	  select trunc(order_date)as "chart_date",
+         sum(order_price) as "chart_value"
 		from orders
 		where
 		order_date >= SYSDATE - INTERVAL '8' DAY
@@ -230,13 +230,17 @@
 		#{ono}
 	</select>
 	<select id="adminPieChart" resultType="chart">
-		select c.TOP_CATEGORY as "chart_name" ,sum(order_price) as "chart_value"
-		from orders o join order_detail d
+		select c.TOP_CATEGORY as
+		"chart_name" ,sum(order_price) as "chart_value"
+		from orders o join
+		order_detail d
 		on o.order_no=d.order_no
 		join product p
-		on p.prod_no = d.prod_no
+		on p.prod_no =
+		d.prod_no
 		join category c
 		on c.category_code = p.category_code
-		group by c.top_category
+		group by
+		c.top_category
 	</select>
 </mapper>
