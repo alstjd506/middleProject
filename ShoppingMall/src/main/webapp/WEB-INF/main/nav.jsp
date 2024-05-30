@@ -29,7 +29,7 @@
                                     </c:when>
                                     <c:otherwise>
                                         <a class="dropdown-item" href="myPage.do?userId=${logId }">마이페이지</a>
-                                        <a class="dropdown-item" href="myPage.do">마이페이지</a>
+                                       
                                         <a class="dropdown-item" href="modifyuser.do">회원정보수정</a>
                                         <a class="dropdown-item" href="#!">내 게시글 보기</a>
                                         <div class="dropdown-divider"></div>
@@ -44,10 +44,10 @@
                             </li>
                         </c:if>
                         <li class="OrderForm" list-style-type="none">
-                            <a href="order.do">Order</a>
+                            <a href="myPageOrder.do">Order</a>
                         </li>
                         <li class="cartForm" list-style-type="none">
-                            <a href="cart.do">Cart</a>
+                            <a href="cart.do?userId=${logId}">Cart</a>
                         </li>
                           <li class="BoardForm" list-style-type="none">
                             <a href="board.do">Q&A</a>

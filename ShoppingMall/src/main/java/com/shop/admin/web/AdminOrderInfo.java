@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.admin.service.AdminService;
 import com.shop.admin.service.AdminServiceImpl;
 import com.shop.common.Control;
-import com.shop.vo.OrderDetailVO;
 import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
 
@@ -19,19 +18,20 @@ public class AdminOrderInfo implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String orderNo = req.getParameter("ono");
-			
+		String ono = req.getParameter("ono");
+		String uid = req.getParameter("uid");
 		
+		System.out.println(ono);
+		System.out.println(uid);
 		AdminService svc = new AdminServiceImpl();	
 		
-		List<OrderDetailVO> oist = svc.adminOrderInfo(Integer.parseInt(orderNo));
-		OrderVO ovo = svc.adminOrderInfos(Integer.parseInt(orderNo));
-		ProductVO pvo = svc.adminProductInfo(ovo.getOrderNo());
-		
-		req.setAttribute("prod", pvo);
-		req.setAttribute("orderdetail", oist);
+		List<ProductVO> pvo = svc.adminOrderDetail(Integer.parseInt(ono));
+		OrderVO ovo = svc.adminOrderInfo(uid, Integer.parseInt(ono));
+		System.out.println(pvo);
+		System.out.println(ovo);
+		req.setAttribute("uid", pvo);
 		req.setAttribute("order", ovo);
-		String path = "admin/orderInfo.tiles";
+		String path = "admin/adminorderInfo.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 
 	}

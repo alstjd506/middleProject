@@ -26,6 +26,7 @@ import com.shop.admin.web.AdminMemberList;
 import com.shop.admin.web.AdminOrderInfo;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminOrderStatusControl;
+import com.shop.admin.web.AdminPieChart;
 import com.shop.admin.web.AdminProductInfo;
 import com.shop.admin.web.AdminProductList;
 import com.shop.admin.web.AdminProductModify;
@@ -57,8 +58,12 @@ import com.shop.member.web.ModifyUserControl;
 import com.shop.member.web.ModifyUserForm;
 import com.shop.member.web.MyPageControl;
 import com.shop.member.web.MyPageOrderControl;
+import com.shop.member.web.MyPageOrderDetail;
 import com.shop.member.web.MyPagePastControl;
 import com.shop.member.web.MyPageReturnControl;
+import com.shop.member.web.myPageBoardControl;
+import com.shop.member.web.myPageBoardInfo;
+import com.shop.member.web.myPageBoardUpdate;
 import com.shop.order.web.AddCartControl;
 import com.shop.order.web.CartControl;
 import com.shop.order.web.CartListControl;
@@ -110,12 +115,18 @@ public class FrontControl extends HttpServlet {
 		map.put("/search.do", new SearchControl());
 		map.put("/searchForm.do",new SearchFormControl());
 
-		//마이페이지 화면
+		//마이페이지 주문관련화면
 		map.put("/myPage.do", new MyPageControl());
 		map.put("/myPageOrder.do", new MyPageOrderControl());
 		map.put("/myPagePastOrder.do", new MyPagePastControl());
 		map.put("/myPageReturn.do", new MyPageReturnControl());
+		map.put("/myPageOrderDetail.do", new MyPageOrderDetail());
+		map.put("/myPageReturn.do", new MyPageReturnControl());
 		
+		//마이페이지 Q&A
+		map.put("/myPageBoard.do", new myPageBoardControl());
+		map.put("/myPageBoardInfo.do", new myPageBoardInfo());
+		map.put("/myPageBoardUpdate.do", new myPageBoardUpdate());
 		
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());		
@@ -125,6 +136,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/addReview.do", new AddReviewControl());
 		map.put("/modifyReview.do", new ModifyReviewControl());
 		map.put("/getTotalCnt.do", new TotalCountControl());
+	
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o
@@ -149,7 +161,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
-		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트		
+		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트	
+		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트
 		
 		
 		//로그인화면

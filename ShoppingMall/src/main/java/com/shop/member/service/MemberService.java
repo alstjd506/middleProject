@@ -3,7 +3,11 @@ package com.shop.member.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.shop.vo.BoardVO;
 import com.shop.vo.MemberVO;
+import com.shop.vo.OrderVO;
 import com.shop.vo.ProductVO;
 
 public interface MemberService {
@@ -20,6 +24,8 @@ public interface MemberService {
 
 	boolean DeleteUser(MemberVO mvo);
 	
+	boolean DeleteUser(String password);
+	
 	//mypage
 	List<ProductVO> mypageCart(String userId); //마이페이지 장바구니리스트
 	int mypageReviewCnt(String userId); // 마이페이지 총 리뷰갯수
@@ -29,9 +35,10 @@ public interface MemberService {
 	List<Map<String, Object>> mypagePastOrderList(String userId); //3일 그전쭈욱
 	List<Map<String, Object>> mypageOrderList(String userId); //주문/배송중인 상품조회
 	List<Map<String, Object>> mypageReturnList(String userId); //취소/반품중인 상품조회
+	List<Map<String, Object>> mypageOrderDetail(@Param("userId") String userId, @Param("orderNo") int orderNo);
+	List<Map<String, Object>> mypageUserDetail(@Param("userId") String userId, @Param("orderNo") int orderNo);
 	
-	
-	boolean DeleteUser(String password);
-
-
+	List<BoardVO> boardList(String userId);
+	List<BoardVO> boardInfo(@Param("userId") String userId, @Param("boardNo") int boardNo);
+	boolean updateBoard(BoardVO board);
 }

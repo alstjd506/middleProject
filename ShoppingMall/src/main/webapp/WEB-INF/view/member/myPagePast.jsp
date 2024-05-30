@@ -93,17 +93,15 @@
 }
 </style>
 <div class="orderBox">
- 	<c:if test="${empty mypageRecentOrderList}">
+<c:if test="${empty mypageRecentOrderList}">
                            
-        <h1>최근 구매 상품이 없습니다.</h1>
+        <h1>구매 상품이 없습니다.</h1>
     
     </c:if>
-    <c:forEach var="order" items="${mypageOrderList}">
+    <c:forEach var="order" items="${mypagePastOrderList}">
         <div class="order">
             <div class="order-header">
-            <form id="orderForm${order.ORDER_NO}" action="myPageOrderDetail.do" method="post">
-                    <input type="hidden" id="formOrderNo${order.ORDER_NO}" name="orderNo" value="${order.ORDER_NO}">
-                </form>
+           
                 <span>주문날짜: <fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy. MM. dd"/></span>
                   <span><a href="#" class="detail" data-order-no="${order.ORDER_NO}">주문 상세보기</a></span>
             </div>
@@ -126,7 +124,7 @@
                     <div class="info">
                         <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.PROD_NAME}</a>
                         <span>
-                        <c:set var="totalPrice" value = "${order.PROD_PRICE * order.ORDER_CNT }"/>
+                         <c:set var="totalPrice" value = "${order.PROD_PRICE * order.ORDER_CNT }"/>
                         <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.ORDER_CNT} 개
                         </span>
                     </div>
@@ -152,5 +150,3 @@
         </div>
     </c:forEach>
 </div>
-
-<script src ="js/myPageOrder.js"></script>

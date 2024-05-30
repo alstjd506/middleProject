@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ChartVO {
-	private Date ChartDate;
+	private Date chartDate;
+	private String chartName;
 	private int chartValue;
 }

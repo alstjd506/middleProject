@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.shop.common.Control;
 import com.shop.member.service.MemberService;
@@ -20,20 +21,17 @@ public class MyPageOrderControl implements Control {
 		// TODO Auto-generated method stub
 		String path ="member/myPageOrder.tiles";
 		
-		String userId = req.getParameter("userId");
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("logId");
+		System.out.println(userId);
+		
+		
 		MemberService svc = new MemberServiceImpl();
 		List<Map<String, Object>> mypageOrderList = svc.mypageOrderList(userId); //최근 주문내역
-		List<String> olist = new ArrayList<>();
-		olist.add("주문일자");
-		olist.add("상품명");
-		olist.add("배송지주소");
-		olist.add("구매수량");
-		olist.add("주문금액");
-		olist.add("주문상태");
-		olist.add("주문관리");
+	
 		
 		System.out.println(mypageOrderList);
-		req.setAttribute("boardTitle", olist);
+		
 		req.setAttribute("mypageOrderList", mypageOrderList);
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
