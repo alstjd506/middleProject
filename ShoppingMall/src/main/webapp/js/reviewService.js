@@ -37,10 +37,10 @@ const svc = {
 	},
 	//댓글 수정
 	modifyview(param = {}, successCall, errorCall) {
-		fetch('addReview.do', {
+		fetch('modifyReview.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'reviewNo=' + param.reviewNo + '&reviewContent=' + param.reviewContent
+			body: 'reviewNo=' + param.reviewNo + '&reviewContent=' + param.reviewContent+'&reviewLike'+param.like
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)

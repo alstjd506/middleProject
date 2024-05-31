@@ -220,7 +220,7 @@ div.reviewList div{
 								<span class="col-sm-5">댓글내용</span> 
 								<span class="col-sm-2">작성자</span>
 								<span class="col-sm-2">작성일</span> 
-								<span class="col-sm-2">삭제</span></li>
+								<span class="col-sm-2">삭제</span>
 								<span class="col-sm-2">수정</span></li>
 							<li>
 								<hr />
