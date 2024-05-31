@@ -120,6 +120,9 @@
                         <c:when test="${order.ORDER_STATUS == 3}">
                             <span style="font-weight: bold; color: #555;">배송완료</span>
                         </c:when>
+                         <c:when test="${order.ORDER_STATUS == 4}">
+                            <span style="font-weight: bold; color: #555;">구매확정</span>
+                        </c:when>
                     </c:choose>
                 </div>
                 <a href="productInfo.do?prodNo=${order.FIRST_PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
