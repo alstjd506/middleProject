@@ -20,12 +20,10 @@ document.getElementById('modBtn').addEventListener('click', function(e) {
 		.then(result => {
 			if (result.retCode == 'OK') {
 				alert("답글 수정완료!");
-			window.location.href = 'adminProductList.do';
-
 			} else {
 				alert("오류발생!!");
-			window.location.reload();
 			}
 
+			window.location.reload();
 		})
 })

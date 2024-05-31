@@ -134,9 +134,9 @@ textarea {
 </div>
 <script>
 window.onload = function() {
-	document.getElementById('modBtn').addEventListener('click',function(){
+	document.getElementById('addBtn').addEventListener('click',function(){
 		console.log("일로안오나");
-		alert("상품 수정이 완료 되었습니다!");
+		alert("상품 등록이 완료 되었습니다!");
 	})
 	}	
 </script>
