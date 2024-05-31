@@ -145,7 +145,7 @@ body {
                         <c:forEach var="order" items="${mypageRecentOrderList}">
                             <tr>
                                 <td><fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy-MM-dd"/></td>
-                                <td colspan="2"><a href="productInfo.do?prodNo=${order.PROD_NO}">${order.PROD_NAME}</td>
+                                <td colspan="2"><a href="myPageOrderDetail.do?orderNo=${order.ORDER_NO}">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</td>
                                 <c:choose>
 								<c:when test="${order.ORDER_STATUS ==1 }">
                                 <td>상품준비중</td>
@@ -164,7 +164,10 @@ body {
                                 </c:when>
                                  <c:when test="${order.ORDER_STATUS ==4 }">
                                 <td>구매확정</td>
-                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">구매확정</button></td>
+                                <td>
+                                	<button  data-orderno="${order.ORDER_NO}" style="disable:true;">구매확정</button>
+                                	<button  data-orderno="${order.ORDER_NO}" style="disable:none">반품신청</button>
+                                </td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==5 }">
                                 <td>취소대기중</td>
@@ -176,7 +179,10 @@ body {
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==7 }">
                                 <td>반품대기중</td>
-                                <td><button  data-orderno="${order.ORDER_NO}" style="disable:true;">반품대기중</button></td>
+                                <td>
+                                	<button  data-orderno="${order.ORDER_NO}" style="disable:none;">구매확정</button>
+                                	<button  data-orderno="${order.ORDER_NO}" style="disable:true;">반품대기중</button>
+                                </td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==8 }">
                                 <td>반품완료</td>

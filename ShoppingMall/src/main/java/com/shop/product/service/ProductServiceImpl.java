@@ -7,12 +7,14 @@ import org.apache.ibatis.session.SqlSession;
 import com.shop.common.DataSource;
 import com.shop.common.SearchVO;
 import com.shop.product.mapper.ProductMapper;
+import com.shop.product.mapper.ReviewMapper;
 import com.shop.vo.ProductVO;
 
 public class ProductServiceImpl implements ProductService {
 	
 	SqlSession session = DataSource.getInstance().openSession(true);
 	ProductMapper mapper = session.getMapper(ProductMapper.class);
+	ReviewMapper reviewMapper = session.getMapper(ReviewMapper.class);
 	@Override
 	public List<ProductVO> productList() {
 		return mapper.productList();
@@ -51,5 +53,17 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return mapper.getTotalCnt(search);
 	}
+	@Override
+	public int updateProductScore(double avgScore, int prodNo) {
+		// TODO Auto-generated method stub
+		return mapper.updateProductScore(avgScore, prodNo);
+	}
 
+	public void updateProductAvgScore(int prodNo) {
+	    Double avgScore = reviewMapper.avgScore(prodNo);
+	    if (avgScore == null) {
+	        avgScore = 0.0;
+	    }
+	    mapper.updateProductScore(avgScore, prodNo);
+	}
 }

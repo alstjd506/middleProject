@@ -21,6 +21,7 @@
 	<select id="adminBoardList" resultType="board">
 		select *
 		from board
+		order by board_date desc
 	</select>
 	<select id="adminBoardInfo" resultType="board">
 		select

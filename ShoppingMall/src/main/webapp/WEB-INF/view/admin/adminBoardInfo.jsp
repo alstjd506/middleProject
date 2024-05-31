@@ -84,6 +84,15 @@ form label {
 		</div>
 	</section>
 </main>
+
 <script src="js/adminReply.js">
 	
 </script>
+ <script type="text/javascript">
+        window.onload = function() {
+        	document.getElementById('btn').addEventListener('click',function(){
+        		console.log(${msg});
+                alert('답글이 저장되었습니다.');
+        	})
+        }
+    </script>

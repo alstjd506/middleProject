@@ -154,6 +154,12 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.myPageReview(userId);
 	}
 
+	@Override
+	public int myPageOrderCnt(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.myPageOrderCnt(userId);
+	}
+
 
 
 	

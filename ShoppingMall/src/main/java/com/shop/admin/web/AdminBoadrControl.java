@@ -16,7 +16,6 @@ public class AdminBoadrControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("컨트롤러 들어옴");
 		String bno = req.getParameter("bodno");
 		String reply = req.getParameter("bodre");
 		
@@ -28,9 +27,10 @@ public class AdminBoadrControl implements Control {
 		rvo.setReplyContent(reply);
 		
 		AdminService svc = new AdminServiceImpl();
-		
 		if(svc.adminBoardReply(rvo)&&svc.adminBoardReplyUp(Integer.parseInt(bno))) {
 			resp.sendRedirect("adminBoardList.do");
+		}else {
+			resp.sendRedirect("adminBoadrControl.do");
 		}
 		
 

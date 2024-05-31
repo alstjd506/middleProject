@@ -24,5 +24,5 @@ public interface ReviewMapper {
 	
 	//리뷰 평점
 	Double avgScore(int prodNo);
-	
+	int getProdNoByReviewNo(int reviewNo);
 }

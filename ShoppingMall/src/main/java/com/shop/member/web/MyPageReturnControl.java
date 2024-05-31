@@ -22,6 +22,7 @@ public class MyPageReturnControl implements Control {
 		
 		HttpSession session = req.getSession();
 		String userId = (String) session.getAttribute("logId");
+		
 		System.out.println(userId);
 		MemberService svc = new MemberServiceImpl();
 		List<Map<String, Object>> mypageReturnList = svc.mypageReturnList(userId); //최근 주문내역

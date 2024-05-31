@@ -1,7 +1,6 @@
 /**
  * 
  */
-console.log(cno);
 fetch('adminCancleAgree.do?ono='+cno)
 .then(resolve => resolve.json())
 .then(result =>{
