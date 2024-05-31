@@ -147,7 +147,7 @@
         	join order_detail od on o.order_no = od.order_no
         	join product p on p.prod_no = od.prod_no
     	where 
-        	o.order_status IN (1, 2, 3)
+        	o.order_status IN (1, 2, 3, 4)
         	and o.user_id = #{user01}
     	group by 
         	o.order_no, 
@@ -199,10 +199,8 @@
 							 on o.order_no = od.order_no
 							 join product p
 							 on p.prod_no = od.prod_no
-		where (o.order_status = 1 
-		or o.order_status = 2 
-		or o.order_status = 3)
-		and o.user_id = #{userId}
+		
+		where o.user_id = #{userId}
 		and o.order_no = #{orderNo}
 	</select>
 	

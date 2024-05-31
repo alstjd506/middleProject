@@ -168,7 +168,7 @@ body {
                                 <td>구매확정</td>
                                 <td>
                                 	<button  data-orderno="${order.ORDER_NO}" style="disable:true;">구매확정</button>
-                                	<button  data-orderno="${order.ORDER_NO}" style="disable:none">반품신청</button>
+                                	
                                 </td>
                                 </c:when>
                                 <c:when test="${order.ORDER_STATUS ==5 }">
@@ -182,7 +182,7 @@ body {
                                 <c:when test="${order.ORDER_STATUS ==7 }">
                                 <td>반품대기중</td>
                                 <td>
-                                	<button  data-orderno="${order.ORDER_NO}" style="disable:none;">구매확정</button>
+                                	
                                 	<button  data-orderno="${order.ORDER_NO}" style="disable:true;">반품대기중</button>
                                 </td>
                                 </c:when>

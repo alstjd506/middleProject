@@ -144,7 +144,7 @@
                     		<button class="returnBtn" data-orderno="${order.ORDER_NO}">반품 신청</button>
                     	</c:when>
                      </c:choose>
-                    <button>리뷰 작성하기</button>
+                    <button ><a href="productInfo.do?prodNo=${order.PROD_NO}">리뷰 작성하기</a></button>
                 </div>
             </div>
         </div>
@@ -221,4 +221,5 @@
 		
 	</div>
 </div>
+<script src ="js/cartService.js"></script>
 <script src ="js/myPageOrderDetail.js"></script>
