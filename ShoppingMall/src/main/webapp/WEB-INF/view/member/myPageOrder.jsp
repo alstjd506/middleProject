@@ -122,10 +122,10 @@
                         </c:when>
                     </c:choose>
                 </div>
-                <a href="productInfo.do?prodNo=${order.PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
+                <a href="productInfo.do?prodNo=${order.FIRST_PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
                 <div class="product-info">
                     <div class="info">
-                        <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</a>
+                        <a href="productInfo.do?prodNo=${order.FIRST_PROD_NO}" target="_blank">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</a>
                         <span>
                         <c:set var="totalPrice" value = "${order.FIRST_PROD_PRICE * order.FIRST_ORDER_CNT }"/>
                         <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.FIRST_ORDER_CNT} 개

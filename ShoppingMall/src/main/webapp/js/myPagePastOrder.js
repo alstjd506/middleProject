@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    buyBtn.forEach(button => { // 이 부분을 추가하여 buyBtn에도 이벤트 리스너를 부착합니다.
+    buyBtn.forEach(button => { 
         button.addEventListener('click', function() {
             const prodNo = this.dataset.prodno;
             const cartCnt = 1;
@@ -45,4 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
             err => console.log(err)
         );
     }
+});
+document.querySelectorAll('.detail').forEach(function(element) {
+	element.addEventListener('click', function(event) {
+		event.preventDefault();
+		var orderNo = this.getAttribute('data-order-no');
+		var form = document.getElementById('orderForm' + orderNo);
+		form.submit();
+	});
 });
