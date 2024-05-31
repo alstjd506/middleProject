@@ -171,14 +171,14 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminCancleAgree.do", new AdminCancleAgree()); // 관리자 취소승인 o
 		map.put("/adminReturnList.do", new AdminReturnList()); // 관리자 반품현황 조회 o  
 		map.put("/adminReturnAgree.do", new AdminReturnAgree()); // 관리자 반품승인 o
-		map.put("/adminOrderInfo.do", new AdminOrderInfo()); // 관리자 주문상세보기 x
+		map.put("/adminOrderInfo.do", new AdminOrderInfo()); // 관리자 주문상세보기 o
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
 		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
-		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트	
-		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트
-		map.put("/adminTimeChart.do", new AdminTimeChart()); // 관리자 시간대별차트
+		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트 o
+		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트 o
+		map.put("/adminTimeChart.do", new AdminTimeChart()); // 관리자 시간대별차트 o
 		
 		
 		//로그인화면

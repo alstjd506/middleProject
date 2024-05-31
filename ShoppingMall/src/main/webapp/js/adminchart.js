@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				yAxes: [{
 					ticks: {
 						min: 0,
-						max: 50000,
+						max: 100000,
 						maxTicksLimit: 5
 					},
 					gridLines: {
