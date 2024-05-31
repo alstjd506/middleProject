@@ -253,6 +253,8 @@ div.reviewList div{
 <script>
 	const userId = "${logId}"
 </script>
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="js/cartService.js"></script>
 <script src="js/reviewService.js"></script>
 <script src="js/productInfo.js"></script>

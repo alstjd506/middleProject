@@ -58,22 +58,34 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(prodNo);
 		console.log(cartCnt);
 		cartSvc.checkCart(prodNo, result => {
-			if (result.retCode == 'OK') {
-				alert('해당상품이 장바구니에 있습니다.');
-			} else {
-				cartSvc.addCart(prodNo, cartCnt, result => {
-					if (result.retCode == 'OK') {
-						window.location.href = 'cart.do';
-					} else {
-						alert('로그인이 필요한 서비스입니다.');
-						location.href = 'login.do';
-						console.log('처리실패');
-					}
-				},
-					err => console.log(err));
-			}
-		},
-			err => console.log(err));
+            if (result.retCode == 'OK') {
+                alert('해당상품이 장바구니에 있습니다.');
+            } else {
+                cartSvc.addCart(prodNo, cartCnt, result => {
+                    if (result.retCode == 'OK') {
+                        window.location.href = 'cart.do';
+                    } else {
+						Swal.fire({
+							title: '로그인이 필요한 서비스입니다.',
+							text: "로그인 페이지로 이동하시겠습니까?",
+							icon: 'warning',
+							showCancelButton: true,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: '승인',
+							cancelButtonText: '취소'
+						}).then(result => {
+							if (result.isConfirmed) {
+								location.href = "login.do";
+							}
+						})
+                        console.log('처리실패');
+                    }
+                }, 
+                err => console.log(err));
+            }
+        }, 
+        err => console.log(err));
 	});
 	buyBtn.addEventListener('click', function() {
 		const cartCnt = parseInt(inputQty.value);

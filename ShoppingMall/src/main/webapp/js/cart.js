@@ -324,7 +324,7 @@ if (userId == '') {
 		if (result.isConfirmed) {
 			location.href = "login.do";
 		} else {
-			location.href = "main.do";
+			history.back();
 		}
 	})
 } else {
