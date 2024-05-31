@@ -182,7 +182,7 @@ div.reviewList div{
 				<div class="tab-pane fade show active" id="description"
 					role="tabpanel" aria-labelledby="description-tab">
 					<div class="col-md-12">
-						<img class="card-img-top mb-5 mb-md-0" src="images/건식사료설명1.jpg"
+						<img class="card-img-top mb-5 mb-md-0" src="images/${product.prodCommentImage }"
 							alt="..." />
 					</div>
 				</div>
