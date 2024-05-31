@@ -187,7 +187,13 @@ $('input:radio[name=deliveryAddr]').on('change', function() {
 // 주문
 $('#purchase').on('click', function() {
 	if($('#postcode').val() == '' || $('#address').val() == '' || $('#detailAddress').val() == '') {
-		alert('배송지를 입력해주세요.');
+		swal.fire({
+			title: '주문 오류',
+			text: '배송지를 입력해주세요.',
+			icon: 'warning',
+			confirmButtonColor: '#3085d6',
+			confirmButtonText: '확인'	
+		});
 		return;
 	}
 	
@@ -197,9 +203,23 @@ $('#purchase').on('click', function() {
 
 // 메인
 // 주문상품
-if(userId == '') {
-	alert('로그인이 필요한 서비스입니다.');
-	location.href='/ShoppingMall/login.do';
+if (userId == '') {
+	Swal.fire({
+		title: '로그인이 필요한 서비스입니다.',
+		text: "로그인 페이지로 이동하시겠습니까?",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: '승인',
+		cancelButtonText: '취소'
+	}).then(result => {
+		if (result.isConfirmed) {
+			location.href = "login.do";
+		} else {
+			location.href = "main.do";
+		}
+	})
 } else {
 	if(prodNo == '') {
 		// 주문 상품이 없을 경우

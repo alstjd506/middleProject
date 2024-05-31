@@ -62,6 +62,8 @@ let prodCnt = '${prodCnt}';
 </script>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- 포트원 결제 api -->
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <!-- 외부 js -->

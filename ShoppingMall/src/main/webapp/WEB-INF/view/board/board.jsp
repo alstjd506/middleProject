@@ -9,11 +9,11 @@
     <table class="table">
       <tr>
         <th align="center">제 목</th>
-        <td><input type="text" name="title" size="50"></td>
+        <td><input type="text" name="title" size="50" required></td>
       </tr>
       <tr>
         <th align="center">내 용</th>
-        <td><textarea cols="70" rows="5" name="content" placeholder="문의하실 내용을 입력하세요."></textarea></td>
+        <td><textarea cols="70" rows="5" name="content" placeholder="문의하실 내용을 입력하세요." required></textarea></td>
       </tr>
       <tr align="center">
         <td colspan="2"><input type="submit" class="btn btn-outline-primary" value="작성"></td>
@@ -21,3 +21,12 @@
     </table>
   </div>
 </form>
+<script>
+let userId = '${userId}';
+</script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- 외부 js -->
+<script src="js/board.js"></script>

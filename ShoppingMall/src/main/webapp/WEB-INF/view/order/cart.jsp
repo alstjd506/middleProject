@@ -43,6 +43,10 @@ ul{
 <script>
 let userId = '${userId}';
 </script>
+<!-- jquery -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- 외부 js -->
 <script src="js/cartService.js"></script>
 <script src="js/cart.js"></script>
