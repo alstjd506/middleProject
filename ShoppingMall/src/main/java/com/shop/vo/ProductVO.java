@@ -20,6 +20,8 @@ public class ProductVO {
 	private int orderCnt;
 	private int prodTotal;
 	private String firstProdName;
+	private String firstProdImage;
+	private int firstProdPrice;
 	private int prodCnt;
 	
 	

@@ -90,9 +90,7 @@
         	 orders o
         	 join order_detail od on o.order_no = od.order_no
         	 join product p on p.prod_no = od.prod_no
-    	where 
-        	 o.order_status IN (1, 2, 3)
-        and o.user_id = #{userId}
+        where o.user_id = #{userId}
         <![CDATA[
         and o.order_date >= SYSDATE - INTERVAL '3' DAY
         ]]>
@@ -105,30 +103,56 @@
 	</select>
 	
 	<select id="mypagePastOrderList" resultType="map">
-		select p.prod_name, p.prod_image, p.prod_price, p.prod_no, o.*, od.order_cnt
-		from order_detail od join orders o 
-							 on o.order_no = od.order_no
-    						 join product p 
-    						 on p.prod_no = od.prod_no
-    	<![CDATA[				
-		where o.order_date < SYSDATE - INTERVAL '3' DAY
-		]]>
-		and (o.order_status = 4 
-		or o.order_status = 6 
-		or o.order_status = 8)
-  		and user_id = #{userId}
+		select 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date,
+        	min(p.prod_name) as first_prod_name,
+        	min(p.prod_image) as first_prod_image,
+        	min(p.prod_price) as first_prod_price,
+        	min(od.order_cnt) as first_order_cnt,
+        	count(p.prod_no) - 1 as prod_cnt
+    	from 
+        	orders o
+        	join order_detail od on o.order_no = od.order_no
+        	join product p on p.prod_no = od.prod_no
+    	where 
+        	o.order_status IN (4, 5, 6, 7, 8)
+        and o.user_id = #{user01}
+        <![CDATA[
+        and o.order_date < SYSDATE - INTERVAL '3' DAY
+        ]]>
+    	group by 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date
+    	order by 
+        	o.order_date desc
 	</select>
 	
 	<select id="mypageOrderList"  resultType="map">
-		select p.prod_name, p.prod_image, p.prod_price, p.prod_no, o.*, od.order_cnt
-		from order_detail od join orders o
-							 on o.order_no = od.order_no
-							 join product p
-							 on p.prod_no = od.prod_no
-		where (o.order_status = 1 
-		or o.order_status = 2 
-		or o.order_status = 3)
-		and user_id = #{userId}
+		select 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date,
+        	min(p.prod_name) as first_prod_name,
+        	min(p.prod_image) as first_prod_image,
+        	min(p.prod_price) as first_prod_price,
+        	min(od.order_cnt) as first_order_cnt,
+        	count(p.prod_no) - 1 as prod_cnt
+    	from 
+        	orders o
+        	join order_detail od on o.order_no = od.order_no
+        	join product p on p.prod_no = od.prod_no
+    	where 
+        	o.order_status IN (1, 2, 3)
+        	and o.user_id = #{user01}
+    	group by 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date
+    	order by 
+        	o.order_date desc
 	</select>
 	
 	<select id="myPageOrderCnt" resultType ="int">
@@ -142,16 +166,28 @@
 	</select>
 		
 	<select id="mypageReturnList" resultType="map">
-		select p.prod_name, p.prod_image, p.prod_price, p.prod_no, o.*, od.order_cnt 
-		from order_detail od join orders o
-							 on o.order_no = od.order_no
-							 join product p
-							 on p.prod_no = od.prod_no
-		where (o.order_status = 5 
-		or o.order_status = 6 
-		or o.order_status = 7
-		or o.order_status = 8)
-		and user_id = #{userId}
+		select 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date,
+        	min(p.prod_name) as first_prod_name,
+        	min(p.prod_image) as first_prod_image,
+        	min(p.prod_price) as first_prod_price,
+        	min(od.order_cnt) as first_order_cnt,
+        	count(p.prod_no) - 1 as prod_cnt
+    	from 
+        	orders o
+        	join order_detail od on o.order_no = od.order_no
+        	join product p on p.prod_no = od.prod_no
+    	where 
+        	o.order_status IN (5, 6, 7, 8)
+        	and o.user_id = #{user01}
+    	group by 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date
+    	order by 
+        	o.order_date desc
 	</select>
 	
 	<select id="mypageOrderDetail" resultType="map">

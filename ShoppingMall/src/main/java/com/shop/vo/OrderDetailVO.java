@@ -8,4 +8,5 @@ public class OrderDetailVO {
 	private int orderNo;
 	private int prodNo;
 	private int orderCnt;
+	private int firstOrderCnt;
 }

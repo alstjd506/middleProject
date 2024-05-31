@@ -130,6 +130,7 @@ body {
 				<table>
 					<thead>
 						<tr>
+							<th>주문번호</th>
 							<th>주문일</th>
 							<th colspan="2">주문내역</th>
 							<th>주문상태</th>
@@ -144,6 +145,7 @@ body {
                         </c:if>
                         <c:forEach var="order" items="${mypageRecentOrderList}">
                             <tr>
+                            	<td>${order.ORDER_NO}</td>
                                 <td><fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy-MM-dd"/></td>
                                 <td colspan="2"><a href="myPageOrderDetail.do?orderNo=${order.ORDER_NO}">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</td>
                                 <c:choose>

@@ -101,10 +101,9 @@
     <c:forEach var="order" items="${mypageReturnList}">
         <div class="order">
             <div class="order-header">
-           	<form id="orderForm" action="order.do" method="post">
-				<input type="hidden" id="formProdNo" name="prodNo" value="${order.PROD_NO }">
-				<input type ="hidden" id="formProdCnt" name="prodCnt">
-			</form>
+            <form id="orderForm${order.ORDER_NO}" action="myPageOrderDetail.do" method="post">
+                    <input type="hidden" id="formOrderNo${order.ORDER_NO}" name="orderNo" value="${order.ORDER_NO}">
+                </form>
                 <span>주문날짜: <fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy. MM. dd"/></span>
                   <span><a href="#" class="detail" data-order-no="${order.ORDER_NO}">주문 상세보기</a></span>
             </div>
@@ -125,13 +124,13 @@
                         </c:when>
                     </c:choose>
                 </div>
-                <a href ="productInfo.do?prodNo=${order.PROD_NO}"><img class="prodImage" src="images/${order.PROD_IMAGE}" alt="상품 이미지"></a>
+                <a href ="productInfo.do?prodNo=${order.PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
                 <div class="product-info">
                     <div class="info">
-                        <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.PROD_NAME}</a>
+                        <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</a>
                         <span>
-                         <c:set var="totalPrice" value = "${order.PROD_PRICE * order.ORDER_CNT }"/>
-                        <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.ORDER_CNT} 개
+                         <c:set var="totalPrice" value = "${order.FIRST_PROD_PRICE * order.FIRST_ORDER_CNT }"/>
+                        <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.FIRST_ORDER_CNT} 개
                         </span>
                     </div>
                 </div>
