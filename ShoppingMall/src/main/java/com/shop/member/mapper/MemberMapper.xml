@@ -46,7 +46,7 @@
 	<!-- 회원정보수정 -->
 	<update id="selectMembermodify" parameterType="member">
 	update 		users
-	set			user_Id = #{userId},
+	set			
       			user_Pw = #{userPw},
        			user_Name = #{userName},
        			user_Phone = #{userPhone},
