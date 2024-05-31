@@ -161,8 +161,8 @@ div.reviewList div{
 				</div>
 			</div>
 		
-			
-		</c:forEach>
+			</c:forEach>
+	
 	</div>
 	<div class="row gx-4 gx-lg-5 my-5">
 		<div class="col-md-12">
@@ -181,11 +181,14 @@ div.reviewList div{
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="description"
 					role="tabpanel" aria-labelledby="description-tab">
+					<c:forEach var="product" items="${productInfo}">
 					<div class="col-md-12">
-						<img class="card-img-top mb-5 mb-md-0" src="images/${product.prodCommentImage }"
+						<img class="card-img-top mb-5 mb-md-0" src="images/${product.prodCommentImage}"
 							alt="..." />
 					</div>
+					</c:forEach>
 				</div>
+			
 				<div class="tab-pane fade" id="review" role="tabpanel"
 					aria-labelledby="review-tab">
 					<div class="reviewScore"></div>
