@@ -19,14 +19,11 @@
 									<div class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarDropdown">
                    				
-								
+									<a class="dropdown-item" href="myPage.do">마이페이지</a>
 									<a class="dropdown-item" href="modifyuser.do">회원정보수정</a>
-
-                   					
-									<a class="dropdown-item" href="myPage.do">마이페이지</a> <a
-									class="dropdown-item" href="myPageBoard.do">내 게시글 보기</a>
+									<a class="dropdown-item" href="myPageBoard.do">내 게시글 보기</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#!">로그아웃</a>
+									<a class="dropdown-item" href="logout.do">로그아웃</a>
 		
 								</div></li>
                    			
