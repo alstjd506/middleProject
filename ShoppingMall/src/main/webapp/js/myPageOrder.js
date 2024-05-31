@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 	const cancelBtn = document.querySelectorAll('.cancleBtn');
-	const returnBtn = document.querySelectorAll('.retrunBtn');
+	const returnBtn = document.querySelectorAll('.returnBtn');
 	const confBtn = document.querySelectorAll('.confBtn');
 	const cartBtn = document.querySelectorAll('.cartBtn');
 

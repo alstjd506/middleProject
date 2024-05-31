@@ -120,6 +120,9 @@
                         <c:when test="${order.ORDER_STATUS == 3}">
                             <span style="font-weight: bold; color: #555;">배송완료</span>
                         </c:when>
+                         <c:when test="${order.ORDER_STATUS == 4}">
+                            <span style="font-weight: bold; color: #555;">구매확정</span>
+                        </c:when>
                     </c:choose>
                 </div>
                 <a href="productInfo.do?prodNo=${order.FIRST_PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
@@ -135,7 +138,7 @@
             </div>
             <div class="actions">
                 <div class="button-group">
-                    <button class="cartBtn" data-prodno="${order.PROD_NO}">장바구니 담기</button>
+                   
                      <c:choose>
                         <c:when test="${order.ORDER_STATUS == 1}">
                     		<button class="cancleBtn" data-orderno="${order.ORDER_NO}">주문취소 신청</button>
@@ -152,7 +155,7 @@
                     	</c:when>
                     	
                      </c:choose>
-                    <button><a href="productInfo.do?prodNo=${order.PROD_NO}">리뷰 작성하기</button></a>
+                    
                 </div>
             </div>
         </div>

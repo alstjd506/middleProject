@@ -135,8 +135,7 @@
             </div>
             <div class="actions">
                 <div class="button-group">
-                    <button class="cartBtn" data-prodno="${order.PROD_NO}">장바구니 담기</button>
-                    <button class="buyBtn" data-prodno="${order.PROD_NO}">주문하기</button>
+                  
                 </div>
             </div>
         </div>

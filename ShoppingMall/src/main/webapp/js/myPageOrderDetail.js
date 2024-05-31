@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 	const cancelBtn = document.querySelectorAll('.cancleBtn');
-	const returnBtn = document.querySelectorAll('.retrunBtn');
+	const returnBtn = document.querySelectorAll('.returnBtn');
 	const confBtn = document.querySelectorAll('.confBtn');
 	const cartBtn = document.querySelectorAll('.cartBtn');
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	function cancelOrder(orderNo, button) {
-		fetch('myPageCancleOrder.do?orderNo=' + encodeURIComponent(orderNo))
+		fetch('myPageCancleOrder.do?orderNo=' + orderNo)
 			.then(response => response.json())
 			.then(result => {
 				if (result.retCode == 'OK') {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	function confOrder(orderNo, button) {
-		fetch('myPageConfOrder.do?orderNo=' + encodeURIComponent(orderNo))
+		fetch('myPageConfOrder.do?orderNo=' + orderNo)
 			.then(response => response.json())
 			.then(result => {
 				if (result.retCode == 'OK') {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	function returnOrder(orderNo, button) {
-		fetch('myPageReturnOrder.do?orderNo=' + encodeURIComponent(orderNo))
+		fetch('myPageReturnOrder.do?orderNo=' + orderNo)
 			.then(response => response.json())
 			.then(result => {
 				if (result.retCode == 'OK') {

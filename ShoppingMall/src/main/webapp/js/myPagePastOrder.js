@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartBtn = document.querySelectorAll('.cartBtn');
     const buyBtn = document.querySelectorAll('.buyBtn');
     const orderForm = document.getElementById('orderForm');
-    const formProdCnt = document.getElementById('formProdCnt'); // formProdCnt 요소를 가져옵니다.
+    const formProdCnt = document.getElementById('formProdCnt'); 
 
     cartBtn.forEach(button => {
         button.addEventListener('click', function() {
