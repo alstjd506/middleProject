@@ -23,6 +23,7 @@ public class ProductVO {
 	private String firstProdImage;
 	private int firstProdPrice;
 	private int prodCnt;
+	private int firstProdNo;
 	
 	
 }

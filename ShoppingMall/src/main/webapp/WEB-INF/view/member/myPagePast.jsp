@@ -105,6 +105,7 @@
                     <input type="hidden" id="formOrderNo${order.ORDER_NO}" name="orderNo" value="${order.ORDER_NO}">
                 </form>
                 <span>주문날짜: <fmt:formatDate value="${order.ORDER_DATE}" pattern="yyyy. MM. dd"/></span>
+                 <span>주문번호 : ${order.ORDER_NO }</span>
                   <span><a href="#" class="detail" data-order-no="${order.ORDER_NO}">주문 상세보기</a></span>
             </div>
             <div class="order-details">
@@ -121,10 +122,10 @@
                         </c:when>
                     </c:choose>
                 </div>
-                <a href="productInfo.do?prodNo=${order.PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
+                <a href="productInfo.do?prodNo=${order.FIRST_PROD_NO}"><img class="prodImage" src="images/${order.FIRST_PROD_IMAGE}" alt="상품 이미지"></a>
                 <div class="product-info">
                     <div class="info">
-                        <a href="productInfo.do?prodNo=${order.PROD_NO}" target="_blank">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</a>
+                        <a href="productInfo.do?prodNo=${order.FIRST_PROD_NO}" target="_blank">${order.FIRST_PROD_NAME} (외 ${order.PROD_CNT}개)</a>
                         <span>
                          <c:set var="totalPrice" value = "${order.FIRST_PROD_PRICE * order.FIRST_ORDER_CNT }"/>
                         <fmt:formatNumber value="${totalPrice}"/> 원 · ${order.FIRST_ORDER_CNT} 개

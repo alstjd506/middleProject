@@ -132,16 +132,16 @@
             </div>
             <div class="actions">
                 <div class="button-group">
-                    <button>장바구니 담기</button>
+                    <button class="cartBtn" data-prodno="${order.PROD_NO}">장바구니 담기</button>
                      <c:choose>
                         <c:when test="${order.ORDER_STATUS == 1}">
-                    		<button>주문취소 신청</button>
+                    		<button class="cancleBtn">주문취소 신청</button>
                     	</c:when>
                     	 <c:when test="${order.ORDER_STATUS == 2}">
-                    		<button>주문취소 신청</button>
+                    		<button class="cancleBtn" data-orderno="${order.ORDER_NO}">주문취소 신청</button>
                     	</c:when>
                     	 <c:when test="${order.ORDER_STATUS == 3}">
-                    		<button>반품 신청</button>
+                    		<button class="returnBtn" data-orderno="${order.ORDER_NO}">반품 신청</button>
                     	</c:when>
                      </c:choose>
                     <button>리뷰 작성하기</button>
@@ -221,3 +221,4 @@
 		
 	</div>
 </div>
+<script src ="js/myPageOrderDetail.js"></script>

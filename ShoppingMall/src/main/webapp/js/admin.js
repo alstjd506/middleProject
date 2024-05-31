@@ -35,12 +35,6 @@ function deletecate() {
 	selEle.options.length = 0;
 
 }
-window.onload = function() {
-document.getElementById('addBtn').addEventListener('click',function(){
-	console.log("일로안오나");
-	alert("상품 등록이 완료 되었습니다!");
-})
-}	
 /*function fnSubmit(){
 	let topTitle = document.getElementById('item_catemain').value;
 	let title = document.getElementById('item_catesub').value;
