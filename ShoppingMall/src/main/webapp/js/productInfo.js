@@ -65,8 +65,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (result.retCode == 'OK') {
                         window.location.href = 'cart.do';
                     } else {
-						alert('로그인이 필요한 서비스입니다.');
-						location.href='login.do';
+						Swal.fire({
+							title: '로그인이 필요한 서비스입니다.',
+							text: "로그인 페이지로 이동하시겠습니까?",
+							icon: 'warning',
+							showCancelButton: true,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: '승인',
+							cancelButtonText: '취소'
+						}).then(result => {
+							if (result.isConfirmed) {
+								location.href = "login.do";
+							}
+						})
                         console.log('처리실패');
                     }
                 }, 
