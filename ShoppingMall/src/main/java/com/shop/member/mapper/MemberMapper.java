@@ -39,6 +39,7 @@ public interface MemberMapper {
 	int confOrder(int orderNo);
 	int returnOrder(int orderNo);
 	
+	int myPageOrderCnt(String userId);
 	int mypageBoardY(String userId);
 	int mypageBoardN(String userId);
 	List<BoardVO> boardList(String userId);

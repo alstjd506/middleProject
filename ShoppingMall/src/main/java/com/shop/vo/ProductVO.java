@@ -19,4 +19,8 @@ public class ProductVO {
 	private double prodScore;
 	private int orderCnt;
 	private int prodTotal;
+	private String firstProdName;
+	private int prodCnt;
+	
+	
 }

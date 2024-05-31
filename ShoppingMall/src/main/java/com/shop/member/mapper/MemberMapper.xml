@@ -83,15 +83,25 @@
 	</select>
 	
 	<select id="mypageRecentOrderList" resultType="map">
-		select p.prod_name, p.prod_no, p.prod_price, o.*, o.order_date, o.order_status
-		from order_detail od join orders o 
-							 on o.order_no = od.order_no
-    						 join product p 
-    						 on p.prod_no = od.prod_no
-    	<![CDATA[	
-		where o.order_date >= SYSDATE - INTERVAL '3' DAY
-		]]>
-  		and user_id = #{userId}
+		select o.order_no, o.order_status, o.order_date,
+        	  min(p.prod_name) as first_prod_name,
+        	  count(p.prod_no) - 1 as prod_cnt
+    	from 
+        	 orders o
+        	 join order_detail od on o.order_no = od.order_no
+        	 join product p on p.prod_no = od.prod_no
+    	where 
+        	 o.order_status IN (1, 2, 3)
+        and o.user_id = #{userId}
+        <![CDATA[
+        and o.order_date >= SYSDATE - INTERVAL '3' DAY
+        ]]>
+    	group by 
+        	o.order_no, 
+        	o.order_status, 
+        	o.order_date
+    	order by 
+        	o.order_no desc
 	</select>
 	
 	<select id="mypagePastOrderList" resultType="map">
@@ -119,6 +129,16 @@
 		or o.order_status = 2 
 		or o.order_status = 3)
 		and user_id = #{userId}
+	</select>
+	
+	<select id="myPageOrderCnt" resultType ="int">
+		select o.order_no, count(od.prod_no) as product_count
+		from order_detail od JOIN orders o on o.order_no = od.order_no
+		where (o.order_status = 1 
+    		   or o.order_status = 2 
+    		   or o.order_status = 3)
+    	and o.user_id = #{userId}
+		group by  o.order_no;
 	</select>
 		
 	<select id="mypageReturnList" resultType="map">
