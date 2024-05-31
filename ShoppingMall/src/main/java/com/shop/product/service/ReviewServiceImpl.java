@@ -12,6 +12,7 @@ import com.shop.vo.ReviewVO;
 public class ReviewServiceImpl implements ReviewService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+	ProductService productService = new ProductServiceImpl();
 	
 	@Override
 	public List<ReviewVO> reviewList(SearchVO search) {
@@ -21,7 +22,11 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public boolean addReview(ReviewVO review) {
 		// TODO Auto-generated method stub
-		return mapper.insertReview(review) == 1;
+		boolean result = mapper.insertReview(review) == 1;
+		if (result) {
+			updateProductAvgScore(review.getProdNo());
+		}
+		return result;
 	}
 
 
@@ -44,12 +49,19 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	@Override
 	public double avgScore(int prodNo) {
-		// TODO Auto-generated method stub
 		Double avgScore = mapper.avgScore(prodNo);
 		if (avgScore != null)
 			return avgScore;
 		else
 			return 0.0;
+	}
+	
+	private void updateProductAvgScore(int prodNo) {
+		Double avgScore = mapper.avgScore(prodNo);
+		if (avgScore == null) {
+			avgScore = 0.0;
+		}
+		productService.updateProductScore(avgScore, prodNo);
 	}
 	
 	

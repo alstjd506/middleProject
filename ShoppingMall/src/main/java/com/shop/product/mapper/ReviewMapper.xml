@@ -54,5 +54,10 @@
 		from review
 		where prod_no = #{prodNo}
 	</select>
-
+	
+	<select id="getProdNoByReviewNo" parameterType="int" resultType="int">
+	 	select prod_no 
+	 	from review 
+	 	where review_no = #{reviewNo} 
+	 </select>
 </mapper>
