@@ -97,6 +97,7 @@ import com.shop.product.web.SearchFormControl;
 import com.shop.product.web.RemoveReviewControl;
 import com.shop.product.web.ReviewControl;
 import com.shop.product.web.TotalCountControl;
+import com.shop.product.web.updateProductAvgScore;
 
 
 public class FrontControl extends HttpServlet {
@@ -115,7 +116,10 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryControl());
 		map.put("/menuCategory.do", new MenuCategoryControl());
 		map.put("/productList.do", new ProductListControl());
-
+		
+		//js 별찍기
+		map.put("/updateProductAvgScore.do", new updateProductAvgScore());
+		
 		//검색 화면
 		map.put("/search.do", new SearchControl());
 		map.put("/searchForm.do",new SearchFormControl());

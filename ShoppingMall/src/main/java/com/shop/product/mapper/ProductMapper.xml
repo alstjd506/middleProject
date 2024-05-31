@@ -85,5 +85,11 @@
 		or p.prod_name like '%' || #{keyword} || '%'
 		or p.prod_no like '%' || #{keyword} || '%')
 	</select>
-
+	
+	<update id="updateProductScore" parameterType="map">
+		 update product
+         set prod_score = #{avgScore}
+         where prod_no = #{prodNo}
+	</update>
+	
 </mapper>

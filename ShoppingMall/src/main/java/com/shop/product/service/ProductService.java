@@ -2,6 +2,8 @@ package com.shop.product.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.shop.common.SearchVO;
 import com.shop.vo.ProductVO;
 
@@ -24,5 +26,6 @@ public interface ProductService {
 	List<ProductVO> searchProduct(SearchVO search);
 	int getTotal(SearchVO search);
 	
-	
+	int updateProductScore(@Param("avgScore") double avgScore, @Param("prodNo") int prodNo);
+	void updateProductAvgScore(int prodNo); 
 }

@@ -24,4 +24,5 @@ public interface ProductMapper {
 	List<ProductVO> searchProduct(SearchVO search);
 	int getTotalCnt(SearchVO search);
 	
+	int updateProductScore(@Param("avgScore") double avgScore, @Param("prodNo") int prodNo);
 }
