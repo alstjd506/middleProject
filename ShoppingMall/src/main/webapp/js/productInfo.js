@@ -300,4 +300,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 	}
 
+document.getElementById('div.reviewList ul').addEventListener('click',function(e){
+	console.log("모드버튼 누름");
+	console.log(e);
+	console.log(e.target);
+})
+
 });
