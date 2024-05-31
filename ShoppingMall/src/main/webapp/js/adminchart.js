@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	var myPieChart = new Chart(ctxPie, {
 		type: 'pie',
 		data: {
-			labels: ['사료', '간식', '건강관리', '배변용품', '장난감', '미용/목욕'],
+			labels: ['사료', '간식', '건강관리', '배변용품', '장난감', '미용/목욕','리빙'],
 			datasets: [{
 				data: [],
-				backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#f9c6cf', '#8b00ff'],
+				backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#f9c6cf', '#8b00ff','#ff7f00'],
 			}],
 		},
 	});

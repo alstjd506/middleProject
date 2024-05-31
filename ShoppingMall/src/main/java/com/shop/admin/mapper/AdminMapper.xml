@@ -21,7 +21,8 @@
 	<select id="adminBoardList" resultType="board">
 		select *
 		from board
-		order by board_date desc
+		order
+		by board_date desc
 	</select>
 	<select id="adminBoardInfo" resultType="board">
 		select
@@ -201,17 +202,6 @@
 		from review
 		where prod_no = #{prodNo}
 	</select>
-	<select id="adminBarChart" resultType="chart">
-		select trunc(order_date)as
-		"chart_date",
-		sum(order_price) as "chart_value"
-		from orders
-		where
-		order_date >= SYSDATE - INTERVAL '8'
-		DAY
-		group by trunc(order_date)
-		order by trunc(order_date)
-	</select>
 	<select id="adminOrderInfo" resultType="order">
 		select
 		o.order_date,o.order_no,u.user_name,u.user_phone,o.order_post,
@@ -235,6 +225,18 @@
 		where d.order_no =
 		#{ono}
 	</select>
+	<select id="adminBarChart" resultType="chart">
+		SELECT TRUNC(order_date)
+		AS chart_date,
+		ROUND(AVG(order_price), 0) AS chart_value
+		FROM orders
+		WHERE order_date > SYSDATE - INTERVAL '8' DAY
+						 <![CDATA[
+		AND TRUNC(order_date) <= TRUNC(SYSDATE) - 1 
+							]]>
+		GROUP BY TRUNC(order_date)
+		ORDER BY TRUNC(order_date)
+	</select>
 	<select id="adminPieChart" resultType="chart">
 		select c.TOP_CATEGORY as
 		"chart_name" ,sum(order_price) as "chart_value"
@@ -253,16 +255,23 @@
 		WITH hours AS (
 		SELECT LEVEL - 1 AS hour
 		FROM DUAL
-				 <![CDATA[
-		CONNECT BY LEVEL <= 24
+    <![CDATA[
+    CONNECT BY LEVEL <= 24
 		)
-			]]>
+	]]>
 		SELECT LPAD(h.hour, 2, '0') AS chart_name,
-		NVL(SUM(COALESCE(o.order_price, 0)), 0) AS chart_value
+		CASE
+		WHEN COUNT(DISTINCT
+		TRUNC(o.order_date)) = 0 THEN 0
+		ELSE
+		ROUND(NVL(SUM(COALESCE(o.order_price, 0)), 0) / COUNT(DISTINCT
+		TRUNC(o.order_date)), 0)
+		END AS chart_value
 		FROM hours h
-		LEFT JOIN orders o
-		ON TO_CHAR(o.order_date, 'HH24') = LPAD(h.hour, 2, '0')
-		GROUP BY LPAD(h.hour, 2, '0')
+		LEFT JOIN orders
+		o ON TO_CHAR(o.order_date, 'HH24') = LPAD(h.hour, 2, '0')
+		GROUP BY
+		LPAD(h.hour, 2, '0')
 		ORDER BY LPAD(h.hour, 2, '0')
 	</select>
 </mapper>
