@@ -62,6 +62,7 @@ let order = {
 																		   .attr('alt', '상품이미지')
 																		   .css('height', '100px')))
 									.append($('<td />').attr('align', 'left')
+													   .attr('id', 'name' + result.prodNo)
 													   .text(result.prodName))
 									.append($('<td />').append($('<input>').attr('type', 'hidden')
 																		   .attr('id', 'count' + result.prodNo)
