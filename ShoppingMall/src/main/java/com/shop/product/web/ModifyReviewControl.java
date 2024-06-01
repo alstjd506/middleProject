@@ -18,11 +18,13 @@ public class ModifyReviewControl implements Control {
 		// TODO Auto-generated method stub
 		
 		String reviewNo = req.getParameter("reviewNo");
-		String reviewContent = req.getParameter("reviewContent");
-		
+		String reviewContent = req.getParameter("reviewCon");
+		String reviewLike = req.getParameter("reviewLike");
+		System.out.println(reviewLike);
 		ReviewVO rvo = new ReviewVO();
 		rvo.setReviewNo(Integer.parseInt(reviewNo));
 		rvo.setReviewContent(reviewContent);
+		rvo.setReviewScore(Integer.parseInt(reviewLike));
 		
 		ReviewService svc = new ReviewServiceImpl();
 		if(svc.modifyReview(rvo)) {

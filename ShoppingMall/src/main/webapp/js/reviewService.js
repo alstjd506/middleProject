@@ -40,7 +40,7 @@ const svc = {
 		fetch('modifyReview.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'reviewNo=' + param.reviewNo + '&reviewContent=' + param.reviewContent+'&reviewLike'+param.like
+			body: 'reviewNo=' + param.reviewNo + '&reviewCon=' + param.reviewCon+'&reviewLike='+param.reviewLike
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)

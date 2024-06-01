@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(prodNo);
 		console.log(cartCnt);
 		cartSvc.checkCart(prodNo, result => {
-            if (result.retCode == 'OK') {
-                alert('해당상품이 장바구니에 있습니다.');
-            } else {
-                cartSvc.addCart(prodNo, cartCnt, result => {
-                    if (result.retCode == 'OK') {
-                        window.location.href = 'cart.do';
-                    } else {
+			if (result.retCode == 'OK') {
+				alert('해당상품이 장바구니에 있습니다.');
+			} else {
+				cartSvc.addCart(prodNo, cartCnt, result => {
+					if (result.retCode == 'OK') {
+						window.location.href = 'cart.do';
+					} else {
 						Swal.fire({
 							title: '로그인이 필요한 서비스입니다.',
 							text: "로그인 페이지로 이동하시겠습니까?",
@@ -79,13 +79,13 @@ document.addEventListener('DOMContentLoaded', function() {
 								location.href = "login.do";
 							}
 						})
-                        console.log('처리실패');
-                    }
-                }, 
-                err => console.log(err));
-            }
-        }, 
-        err => console.log(err));
+						console.log('처리실패');
+					}
+				},
+					err => console.log(err));
+			}
+		},
+			err => console.log(err));
 	});
 	buyBtn.addEventListener('click', function() {
 		const cartCnt = parseInt(inputQty.value);
@@ -286,24 +286,92 @@ document.addEventListener('DOMContentLoaded', function() {
 				pagination.appendChild(aTag);
 			}
 		}
-	})
-	function updateProductAvgScore(prodNo) {
-		fetch('updateProductAvgScore.do?prodNo=' + prodNo)
-			.then(response => response.json())
-			.then(result => {
-				if (result.result == "OK") {
-					
-				} 
-			})
-			.catch(err =>  {
-				console.log(err)
-			});
-	}
+		function updateProductAvgScore(prodNo) {
+			fetch('updateProductAvgScore.do?prodNo=' + prodNo)
+				.then(response => response.json())
+				.then(result => {
+					if (result.result == "OK") {
 
-document.getElementById('div.reviewList ul').addEventListener('click',function(e){
-	console.log("모드버튼 누름");
-	console.log(e);
-	console.log(e.target);
-})
+					}
+				})
+				.catch(err => {
+					console.log(err)
+				});
+		}
+
+		document.querySelector('div.reviewList ul').addEventListener('click', function(e) {
+			if (e.target && e.target.id === 'modifyBtn') {
+				const reviewUserId = e.target.parentElement.parentElement.dataset.userid;
+
+				if (userId === reviewUserId) {
+					const li = e.target.parentElement.parentElement;
+					const spans = li.querySelectorAll('span');
+
+					spans.forEach((span, index) => {
+						let input;
+						if (index === 0) {
+							// 첫 번째 span -> input type="number"
+							input = document.createElement('input');
+							input.type = 'number';
+							input.value = span.textContent;
+						} else if (index === 1) {
+							// 두 번째 span -> input type="text"
+							input = document.createElement('input');
+							input.type = 'text';
+							input.value = span.textContent;
+						}
+
+						if (input) {
+							// span 요소를 input 요소로 교체
+							li.replaceChild(input, span);
+
+							// input 요소에 focus 설정
+							input.focus();
+						}
+					});
+
+					e.target.innerText = "수정완료";
+					e.target.id = 'completeBtn';
+
+					// 수정 완료 버튼 클릭 이벤트 핸들러 등록
+					li.addEventListener('click', function(e) {
+						if (e.target.id === 'completeBtn') {
+							const reviewNo = li.dataset.rno;
+							const reviewLike = li.children[0].value;
+							const reviewCon = li.children[1].value;
+							console.log(reviewLike);
+							svc.modifyview({ reviewNo, reviewCon, reviewLike },
+								result => {
+									if (result.retCode === 'OK') {
+										alert('수정완료');
+
+										// 수정 완료 후 span 요소 업데이트
+										spans.forEach((span, index) => {
+											if (index === 0) {
+												span.textContent = reviewLike;
+											} else if (index === 1) {
+												span.textContent = reviewCon;
+											}
+										});
+
+										showList();
+										updateProductAvgScore(prodNo);
+									} else if (result.retCode === 'NG') {
+										alert('수정실패');
+									} else {
+										alert('알 수 없는 반환값');
+									}
+								},
+								err => console.log(err)
+							);
+						}
+					});
+				} else {
+					alert('다른 사람의 댓글을 수정할 수 없습니다.');
+				}
+			}
+		});
+	})
+
 
 });

@@ -45,7 +45,7 @@
 	
 	<update id="modifyReview" parameterType = "review">
 		update review
-		set review_content = #{reviewContent}
+		set review_content = #{reviewContent},review_score=#{reviewScore}
 		where review_no = #{reviewNo}
 	</update>
 	
