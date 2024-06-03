@@ -50,5 +50,6 @@ public interface AdminMapper {
 	List<ChartVO> adminBarChart(); // 관리자 바 형식 차트
 	List<ChartVO> adminPieChart(); // 관리자 파이 형식 차트
 	List<ChartVO> adminTimeChart(); // 관리자 시간대별 차트
+	int adminNotice(BoardVO bvo);// 관리자 공지사항 등록
 
 }

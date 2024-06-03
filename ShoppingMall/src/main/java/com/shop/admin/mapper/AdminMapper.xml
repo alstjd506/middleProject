@@ -276,4 +276,8 @@
 		LPAD(h.hour, 2, '0')
 		ORDER BY LPAD(h.hour, 2, '0')
 	</select>
+	<insert id="adminNotice" parameterType="board">
+	insert into board (board_no,board_title,board_content)
+	values(bod_seq.nextval,#{boardTitle},#{boardContent})
+	</insert>
 </mapper>

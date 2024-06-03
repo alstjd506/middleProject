@@ -184,17 +184,25 @@ public class AdminServiceImpl implements AdminService {
 	public List<ProductVO> adminOrderDetail(int ono) {
 		return mapper.adminOrderDetail(ono);
 	}
+
 	@Override
 	public OrderVO adminOrderInfo(String uid, int ono) {
 		return mapper.adminOrderInfo(uid, ono);
 	}
-@Override
+
+	@Override
 	public List<ChartVO> adminPieChart() {
 		return mapper.adminPieChart();
 	}
-@Override
-public List<ChartVO> adminTimeChart() {
-	return mapper.adminTimeChart();
-	
-}
+
+	@Override
+	public List<ChartVO> adminTimeChart() {
+		return mapper.adminTimeChart();
+
+	}
+
+	@Override
+	public boolean adminNotice(BoardVO bvo) {
+		return mapper.adminNotice(bvo)==1;
+	}
 }

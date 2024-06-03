@@ -20,9 +20,10 @@ import com.shop.admin.web.AdminBoardInfo;
 import com.shop.admin.web.AdminBoardList;
 import com.shop.admin.web.AdminCancleAgree;
 import com.shop.admin.web.AdminCancleList;
-import com.shop.admin.web.AdminChartControl;
 import com.shop.admin.web.AdminControl;
 import com.shop.admin.web.AdminMemberList;
+import com.shop.admin.web.AdminNotice;
+import com.shop.admin.web.AdminNoticeControl;
 import com.shop.admin.web.AdminOrderInfo;
 import com.shop.admin.web.AdminOrderList;
 import com.shop.admin.web.AdminOrderStatusControl;
@@ -35,7 +36,6 @@ import com.shop.admin.web.AdminProductRemove;
 import com.shop.admin.web.AdminReturnAgree;
 import com.shop.admin.web.AdminReturnList;
 
-import com.shop.admin.web.AdminReviewList;
 import com.shop.admin.web.AdminTimeChart;
 import com.shop.board.web.AddBoardControl;
 import com.shop.board.web.BoardControl;
@@ -180,10 +180,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/adminAddProductForm.do", new AdminAddProductForm()); // 관리자 하위카테고리불러오기 o
 		map.put("/adminAddProduct.do", new AdminAddProduct()); // 관리자 상품등록 페이지 o
 		map.put("/adminAddProductControl.do", new AdminAddProductControl());// 관리자 상품등록기능 o
-		map.put("/adminChartControl.do", new AdminChartControl( )); // 관리자 매출차트화면 x
 		map.put("/adminBarChart.do", new AdminBarChart()); // 관리자 바형식차트 o
 		map.put("/adminPieChart.do", new AdminPieChart()); // 관리자 파이형식차트 o
 		map.put("/adminTimeChart.do", new AdminTimeChart()); // 관리자 시간대별차트 o
+		map.put("/adminNotice.do",new AdminNotice());// 관리자 공지사항 x
+		map.put("/adminNoticeControl.do", new AdminNoticeControl());
 		
 		
 		//로그인화면

@@ -74,6 +74,11 @@
 						<i class="fas fa-table"></i>
 					</div> 판매차트
 				</a>
+				 <a class="nav-link" href="adminNotice.do">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-table"></i>
+					</div> 공지사항등록
+				</a>
 			</div>
 		</div>
 		<div class="sb-sidenav-footer">
