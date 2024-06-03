@@ -32,7 +32,7 @@
                    				</li>
                    				
                    				<li class="OrderForm" list-style-type= none>
-                   					<a href="myPageOrder.do?userId=${logId}">Order</a>
+                   					<a href="order.do">Order</a>
                    				</li>
                    				<li class="cartForm" list-style-type= none>
                    					<a href="cart.do?userId=${logId}">Cart</a>
