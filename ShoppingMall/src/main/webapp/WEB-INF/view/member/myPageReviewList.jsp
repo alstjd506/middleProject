@@ -15,7 +15,7 @@
          <th>작성내용</th>
          <th>평점</th>
          <th>작성일시</th>
-         <th>삭제</th>
+       
       </tr>
    </thead>
    <tbody>
@@ -27,7 +27,7 @@
          <td> <a href ="productInfo.do?prodNo=${review.PROD_NO}">${review.REVIEW_CONTENT}</a></td>
          <td>${review.REVIEW_SCORE}</td>
          <td><fmt:formatDate value="${review.REVIEW_DATE}" pattern="yyyy-MM-dd" /></td>
-         <td><button class="deleteBtn">삭제</button>
+      
       </tr>
       </c:forEach>
    </tbody>
