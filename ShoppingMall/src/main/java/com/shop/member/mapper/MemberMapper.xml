@@ -239,11 +239,11 @@
 	</select>
 	
 	<update id="updateBoard" parameterType="Board">
-    	update board
-    	set boardTitle = #{boardTitle},
-        	boardContent = #{boardContent}
-    	where boardNo = #{boardNo}
-	</update>
+       update board
+       set board_title = #{boardTitle},
+           board_content = #{boardContent}
+       where board_no = #{boardNo}
+   </update>
 	
 	<update id="cancleOrder" parameterType="int">
 		update orders 
