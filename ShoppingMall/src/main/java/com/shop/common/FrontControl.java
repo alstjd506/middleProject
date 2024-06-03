@@ -84,6 +84,7 @@ import com.shop.order.web.RemoveCartControl;
 import com.shop.order.web.checkCartControl;
 import com.shop.product.web.AddReviewControl;
 import com.shop.product.web.CategoryControl;
+import com.shop.product.web.FilterProductList;
 import com.shop.product.web.MainControl;
 import com.shop.product.web.ProductInfoControl;
 import com.shop.product.web.MenuCategoryControl;
@@ -155,7 +156,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/addReview.do", new AddReviewControl());
 		map.put("/modifyReview.do", new ModifyReviewControl());
 		map.put("/getTotalCnt.do", new TotalCountControl());
-	
+		map.put("/filterProductList.do", new FilterProductList());
 		
 		//관리자 화면
 		map.put("/admin.do", new AdminControl()); // 관리자 메인화면 o

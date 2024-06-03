@@ -36,9 +36,11 @@ public class myPageBoardUpdate implements Control {
 		if (svc.updateBoard(vo)) {
 			System.out.println("성공");
 			resp.getWriter().print("{\"retCode\": \"OK\"}");
+			resp.sendRedirect("myPageBoard.do");
 		} else {
 			System.out.println("실패");
 			resp.getWriter().print("{\"retCode\": \"NG\"}");
+			resp.sendRedirect("myPageBoard.do");
 		}
 		
 		

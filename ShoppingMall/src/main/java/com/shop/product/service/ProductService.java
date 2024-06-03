@@ -1,6 +1,7 @@
 package com.shop.product.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -28,4 +29,7 @@ public interface ProductService {
 	
 	int updateProductScore(@Param("avgScore") double avgScore, @Param("prodNo") int prodNo);
 	void updateProductAvgScore(int prodNo); 
+	
+	List<ProductVO> filterProductTopList(Map<String, Object> params);
+	List<ProductVO> filterProductList(Map<String, Object> params);
 }

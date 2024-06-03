@@ -91,5 +91,56 @@
          set prod_score = #{avgScore}
          where prod_no = #{prodNo}
 	</update>
-	
+	  <select id="filterProductTopList" parameterType="map" resultType="product">
+    select p.*,
+           (select count(1)
+            from review r
+            where r.prod_no = p.prod_no) as review_cnt
+    from product p
+    join category c on p.category_code = c.category_code
+    where c.top_category = #{categoryCode}
+    <choose>
+        <when test="filter == 'highPrice'">
+            order by p.prod_price desc
+        </when>
+        <when test="filter == 'lowPrice'">
+            order by p.prod_price asc
+        </when>
+        <when test="filter == 'new'">
+            order by p.prod_date desc
+        </when>
+        <when test="filter == 'sale'">
+            order by p.prod_sale desc
+        </when>
+        <when test="filter == 'review'">
+            order by review_cnt desc
+        </when>
+    </choose>
+   </select>
+
+   <select id="filterProductList" parameterType="map" resultType="product">
+         select p.*,
+              (select count(1)
+            from review r
+            where r.prod_no = p.prod_no) as review_cnt
+       from product p
+       where p.category_code = #{categoryCode}
+       <choose>
+           <when test="filter == 'highPrice'">
+                 order by p.prod_price desc
+           </when>
+           <when test="filter == 'lowPrice'">
+               order by p.prod_price asc
+           </when>
+           <when test="filter == 'new'">
+               order by p.prod_date desc
+           </when>
+           <when test="filter == 'sale'">
+               order by p.prod_sale desc
+           </when>
+           <when test="filter == 'review'">
+               order by review_cnt desc
+           </when>
+       </choose>
+   </select>
 </mapper>

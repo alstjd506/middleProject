@@ -1,6 +1,8 @@
 package com.shop.product.mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.shop.common.SearchVO;
@@ -25,4 +27,9 @@ public interface ProductMapper {
 	int getTotalCnt(SearchVO search);
 	
 	int updateProductScore(@Param("avgScore") double avgScore, @Param("prodNo") int prodNo);
+
+	//리스트 필터 적용
+	List<ProductVO> filterProductTopList(Map<String, Object> params);
+	List<ProductVO> filterProductList(Map<String, Object> params);	
+
 }

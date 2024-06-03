@@ -1,6 +1,7 @@
 package com.shop.product.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -58,12 +59,22 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return mapper.updateProductScore(avgScore, prodNo);
 	}
-
+	@Override
 	public void updateProductAvgScore(int prodNo) {
 	    Double avgScore = reviewMapper.avgScore(prodNo);
 	    if (avgScore == null) {
 	        avgScore = 0.0;
 	    }
 	    mapper.updateProductScore(avgScore, prodNo);
+	}
+	@Override
+	public List<ProductVO> filterProductTopList(Map<String, Object> params) {
+	      // TODO Auto-generated method stub
+	    return mapper.filterProductTopList(params);
+	}
+	@Override
+	public List<ProductVO> filterProductList(Map<String, Object> params) {
+	      // TODO Auto-generated method stub
+	    return mapper.filterProductList(params);
 	}
 }
