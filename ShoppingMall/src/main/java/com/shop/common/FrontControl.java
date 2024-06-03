@@ -146,7 +146,6 @@ public class FrontControl extends HttpServlet {
 		//마이페이지 리뷰
 		map.put("/myPageReview.do", new myPageReviewControl());
 		
-		
 		//상품 상세 화면
 		map.put("/productInfo.do", new ProductInfoControl());	
 		

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dog good Choose</title>
+      	<link rel="icon" href="images/icon-dog.png">
+        <title>Dog good Choice</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -30,7 +31,7 @@
         </style>
     </head>
     <body>
-    	<script src="js/search.js"></script>
+    	<!-- <script src="js/search.js"></script> -->
         <!-- Navigation-->
         	<tiles:insertAttribute name="nav" />
         <!-- Header-->
@@ -43,6 +44,6 @@
         </div>
         <!-- Footer-->
         	<tiles:insertAttribute name="footer" />
-    	<!-- <script src="js/search.js"></script> -->
+    
     </body>
 </html>
