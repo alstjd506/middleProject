@@ -17,9 +17,9 @@
 	<select id="categoryList" parameterType="int" resultType="product">
 		select p.*
 		from product p
-		join category c on p.category_code
-		= c.category_code
+		join category c on p.category_code = c.category_code
 		where c.top_category = #{categoryCode}
+		order by prod_sale desc
 	</select>
 	<select id="menuCategory" parameterType="int" resultType="product">
 		select *

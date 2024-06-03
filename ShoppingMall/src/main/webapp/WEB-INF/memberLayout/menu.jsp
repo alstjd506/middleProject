@@ -27,7 +27,7 @@
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
 						<a class="nav-link" href="myPageOrder.do?userId=${logId}">주문/배송조회</a> 
-						<a class="nav-link" href="myPageReturn.do?userId=${logId}">취소/반품/교환조회</a>
+						<a class="nav-link" href="myPageReturn.do?userId=${logId}">취소/반품조회</a>
 						<a class="nav-link" href="myPagePastOrder.do?userId=${logId}">과거주문이력</a>
 					</nav>
 				</div>
