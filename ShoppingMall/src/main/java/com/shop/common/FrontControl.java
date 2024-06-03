@@ -65,6 +65,7 @@ import com.shop.member.web.MyPageOrderDetail;
 import com.shop.member.web.MyPagePastControl;
 import com.shop.member.web.MyPageReturnControl;
 import com.shop.member.web.MyPageReturnfOder;
+import com.shop.member.web.checkUserControl;
 import com.shop.member.web.myPageBoardControl;
 import com.shop.member.web.myPageBoardInfo;
 import com.shop.member.web.myPageBoardUpdate;
@@ -200,6 +201,8 @@ public class FrontControl extends HttpServlet {
 		//회원가입
 		map.put("/join.do", new JoinForm()); //회원가입
 		map.put("/joinControl.do",new JoinControl());
+		//아이디중복체크
+		map.put("/checkUser.do", new checkUserControl());
 		//회원정보수정
 		map.put("/modifyuser.do", new ModifyUserForm()); //회원정보수정
 		map.put("/ModifyUserControl.do", new ModifyUserControl());

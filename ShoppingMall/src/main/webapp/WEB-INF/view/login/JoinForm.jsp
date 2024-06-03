@@ -14,43 +14,43 @@
 	box_sizing: content-box;
 }
 
-
 #id {
-	width: 250%;
+	width: 50%;
  	text-align: left; 
 }
 #pw {
-	width: 250%;
+	width: 50%;
 	text-align: left;
 }
 
 #name {
-	width: 250%;
+	width: 50%;
 	text-align: left;
 }
 
 #phone {
-	width: 250%;
+	width: 50%;
 	text-align: left;
 }
 
 #post {
-	width: 250%;
+	width: 50%;
 	text-align: left;
 }
 
 #addr {
-	width: 250%;
+	width: 50%;
 	text-align: left;
 }
 
 #detailaddr {
-	width: 250%;
+	width: 50%;
 	text-align: left;
 }
 
 #form-group {
-	width: 200%;
+	display: inline;
+	width: 50%;
 }
 
 .check {
@@ -59,7 +59,15 @@
 
 .control-label{
 	text-align: left;
+	width:100%;
+	display: list-item;
 }
+
+.form-control{
+	width:50%;
+}
+
+
 
 </style>
 </head>
@@ -125,87 +133,73 @@
 				<h2 class="text-center">회원가입</h2>
 			</div>
 
-			<div class="col-lg-12">
+			<div class="col-sm-8">
 				<p>&nbsp;</p>
 
 				<div class="form-group">
 					<div class="col-lg-2 control-label">
-						<label for="id">아이디</label>
+						<label for="id">아이디　</label>
+						<input type="text" class="form-control" name="id" id="id" required style="display: inline;" >
+						<button type="button" id="checkId">중복체크</button>
 					</div>
-					<div class="col-sm-4 text-left">
-						<input type="text" class="form-control" name="id" id="id" required>
+					</div>
+					
+				
+
+				<div class="form-group">
+					<div class="col-lg-2 control-label">
+						<label id="pw"style="display: inline;">패스워드</label>
+						<input type="password" class="form-control" name="pw" id="pw" required style="display: inline;">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<div class="col-lg-4 control-label">
-						<label id="pw">패스워드</label>
-					</div>
-					<div class="col-sm-4">
-						<input type="password" class="form-control" name="pw" id="pw" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-lg-1 control-label">
-						<label id="name">이름</label>
-					</div>
-					<div class="col-sm-4">
+					<div class="col-lg-2 control-label">
+						<label id="name"style="display: inline;">이름　　</label>
 						<input type="text" class="form-control" name="name" id="name"
-							placeholder="한글로 입력하세요" required>
+							placeholder="한글로 입력하세요" required style="display: inline;">
 					</div>
+					
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-4 control-label">
-						<label id="phone">전화번호</label>
-					</div>
-					<div class="col-sm-4">
+						<label id="phone" style="display: inline;">전화번호</label>
 						<input type="text" class="form-control" name="phone" id="phone"
-							placeholder="ex) 010-1234-5678" required>
+							placeholder="ex) 010-1234-5678" required style="display: inline;">
 					</div>
 				</div>
 
 					<a>&nbsp;</a>
 				<div class="form-group">
 					<div class="col-lg-3 control-label">
-						<label id="zip_num">우편번호</label>
-					</div>
-					<div class="col-sm-5">
-						<input type="text" id="sample6_postcode" placeholder="우편번호"
-							name="post" id="post" class="form-control" required>
-					</div>
-					<div class="col-sm-2">
-						<input type="button" onclick="sample6_execDaumPostcode()"
-							value="우편번호 찾기" class="btn btn-primary">
+						<label id="zip_num" style="display: inline;">우편번호</label>
+						<input type="text" id="sample6_postcode" placeholder="우편번호"name="post" id="post" class="form-control" required style="display: inline;">
+						<input type="button" onclick="sample6_execDaumPostcode()"value="우편번호 찾기" class="btn btn-primary" style="display: inline;">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-lg-2 control-label">
-						<label id="address1">주소</label>
-					</div>
-					<div class="col-sm-12">
+						<label id="address1" style="display: inline;">주소　　</label>
 						<input type="text" id="sample6_address" id="all" placeholder="주소"
-							name="addr" id="addr" class="form-control" required>
+							name="addr" id="addr" class="form-control" required style="display: inline;">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-lg-3 control-label">
-						<label id="address1">상세주소</label>
-					</div>
-					<div class="col-sm-15">
+						<label id="address1" style="display: inline;">상세주소</label>
 						<input type="text" id="sample6_address2" placeholder="상세주소"
-							name="detailaddr" id="detailaddr" class="form-control" required>
+							name="detailaddr" id="detailaddr" class="form-control" required style="display: inline;">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<p class="check" id="check">${Join_check}</p>
+					<p class="check" id="check"></p>
 					<br />
 					<div class="col-sm-12  text-center">
-						<input type="submit" value="회원가입" class="btn btn-success">
+						<input type="submit" value="회원가입" class="btn btn-success" id="submitButton" disabled>
 						<input type="submit" value="취소" class="btn btn-warning"
 							onclick="location.href='main.do'">
 					</div>
@@ -214,16 +208,33 @@
 		</div>
 	</form>
 	</body>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
-		$("#id").focusout(function() {
-			if ($('#id').val() == "") {
+		$('#id').focusout(function() {
+			if($('#id').val() == "") {
 				$('#check').text('공백란을 입력해주세요.');
 				$('#check').css('color', 'red');
 			} else {
 				$('#check').hide();
 			}
 		});
-		$("#pw").focusout(function() {
+		$('#checkId').on('click', function() {
+			let checkId = $('#id').val();
+			fetch('checkUser.do?checkId=' + checkId)
+				.then(resolve => resolve.json())
+				.then(result => {
+					if(result.retCode == 'OK') {
+						alert('중복된 아이디입니다.');
+						$('#submitButton').attr('disabled', true);
+					} else {
+						alert('가입 가능한 아이디입니다.');
+						$('#submitButton').attr('disabled', false);
+					}
+				})
+		})
+		
+		$('#pw').focusout(function() {
 			if ($('#pw').val() == "") {
 				$('#check').text('공백란을 입력해주세요.');
 				$('#check').css('color', 'red');
@@ -231,7 +242,7 @@
 				$('#check').hide();
 			}
 		});
-		$("#name").focusout(function() {
+		$('#name').focusout(function() {
 			if ($('#name').val() == "") {
 				$('#check').text('공백란을 입력해주세요.');
 				$('#check').css('color', 'red');
@@ -247,7 +258,7 @@
 				$('#check').hide();
 			}
 		});
-		$("#post").focusout(function() {
+		$('#post').focusout(function() {
 			if ($('#post').val() == "") {
 				$('#check').text('공백란을 입력해주세요.');
 				$('#check').css('color', 'red');
@@ -255,7 +266,7 @@
 				$('#check').hide();
 			}
 		});
-		$("#addr").focusout(function() {
+		$('#addr').focusout(function() {
 			if ($('#addr').val() == "") {
 				$('#check').text('공백란을 입력해주세요.');
 				$('#check').css('color', 'red');
@@ -263,7 +274,7 @@
 				$('#check').hide();
 			}
 		});
-		$("#detailaddr").focusout(function() {
+		$('#detailaddr').focusout(function() {
 			if ($('#detailaddr').val() == "") {
 				$('#check').text('공백란을 입력해주세요.');
 				$('#check').css('color', 'red');
@@ -272,4 +283,4 @@
 			}
 		});
 	</script>
-	</html>
+</html>
