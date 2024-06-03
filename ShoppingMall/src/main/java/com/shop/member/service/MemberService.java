@@ -21,6 +21,8 @@ public interface MemberService {
 	
 	boolean Join(MemberVO mvo);
 	
+	boolean checkUser(MemberVO mvo);
+	
 	boolean ModifyUser(MemberVO mvo);
 
 	boolean DeleteUser(MemberVO mvo);

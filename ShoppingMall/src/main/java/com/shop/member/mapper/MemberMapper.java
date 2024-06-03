@@ -21,6 +21,8 @@ public interface MemberMapper {
 
 	int selectMember4(MemberVO mvo); //회원가입
 	
+	int checkUser(MemberVO mvo); //중복체크
+	
 	int selectMembermodify(MemberVO mvo); //회원정보수정
 	
 	int deleteMember(String pw); //회원탈퇴
@@ -47,6 +49,7 @@ public interface MemberMapper {
 	int updateBoard(BoardVO board);
 	
 	List<Map<String, Object>> myPageReview(String userId);
+
 	
 	
 }

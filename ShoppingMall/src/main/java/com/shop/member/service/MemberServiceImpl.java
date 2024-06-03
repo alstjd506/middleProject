@@ -10,7 +10,6 @@ import com.shop.member.mapper.MemberMapper;
 import com.shop.vo.BoardVO;
 import com.shop.vo.MemberVO;
 import com.shop.vo.ProductVO;
-import com.shop.vo.ReviewVO;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -40,6 +39,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean ModifyUser(MemberVO mvo) {
 		return mapper.selectMembermodify(mvo)==1;
+	}
+	
+	@Override
+	public boolean checkUser(MemberVO mvo) {
+		return mapper.checkUser(mvo) == 1;
 	}
 
 	@Override

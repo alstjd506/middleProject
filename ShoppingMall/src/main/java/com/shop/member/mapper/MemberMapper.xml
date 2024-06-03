@@ -43,6 +43,13 @@
 		values(#{userId},#{userPw},#{userName},#{userPhone},#{userPost},#{userAddr},#{userDetailAddr})
 	</insert>
 	
+	<!-- 아이디 중복체크 -->
+	<select id="checkUser" resultType="int" parameterType="member">
+	select count(*)
+	from users
+	where user_id = #{userId}
+	</select>
+	
 	<!-- 회원정보수정 -->
 	<update id="selectMembermodify" parameterType="member">
 	update 		users
