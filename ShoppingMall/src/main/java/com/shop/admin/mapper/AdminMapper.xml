@@ -17,6 +17,7 @@
 	<select id="adminMemberList" resultType="member">
 		select *
 		from users
+		where user_resp not Like 'Admin'
 	</select>
 	<select id="adminBoardList" resultType="board">
 		select *
