@@ -167,8 +167,8 @@
 	</select>
 	<select id="adminhighStar" resultType="int">
 		select max ( prod_no )
-		KEEP ( DENSE_RANK LAST ORDER BY review_score DESC )
-		from review
+		KEEP ( DENSE_RANK LAST ORDER BY prod_score ASC )
+		from product
 	</select>
 	<select id="adminProductInfo" resultType="product">
 		select
