@@ -215,7 +215,7 @@
 	<div class="sc-1vg575n-0 hnMMRm">
 		<div class="sc-1vg575n-2 fEXcBR">
 			<button class="sc-1vg575n-1 iZblhb">	
-				<a href = "myPageOrder.do">주문목록 돌아가기</a>
+				<a href = "myPage.do">마이페이지로 돌아가기</a>
 			</button>
 		</div>
 		
