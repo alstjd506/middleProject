@@ -43,7 +43,7 @@
                             </li>
                         </c:if>
                         <li class="OrderForm" list-style-type="none">
-                            <a href="myPageOrder.do">Order</a>
+                            <a href="order.do">Order</a>
                         </li>
                         <li class="cartForm" list-style-type="none">
                             <a href="cart.do">Cart</a>
