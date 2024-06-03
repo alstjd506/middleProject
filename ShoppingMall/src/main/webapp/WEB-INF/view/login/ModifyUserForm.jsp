@@ -169,7 +169,7 @@
 					<div class="col-lg-3 control-label">
 						<label id="zip_num" style="display: inline;">우편번호</label>
 						<input type="text" id="sample6_postcode" placeholder="우편번호"name="post" id="post" class="form-control" required style="display: inline;">
-						<input type="button" onclick="sample6_execDaumPostcode()"value="우편번호 찾기" class="btn btn-primary" style="display: inline;">
+						<input type="button" onclick="sample6_execDaumPostcode()"value="우편검색" class="btn btn-primary" style="display: inline;">
 					</div>
 				</div>
 
