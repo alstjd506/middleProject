@@ -17,6 +17,7 @@
 	<select id="adminMemberList" resultType="member">
 		select *
 		from users
+		where user_resp not Like 'Admin'
 	</select>
 	<select id="adminBoardList" resultType="board">
 		select *
@@ -228,7 +229,8 @@
 	<select id="adminBarChart" resultType="chart">
 		SELECT TRUNC(order_date)
 		AS chart_date,
-		ROUND(AVG(order_price), 0) AS chart_value
+		ROUND(AVG(order_price), 0) AS
+		chart_value
 		FROM orders
 		WHERE order_date > SYSDATE - INTERVAL '8' DAY
 						 <![CDATA[
