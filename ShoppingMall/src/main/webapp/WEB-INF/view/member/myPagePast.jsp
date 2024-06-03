@@ -93,7 +93,7 @@
 }
 </style>
 <div class="orderBox">
-<c:if test="${empty mypageRecentOrderList}">
+<c:if test="${empty mypagePastOrderList}">
                            
         <h1>구매 상품이 없습니다.</h1>
     

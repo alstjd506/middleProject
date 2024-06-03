@@ -18,7 +18,7 @@ public class MyPagePastControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "member/myPageReturn.tiles";
+		String path = "member/myPagePast.tiles";
 
 		HttpSession session = req.getSession();
 		String userId = (String) session.getAttribute("logId");
